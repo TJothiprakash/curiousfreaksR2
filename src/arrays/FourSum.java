@@ -1,5 +1,4 @@
-package Arrays;
-import com.sun.tools.javac.Main;
+package arrays;
 
 import java.util.ArrayList;
 import java.util.Arrays;

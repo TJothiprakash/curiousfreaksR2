@@ -1,4 +1,4 @@
-package Arrays;
+package arrays;
 import java.util.Arrays;
 public class TripletPair {
     public static void main(String[] args) {
