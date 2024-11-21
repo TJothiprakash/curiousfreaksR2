@@ -1,18 +1,21 @@
 package sortingtechniques;
 
+import java.util.List;
+
 public class BubbleSort {
     public static void main(String[] args) {
-        int[] arr = {12, 43, 54, 65, 2, 3, 765, 8, 4346};
+        int[] arr = {4354,14,12, 54, 65};
 
         System.out.println("Before sorting :");
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
         }
       //  int[] res = bubbleSort(arr);
-        int res1[]= SelectionSort.selectionSort(arr);
+        List<Integer> res1 = Solution.quickSort(arr);
+
         System.out.println("\nAfter sorting :");
-        for (int i = 0; i < res1.length; i++) {
-            System.out.print(res1[i] + " ");
+        for (int i = 0; i < res1.size(); i++) {
+            System.out.print(res1.get(i) + " ");
         }
     }
 
