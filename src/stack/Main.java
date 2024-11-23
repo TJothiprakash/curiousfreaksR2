@@ -1,6 +1,7 @@
 package stack;
 
 import java.util.List;
+import java.util.Stack;
 
 import static stack.StockSpan.calculateSpan;
 
@@ -26,7 +27,7 @@ public class Main {
         /*int [] arr={3, 8, 5, 2, 25};
         List<Integer>result = NextSmallestElements.nsOnLeft(arr.length,arr);
         System.out.println(result);*/
-        int[] arr1 = {100, 80, 60, 70, 60, 75, 85};
+     /*   int[] arr1 = {100, 80, 60, 70, 60, 75, 85};
         int[] result1 = calculateSpan(arr1);
         for (int span : result1) {
             System.out.print(span + " ");
@@ -36,7 +37,18 @@ public class Main {
         int[] arr2 = {10, 4, 5, 90, 120, 80};
         int[] result2 = calculateSpan(arr2);
         for (int span : result2) {
-            System.out.print(span + " ");
-        }
+            System.out.print(span + " ");*/
+
+
+        Stack<Integer> stack1 = new Stack<>();
+        stack1.push(1);
+        stack1.push(2);
+        stack1.push(3);
+        stack1.push(4);
+
+        System.out.println("Original Stack: " + stack1);
+      Stack<Integer> ans= Reverse.reverseonspace(stack1);
+        System.out.println("Reversed Stack: " + ans);
     }
+
 }
