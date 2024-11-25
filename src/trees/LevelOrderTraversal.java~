@@ -20,6 +20,7 @@ public class LevelOrderTraversal {
 
         while (!queue.isEmpty()) {
             int levelSize = queue.size();
+            List<Integer> currentLevel = new ArrayList<>();
             for (int i = 0; i < levelSize; i++) {
                 TreeNode current = ((LinkedList<TreeNode>) queue).poll();
                 if (current.left != null) {
@@ -28,11 +29,12 @@ public class LevelOrderTraversal {
                 if (current.right != null) {
                     ((LinkedList<TreeNode>) queue).offer(current.right);
                 }
-                List<Integer> level = new ArrayList<>();
-                level.add(current.data);
-                result.add(level);
+
+                currentLevel.add(current.data);
+
 
             }
+            result.add(currentLevel);
         }
 
 
