@@ -30,8 +30,6 @@ public class FrogJump {
             // Each combination of 'twos' and 'ones' is a unique way
             count++;
         }
-
         return count;
-
     }
 }
