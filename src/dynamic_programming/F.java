@@ -1,22 +1,29 @@
 package dynamic_programming;
 
-import java.util.Arrays;
-
-class TUF {
-    static int f(int n, int[] dp) {
-        if (n <= 1) return n;
-
-        if (dp[n] != -1) return dp[n];
-        return dp[n] = f(n - 1, dp) + f(n - 2, dp);
+public class F {
+    public static void findFibonacci(int n) {
+        int[] dp = new int[n + 1]; // Array to store results for memoization
+        for (int i = 0; i <= n; i++) {
+            dp[i] = -1; // Initialize all values to -1 (uncomputed state)
+        }
+        int ans = fibonacciOfN(n, dp);
+        System.out.println("Fibonacci number is " + ans);
     }
 
+    private static int fibonacciOfN(int n, int[] dp) {
+        if (n == 0) {
+            return 0; // Base case: F(0) = 0
+        }
+        if (n == 1) {
+            return 1; // Base case: F(1) = 1
+        }
 
-    public static void main(String args[]) {
+        if (dp[n] != -1) {
+            return dp[n]; // Return already computed value
+        }
 
-        int n = 5;
-        int dp[] = new int[n + 1];
-        Arrays.fill(dp, -1);
-        System.out.println(f(n, dp));
-
+        // Compute and store the result in the dp array
+        dp[n] = fibonacciOfN(n - 1, dp) + fibonacciOfN(n - 2, dp);
+        return dp[n];
     }
 }
