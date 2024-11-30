@@ -43,6 +43,5 @@ public class MatrixChainMultiplication {
                 matrixMultiplication(arr, n));
 
     }
-
 }
 
