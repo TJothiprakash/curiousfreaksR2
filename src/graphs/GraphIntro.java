@@ -18,6 +18,8 @@ public class GraphIntro {
     }
 
     public void printGraph() {
+
         System.out.println("this will print after 10");
+
     }
 }

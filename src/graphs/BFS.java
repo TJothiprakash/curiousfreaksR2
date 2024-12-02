@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 class BFS {
+
     public static void main(String args[]) {
 
         ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
@@ -29,8 +30,7 @@ class BFS {
     }
 
     // Function to return Breadth First Traversal of given graph.
-    public ArrayList<Integer> bfsOfGraph(int V,
-                                         ArrayList<ArrayList<Integer>> adj) {
+    public ArrayList<Integer> bfsOfGraph(int V, ArrayList<ArrayList<Integer>> adj) {
 
         ArrayList<Integer> bfs = new ArrayList<>();
         boolean vis[] = new boolean[V];
