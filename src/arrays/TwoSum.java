@@ -60,6 +60,20 @@ public class TwoSum {
         }
         return false; // No triplet found
     }
+
+
+    public static boolean twoSumTest(int[] arr, int target) {
+        Arrays.sort(arr);
+        int sum = arr[0] + arr[1];
+        for (int i = 1; i < arr.length; i++) {
+            if (sum == target) {
+                return true;
+            }
+            sum += arr[i+1] - arr[i -1 ];
+
+        }
+        return false;
+    }
 }
 
        /* HashSet<Integer> seen = new HashSet<>();
