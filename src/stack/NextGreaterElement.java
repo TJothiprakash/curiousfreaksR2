@@ -24,15 +24,17 @@ public class NextGreaterElement {
         }
         return result;
     }
-    public static List<Integer> ngeUsingStack(int []nums){
+    public static List<Integer> ngeUsingStack(int []numbs){
         List<Integer> result = new ArrayList<>();
         Stack<Integer> stack = new Stack<>();
-        for(int i=nums.length-1;i>=0;i--){
-            while(!stack.isEmpty() && stack.peek()<=nums[i]){
+        //1, 3, 2, 4
+        // 3 ,4  ,4,-1
+        for(int i=numbs.length-1;i>=0;i--){
+            while(!stack.isEmpty() && stack.peek()<=numbs[i]){
                 stack.pop();
             }
             result.add(stack.isEmpty()? -1:stack.peek());
-            stack.push(nums[i]);
+            stack.push(numbs[i]);
         }
         return result;
     }
@@ -49,7 +51,7 @@ public class NextGreaterElement {
             result.add(stack.isEmpty()? -1:stack.peek());
             stack.push(nums[i]);
         }
-        return result;
+        return result.reversed();
     }
 /*
     public int[] nextGreaterElements(int[] nums) {

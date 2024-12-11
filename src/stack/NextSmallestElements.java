@@ -5,6 +5,11 @@ import java.util.List;
 import java.util.Stack;
 
 public class NextSmallestElements {
+    public static void main(String[] args) {
+        int []arr ={4, 8, 5,3, 2, 25};
+        System.out.println(nsOnLeft(arr.length,arr));
+
+    }
     public static List<Integer> nsOnLeft(int N, int[] arr) {
         List<Integer> result = new ArrayList<>();
         // Initialize result list with -1
