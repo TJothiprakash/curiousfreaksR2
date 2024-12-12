@@ -6,6 +6,12 @@ import java.util.List;
 import java.util.Map;
 
 public class DistinctElementsinWindow {
+    public static void main(String[] args) {
+        int[] nums = {1, 2, 1, 3, 4, 2, 3};
+        int k = 3;
+        List<Integer> result = findDistinctElements(nums, k);
+        System.out.println(result);
+    }
     public static List<Integer> findDistinctElements(int[] nums, int k) {
         List<Integer> result = new ArrayList<>();
         Map<Integer, Integer> freqMap = new HashMap<>();

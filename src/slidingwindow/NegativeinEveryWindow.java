@@ -27,6 +27,7 @@ public class NegativeinEveryWindow {
 
         // Process the remaining windows
         for (int i = k; i < nums.length; i++) {
+
             // Remove indices that are out of the current window
             while (!negatives.isEmpty() && negatives.peek() < i - k + 1) {
                 negatives.poll();
