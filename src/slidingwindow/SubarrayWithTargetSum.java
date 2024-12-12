@@ -8,7 +8,7 @@ public class SubarrayWithTargetSum {
 
     public static List<Integer> findSubarrayWithSum(int[] arr, int target) {
         int start = 0, currentSum = 0;
-
+            //1, 2, 3, 7, 5}, 12
         for (int end = 0; end < arr.length; end++) {
             // Add the current element to the sum
             currentSum += arr[end];

@@ -1,24 +1,41 @@
 package slidingwindow.practice;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Practice {
     public static void main(String[] args) {
         System.out.println(new Practice().maximumSumSubarray(new int[]{1, 2, 3, 4, 5}, 3));
     }
-    public int maximumSumSubarray(int[] arr, int k) {
+    public int maximumSumSubarray(int[] nums, int k) {
+        int sum = 0;
+        List<Integer> maxValueinEveryWindow = new ArrayList<>();
 
-        HashMap<Integer,Integer> map = new HashMap<>();
-        map.put(0, map.getOrDefault(0,0)+1);
-        map.get(0);
-
-        if(map.get(1)==0){
-            System.out.println("element not found");
+        int maxValue = Integer.MIN_VALUE;
+        int maxSum = Integer.MIN_VALUE;
+        for (int i = 0; i < k; i++) {
+            if(nums[i]>maxValue){
+                maxValue = nums[i];
+            }
+            sum += nums[i];
         }
-        return -1;
+        maxValueinEveryWindow.add(maxValue);
+        maxSum = Math.max(maxSum, sum);
+
+        for (int i = k; i < nums.length; i++) {
+            if(nums[i-k]>maxValue){
+                maxValue= findMax(nums,i-k+1,i);
+            }
+            if(nums[i]>maxValue){
+                maxValue = nums[i];
+            }
+            maxValueinEveryWindow.add(maxValue);
+            sum += nums[i] - nums[i - k]; // Add new element and remove the oldest
+            maxSum = Math.max(maxSum, sum);
+        }
+
+
+        return maxSum;
+
 /*
         Set<Integer> set = new HashSet<>();
         ArrayList<Integer> list = new ArrayList<>();
@@ -50,4 +67,15 @@ public class Practice {
 
         return maxsum;
    */ }
+
+    private int findMax(int[] nums, int i, int i1) {
+
+        int max = Integer.MIN_VALUE;
+        for (int j = i; j <= i1; j++) {
+            if(nums[j]>max){
+                max = nums[j];
+            }
+        }
+        return max;
+    }
 }

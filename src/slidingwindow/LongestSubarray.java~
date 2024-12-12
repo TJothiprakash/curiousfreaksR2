@@ -1,0 +1,38 @@
+package slidingwindow;
+import java.util.HashMap;
+
+public class LongestSubarray {
+    public static void main(String[] args) {
+        System.out.println(longestSubarray(new int[]{0, 1, 0, 1}));  // Output: 4
+        System.out.println(longestSubarray(new int[]{0, 0, 1, 0, 0}));  // Output: 2
+        System.out.println(longestSubarray(new int[]{0}));  // Output: 0
+    }
+
+    public static int longestSubarray(int[] arr) {
+        HashMap<Integer, Integer> prefixSumMap = new HashMap<>();
+        int maxLength = 0;
+        int prefixSum = 0;
+
+        // Initialize the map with the prefix sum 0 at index -1 to handle the case where the subarray starts from index 0
+        prefixSumMap.put(0, -1);
+
+        // Iterate through the array
+        for (int i = 0; i < arr.length; i++) {
+            // Transform 0 to -1
+            prefixSum += (arr[i] == 0) ? -1 : 1;
+
+            // If this prefix sum has been encountered before, it means the subarray between the previous index
+            // and the current index has equal number of 0s and 1s.
+            if (prefixSumMap.containsKey(prefixSum)) {
+                int previousIndex = prefixSumMap.get(prefixSum);
+                int length = i - previousIndex;
+                maxLength = Math.max(maxLength, length);
+            } else {
+                // Otherwise, store the first occurrence of this prefix sum
+                prefixSumMap.put(prefixSum, i);
+            }
+        }
+
+        return maxLength;
+    }
+}

@@ -27,6 +27,23 @@ public class LongestSubarrayWithTargetSum {
                     resultIndices = Arrays.asList(start + 1, end + 1); // 1-based indices
                 }
             }
+
+            /*   for (int end = 0; end < arr.length; end++) {
+            // Add the current element to the sum
+            currentSum += arr[end];
+
+            // Shrink the window as long as currentSum > target
+            while (currentSum > target && start <= end) {
+                currentSum -= arr[start];
+                start++;
+            }
+
+            // Check if we have found the target sum
+            if (currentSum == target) {
+                return Arrays.asList(start + 1, end + 1); // Return 1-based indices
+            }
+        }
+*/
         }
 
         return resultIndices;
