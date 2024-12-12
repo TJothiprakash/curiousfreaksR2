@@ -3,7 +3,6 @@ package linkedlist;
 import java.util.Stack;
 
 import static linkedlist.Loops.detectLoop;
-import static linkedlist.Union.unionofList;
 
 public class CustomLinkedList {
     public static void main(String[] args) {

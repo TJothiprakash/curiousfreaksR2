@@ -1,7 +1,5 @@
 package sortingtechniques;
 
-import java.util.List;
-
 public class BubbleSort {
     public static void main(String[] args) {
         int[] arr = {4354,14,12, 54, 65};
@@ -11,11 +9,11 @@ public class BubbleSort {
             System.out.print(arr[i] + " ");
         }
       //  int[] res = bubbleSort(arr);
-        List<Integer> res1 = Solution.quickSort(arr);
+        int[] res1 = BubbleSort.bubbleSort(arr);
 
         System.out.println("\nAfter sorting :");
-        for (int i = 0; i < res1.size(); i++) {
-            System.out.print(res1.get(i) + " ");
+        for (int i = 0; i < res1.length; i++) {
+            System.out.print(res1[i] + " ");
         }
     }
 
