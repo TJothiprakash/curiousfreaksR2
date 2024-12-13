@@ -55,11 +55,11 @@ public class MinJumps {
 
             // If we have reached the end of the current jump range
             if (i == currentEnd) {
-                jumps++;
 
                 // If we've reached or passed the target, return the jump count
                 if (currentEnd >= n - 1) return jumps;
 
+                jumps++;
                 // Update the end of the current jump range
                 currentEnd = farthest;
             }
