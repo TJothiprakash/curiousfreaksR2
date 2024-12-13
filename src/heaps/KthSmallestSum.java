@@ -85,3 +85,55 @@ public class KthSmallestSum {
         }
     }
 }
+/*import java.util.*;
+
+public class Solution {
+    public int kthSmallest(int[][] mat, int k) {
+        int m = mat.length, n = mat[0].length;
+
+        // Min-heap (priority queue) to store the current sum and row indices
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[0] - b[0]);
+
+        // Initialize the heap with the sum of the first elements in each row
+        int initialSum = 0;
+        int[] indices = new int[m]; // indices of the elements from each row
+        for (int i = 0; i < m; i++) {
+            initialSum += mat[i][0];
+        }
+        pq.add(new int[] {initialSum, 0, 0}); // sum, row, column index
+
+        // Keep track of visited indices to avoid duplicates
+        Set<String> visited = new HashSet<>();
+        visited.add(Arrays.toString(indices));
+
+        while (k > 0) {
+            int[] current = pq.poll(); // Get the current smallest sum
+            int currentSum = current[0];
+            int[] currentIndices = Arrays.copyOfRange(current, 1, current.length);
+
+            // If we have reached the kth smallest sum, return it
+            if (--k == 0) {
+                return currentSum;
+            }
+
+            // Try moving to the next element in each row (only one move per row)
+            for (int i = 0; i < m; i++) {
+                if (currentIndices[i] + 1 < n) {
+                    int[] nextIndices = Arrays.copyOf(currentIndices, m);
+                    nextIndices[i]++; // Move to the next element in this row
+
+                    // Avoid revisiting the same indices
+                    if (!visited.contains(Arrays.toString(nextIndices))) {
+                        visited.add(Arrays.toString(nextIndices));
+
+                        // Compute the new sum and add it to the heap
+                        int newSum = currentSum - mat[i][currentIndices[i]] + mat[i][nextIndices[i]];
+                        pq.add(new int[] {newSum, nextIndices[0], nextIndices[1]});
+                    }
+                }
+            }
+        }
+        return -1;
+    }
+}
+*/

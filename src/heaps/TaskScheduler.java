@@ -1,0 +1,141 @@
+package heaps;
+/// *You are given an array of CPU tasks, each labeled with a letter from A to Z, and a number n. Each CPU interval can be idle or allow the completion of one task. Tasks can be completed in any order, but there's a constraint: there has to be a gap of at least n intervals between two tasks with the same label.
+///
+/// Return the minimum number of CPU intervals required to complete all tasks.
+///
+///
+///
+/// Example 1:
+///
+/// Input: tasks = ["A","A","A","B","B","B"], n = 2
+///
+/// Output: 8
+///
+/// Explanation: A possible sequence is: A -> B -> idle -> A -> B -> idle -> A -> B.
+///
+/// After completing task A, you must wait two intervals before doing A again. The same applies to task B. In the 3rd interval, neither A nor B can be done, so you idle. By the 4th interval, you can do A again as 2 intervals have passed.
+///
+/// Example 2:
+///
+/// Input: tasks = ["A","C","A","B","D","B"], n = 1
+///
+/// Output: 6
+///
+/// Explanation: A possible sequence is: A -> B -> C -> D -> A -> B.
+///
+/// With a cooling interval of 1, you can repeat a task after just one other task.
+///
+/// Example 3:
+///
+/// Input: tasks = ["A","A","A", "B","B","B"], n = 3
+///
+/// Output: 10
+///
+/// Explanation: A possible sequence is: A -> B -> idle -> idle -> A -> B -> idle -> idle -> A -> B.
+///
+/// There are only two types of tasks, A and B, which need to be separated by 3 intervals. This leads to idling twice between repetitions of these tasks.
+///
+///
+///
+/// Constraints:
+///
+/// 1 <= tasks.length <= 104
+/// tasks[i] is an uppercase English letter.
+/// 0 <= n <= 100*/
+///
+/*Problem Breakdown:
+Given an array of tasks, each labeled with a letter, and an integer n representing the required gap between two tasks of the same label, we need to calculate the minimum number of CPU intervals required to complete all tasks.
+
+Approach:
+Task Frequency Count:
+
+First, we need to calculate the frequency of each task. Tasks that appear more frequently will dictate the number of CPU intervals because they will need to be spaced out according to the n constraint.
+Task Order:
+
+We will prioritize tasks based on their frequency, with the most frequent tasks being executed first. This ensures that we minimize idle time by filling gaps with the most frequent tasks first.
+Heap/Queue Usage:
+
+Use a max-heap to store the tasks based on their frequency. The heap will allow us to efficiently retrieve the task with the highest frequency at each step.
+Cooling Period:
+
+After a task is executed, we need to wait n intervals before executing it again. To handle this, we will use a queue to keep track of tasks that are "on cooldown" and should not be executed until the cooldown period is over.
+Simulation:
+
+We simulate the task execution by iterating over each CPU interval. For each interval, we either:
+Execute a task if it's available.
+Or, idle if no task can be executed due to the cooldown.
+Stopping Condition:
+
+We stop when all tasks have been completed, and we return the total number of intervals required.
+Cod*/
+
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.Queue;
+
+public class TaskScheduler {
+
+    public static void main(String[] args) {
+        TaskScheduler scheduler = new TaskScheduler();
+
+        char[] tasks1 = {'A', 'A', 'A', 'B', 'B', 'B'};
+        int n1 = 2;
+        System.out.println(scheduler.leastInterval(tasks1, n1));  // Output: 8
+
+        char[] tasks2 = {'A', 'C', 'A', 'B', 'D', 'B'};
+        int n2 = 1;
+        System.out.println(scheduler.leastInterval(tasks2, n2));  // Output: 6
+
+        char[] tasks3 = {'A', 'A', 'A', 'B', 'B', 'B'};
+        int n3 = 3;
+        System.out.println(scheduler.leastInterval(tasks3, n3));  // Output: 10
+    }
+
+    public int leastInterval(char[] tasks, int n) {
+        // Frequency map of tasks
+        int[] taskCounts = new int[26];  // There are 26 letters in the alphabet
+
+        // Count the frequency of each task
+        for (char task : tasks) {
+            taskCounts[task - 'A']++;
+        }
+
+        // Create a max-heap (priority queue) to store tasks based on frequency
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
+
+        // Add all task counts to the heap
+        for (int count : taskCounts) {
+            if (count > 0) {
+                maxHeap.offer(count);
+            }
+        }
+
+        int intervals = 0;
+
+        // Queue to handle the cooldown
+        Queue<int[]> queue = new LinkedList<>();
+
+        while (!maxHeap.isEmpty() || !queue.isEmpty()) {
+            intervals++;
+
+            // If a task is available to process
+            if (!maxHeap.isEmpty()) {
+                int count = maxHeap.poll();  // Get the most frequent task
+                count--;  // Execute the task
+
+                // If there are more of this task left, add it to the cooldown queue
+                if (count > 0) {
+                    queue.offer(new int[]{count, intervals + n});
+                }
+            }
+
+            // Process cooldown tasks that are ready to execute
+            if (!queue.isEmpty() && queue.peek()[1] == intervals) {
+                maxHeap.offer(queue.poll()[0]);
+            }
+        }
+
+        return intervals;
+    }
+}

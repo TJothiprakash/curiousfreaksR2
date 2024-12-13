@@ -51,3 +51,46 @@ public class TopKFrequentElements {
         System.out.println(topKFrequent(nums3, k3)); // Output: [8, 4]
     }
 }
+
+
+/*import java.util.*;
+
+public class Solution {
+    public List<Integer> topKFrequent(int[] nums, int k) {
+        // Step 1: Count the frequency of each element
+        Map<Integer, Integer> freqMap = new HashMap<>();
+        for (int num : nums) {
+            freqMap.put(num, freqMap.getOrDefault(num, 0) + 1);
+        }
+
+        // Step 2: Use a min-heap (priority queue) to keep the top k frequent elements
+        PriorityQueue<Map.Entry<Integer, Integer>> minHeap =
+            new PriorityQueue<>((a, b) -> a.getValue() - b.getValue());
+
+        // Add all entries to the heap, keeping only the k most frequent elements
+        for (Map.Entry<Integer, Integer> entry : freqMap.entrySet()) {
+            minHeap.offer(entry);
+            if (minHeap.size() > k) {
+                minHeap.poll();
+            }
+        }
+
+        // Step 3: Extract the k most frequent elements from the heap
+        List<Integer> result = new ArrayList<>();
+        while (!minHeap.isEmpty()) {
+            result.add(minHeap.poll().getKey());
+        }
+
+        // Return the result (can be in any order)
+        return result;
+    }
+
+    public static void main(String[] args) {
+        Solution sol = new Solution();
+        int[] nums = {1,1,1,2,2,3};
+        int k = 2;
+        List<Integer> result = sol.topKFrequent(nums, k);
+        System.out.println(result);  // Output: [1, 2] (or any order)
+    }
+}
+*/
