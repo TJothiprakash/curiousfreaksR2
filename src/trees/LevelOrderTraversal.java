@@ -5,7 +5,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-
 public class LevelOrderTraversal {
     // private
     public List<List<Integer>> levelOrder(TreeNode root) {
@@ -28,7 +27,7 @@ public class LevelOrderTraversal {
                     queue.offer(current.left);
                 }
                 if (current.right != null) {
-                    ((LinkedList<TreeNode>) queue).offer(current.right);
+                    (queue).offer(current.right);
                 }
                 currentLevel.add(current.data);
             }

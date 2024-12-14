@@ -60,7 +60,7 @@ class VerticalTraversal {
         root2.left.right = new TreeNode(5);
         root2.right.right = new TreeNode(6);
 
-        System.out.println(verticalTraversal(root2)); // Output: [4, 2, 1, 5, 3, 6]
+       // System.out.println(verticalTraversal(root2)); // Output: [4, 2, 1, 5, 3, 6]
 
         // Example 3
         TreeNode root3 = new TreeNode(7);
@@ -70,7 +70,7 @@ class VerticalTraversal {
         root3.left.right = new TreeNode(5);
         root3.right.right = new TreeNode(6);
 
-        System.out.println(verticalTraversal(root3)); // Output: [4, 2, 7, 5, 3, 6]
+       // System.out.println(verticalTraversal(root3)); // Output: [4, 2, 7, 5, 3, 6]
     }
 
     static class TreeNode {

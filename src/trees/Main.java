@@ -1,6 +1,6 @@
 package trees;
 
-import static trees.BoundaryTraversal.boundaryTraversal;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -29,7 +29,14 @@ public class Main {
         root.right.right = new TreeNode(7);
         root.left.right.left = new TreeNode(8);
         root.left.right.right = new TreeNode(9);
+        List<List<Integer>> answer = new LevelOrderTraversal().levelOrder(root);
+        for (int i = 0; i < answer.size(); i++) {
+            for (int j = 0; j < answer.get(i).size(); j++) {
+                System.out.print(answer.get(i).get(j) + " ");
+            }
 
-        System.out.println(boundaryTraversal(root));
+        }
+        // System.out.println(boundaryTraversalUsingRecursion(root));
+        // System.out.println(boundaryTraversal(root));
     }
 }

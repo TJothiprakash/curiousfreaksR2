@@ -58,6 +58,7 @@ class BinaryTreeViews {
         }
 
         public static List<Integer> bottomView(TreeNode root) {
+
             Map<Integer, Integer> map = new TreeMap<>();
             Queue<Pair> queue = new LinkedList<>();
             queue.offer(new Pair(root, 0));
@@ -80,11 +81,48 @@ class BinaryTreeViews {
             return new ArrayList<>(map.values());
         }
 
+
+        /*Aspect	Left View	Right View
+Selection	First node at each level	Last node at each level
+Logic	Check if the level has been visited	Overwrite value for each level
+Output Order	Leftmost nodes at each level	Rightmost nodes at each level
+*/
         public static List<Integer> leftView(TreeNode root) {
             List<Integer> result = new ArrayList<>();
             leftViewHelper(root, 0, result);
             return result;
         }
+
+        /* public static List<Integer> leftView(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        if (root == null) return result;
+
+        Queue<Pair> queue = new LinkedList<>();
+        queue.offer(new Pair(root, 0));
+        Set<Integer> levels = new HashSet<>();
+
+        while (!queue.isEmpty()) {
+            Pair current = queue.poll();
+            TreeNode node = current.node;
+            int level = current.level;
+
+            // Add the first node of each level
+            if (!levels.contains(level)) {
+                result.add(node.data);
+                levels.add(level);
+            }
+
+            if (node.left != null) {
+                queue.offer(new Pair(node.left, level + 1));
+            }
+            if (node.right != null) {
+                queue.offer(new Pair(node.right, level + 1));
+            }
+        }
+
+        return result;
+    }
+*/
 
         private static void leftViewHelper(TreeNode node, int level, List<Integer> result) {
             if (node == null) return;
@@ -103,6 +141,37 @@ class BinaryTreeViews {
             return result;
         }
 
+        /*  public static List<Integer> rightView(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        if (root == null) return result;
+
+        Queue<Pair> queue = new LinkedList<>();
+        queue.offer(new Pair(root, 0));
+        Map<Integer, Integer> levelMap = new HashMap<>();
+
+        while (!queue.isEmpty()) {
+            Pair current = queue.poll();
+            TreeNode node = current.node;
+            int level = current.level;
+
+            // Overwrite the value for each level
+            levelMap.put(level, node.data);
+
+            if (node.left != null) {
+                queue.offer(new Pair(node.left, level + 1));
+            }
+            if (node.right != null) {
+                queue.offer(new Pair(node.right, level + 1));
+            }
+        }
+
+        // Collect the nodes from the map
+        for (int i = 0; i < levelMap.size(); i++) {
+            result.add(levelMap.get(i));
+        }
+
+        return result;
+    }*/
         private static void rightViewHelper(TreeNode node, int level, List<Integer> result) {
             if (node == null) return;
 
