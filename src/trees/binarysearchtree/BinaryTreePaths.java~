@@ -1,0 +1,126 @@
+package trees.binarysearchtree;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+
+public class BinaryTreePaths {
+
+    private static int maxSum;
+
+    // Function to find all paths
+    public static List<List<Integer>> findPaths(TreeNode root) {
+        List<List<Integer>> result = new ArrayList<>();
+        if (root == null) return result;
+        List<Integer> currentPath = new ArrayList<>();
+        dfs(root, currentPath, result);
+        return result;
+    }
+
+    // DFS Helper function
+    private static void dfs(TreeNode node, List<Integer> currentPath, List<List<Integer>> result) {
+        if (node == null) return;
+
+        // Add the current node's data to the path
+        currentPath.add(node.data);
+
+        // If it's a leaf node, add the path to the result list
+        if (node.left == null && node.right == null) {
+            result.add(new ArrayList<>(currentPath));
+        } else {
+            // Recur for left and right children
+            dfs(node.left, currentPath, result);
+            dfs(node.right, currentPath, result);
+        }
+
+        // Backtrack to explore other paths
+        currentPath.remove(currentPath.size() - 1);
+    }
+
+    public static int findMaxSum(TreeNode root) {
+        maxSum = Integer.MIN_VALUE; // Initialize with the smallest possible value
+        calculateMaxGain(root);
+        return maxSum;
+    }
+
+    private static int calculateMaxGain(TreeNode node) {
+        if (node == null) {
+            return 0; // Base case: return 0 for null nodes
+        }
+
+        // Recursively calculate the maximum gain from left and right subtrees
+        int leftGain = Math.max(0, calculateMaxGain(node.left)); // Ignore negative paths
+        int rightGain = Math.max(0, calculateMaxGain(node.right)); // Ignore negative paths
+
+        // Maximum path sum with the current node as the highest point
+        int currentPathSum = node.data + leftGain + rightGain;
+
+        // Update the global maximum path sum
+        maxSum = Math.max(maxSum, currentPathSum);
+
+        // Return the maximum gain to the parent node (only one path: left or right)
+        return node.data + Math.max(leftGain, rightGain);
+    }
+
+    // path sum count equal to k
+    public static int countPaths(TreeNode root, int k) {
+        HashMap<Integer, Integer> prefixSumMap = new HashMap<>();
+        prefixSumMap.put(0, 1); // Base case: a path with sum 0 exists by default
+        return dfs(root, 0, k, prefixSumMap);
+    }
+
+    private static int dfs(TreeNode node, int currentSum, int k, HashMap<Integer, Integer> prefixSumMap) {
+        if (node == null) {
+            return 0;
+        }
+
+        // Update the current path sum
+        currentSum += node.data;
+
+        // Check if there's a prefix sum that, when subtracted, gives the target sum
+        int pathsWithSum = prefixSumMap.getOrDefault(currentSum - k, 0);
+
+        // Update the prefix sum map for the current node
+        prefixSumMap.put(currentSum, prefixSumMap.getOrDefault(currentSum, 0) + 1);
+
+        // Recur for left and right subtrees
+        pathsWithSum += dfs(node.left, currentSum, k, prefixSumMap);
+        pathsWithSum += dfs(node.right, currentSum, k, prefixSumMap);
+
+        // Backtrack: remove the current node's contribution to the prefix sum map
+        prefixSumMap.put(currentSum, prefixSumMap.get(currentSum) - 1);
+
+        return pathsWithSum;
+    }
+
+
+    //
+
+    public static void main(String[] args) {
+        // Example 1
+        TreeNode root1 = new TreeNode(1);
+        root1.left = new TreeNode(2);
+        root1.right = new TreeNode(3);
+        root1.left.left = new TreeNode(4);
+        root1.left.right = new TreeNode(5);
+
+        System.out.println("Paths for Tree 1: " + findPaths(root1));
+
+        // Example 2
+        TreeNode root2 = new TreeNode(1);
+        root2.left = new TreeNode(2);
+        root2.right = new TreeNode(3);
+
+        System.out.println("Paths for Tree 2: " + findPaths(root2));
+
+        // Example 3
+        TreeNode root3 = new TreeNode(10);
+        root3.left = new TreeNode(20);
+        root3.right = new TreeNode(30);
+        root3.left.left = new TreeNode(40);
+        root3.left.right = new TreeNode(60);
+
+        System.out.println("Paths for Tree 3: " + findPaths(root3));
+    }
+}

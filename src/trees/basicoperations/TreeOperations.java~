@@ -545,20 +545,4 @@ Use a queue to perform level-order traversal while checking for symmetry.
             }
         }
     }
-
-    // Find the minimum and maximum elements in a Binary Tree
-    static int[] findMinAndMax(Node root) {
-        if (root == null) return new int[]{Integer.MAX_VALUE, Integer.MIN_VALUE};
-
-        // Recursive calls for left and right subtrees
-        int[] leftResult = findMinAndMax(root.left);
-        int[] rightResult = findMinAndMax(root.right);
-
-        // Calculate current minimum and maximum
-        int currentMin = Math.min(root.data, Math.min(leftResult[0], rightResult[0]));
-        int currentMax = Math.max(root.data, Math.max(leftResult[1], rightResult[1]));
-
-        return new int[]{currentMin, currentMax};
-    }
-
 }
