@@ -8,7 +8,7 @@ public class GraphIntro {
     // weighted graph
     // weighted undirected graph
     // weighted directed graph
-    {
+    static {
         int num = 10;
         System.out.println(10);
     }
