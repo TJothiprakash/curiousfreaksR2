@@ -61,7 +61,7 @@ public class TwoSum {
         return false; // No triplet found
     }
 
-
+    // two sum using sliding window
     public static boolean twoSumTest(int[] arr, int target) {
         Arrays.sort(arr);
         int sum = arr[0] + arr[1];

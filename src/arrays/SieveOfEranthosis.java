@@ -3,6 +3,11 @@ package arrays;
 import java.util.Arrays;
 
 public class SieveOfEranthosis {
+    public static void main(String[] args) {
+        int N = 30;
+        SieveOfEranthosis sieve = new SieveOfEranthosis();
+        sieve.sieveOfEratosthenes(N);
+    }
     // Function to print prime numbers up to N using Sieve of Eratosthenes
     public void sieveOfEratosthenes(int N) {
         // Step 1: Create a boolean array of size N+1 and initialize all values to true

@@ -7,7 +7,86 @@ import java.util.Arrays;
 // approach compute LIS from the both ends start and back
 // then combine
 
+import java.util.Arrays;
+
 public class BitonicSubsequence {
+    public int longestBitonicSequence(int[] nums) {
+        int n = nums.length;
+
+        // Memoization arrays for LIS and LDS
+        int[][] lisMemo = new int[n][n + 1];
+        int[][] ldsMemo = new int[n][n + 1];
+
+        for (int[] row : lisMemo) Arrays.fill(row, -1);
+        for (int[] row : ldsMemo) Arrays.fill(row, -1);
+
+        int maxBitonicLength = 0;
+
+        for (int i = 0; i < n; i++) {
+            int lisLength = findLIS(nums, i, -1, lisMemo);
+            int ldsLength = findLDS(nums, i, -1, ldsMemo);
+
+            if (lisLength > 1 && ldsLength > 1) { // Both parts must exist
+                maxBitonicLength = Math.max(maxBitonicLength, lisLength + ldsLength - 1);
+            }
+        }
+
+        return maxBitonicLength;
+    }
+
+    private int findLIS(int[] nums, int currentIndex, int prevIndex, int[][] memo) {
+        if (currentIndex == nums.length) return 0;
+
+        if (memo[currentIndex][prevIndex + 1] != -1) {
+            return memo[currentIndex][prevIndex + 1];
+        }
+
+        // Option 1: Skip the current element
+        int length = findLIS(nums, currentIndex + 1, prevIndex, memo);
+
+        // Option 2: Include the current element if it forms an increasing subsequence
+        if (prevIndex == -1 || nums[currentIndex] > nums[prevIndex]) {
+            length = Math.max(length, 1 + findLIS(nums, currentIndex + 1, currentIndex, memo));
+        }
+
+        memo[currentIndex][prevIndex + 1] = length;
+        return length;
+    }
+
+    private int findLDS(int[] nums, int currentIndex, int nextIndex, int[][] memo) {
+        if (currentIndex < 0) return 0;
+
+        if (memo[currentIndex][nextIndex + 1] != -1) {
+            return memo[currentIndex][nextIndex + 1];
+        }
+
+        // Option 1: Skip the current element
+        int length = findLDS(nums, currentIndex - 1, nextIndex, memo);
+
+        // Option 2: Include the current element if it forms a decreasing subsequence
+        if (nextIndex == -1 || nums[currentIndex] > nums[nextIndex]) {
+            length = Math.max(length, 1 + findLDS(nums, currentIndex - 1, currentIndex, memo));
+        }
+
+        memo[currentIndex][nextIndex + 1] = length;
+        return length;
+    }
+
+    public static void main(String[] args) {
+        BitonicSubsequence bs = new BitonicSubsequence();
+
+        int[] nums1 = {1, 2, 5, 3, 2};
+        System.out.println(bs.longestBitonicSequence(nums1)); // Output: 5
+
+        int[] nums2 = {1, 11, 2, 10, 4, 5, 2, 1};
+        System.out.println(bs.longestBitonicSequence(nums2)); // Output: 6
+
+        int[] nums3 = {10, 20, 30};
+        System.out.println(bs.longestBitonicSequence(nums3)); // Output: 0
+
+        int[] nums4 = {10, 10, 10};
+        System.out.println(bs.longestBitonicSequence(nums4)); // Output: 0
+    }
 }
 
 

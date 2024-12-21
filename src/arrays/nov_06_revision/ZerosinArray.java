@@ -1,4 +1,5 @@
 package arrays.nov_06_revision;
+// move zeros to the end of the array
 
 public class ZerosinArray {
     public void moveZeroes(int[] arr) {

@@ -2,8 +2,8 @@ package arrays;
 
 public class RotateArray {
     public static void main(String[] args) {
-        int arr[] = {1, 2, 3, 4};
-        int ans[] = rotateArray(arr, 2);
+        int arr[] = {0,1, 2, 3, 4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
+        int ans[] = rotateArray(arr, 7);
         for (int i : ans) {
             System.out.print(i + " ");
 
