@@ -37,7 +37,7 @@ public class CustomQueueImplUsingArray {
 
     // Add an element to the queue
     public void enqueue(int data) {
-        if (rear == size ) { // Overflow check
+        if (rear == size -1 ) { // Overflow check
             throw new RuntimeException("Queue is full now!");
         }
         if (front == -1) { // First element added

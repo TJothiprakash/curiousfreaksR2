@@ -75,4 +75,7 @@ public class CustomQueueImplUsingArray {
     public int size() {
         return rear - front + 1;
     }
+    public void checkgit(){
+
+    }
 }
