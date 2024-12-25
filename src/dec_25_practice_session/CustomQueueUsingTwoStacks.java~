@@ -1,0 +1,62 @@
+package dec_25_practice_session;
+
+import java.util.Stack;
+
+public class CustomQueueUsingTwoStacks {
+    private Stack<Integer> stack1;
+    private Stack<Integer> stack2;
+
+    public CustomQueueUsingTwoStacks() {
+        this.stack1 = new Stack<>();
+        this.stack2 = new Stack<>();
+    }
+
+    // Enqueue operation: Push elements onto stack1
+    public void enqueue(int data) {
+        // Your implementation here
+        stack1.push(data);
+    }
+
+    // Dequeue operation: Pop from stack2, transfer if empty
+    public int dequeue() {
+        // Your implementation here
+        if (stack2.isEmpty()) {
+            if (stack1.isEmpty()) {
+                throw new
+                        RuntimeException("Queue is empty");
+            }
+            while (!stack1.isEmpty()) {
+                stack2.push(stack1.pop());
+            }
+            return stack2.pop();
+        } else {
+            return stack2.pop();
+        }
+
+
+    }
+
+    // Peek operation: Look at the front element
+    public int peek() {
+        // Your implementation here
+        if (stack2.isEmpty()) {
+            if (stack1.isEmpty()) {
+                throw new RuntimeException("Queue is empty");
+            }
+            while (!stack1.isEmpty()) {
+                stack2.push(stack1.pop());
+            }
+            //return stack2.peek();
+        }
+
+        return stack2.peek();
+    }
+
+    // Check if the queue is empty
+    public boolean isEmpty() {
+        // Your implementation here
+        return stack1.isEmpty() && stack2.isEmpty();
+    }
+
+
+}

@@ -1,0 +1,62 @@
+package dec_25_practice_session.lrucache;
+
+import java.util.HashMap;
+
+public class LRUCache {
+    // Define the class to represent each node in the doubly linked list.
+    class Node {
+        int key, value;
+        Node prev, next;
+
+        public Node(int key, int value) {
+            this.key = key;
+            this.value = value;
+        }
+    }
+
+    // Create the LRU Cache with a HashMap and a doubly linked list.
+    private HashMap<Integer, Node> cache;
+    private int capacity;
+    private Node head, tail;
+
+    // Constructor to initialize LRU Cache
+    public LRUCache(int capacity) {
+        this.capacity = capacity;
+        cache = new HashMap<>();
+        head = new Node(0, 0); // Dummy head node
+        tail = new Node(0, 0); // Dummy tail node
+        head.next = tail;
+        tail.prev = head;
+    }
+
+    // Step-by-Step:
+    // Implement get method
+    public int get(int key) {
+        // Implement this
+    }
+
+    // Implement put method
+    public void put(int key, int value) {
+        // Implement this
+    }
+
+    // Helper method to move a node to the front of the list
+    private void moveToFront(Node node) {
+        // Implement this
+    }
+
+    // Helper method to remove a node from the list
+    private void removeNode(Node node) {
+        // Implement this
+    }
+
+    // Helper method to add a node to the front of the list
+    private void addToFront(Node node) {
+        // Implement this
+    }
+
+    // Helper method to remove the least recently used (tail node)
+    private Node removeTail() {
+        // Implement this
+    }
+}
