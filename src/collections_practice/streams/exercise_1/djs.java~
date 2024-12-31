@@ -1,0 +1,8 @@
+package collections_practice.streams.exercise_1;
+
+public class Customer {
+    private String customerId;
+    private String name;
+    private List<Order> orders;
+    // Getters and Setters
+}
