@@ -1,0 +1,16 @@
+package designpatterns.singleton;
+
+public class Library {
+    private static Library libraryInstance;
+
+    private Library() {
+
+    }
+
+    public static Library getLibraryInstance() {
+        if (libraryInstance == null) {
+            libraryInstance = new Library();
+        }
+        return libraryInstance;
+    }
+}
