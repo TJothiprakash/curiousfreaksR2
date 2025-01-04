@@ -1,0 +1,36 @@
+package practicesessions.jan_03_practice_session;
+
+import java.util.HashMap;
+
+/*Problem: Longest Substring with At Most K Distinct Characters
+Problem Statement:
+Given a string s and an integer k,
+return the length of the longest substring that contains at most k distinct characters.*/
+public class Substring {
+
+    public static void main(String[] args) {
+        System.out.println(lengthOfLongestSubstringKDistinct("aabbcc", 2)); // Output: 4
+        System.out.println(lengthOfLongestSubstringKDistinct("eceba", 2)); // Output: 3 ("ece")
+        System.out.println(lengthOfLongestSubstringKDistinct("", 0)); // Output: 0
+    }
+
+    public static int lengthOfLongestSubstringKDistinct(String s, int k) {
+       int  start =0;
+        int maxLength =0;
+        HashMap<Character,Integer> charFrequency = new HashMap<>();
+        if (s == null || s.length() == 0 || k == 0) return 0;
+
+        for(int end =0;end<s.length();end++){
+            charFrequency.put(s.charAt(end),charFrequency.getOrDefault(s.charAt(end),0)+1);
+            while(charFrequency.size()>k){
+                charFrequency.put(s.charAt(start),charFrequency.get(s.charAt(start))-1);
+                if(charFrequency.get(s.charAt(start)) == 0){
+                    charFrequency.remove(s.charAt(start));
+                }
+                start++;
+            }
+            maxLength = Math.max(maxLength,end-start+1);
+        }
+        return maxLength;
+    }
+}
