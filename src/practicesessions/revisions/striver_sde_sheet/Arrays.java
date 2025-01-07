@@ -1,4 +1,4 @@
-package practicesessions.jan_06.striver_sde_sheet;
+package practicesessions.revisions.striver_sde_sheet;
 
 
 public class Arrays {

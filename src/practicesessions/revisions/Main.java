@@ -1,4 +1,8 @@
-package practicesessions.jan_06.striver_sde_sheet;
+package practicesessions.revisions;
+
+import practicesessions.revisions.striver_sde_sheet.Test;
+
+;
 
 public class Main {
     public static void main(String[] args) {
