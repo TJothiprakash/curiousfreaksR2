@@ -1,0 +1,112 @@
+package recursion;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class RecursionImpProblems {
+
+    public static void main(String[] args) {
+        /*System.out.println(generateBinaryStrings(5));
+        int num = Integer.toBinaryString(12).length();
+        System.out.println(num);*/
+        //  System.out.println(generateParenthesis(3));
+        int[] arr2 = {2, 5, 1, 4, 3};
+        int target2 = 10;
+        System.out.println(countSubsets(arr2, target2)); // Output: 3
+    }
+
+    // generate all binary strings of length n
+    public static List<String> generateBinaryStrings(int n) {
+        List<String> result = new ArrayList<>();
+        int numbits = Integer.toBinaryString(n).length();
+        generateAllBinaryStrings("", numbits, n, result);
+        return result;
+    }
+
+    private static void generateAllBinaryStrings(String s, int numbits, int n, List<String> result) {
+        if (n == 0) {
+            result.add(s);
+            return;
+        }
+        generateAllBinaryStrings(s + "0", numbits, n - 1, result);
+        if (s.length() == 0 || s.charAt(s.length() - 1) != '1') {
+            generateAllBinaryStrings(s + "1", numbits, n - 1, result);
+        }
+    }
+
+    // generate all right combinations of n pairs of parentheses
+    public static List<String> generateParenthesis(int n) {
+        List<String> result = new ArrayList<>();
+        generateAllParenthesis("", n, n, result);
+        return result;
+
+    }
+
+
+    private static void generateAllParenthesis(String current, int open, int close, List<String> result) {
+        // Base case: If no open or close parentheses are left, add the current combination
+        if (open == 0 && close == 0) {
+            result.add(current);
+            return;
+        }
+
+        // If there are open parentheses left, add '('
+        if (open > 0) {
+            generateAllParenthesis(current + "(", open - 1, close, result);
+        }
+
+        // If there are more close parentheses remaining than open, add ')'
+        if (close > open) {
+            generateAllParenthesis(current + ")", open, close - 1, result);
+        }
+    }
+
+    public static int countSubsets(int[] arr, int target) {
+        return countSubsetsRecursive(arr, target, arr.length - 1);
+    }
+
+    private static int countSubsetsRecursive(int[] arr, int target, int index) {
+        // Base Cases
+        if (target == 0) {
+            return 1; // One valid subset: the empty subset
+        }
+        if (index < 0) {
+            return 0; // No valid subset
+        }
+
+        // Recursive case
+        // Exclude the current element
+        int exclude = countSubsetsRecursive(arr, target, index - 1);
+
+        // Include the current element if it doesn't exceed the target
+        int include = 0;
+        if (arr[index] <= target) {
+            include = countSubsetsRecursive(arr, target - arr[index], index - 1);
+        }
+
+        return exclude + include;
+    }
+
+    // print all the possible subsequences of a string
+    public void printSubsequences(String s) {
+        List<String> result = new ArrayList<>();
+        printAllSubsequences(s, "", s.length(), 0, result);
+        System.out.println(result);
+        Set<String> set1 = new HashSet<>(result);
+        List<String> list = new ArrayList<>(set1);
+        //printAllSubsequences(s1, "", s.length(), 0, list);
+    }
+
+    private void printAllSubsequences(String s, String s1, int length, int i, List<String> result) {
+        if (i == length) {
+            result.add(s1);
+            System.out.println(s1);
+            return;
+        }
+        printAllSubsequences(s, s1, length, i + 1, result);
+        printAllSubsequences(s, s1 + s.charAt(i), length, i + 1, result);
+    }
+
+}

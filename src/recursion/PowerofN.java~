@@ -13,8 +13,8 @@ public class PowerofN {
         stack.push(2);
 
         System.out.println("Original Stack: " + stack);
-        reverseStack(stack);
-        //sortStack(stack);
+
+        sortStack(stack);
 
         System.out.println("Sorted Stack: " + stack);
     }
