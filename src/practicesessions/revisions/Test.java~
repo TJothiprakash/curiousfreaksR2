@@ -1,0 +1,11 @@
+package practicesessions.revisions;
+
+public class Test {
+    public static void sayHello(){
+        System.out.println("Hellow ");
+    }
+    public static void sayHello(String name){
+        System.out.println("Hellow ");
+    }
+
+}
