@@ -2,8 +2,6 @@ package binarysearch;
 
 import java.util.Arrays;
 
-import static java.util.Arrays.binarySearch;
-
 public class BinarySearchImpl {
     public static void main(String[] args) {
 
