@@ -13,6 +13,7 @@ public class RotateMatrix {
         }
 
         rotateMatrix(arr);
+        rotateMatrix(arr);
         System.out.println("After Rotation");
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[0].length; j++) {
@@ -21,6 +22,7 @@ public class RotateMatrix {
             }
             System.out.println();
         }
+
     }
 
     public static void rotateMatrix(int[][] matrix) {

@@ -32,5 +32,25 @@ public class BubbleSort {
 
         return arr;
     }
-
+/*1. Bubble Sort 🫧
+Logic:
+Compares adjacent elements and swaps them if they are in the wrong order.
+The largest element bubbles up to the last position in each pass.
+The process repeats until the array is sorted.
+Time Complexity:
+Best Case:
+𝑂
+(
+𝑛
+)
+O(n) (already sorted)
+Worst Case:
+𝑂
+(
+𝑛
+2
+)
+O(n
+2
+ ) (reverse order)*/
 }

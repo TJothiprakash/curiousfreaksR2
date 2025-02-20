@@ -13,7 +13,7 @@ public class Main {
         List<List<Integer>> listsofSubarrays = new ArrayList<>();
         ArrayList<Integer> subArray = new ArrayList<>();
         int [] arr = new int[]{1, 2, 3, 4};
-        practice.printSubArrays(arr,0, 0);
+        practice.printSubArrays(arr,0, 3);
        // listsofSubarrays = practice.generateSubarraysUsingSlidingWindow(new int[]{1, 2, 3, 4});
         /*System.out.println(listsofSubarrays);
         System.out.println(listsofSubarrays.size());*/

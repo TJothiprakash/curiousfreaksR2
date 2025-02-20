@@ -1,7 +1,50 @@
 package sortingtechniques;
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.List;
+/* Quick Sort ⚡ (Divide & Conquer)
+Logic:
+Selects a pivot element.
+Partitions the array into two parts:
+Left: Elements smaller than pivot.
+Right: Elements greater than pivot.
+Recursively sorts both parts.
+Time Complexity:
+Best & Average Case:
+𝑂
+(
+𝑛
+log
+⁡
+𝑛
+)
+O(nlogn)
+
+Worst Case:
+𝑂
+(
+𝑛
+2
+)
+O(n
+2
+ ) (if pivot is poorly chosen, e.g., smallest/largest element in sorted array).
+
+Used in practical applications due to its speed in most cases.*/
+import static sortingtechniques.Solution.quickSort;
+
 public class QuickSort
 {
+    public static void main(String[] args) {
+        int arr[] = {64, 25, 12, 22, 11};
+        System.out.println("Before sorting :");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        List<Integer> res = quickSort(arr);
+        System.out.println("\nAfter sorting :");
+        System.out.println(res);
+    }
 
 }
 

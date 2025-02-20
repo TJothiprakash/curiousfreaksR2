@@ -51,3 +51,23 @@ public class MergeSort {
         }
     }
 }
+/*Merge Sort 🧩 (Divide & Conquer)
+Logic:
+Divide: Splits the array into two halves until each subarray contains only one element.
+Conquer: Merges these halves back in sorted order.
+Time Complexity:
+Always
+𝑂
+(
+𝑛
+log
+⁡
+𝑛
+)
+O(nlogn)
+
+Stable sorting algorithm (preserves the order of equal elements).
+
+Used in external sorting and large datasets.
+
+*/

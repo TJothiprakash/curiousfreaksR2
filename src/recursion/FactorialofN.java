@@ -2,9 +2,9 @@ package recursion;
 
 public class FactorialofN {
     public static void main(String[] args) {
-        int n = 8;
+        int n = 6;
         int res = factorial(n);
-       // System.out.println(res);
+        System.out.println(res);
         int fibanacciNo = fibanacci(n);
         System.out.println(fibanacciNo);
     }

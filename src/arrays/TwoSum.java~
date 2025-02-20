@@ -23,7 +23,7 @@ public class TwoSum {
 
     }
 
-    private static boolean threeSums(int[] arr, int target) {
+    private static boolean twoSum(int[] arr, int target) {
         Arrays.sort(arr);
         // int left = 0, right = arr.length-1;
         for (int k = 0; k < arr.length; k++) {
@@ -41,7 +41,6 @@ public class TwoSum {
         return false;
     }
 
-    // using while loop
     private static boolean threeSum(int[] arr, int target) {
         Arrays.sort(arr); // Sort the array
         for (int k = 0; k < arr.length - 2; k++) { // Fix the first element
