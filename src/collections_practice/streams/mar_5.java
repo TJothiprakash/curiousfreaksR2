@@ -1,4 +1,171 @@
 package collections_practice.streams;
 
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+
 public class mar_5 {
+    public static void main(String[] args) {
+
+        // Convert to modifiable ArrayList
+        List<Integer> list1 = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+        List<String> words = new ArrayList<>(Arrays.asList("Apple", "Orange", "Lemon", "Guava", "Roseberry", "Grape", "Banana", "Kivic"));
+        List<Integer> list2 = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7));
+ /*
+        Implement a custom collector to calculate the product of all integers in a list.
+Group a list of objects by a property and count occurrences using streams.
+Combine elements from multiple lists using streams (e.g., zip operation).
+Implement a stream pipeline to read lines from a file and process them.
+Find the frequency of each word in a list of strings using streams.
+Given a list of integers, find the k-th smallest element using streams.
+Reverse a list of strings using streams.
+Implement a stream to generate Fibonacci sequence up to a specified number of terms.
+Check if two lists of integers have any common elements using streams.
+Convert a list of objects to JSON using streams.
+Implement a stream to read data from a database and process it.
+Find the difference between the largest and smallest integers in a list using streams.
+Calculate the median of a list of integers using streams.
+Given a list of strings, find the most common character using streams.
+Implement a stream to parse and process XML data.
+Filter a list of strings to get only those starting with a vowel using streams.
+Compute the cumulative sum of integers in a list using streams.
+Given a list of integers, find the prime numbers using streams.
+Implement a stream to perform batch processing of data.
+Given a list of integers, find the frequency of each number using streams.
+Sort a list of objects by multiple criteria using streams.
+Calculate the Hamming distance between two lists of integers using streams.
+Write a stream to find the sum of integers from 1 to 100.
+Convert a list of strings to uppercase using streams.
+Filter a list of integers to get only the even numbers.
+Count the number of distinct elements in a list using streams.
+Find the maximum element in a list of integers using streams.
+Given a list of strings, find the shortest string.
+Find the average of a list of doubles using streams.
+Convert a list of integers to a list of their squares.
+Sort a list of strings in alphabetical order using streams.
+Check if all elements in a list satisfy a condition (e.g., all numbers greater than 10).
+Group a list of strings by their lengths using streams.
+Remove duplicates from a list using streams.
+Concatenate all strings from a list into a single string using streams.
+Given a list of integers, find the first even number greater than 10.
+    */
+
+//Compute the factorial of a number using streams.
+        List<Integer>factorials = list2.stream().map(mar_5::factorial) // Map each number to its factorial
+                .collect(Collectors.toList());
+
+        System.out.println("Factorials: " + factorials);
+
+
+
+//Find the second largest number in a list of integers using streams.
+        Optional<Integer> secondLargestNumber = list1.stream().sorted((a, b) -> Integer.compare(b,a)).skip(1).findFirst();
+        System.out.println(secondLargestNumber);
+
+
+
+
+
+//Partition a list of integers into odd and even numbers using streams.
+
+        List<Integer>   evenNum = list1.stream().filter(i -> i %2 == 0).collect(Collectors.toList());
+        List<Integer> oddNum = list1.stream().filter(i -> i %2!= 0).collect(Collectors.toList());
+        System.out.print("oddNum: " + oddNum);
+        System.out.println( evenNum);
+        // Partitioning list into even and odd numbers
+        Map<Boolean, List<Integer>> partitioned = list1.stream()
+                .collect(Collectors.partitioningBy(i -> i % 2 == 0));
+
+        List<Integer> evenNum2 = partitioned.get(true);  // Even numbers (key: true)
+        List<Integer> oddNum2= partitioned.get(false);  // Odd numbers (key: false)
+
+        System.out.println("Even Numbers: " + evenNum2);
+        System.out.println("Odd Numbers: " + oddNum2);
+
+
+
+
+
+//Check if a list of strings contains a specific substring using streams.
+        boolean containsString = words.stream().anyMatch(w -> w.contains("na"));
+        System.out.println("List contains substring 'na': " + containsString);
+        System.out.println();
+        String returnContainedString = words.stream().filter(w -> w.contains("na")).findFirst().orElse(null);
+        System.out.println(returnContainedString);
+
+
+//Convert a list of objects to a map using streams, where keys are extracted from object properties.
+        List<Employee> allEmployees = new ArrayList<>();
+        Employee employee1 = new Employee(1, "jp", 23, 5000);
+        Employee employee2 = new Employee(2, "srikan", 22, 5000);
+        Employee employee3 = new Employee(3, "arun", 20, 5000);
+        Employee employee4 = new Employee(4, "varun", 34, 5000);
+        Employee employee5 = new Employee(6, "hf", 22, 5000);
+        allEmployees.add(employee1);
+        allEmployees.add(employee2);
+        allEmployees.add(employee3);
+        allEmployees.add(employee4);
+        allEmployees.add(employee5);
+        Map<Integer, Employee> employeeMap = allEmployees.stream().collect(Collectors.toMap(Employee::getId, e -> e));
+        System.out.println(employeeMap);
+
+//Find the index of the first occurrence of a specific element in a list using streaks
+// to get teh index of word that contains G as the first character
+        int index = words.stream().filter(w -> w.startsWith("G")).map(words::indexOf).findAny().orElse(-1);
+        System.out.println(words);
+        System.out.println("index pf the word Guva is " + index);
+//Remove null values from a list using streams.
+        list1.add(0);
+        list1.add(null);
+        List<Object> nonNullValues = list1.stream().filter(Objects::nonNull).collect(Collectors.toList());
+        System.out.println(nonNullValues);
+
+
+//Merge two lists of strings into a single list using streams.
+        List<Object> mergedList;
+        mergedList = Stream.concat(
+                words.stream(), list1.stream()).collect(Collectors.toList());
+        System.out.println(mergedList);
+
+//Given a list of strings, find the longest word using streams.*/
+        String longestWord = String.valueOf(words.stream().max(Comparator.comparingInt(String::length)));
+        System.out.println(longestWord);
+
+//Implement a stream to handle large volumes of data efficiently.
+
+
+//Find the intersection of two lists of integers using streams.
+        List<Integer> intersection = list1.stream().filter(list2::contains).collect(Collectors.toList());
+        System.out.println(intersection);
+
+//Implement a stream to handle real-time data processing.
+
+
+//Given a list of strings, find the longest substring without repeating characters using streams.
+//String longestSubString = words.stream().
+
+
+        List<String> words1 = Arrays.asList("racecar", "banana", "level", "hello", "madam", "world");
+
+        String longestPalindrome = words.stream()
+                .filter(mar_5::isPalindrome) // Keep only palindromes
+                .max(Comparator.comparingInt(String::length)) // Get the longest one
+                .orElse("No palindrome found"); // Default if no palindrome exists
+
+        System.out.println("Longest palindrome: " + longestPalindrome);
+
+
+    }
+
+
+    // Helper method to check if a word is a palindrome
+    private static boolean isPalindrome(String word) {
+        return word.equals(new StringBuilder(word).reverse().toString());
+    }
+    // Method to compute factorial using streams
+    private static int factorial(int n) {
+        return IntStream.rangeClosed(1, n) // Generates numbers from 1 to n
+                .reduce(1, (a, b) -> a * b); // Multiplies all numbers
+    }
 }
