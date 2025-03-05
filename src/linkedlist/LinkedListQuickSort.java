@@ -25,8 +25,8 @@ public class LinkedListQuickSort {
 
     // Helper function to partition the list around a pivot
     private ListNode[] partition(ListNode head) {
-        ListNode leftHead = new ListNode(0), rightHead = new ListNode(0), pivotHead = new ListNode(0);
-        ListNode left = leftHead, right = rightHead, pivot = pivotHead;
+        ListNode leftHead = new ListNode(0), rightHead = new ListNode(0);
+        ListNode left = leftHead, right = rightHead, pivot = new ListNode(0);
 
         int pivotValue = head.val;
         ListNode current = head;

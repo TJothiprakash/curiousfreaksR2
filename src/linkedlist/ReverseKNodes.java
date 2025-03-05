@@ -61,10 +61,9 @@ public class ReverseKNodes {
 
             // Reverse the k nodes between groupStart and groupEnd
             groupEnd.next = null;
-            Node reversedGroup = reverseGroup(groupStart, k);
 
             // Connect the reversed group to the previous part of the list
-            prevGroupEnd.next = reversedGroup;
+            prevGroupEnd.next = reverseGroup(groupStart, k);
             groupStart.next = nextGroupStart;
 
             // Move prevGroupEnd to the end of the reversed group

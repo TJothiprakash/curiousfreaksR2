@@ -4,9 +4,8 @@ public class FrogJump {
 // order does matter
     static long countWays(int n) {
         // add your code here
-        long ans = helpertofindNoofWays(n);
 
-        return ans;
+        return helpertofindNoofWays(n);
     }
 
     private static long helpertofindNoofWays(int n) {

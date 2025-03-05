@@ -11,27 +11,27 @@ public class Stream_Practice {
 
         //convert a list of integers to a list of their squares.
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 9, 10);
-        System.out.println(numbers);
+        //     System.out.println(numbers);
         List<Integer> squares = numbers.stream().map(n -> n * n).collect(Collectors.toList());
-        System.out.println(squares);
+//    System.out.println(squares);
         List<Integer> evenNumbers = numbers.stream()
                 .filter(n -> n % 2 == 0)  // Keep only even numbers
                 .collect(Collectors.toList());
 
-        System.out.println("Even numbers: " + evenNumbers);
+//        System.out.println("Even numbers: " + evenNumbers);
 
         // Find the sum of all numbers in a list.
         long sum = numbers.stream().mapToInt(n -> n).sum();
-        System.out.println("Sum of numbers: " + numbers + " is " + sum);
+//        System.out.println("Sum of numbers: " + numbers + " is " + sum);
 
         //   Convert a list of strings to uppercase.
         List<String> words = Arrays.asList("apple", "banana", "cherry", "date", "elderberry");
         List<String> upperCaseWords = words.stream().map(String::toUpperCase).collect(Collectors.toList());
-        System.out.println(upperCaseWords);
+//        System.out.println(upperCaseWords);
 
         //  Find the longest string in a list.
         String longestString = upperCaseWords.stream().max(String::compareTo).get();
-        System.out.println("Longest string: " + longestString);
+//        System.out.println("Longest string: " + longestString);
 
         String longestString1 = upperCaseWords.stream()
                 .max(Comparator.comparingInt(String::length)) // Compare based on length
@@ -71,11 +71,11 @@ public class Stream_Practice {
 
 //Find the average salary from a list of employees.
         List<Employee> allEmployees = new ArrayList<>();
-        Employee employee1 = new Employee(1, "jp", 23, 5000);
-        Employee employee2 = new Employee(2, "srikan", 22, 5000);
-        Employee employee3 = new Employee(3, "arun", 20, 5000);
-        Employee employee4 = new Employee(4, "varun", 34, 5000);
-        Employee employee5 = new Employee(6, "hf", 22, 5000);
+        Employee employee1 = new Employee("1", "jp", 23, 5000);
+        Employee employee2 = new Employee("2", "srikan", 22, 5000);
+        Employee employee3 = new Employee("3", "arun", 20, 5000);
+        Employee employee4 = new Employee("4", "varun", 34, 5000);
+        Employee employee5 = new Employee("6", "hf", 22, 5000);
         allEmployees.add(employee1);
         allEmployees.add(employee2);
         allEmployees.add(employee3);

@@ -1,12 +1,12 @@
 package practicesessions.dec_25_practice_session;
 
 public class CustomArrayList {
-    private final int DEFAULT_SIZE = 10;
     private int[] arraylist;
     private int size;
     private int index = 0;
 
     public CustomArrayList() {
+        int DEFAULT_SIZE = 10;
         this.arraylist = new int[DEFAULT_SIZE];
 
     }

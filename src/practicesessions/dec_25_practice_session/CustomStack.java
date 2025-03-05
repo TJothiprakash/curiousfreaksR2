@@ -2,12 +2,12 @@ package practicesessions.dec_25_practice_session;
 
 public class CustomStack {
     private static final int RESIZE_FACTOR = 2;
-    private final int DEFAULT_SIZE = 10;
     private int[] stack;
     private int size;
     private int index = 0;
 
     private CustomStack() {
+        int DEFAULT_SIZE = 10;
         this.stack = new int[DEFAULT_SIZE];
 
     }
@@ -54,8 +54,7 @@ public class CustomStack {
     }
 
     public int peek() {
-        int data = stack[index];
-        return data;
+        return stack[index];
     }
 
     public boolean isEmpty() {

@@ -115,8 +115,7 @@ public class Day_05 {
         }
         if (head1 != null) temp.next = head1;
         if (head2 != null) temp.next = head2;
-        DoublyNode neHead = head.next;
-        return neHead;
+        return head.next;
     }
 
     //Problem Statement: Given a linked list and an integer N, the task is to delete the
@@ -186,8 +185,7 @@ public class Day_05 {
 
             sum += carry;
             carry = sum / 10;
-            ListNode node = new ListNode(sum % 10);
-            temp.next = node;
+            temp.next = new ListNode(sum % 10);
             temp = temp.next;
         }
         return dummy.next;

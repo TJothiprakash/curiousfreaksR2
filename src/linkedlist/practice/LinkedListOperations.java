@@ -50,9 +50,8 @@ public class LinkedListOperations {
     public Node copyLL(Node head) {
         Node current = head;
         Node dummy = new Node(0);
-        Node temp = dummy;
         while (current != null) {
-            temp.next = new Node(current.data);
+            dummy.next = new Node(current.data);
             current = current.next;
 
         }

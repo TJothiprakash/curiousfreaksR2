@@ -43,12 +43,11 @@ class FloodFill {
     public int[][] floodFill(int[][] image, int sr, int sc, int newColor) {
         // get initial color
         int iniColor = image[sr][sc];
-        int[][] ans = image;
         // delta row and delta column for neighbours
         int delRow[] = {-1, 0, +1, 0};
         int delCol[] = {0, +1, 0, -1};
-        dfs(sr, sc, ans, image, newColor, delRow, delCol, iniColor);
-        return ans;
+        dfs(sr, sc, image, image, newColor, delRow, delCol, iniColor);
+        return image;
     }
 
 }

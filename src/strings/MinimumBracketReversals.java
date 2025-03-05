@@ -23,8 +23,7 @@ public class MinimumBracketReversals {
         }
 
         // Calculate the number of reversals
-        int reversals = (opening_count + 1) / 2 + (closing_count + 1) / 2;
 
-        return reversals;
+        return (opening_count + 1) / 2 + (closing_count + 1) / 2;
     }
 }

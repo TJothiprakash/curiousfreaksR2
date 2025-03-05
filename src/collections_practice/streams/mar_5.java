@@ -3,6 +3,7 @@ package collections_practice.streams;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class mar_5 {
     public static void main(String[] args) {
@@ -29,15 +30,59 @@ Given a list of strings, find the most common character using streams.
 Implement a stream to parse and process XML data.
 Filter a list of strings to get only those starting with a vowel using streams.
 Compute the cumulative sum of integers in a list using streams.
-Given a list of integers, find the prime numbers using streams.
-Implement a stream to perform batch processing of data.
-Given a list of integers, find the frequency of each number using streams.
-Sort a list of objects by multiple criteria using streams.
-Calculate the Hamming distance between two lists of integers using streams.
-Write a stream to find the sum of integers from 1 to 100.
     */
 
-String letsadd = null;
+
+//Implement a stream to perform batch processing of data.
+        int batchSize = 10;
+        List<List<Integer>> batches = IntStream.rangeClosed(1, 100)
+                .boxed()
+                .collect(Collectors.groupingBy(n -> (n - 1) / batchSize))
+                .values()
+                .stream()
+                .collect(Collectors.toList());
+
+        batches.forEach(batch -> {
+            System.out.println("Processing batch: " + batch);
+            processBatch(batch);
+        });
+
+
+//Given a list of integers, find the frequency of each number using streams.
+        Map<Integer, Integer> frequency = list1.stream()
+                .collect(Collectors.groupingBy(n -> n, Collectors.collectingAndThen(Collectors.counting(), Long::intValue)));
+        System.out.println("Frequency of each number: " + frequency);
+
+
+//Sort a list of objects by multiple criteria using streams.
+        List<Employee> employees = Arrays.asList(
+                new Employee("Alice", 30, 50000),
+                new Employee("Zackalice", 30, 50000),
+                new Employee("Bob", 25, 60000),
+                new Employee("Charlie", 35, 50000),
+                new Employee("David", 28, 70000),
+                new Employee("Eve", 30, 50000)
+        );
+
+//        System.out.println("before sorting employee" + employees);
+        // Sort by salary, then by name
+        List<Employee> byName = employees.stream()
+                .sorted(Comparator.comparing(Employee::getName))
+                .collect(Collectors.toList());
+        System.out.println();
+        System.out.println();
+//        System.out.println("By name: " + byName);
+
+//Calculate the Hamming distance between two lists of integers using streams.
+
+
+//Write a stream to find the sum of integers from 1 to 100.
+        int sum = Stream.iterate(1, n -> n + 1)
+                .limit(100)
+                .mapToInt(Integer::intValue)
+                .sum();
+
+        System.out.println("sum of integers from 1 to 100 is " + sum);
 
 
 
@@ -249,5 +294,9 @@ String letsadd = null;
     private static int factorial(int n) {
         return IntStream.rangeClosed(1, n) // Generates numbers from 1 to n
                 .reduce(1, (a, b) -> a * b); // Multiplies all numbers
+    }
+
+    private static void processBatch(List<Integer> batch) {
+        System.out.println("Batch processed: " + batch);
     }
 }

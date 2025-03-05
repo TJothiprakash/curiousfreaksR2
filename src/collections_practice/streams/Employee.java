@@ -1,11 +1,19 @@
 package collections_practice.streams;
 
+import java.util.UUID;
+
 public class Employee {
-    private int id;
+    private String id;
     private String name;
     private int age;
     private double salary;
 
+    public Employee(String name, int age, double salary) {
+        this.name = name;
+        this.age = age;
+        this.salary = salary;
+        this.id = UUID.randomUUID().toString();
+    }
     @Override
     public String toString() {
         return "Employee{" +
@@ -16,18 +24,18 @@ public class Employee {
                 '}';
     }
 
-    public Employee(int id, String name, int age, double salary) {
+    public Employee(String id, String name, int age, double salary) {
         this.id = id;
         this.name = name;
         this.age = age;
         this.salary = salary;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

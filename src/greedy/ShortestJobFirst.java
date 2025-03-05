@@ -74,9 +74,9 @@ public class ShortestJobFirst {
         }
 
         // Step 3: Calculate the average waiting time
-        int averageWaitingTime = totalWaitingTime / n;  // Use integer division to get the floor
+        // Use integer division to get the floor
 
-        return averageWaitingTime;
+        return totalWaitingTime / n;
     }
 
     public static void main(String[] args) {
