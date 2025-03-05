@@ -37,6 +37,14 @@ Calculate the Hamming distance between two lists of integers using streams.
 Write a stream to find the sum of integers from 1 to 100.
     */
 
+String letsadd = null;
+
+
+
+
+
+
+
 //Convert a list of strings to uppercase using streams.
         List<String> upperCaseWords = words.stream().map(String::toUpperCase).collect(Collectors.toList());
         List<String> upperCaseWords1 = words.parallelStream()
