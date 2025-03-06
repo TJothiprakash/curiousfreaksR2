@@ -1,6 +1,7 @@
 package collections_practice.streams;
 
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -12,25 +13,87 @@ public class mar_5 {
         List<Integer> list1 = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
         List<String> words = new ArrayList<>(Arrays.asList("Apple", "Orange", "Lemon", "Guava", "Roseberry", "Grape", "Banana", "Kivic"));
         List<Integer> list2 = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7));
+
+
+
  /*
-        Implement a custom collector to calculate the product of all integers in a list.
+Implement a custom collector to calculate the product of all integers in a list.
 Group a list of objects by a property and count occurrences using streams.
 Combine elements from multiple lists using streams (e.g., zip operation).
 Implement a stream pipeline to read lines from a file and process them.
 Find the frequency of each word in a list of strings using streams.
 Given a list of integers, find the k-th smallest element using streams.
-Reverse a list of strings using streams.
-Implement a stream to generate Fibonacci sequence up to a specified number of terms.
-Check if two lists of integers have any common elements using streams.
-Convert a list of objects to JSON using streams.
-Implement a stream to read data from a database and process it.
-Find the difference between the largest and smallest integers in a list using streams.
-Calculate the median of a list of integers using streams.
-Given a list of strings, find the most common character using streams.
-Implement a stream to parse and process XML data.
-Filter a list of strings to get only those starting with a vowel using streams.
-Compute the cumulative sum of integers in a list using streams.
-    */
+ */
+
+//xReverse a list of strings using streams.
+        String reversedListOFStrings = String.valueOf(words.stream().sorted(Collections.reverseOrder()).collect(Collectors.toList()));
+        System.out.println(reversedListOFStrings);
+
+
+//Implement a stream to generate Fibonacci sequence up to a specified nullmber of terms.
+        int numTerms = 5; // Specify the number of terms
+
+        // Generate Fibonacci sequence using Streams
+        List<Integer> fibonacciNumbers = Stream.iterate(new int[]{0, 1}, fib -> new int[]{fib[1], fib[0] + fib[1]})
+                .limit(numTerms)
+                .map(fib -> fib[0])  // Extract the first number of each pair
+                .collect(Collectors.toList());
+
+        System.out.println("Fibonacci Sequence: " + fibonacciNumbers);
+
+
+//Check if two lists of integers have any common elements using streams.
+        List<Integer> commonElements = list1.stream().filter(list2::contains).collect(Collectors.toList());
+
+        System.out.println(commonElements);
+//Convert a list of objects to JSON using streams.
+
+
+//Implement a stream to read data from a database and process it.
+
+
+//Find the difference between the largest and smallest integers in a list using streams.
+        int min = list1.stream().min(Comparator.naturalOrder()).get();
+        int max = list1.stream().max(Comparator.naturalOrder()).get();
+        int difference = max - min;
+        System.out.println(difference);
+
+
+//Calculate the median of a list of integers using streams.
+        OptionalDouble median = list1.stream()
+                .sorted() // Sort the list
+                .collect(Collectors.collectingAndThen(Collectors.toList(), sortedList -> {
+                    int size = sortedList.size();
+                    if (size % 2 == 1) {
+                        return OptionalDouble.of(sortedList.get(size / 2)); // Odd size -> Middle element
+                    } else {
+                        return OptionalDouble.of((sortedList.get(size / 2 - 1) + sortedList.get(size / 2)) / 2.0); // Even size -> Average of middle elements
+                    }
+                }));
+
+        System.out.println("Median: " + (median.isPresent() ? median.getAsDouble() : "No data"));
+
+
+//Given a list of strings, find the most common character using streams.
+        Character frequentCharacter = words.stream()
+                .flatMap(word -> word.chars().mapToObj(c -> (char) c)) // Convert words to character stream
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting())) // Count occurrences
+                .entrySet().stream()
+                .max(Map.Entry.comparingByValue()) // Find max entry (most common character)
+                .map(Map.Entry::getKey)
+                .orElse(null); // Handle empty list case
+
+        System.out.println("Most common character: " + frequentCharacter);
+
+
+//Implement a stream to parse and process XML data.
+
+
+//Filter a list of strings to get only those starting with a vowel using streams.
+        List<String> vowelsStartingStrings = words.stream()
+                .filter(w -> w.matches("(?i)^[aeiou].*"))  // ✅ Regex to check if word starts with a vowel
+                .collect(Collectors.toList());
+        System.out.println(vowelsStartingStrings);
 
 
 //Implement a stream to perform batch processing of data.
@@ -300,3 +363,4 @@ Compute the cumulative sum of integers in a list using streams.
         System.out.println("Batch processed: " + batch);
     }
 }
+

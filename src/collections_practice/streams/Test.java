@@ -46,7 +46,7 @@ Stream.of() or Arrays.stream() for arrays.*
         boolean hasEven = numbers.stream().anyMatch(n -> n % 11 == 0);
         System.out.println("Has even? " + hasEven);
 
-        List<Person> people = List.of(new Person("Alice", 30), new Person("Bob", 25));
+        List<PersonClass> people = List.of(new PersonClass("Alice", 30), new PersonClass("Bob", 25));
         people.stream().filter(person -> person.getAge() > 20).forEach(System.out::println);
 
     }
