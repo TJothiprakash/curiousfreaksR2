@@ -14,8 +14,6 @@ public class mar_5 {
         List<String> words = new ArrayList<>(Arrays.asList("Apple", "Orange", "Lemon", "Guava", "Roseberry", "Grape", "Banana", "Kivic"));
         List<Integer> list2 = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7));
 
-
-
  /*
 Implement a custom collector to calculate the product of all integers in a list.
 Group a list of objects by a property and count occurrences using streams.
