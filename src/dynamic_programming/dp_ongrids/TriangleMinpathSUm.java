@@ -25,16 +25,16 @@ public class TriangleMinpathSUm {
     // Function to find the minimum path sum in the triangle
     static int minimumPathSum(int[][] triangle, int n) {
         // Create a 2D array to store computed results, initialize with -1
-        int dp[][] = new int[n][n];
-        for (int row[] : dp)
+        int[][] dp = new int[n][n];
+        for (int[] row : dp)
             Arrays.fill(row, -1);
 
         // Call the utility function to find the minimum path sum starting from the top
         return minimumPathSumUtil(0, 0, triangle, n, dp);
     }
 
-    public static void main(String args[]) {
-        int triangle[][] = {{1},
+    public static void main(String[] args) {
+        int[][] triangle = {{1},
                 {2, 3},
                 {3, 6, 7},
                 {8, 9, 6, 10}};

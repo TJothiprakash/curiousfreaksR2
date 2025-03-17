@@ -29,7 +29,7 @@ public class TopKFrequentElements {
 
         // Step 4: Reverse the list to return in decreasing order of frequency
         Collections.reverse(result);
-        int ans[]=new int[result.size()];
+        int[] ans =new int[result.size()];
         int i=0;
         for(int num:result){
             ans[i++]=num;

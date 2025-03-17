@@ -41,7 +41,7 @@ class CoinDenominations {
         int[][] dp = new int[n][T + 1];
 
         // Initialize the dp array with -1 to indicate that subproblems are not solved yet
-        for (int row[] : dp)
+        for (int[] row : dp)
             Arrays.fill(row, -1);
 
         // Calculate the minimum number of elements to achieve the target sum
@@ -53,8 +53,8 @@ class CoinDenominations {
         return ans;
     }
 
-    public static void main(String args[]) {
-        int arr[] = {1, 2, 3};
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3};
         int T = 7;
 
         // Call the minimumElements function and print the result

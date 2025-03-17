@@ -10,7 +10,7 @@ class Main{
         int[][] edge = {{0,1},{0,3},{3,4},{4,5},{5,6},{1,2},{2,6},{6,7},{7,8},{6,8}};
 
         ShortestPathUnitValues obj = new ShortestPathUnitValues();
-        int res[] = obj.shortestPath(edge,n,m,0);
+        int[] res = obj.shortestPath(edge,n,m,0);
         for(int i=0;i<n;i++){
             System.out.print(res[i]+" ");
         }
@@ -32,7 +32,7 @@ public class ShortestPathUnitValues {
         }
         //A dist array of size N initialised with a large number to
         //indicate that initially all the nodes are untraversed.
-        int dist[] = new int[n];
+        int[] dist = new int[n];
         for(int i = 0;i<n;i++) dist[i] = (int)1e9;
         dist[src] = 0;
 

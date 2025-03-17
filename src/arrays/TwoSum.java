@@ -16,7 +16,7 @@ Expected Time Complexity: O(n)
 Expected Auxiliary Space: O(n)*/
 public class TwoSum {
     public static void main(String[] args) {
-        int arr[] = {1, 4, 45, 6, 10, 8};//`1,4,6,8,10,45
+        int[] arr = {1, 4, 45, 6, 10, 8};//`1,4,6,8,10,45
         int target = 11;
       //  System.out.println(twoSum(arr, target));
         System.out.println(threeSum(arr, target));

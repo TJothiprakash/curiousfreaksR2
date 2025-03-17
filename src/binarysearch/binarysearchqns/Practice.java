@@ -99,7 +99,7 @@ public class Practice {
         return new int[]{first, last};
     }
 
-    public static int countNoOfOccurrence(int arr[], int n, int x) {
+    public static int countNoOfOccurrence(int[] arr, int n, int x) {
         int[] ans = firstAndLastPosition(arr, n, x);
         if (ans[0] == -1) return 0;
         return (ans[1] - ans[0] + 1);
@@ -292,7 +292,7 @@ public class Practice {
         return -1;
     }
 
-    int search(int arr[], int target) {
+    int search(int[] arr, int target) {
         int left = 0;
         int right = arr.length - 1;
         while (left <= right) {
@@ -311,7 +311,7 @@ public class Practice {
     }
 
     // lower bound
-    int lowerBound(int arr[], int target) {
+    int lowerBound(int[] arr, int target) {
         int left = 0, right = arr.length - 1;
         int ans = -1;
         while (left <= right) {
@@ -329,7 +329,7 @@ public class Practice {
     }
 
     // upper bound
-    int upperBound(int arr[], int target) {
+    int upperBound(int[] arr, int target) {
         int left = 0, right = arr.length - 1;
         int ans = -1;
         while (left <= right) {
@@ -346,7 +346,7 @@ public class Practice {
         return ans;
     }
 
-    int searchInRotatedSortedArray(int arr[], int target) {
+    int searchInRotatedSortedArray(int[] arr, int target) {
         int left = 0, right = arr.length - 1;
         while (left <= right) {
             int mid = left + (right - left) / 2; // Avoid potential overflow

@@ -28,8 +28,8 @@ public class FallingPathSum {
         int n = matrix.length;
         int m = matrix[0].length;
 
-        int dp[][] = new int[n][m];
-        for (int row[] : dp)
+        int[][] dp = new int[n][m];
+        for (int[] row : dp)
             Arrays.fill(row, -1);
 
         int maxi = Integer.MIN_VALUE;
@@ -43,8 +43,8 @@ public class FallingPathSum {
         return maxi;
     }
 
-    public static void main(String args[]) {
-        int matrix[][] = {{1, 2, 10, 4},
+    public static void main(String[] args) {
+        int[][] matrix = {{1, 2, 10, 4},
                 {100, 3, 2, 1},
                 {1, 1, 20, 2},
                 {1, 2, 2, 1}};

@@ -7,7 +7,7 @@ import java.util.List;
 
 public class day_2 {
     public static void main(String[] args) {
-        int arr[][] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int[][] arr = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
       /*  System.out.println("Original Array");
         extracted(arr);
         System.out.println("Rotated Array");
@@ -18,13 +18,13 @@ public class day_2 {
        /* int arr1[][] = {{1, 3}, {2, 6}, {8, 10}, {15, 18}};
         mergeIntervals(arr1);*/
         // find duplicates
-        int arr1[] = new int[]{1, 2, 3, 3, 4, 5,};
+        int[] arr1 = new int[]{1, 2, 3, 3, 4, 5,};
         System.out.println(findDuplicateUsingVisitedIndexMethod(arr1));
     }
 
     // rotate array using extra space
-    public static int[][] rotateArray(int arr[][]) {
-        int result[][] = new int[arr.length][arr[0].length];
+    public static int[][] rotateArray(int[][] arr) {
+        int[][] result = new int[arr.length][arr[0].length];
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[0].length; j++) {
                 result[j][arr.length - i - 1] = arr[i][j];
@@ -45,7 +45,7 @@ public class day_2 {
         }
     }
 
-    public static int[][] rotateArrayInPlace(int arr[][]) {
+    public static int[][] rotateArrayInPlace(int[][] arr) {
         //TODO
         // logic : transpose the matrix and reverse the rows
 
@@ -69,7 +69,7 @@ public class day_2 {
     }
 
     // merge overlapping intervals
-    public static List<List<Integer>> mergeIntervals(int arr[][]) {
+    public static List<List<Integer>> mergeIntervals(int[][] arr) {
         //TODO
         // sort the array based on the first element
         // iterate trhough the lsit and merge the intervals
@@ -103,7 +103,7 @@ public class day_2 {
     }
 
     // merge two sorted arrays without extra space
-    public static void mergeSortedArrays(int arr1[], int arr2[]) {
+    public static void mergeSortedArrays(int[] arr1, int[] arr2) {
         //TODO
         // logic : compare the last element of arr1 with first element of arr2
         // if arr1[i] > arr2[j] then swap the elements
@@ -214,7 +214,7 @@ public class day_2 {
     //TODO
     // use bruteforce sort the array and iterate thfough it O log n
     // use frequency array O n
-    public int findDuplicate(int arr[]) {
+    public int findDuplicate(int[] arr) {
 
         int[] freq = new int[arr.length + 1];
         for (int num : arr) {

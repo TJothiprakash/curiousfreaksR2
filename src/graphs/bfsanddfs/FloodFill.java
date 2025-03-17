@@ -21,7 +21,7 @@ class FloodFill {
     private void dfs(int row, int col,
                      int[][] ans,
                      int[][] image,
-                     int newColor, int delRow[], int delCol[],
+                     int newColor, int[] delRow, int[] delCol,
                      int iniColor) {
         // color with new color
         ans[row][col] = newColor;
@@ -44,8 +44,8 @@ class FloodFill {
         // get initial color
         int iniColor = image[sr][sc];
         // delta row and delta column for neighbours
-        int delRow[] = {-1, 0, +1, 0};
-        int delCol[] = {0, +1, 0, -1};
+        int[] delRow = {-1, 0, +1, 0};
+        int[] delCol = {0, +1, 0, -1};
         dfs(sr, sc, image, image, newColor, delRow, delCol, iniColor);
         return image;
     }

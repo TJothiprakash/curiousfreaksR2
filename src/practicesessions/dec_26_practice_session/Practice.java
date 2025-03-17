@@ -181,9 +181,9 @@ public class Practice {
         return result;
     }
 
-    public void reArrangeArray(int arr[]) {
+    public void reArrangeArray(int[] arr) {
         int left = 0, right = arr.length - 1;
-        int result[] = new int[arr.length]; // To store rearranged elements
+        int[] result = new int[arr.length]; // To store rearranged elements
         int index = 0;
 
         // Traverse and fill the result array with largest and smallest alternately
@@ -202,12 +202,12 @@ public class Practice {
         System.arraycopy(result, 0, arr, 0, arr.length);
     }
 
-    public void reArrangeArrayInplaceModification(int arr[]) {
+    public void reArrangeArrayInplaceModification(int[] arr) {
         int n = arr.length;
 
     }
 
-    public void countInversions(int arr[]) {
+    public void countInversions(int[] arr) {
 
     }
 }

@@ -9,7 +9,7 @@ import java.util.List;
 public class UtilityMethods {
     public static void main(String[] args) {
         List<Integer> list = new ArrayList<>();
-        int arr[] = new int[]{1, 2, 4, 6, 23, 2, 3, 0, 43, 43, 89, 65,0,0};
+        int[] arr = new int[]{1, 2, 4, 6, 23, 2, 3, 0, 43, 43, 89, 65,0,0};
         //list = List.of(1, 2, 3, 1, 2, 7, 8, 4, 5, 9);
         for (int i = 0; i < arr.length; i++) {
             list.add(arr[i]);

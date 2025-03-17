@@ -48,7 +48,7 @@ public class Practice {
         return listofSubarrays;
     }
 
-    public static void printSubarrays(int numbers[]) {
+    public static void printSubarrays(int[] numbers) {
         for (int i = 0; i < numbers.length; i++) {
             for (int j = i; j < numbers.length; j++) {
                 for (int k = i; k <= j; k++) {
@@ -60,7 +60,7 @@ public class Practice {
         }
     }
 
-    public int longestConsequitiveSequence(int arr[]) {
+    public int longestConsequitiveSequence(int[] arr) {
         int longest = 1;
         Set<Integer> set = new HashSet<>();
         for (int i = 0; i < arr.length; i++) {
@@ -82,7 +82,7 @@ public class Practice {
         return longest;
     }
 
-    public List<Integer> leadersinanArray(int arr[]) {
+    public List<Integer> leadersinanArray(int[] arr) {
         List<Integer> leaders = new ArrayList<>();
         int rightmax = arr[arr.length - 1];
         leaders.add(rightmax);  // First element is always a leader
@@ -98,7 +98,7 @@ public class Practice {
         return leaders;
     }
 
-    public List<List<Integer>> recurPermute(int arr[]) {
+    public List<List<Integer>> recurPermute(int[] arr) {
         List<List<Integer>> listOfPerMutations = new ArrayList<>();
         helperForPermutations(arr, 0, listOfPerMutations);
         return listOfPerMutations;
@@ -146,7 +146,7 @@ public class Practice {
     // Java code to print all possible subarrays for given array
 
     //maxprofit
-    public int maxProfit(int arr[]) {
+    public int maxProfit(int[] arr) {
         int maxp = Integer.MIN_VALUE;
         int minprice = Integer.MAX_VALUE;
         for (int i = 0; i < arr.length; i++) {
@@ -156,7 +156,7 @@ public class Practice {
         return maxp;
     }
 
-    public int maxSubArraySum(int arr[]) {
+    public int maxSubArraySum(int[] arr) {
         int sum = 0, maxSum = 0;
 
         for (int i = 0; i < arr.length; i++) {
@@ -166,7 +166,7 @@ public class Practice {
         return maxSum;
     }
 
-    public boolean sumofTwo(int arr[], int target) {
+    public boolean sumofTwo(int[] arr, int target) {
         for (int i = 0; i < arr.length - 1; i++) {
             if (arr[i] + arr[i + 1] == target) {
                 return true;

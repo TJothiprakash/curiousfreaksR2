@@ -33,7 +33,7 @@ public class MCMusingTabulation {
         int[][] dp = new int[N][N];
 
         // Initialize the dp array with -1
-        for (int row[] : dp) {
+        for (int[] row : dp) {
             Arrays.fill(row, -1);
         }
 

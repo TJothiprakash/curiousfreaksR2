@@ -35,7 +35,7 @@ public class NinjaTraining {
     // Function to find the maximum points for ninja training
     static int ninjaTraining(int n, int[][] points) {
         // Initialize a memoization table with -1 values
-        int dp[][] = new int[n][4];
+        int[][] dp = new int[n][4];
         for (int[] row : dp)
             Arrays.fill(row, -1);
 
@@ -43,7 +43,7 @@ public class NinjaTraining {
         return f(n - 1, 3, points, dp);
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         // Define the points for each activity on each day
         int[][] points = {{10, 40, 70},
                 {20, 50, 80},

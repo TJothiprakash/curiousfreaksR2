@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Stack;
 
 public class ClassicStackQns {
-    public static List<Integer> ngeOnLeft(int arr[]) {
+    public static List<Integer> ngeOnLeft(int[] arr) {
         List<Integer> result = new ArrayList<>();
         Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < arr.length; i++) {
@@ -54,7 +54,7 @@ public class ClassicStackQns {
         return result;
     }
 
-    public static List<Integer> nseOnLeft(int arr[]) {
+    public static List<Integer> nseOnLeft(int[] arr) {
         Stack<Integer> stack = new Stack<>();
         List<Integer> result = new ArrayList<>();
 
@@ -72,7 +72,7 @@ public class ClassicStackQns {
         return result;
     }
 
-    public static List<Integer> nseOnRight(int arr[]) {
+    public static List<Integer> nseOnRight(int[] arr) {
         Stack<Integer> stack = new Stack<>();
         List<Integer> result = new ArrayList<>();
 

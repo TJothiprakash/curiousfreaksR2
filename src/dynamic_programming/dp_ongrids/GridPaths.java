@@ -28,7 +28,7 @@ public class GridPaths {
     // Function to count the number of ways to reach cell (m-1, n-1)
     static int countWays(int m, int n) {
         // Create a 2D DP array to store the results
-        int dp[][] = new int[m][n];
+        int[][] dp = new int[m][n];
 
         // Initialize the DP array with -1 to indicate uncomputed values
         for (int[] row : dp)
@@ -38,7 +38,7 @@ public class GridPaths {
         return countWaysUtil(m - 1, n - 1, dp);
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         int m = 100;
         int n = 67;
 

@@ -6,7 +6,7 @@ import java.util.Queue;
 
 // bfs
 public class Practice {
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             adj.add(new ArrayList<>());

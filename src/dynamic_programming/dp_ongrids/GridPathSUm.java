@@ -24,7 +24,7 @@ public class GridPathSUm {
 
     // Main function to calculate the minimum sum path in the matrix
     static int minSumPath(int n, int m, int[][] matrix) {
-        int dp[][] = new int[n][m];
+        int[][] dp = new int[n][m];
 
         // Initialize the DP matrix with -1
         for (int[] row : dp)

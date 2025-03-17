@@ -24,7 +24,8 @@ class PersonClass {
 }
 
 public class Main2 {
-    public static void main(String[] args) {
+
+        public static void main(String[] args) {
         List<PersonClass> people = List.of(
                 new PersonClass("Alice", 30),
                 new PersonClass("Bob", 25),
@@ -37,5 +38,6 @@ public class Main2 {
                 .collect(Collectors.joining(",", "[", "]"));
 
         System.out.println(jsonArray);
+        System.out.println("lets look on somethign else");
     }
 }

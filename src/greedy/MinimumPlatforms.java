@@ -47,7 +47,7 @@ Update the maximum platforms required after each change.
 import java.util.Arrays;
 
 public class MinimumPlatforms {
-    public static int findPlatform(int arr[], int dep[]) {
+    public static int findPlatform(int[] arr, int[] dep) {
         // Sort arrival and departure times
         Arrays.sort(arr);
         Arrays.sort(dep);
@@ -73,8 +73,8 @@ public class MinimumPlatforms {
     }
 
     public static void main(String[] args) {
-        int arr[] = {900, 940, 950, 1100, 1500, 1800};
-        int dep[] = {910, 1200, 1120, 1130, 1900, 2000};
+        int[] arr = {900, 940, 950, 1100, 1500, 1800};
+        int[] dep = {910, 1200, 1120, 1130, 1900, 2000};
 
         System.out.println("Minimum Platforms Required = " + findPlatform(arr, dep));
     }

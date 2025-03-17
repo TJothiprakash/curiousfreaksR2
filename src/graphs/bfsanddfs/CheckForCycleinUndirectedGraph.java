@@ -8,7 +8,7 @@ import java.util.Queue;
 public class CheckForCycleinUndirectedGraph {
 
     static boolean checkForCycle(ArrayList<ArrayList<Integer>> adj, int s,
-                                 boolean vis[], int parent[]) {
+                                 boolean[] vis, int[] parent) {
         Queue<Node> q = new LinkedList<>(); //BFS
         q.add(new Node(s, -1));
         vis[s] = true;
@@ -55,9 +55,9 @@ public class CheckForCycleinUndirectedGraph {
 
     // function to detect cycle in an undirected graph
     public boolean isCycle(int V, ArrayList<ArrayList<Integer>> adj) {
-        boolean vis[] = new boolean[V];
+        boolean[] vis = new boolean[V];
         Arrays.fill(vis, false);
-        int parent[] = new int[V];
+        int[] parent = new int[V];
         Arrays.fill(parent, -1);
 
         for (int i = 0; i < V; i++)

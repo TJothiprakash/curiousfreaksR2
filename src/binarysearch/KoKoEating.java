@@ -3,7 +3,7 @@ package binarysearch;
 
 public class KoKoEating {
     public static int findMax(int[] v) {
-        int maxi = Integer.MIN_VALUE;;
+        int maxi = Integer.MIN_VALUE;
         int n = v.length;
         //find the maximum:
         for (int i = 0; i < n; i++) {

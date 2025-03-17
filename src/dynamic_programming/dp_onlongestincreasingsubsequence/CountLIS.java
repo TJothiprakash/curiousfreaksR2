@@ -43,7 +43,7 @@ class CountLis {
         return nos;
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
 
         int[] arr = {1, 5, 4, 3, 2, 6, 7, 2};
 

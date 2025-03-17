@@ -44,7 +44,7 @@ bills[i] contains only {5, 10, 20}*/
 public class Lemanode {
 
 
-    static boolean lemonadeChange(int N, int bills[]) {
+    static boolean lemonadeChange(int N, int[] bills) {
         // code here
         int five = 0;
         int ten = 0;

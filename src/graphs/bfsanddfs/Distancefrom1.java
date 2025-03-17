@@ -26,8 +26,8 @@ public class Distancefrom1 {
         int n = grid.length;
         int m = grid[0].length;
         // visited and distance matrix
-        int vis[][] = new int[n][m];
-        int dist[][] = new int[n][m];
+        int[][] vis = new int[n][m];
+        int[][] dist = new int[n][m];
         // <coordinates, steps>
         Queue<Node1> q = new LinkedList<Node1>();
         // traverse the matrix
@@ -45,8 +45,8 @@ public class Distancefrom1 {
         }
 
 
-        int delrow[] = {-1, 0, +1, 0};
-        int delcol[] = {0, +1, 0, -1};
+        int[] delrow = {-1, 0, +1, 0};
+        int[] delcol = {0, +1, 0, -1};
 
 
         // n x m x 4

@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class LongestIncreasingSubsequence {
     // Function to find the length of the longest increasing subsequence
-    static int getAns(int arr[], int n, int ind, int prev_index, int[][] dp) {
+    static int getAns(int[] arr, int n, int ind, int prev_index, int[][] dp) {
         // Base condition
         if (ind == n) {
             return 0;
@@ -29,19 +29,19 @@ public class LongestIncreasingSubsequence {
     }
 
     // Function to find the length of the longest increasing subsequence
-    static int longestIncreasingSubsequence(int arr[], int n) {
-        int dp[][] = new int[n][n + 1];
+    static int longestIncreasingSubsequence(int[] arr, int n) {
+        int[][] dp = new int[n][n + 1];
 
         // Initialize dp array with -1 to mark states as not calculated yet
-        for (int row[] : dp) {
+        for (int[] row : dp) {
             Arrays.fill(row, -1);
         }
 
         return getAns(arr, n, 0, -1, dp);
     }
 
-    public static void main(String args[]) {
-        int arr[] = {10, 9, 2, 5, 3, 7, 101, 18};
+    public static void main(String[] args) {
+        int[] arr = {10, 9, 2, 5, 3, 7, 101, 18};
 
         int n = arr.length;
 

@@ -30,17 +30,17 @@ public class Substring {
         int m = s2.length();
 
         // Create a 2D array to store results of subproblems
-        int dp[][] = new int[n][m];
+        int[][] dp = new int[n][m];
 
         // Initialize the dp array with -1 to indicate that subproblems are not solved yet
-        for (int rows[] : dp)
+        for (int[] rows : dp)
             Arrays.fill(rows, -1);
 
         // Call the recursive function to find the LCS length
         return lcsUtil(s1, s2, n - 1, m - 1, dp);
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         String s1 = "acde";
         String s2 = "cede";
 

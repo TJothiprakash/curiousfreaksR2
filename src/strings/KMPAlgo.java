@@ -4,7 +4,7 @@ public class KMPAlgo {
     static int kmp(String string, String pattern) {
         int i = 0, j = 0, m = pattern.length(), n = string.length();
         pattern = ' ' + pattern; //just shifting the pattern indices by 1
-        int piTable[] = new int[m + 1];
+        int[] piTable = new int[m + 1];
         for (i = 2; i <= m; i++) {
             while (j <= m && pattern.charAt(j + 1) == pattern.charAt(i))
                 piTable[i++] = ++j;
@@ -23,7 +23,7 @@ public class KMPAlgo {
 
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         String pattern = "aaaaaab", string = "aaaaaaaamaaaaaab";
 
         int index = kmp(string, pattern);

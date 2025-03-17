@@ -8,7 +8,7 @@ public class ArrayOperations {
         int min = arr[0];
         System.out.println("Max element is "+max+"\n min element is "+min);
 */
-        int arr1[]={1,2,4,5,6,7,8,9};
+        int[] arr1 ={1,2,4,5,6,7,8,9};
         int ans= findMissingElement(arr1);
         System.out.println("Missing element is "+ans);
 
