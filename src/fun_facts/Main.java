@@ -23,12 +23,38 @@ public class Main {
         System.out.println();
         System.out.println("All persons:");
         System.out.println(personsList.getAllPersons());
+        System.out.println();
+        Main main = new Main();
+        main.letsprocesAnnotation();
+    }
 
+    @Hello(value ="hi")
+    public void letsprocesAnnotation( ){
+        System.out.println();
+        System.out.println("@hello annotation processed");
     }
 
 
 
 
-
-
 }
+
+
+record Employee(Person person, String role) {
+}
+
+class Test2 {
+    public static void main(String[] args) {
+        Employee e = new Employee(null, "Software Engineer"); // ❌ Passing null!
+
+        System.out.println(e);  // ✅ Prints: Employee[person=null, role=Software Engineer]
+
+//        if (e.person() == null) {
+//            System.out.println("person is null");
+//        } else {
+            // ❌ Trying to access inner record will cause NullPointerException (NPE)
+            System.out.println(e.person().name()); // 💥 Throws NullPointerException!
+//        }
+    }
+}
+
