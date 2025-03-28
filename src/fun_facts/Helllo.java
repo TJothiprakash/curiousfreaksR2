@@ -25,11 +25,14 @@ class B {
         System.out.println("Memory Address of A.num in Class B: " + System.identityHashCode(A.num));
     }
 }
- class Main {
+ class Main1 {
     public static void main(String[] args) {
         System.out.println("Memory Address of A.num in Main: " + System.identityHashCode(A.num));
 
         B obj = new B();
         obj.checkAddress(); // Checking from another class
+
     }
+
+
 }
