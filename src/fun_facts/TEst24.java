@@ -2,7 +2,17 @@ package fun_facts;
 
 import java.io.IOException;
 
-public class je {
+public class TEst24 {
+    public static void main(String[] args) {
+        try {
+            throw new ArithmeticException("Oops!");
+        } catch (ArithmeticException e) {
+            System.out.println("Arithmetic Exception caught");
+        } finally {
+            System.out.println("Finally block executed");
+        }
+        System.out.println("End of program");
+    }
 }
  class Test3 {
     public static void main(String[] args) {
