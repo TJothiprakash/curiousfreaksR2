@@ -1,4 +1,4 @@
-package april_16;
+package practicesessions.april_16;
 
 public class CustomLinkedList<T> {
     private Node<T> head;
@@ -117,4 +117,26 @@ public class CustomLinkedList<T> {
         temp.setNext(newNode);
         System.out.println("Inserted " + data + " at index " + index);
     }
+
+    public void reverseLinkedList(Node<T> head){
+
+        Node<T> prev = null;
+        Node<T> current = head;
+        Node<T> next = null;
+
+        while(current != null){
+            next = current.getNext();
+            current.setNext(prev);
+            prev = current;
+            current = next;
+
+
+        }
+        head = prev;
+        System.out.println("Reversed linked list");
+
+    }
+
+
+
 }
