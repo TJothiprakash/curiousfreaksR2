@@ -3,16 +3,44 @@ package fun_facts;
 
 public class Helllo{
 
-    static class  Hi {
-        public Hi() {
-            System.out.println("Hello World");
-        }
-    }
      public static void main(String[] args) {
         Hi hi = new Hi();
-        System.out.println(hi.getClass().getName());
-        Hi hi1 = new Hi();
-        // System.out.println(hi + "            /n"+hi1);
+//         System.out.println();
+//        System.out.println(hi.getClass().getName());
+//        Hi hi1 = new Hi();
+//         System.out.println(hi1.Hi());
+//         System.out.println(hi + "            /n" + hi1);
+//
+////         var var = 25;
+////         System.out.println(var);
+//         String multilineStr = "Line 1\nLine 2\rLine 3";
+//         multilineStr.lines().forEach(System.out::println);
+//// Outputs:
+// Line 1
+// Line 2
+// Line 3
+        String something = "hahah";
+
+         switch (something){
+             case "one" :
+                 System.out.println("one ");
+                 break;
+             case  "two":
+                 System.out.println("tow ");
+                 break;
+             default:
+                 System.out.println("nothing thsiis default ");
+                 break;
+         }
+
+     }
+
+    static class  Hi {
+        public String Hi() {
+            System.out.println("Hello World");
+            return "HI JP!!!";
+        }
+
     }
 }
 

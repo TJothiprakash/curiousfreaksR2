@@ -2,16 +2,9 @@ package basicmath;
 
 public class PrimeNo {
     public static void main(String[] args) {
-        System.out.println(Solution1.isPrime(5));  // Output: 1 (prime)
-        System.out.println(Solution1.isPrime(25)); // Output: 0 (not prime)
-        System.out.println(Solution1.isPrime(2));  // Output: 1 (prime)
-        System.out.println(Solution1.isPrime(1));  // Output: 0 (not prime)
-    }
+          }
 
 
-}
-
- class Solution1 {
     public static int isPrime(int n) {
         // Handle edge cases
         if (n <= 1) {
