@@ -1,4 +1,4 @@
-package LLD.splitexpensesharingsystem;
+package lld.splitexpensesharingsystem;
 
 import java.util.Arrays;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package LLD.splitexpensesharingsystem;
+package lld.splitexpensesharingsystem;
 
 public class Main {
 }
