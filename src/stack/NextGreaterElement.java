@@ -39,20 +39,20 @@ public class NextGreaterElement {
         return result;
     }
 
-
-    // circular next greater element
-    public static List<Integer> ngeUsingStackCircular(int []nums){
-        List<Integer> result = new ArrayList<>();
-        Stack<Integer> stack = new Stack<>();
-        for(int i=nums.length-1;i>=0;i--){
-            while(!stack.isEmpty() && stack.peek()<=nums[i]){
-                stack.pop();
-            }
-            result.add(stack.isEmpty()? -1:stack.peek());
-            stack.push(nums[i]);
-        }
-        return result.reversed();
-    }
+//
+//    // circular next greater element
+//    public static List<Integer> ngeUsingStackCircular(int []nums){
+//        List<Integer> result = new ArrayList<>();
+//        Stack<Integer> stack = new Stack<>();
+//        for(int i=nums.length-1;i>=0;i--){
+//            while(!stack.isEmpty() && stack.peek()<=nums[i]){
+//                stack.pop();
+//            }
+//            result.add(stack.isEmpty()? -1:stack.peek());
+//            stack.push(nums[i]);
+//        }
+//        return result.reversed();
+//    }
 /*
     public int[] nextGreaterElements(int[] nums) {
         int [] ans=new int[nums.length];

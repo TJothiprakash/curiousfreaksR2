@@ -2,6 +2,7 @@ package heaps;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Collections;
 import java.util.PriorityQueue;
 
 public class MinHeapQn {
@@ -23,7 +24,7 @@ public class MinHeapQn {
         }
        // System.out.println(minheap);
         ArrayList result = new ArrayList(minheap);
-        Collections.sort(result.reversed());
+      //  Collections.sort(result.reversed());
        // System.out.println(result);
        return result;
     }
