@@ -16,6 +16,39 @@ Constraints:
 n*sum of elements ≤ 5*106
 
 */
+
+
+
+/*class Solution {
+    static boolean equalPartition(int arr[]) {
+        // code here
+
+        int sum =0;
+        for(int i: arr){
+            sum+=i;
+        }
+
+
+        if(sum %2 !=0) return false;
+        int target = sum/2;
+        return canPartition(arr,target, 0);
+    }
+    static boolean canPartition(int []arr,int target, int index){
+
+        if(target ==0)return true;
+
+        if(index >= arr.length) return false;
+
+        boolean take= false;
+
+        if(arr[index] <= target){
+            take = canPartition(arr, target - arr[index], index+1);
+        }
+        boolean nottake = canPartition (arr, target, index +1);
+
+        return take||nottake;
+    }
+}*/
 public class EqualPartition {
     public static boolean canPartition(int[] arr) {
         int totalSum = Arrays.stream(arr).sum();
