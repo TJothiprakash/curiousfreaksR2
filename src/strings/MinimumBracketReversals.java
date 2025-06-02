@@ -26,4 +26,9 @@ public class MinimumBracketReversals {
 
         return (opening_count + 1) / 2 + (closing_count + 1) / 2;
     }
+
+    public static void main(String[] args) {
+        String s = "}{{}}{{{";
+        System.out.println(countReversals(s));
+    }
 }

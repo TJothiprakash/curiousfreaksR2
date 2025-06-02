@@ -1,0 +1,47 @@
+| Context           | Subject (Publisher) | Observers                   |
+| ----------------- | ------------------- | --------------------------- |
+| GUI Framework     | Button              | Click listeners             |
+| Stock Market App  | Stock price server  | UI clients, SMS alerts      |
+| Chat App          | Chatroom server     | Connected clients           |
+| Weather App       | Weather station API | Mobile app widgets          |
+| Logging Framework | Logger              | File logger, console logger |
+| Game Engine       | Game state          | UI HUD, audio engine        |
+
+
+Pros & Cons
+✅ Pros
+Loose coupling
+
+Scalable (can add/remove observers dynamically)
+
+Great for real-time updates
+
+❌ Cons
+Can become complex with many observers
+
+Difficult to debug
+
+Risk of memory leaks if observers aren’t unsubscribed (especially in GUIs)
+
+🧠 7. Best Practices
+Keep the Observer interface minimal (void update() or void notify(data)).
+
+Allow dynamic registration/unregistration.
+
+Handle exceptions in observer notification — don't let one bad observer crash the loop.
+
+If you're in multithreaded environments → use CopyOnWriteArrayList or proper synchronization.
+
+Use lambdas / consumers in Java 8+ for cleaner observer definitions.
+
+🛠️ 8. Where to extend next?
+You can now explore:
+
+Generic Observer pattern (Observer<T>)
+
+Event-based systems (publishers send only to interested types)
+
+Reactive programming (RxJava, Project Reactor — next-level Observer)
+
+Java’s legacy Observable / Observer classes (not recommended but useful to study)
+

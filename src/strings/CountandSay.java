@@ -1,7 +1,32 @@
 package strings;
+class Solution {
+    public String countAndSay(int n) {
+        if (n == 1) {
+            return "1";
+        }
 
-public class CountandSay {
+        String previous = countAndSay(n - 1);
+        System.out.println("n = " + n + ", previous = " + previous);
+        StringBuilder result = new StringBuilder();
 
+        int count = 1;
+        for (int i = 0; i < previous.length(); i++) {
+            if (i + 1 < previous.length() && previous.charAt(i) == previous.charAt(i + 1)) {
+                count++;
+            } else {
+                result.append(count).append(previous.charAt(i));
+                count = 1;
+            }
+        }
+//        System.out.println("n = " + n + ", previous = " + previous);
+
+        return result.toString();
+    }
+
+    public static void main(String[] args) {
+        Solution s = new Solution();
+        System.out.println(s.countAndSay(5));
+    }
 }
 /*
 
