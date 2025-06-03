@@ -2,7 +2,10 @@ package basicmath;
 
 public class PrimeNo {
     public static void main(String[] args) {
-          }
+        int n = 13;
+        int ans = isPrime(n);
+        System.out.println((ans == 1) ? true : false);
+    }
 
 
     public static int isPrime(int n) {

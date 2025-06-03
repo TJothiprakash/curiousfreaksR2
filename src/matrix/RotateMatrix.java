@@ -1,6 +1,10 @@
 package matrix;
 
+import org.jetbrains.annotations.NotNull;
+
 public class RotateMatrix {
+    private static int[] @NotNull [] matrix;
+
     public static void main(String[] args) {
         int[][] arr = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
         System.out.println("Before Rotation");
@@ -25,7 +29,8 @@ public class RotateMatrix {
 
     }
 
-    public static void rotateMatrix(int[][] matrix) {
+    public static void rotateMatrix(int[] @NotNull [] matrix) {
+        RotateMatrix.matrix = matrix;
 
         int m = matrix.length, n = matrix[0].length;
         //tranpose the matrix
