@@ -24,6 +24,12 @@ public class NextGreaterElement {
         }
         return result;
     }
+
+    public static void main(String[] args) {
+        int[] nums1 = {1, 2, 3, 4};
+        System.out.println(nextGreaterElement(nums1));
+        System.out.println(ngeUsingStack(nums1));
+    }
     public static List<Integer> ngeUsingStack(int []numbs){
         List<Integer> result = new ArrayList<>();
         Stack<Integer> stack = new Stack<>();

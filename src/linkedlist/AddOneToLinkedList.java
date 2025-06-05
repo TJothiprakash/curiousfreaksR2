@@ -63,8 +63,8 @@ public class AddOneToLinkedList {
         AddOneToLinkedList list = new AddOneToLinkedList();
 
         // Creating a sample linked list: 9->9->9
-        ListNode head = new ListNode(9);
-        head.next = new ListNode(9);
+        ListNode head = new ListNode(3);
+        head.next = new ListNode(4);
         head.next.next = new ListNode(9);
 
         System.out.println("Original List:");

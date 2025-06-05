@@ -1,7 +1,7 @@
 package linkedlist.practice;
 
 public class Node {
-    int data;
+    final int data;
     Node next;
     public Node(int data){
         this.data = data;

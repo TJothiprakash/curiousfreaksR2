@@ -1,6 +1,8 @@
 package linkedlist;
 
 
+import static linkedlist.CustomLinkedList.reverse;
+
 public class AddTwoNumbers {
 
     // Example usage
@@ -25,9 +27,10 @@ public class AddTwoNumbers {
 
         // Adding the two numbers
         ListNode result = solution.addTwoNumbers(l1, l2);
-
+        String reversed=result.toString();
         System.out.println("Resultant Linked List (Sum):");
-        solution.printList(result);
+        System.out.println(reversed.toString());
+//        solution.printList(result);
     }
 
     // Function to add two numbers represented by linked lists
@@ -57,6 +60,7 @@ public class AddTwoNumbers {
             current.next = new ListNode(sum % 10);  // Create a new node for the current digit
             current = current.next;  // Move to the next node in the result list
         }
+
 
         // Return the next of dummy, as the dummy node was just a placeholder
         return dummy.next;
