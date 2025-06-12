@@ -33,11 +33,13 @@ public class CombinationSumI {
 
     public static void main(String[] args) {
         int[] arr = {2, 4, 6, 8};
+        int[] arr1 = {10, 1, 2, 7, 6, 1, 5};
         int target = 8;
         CombinationSumI sol = new CombinationSumI();
-        List<List<Integer>> result = sol.combinationSum(arr, target);
+        List<List<Integer>> result = sol.combinationSumII(arr1, target);
         System.out.println(result);
     }
+
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> result = new ArrayList<>();
         Arrays.sort(candidates); // Optional for pruning
@@ -56,6 +58,29 @@ public class CombinationSumI {
 
             current.add(arr[i]);
             backtrack(arr, target - arr[i], i, current, result); // Reuse allowed => i (not i + 1)
+            current.remove(current.size() - 1); // Backtrack
+        }
+    }
+
+    public List<List<Integer>> combinationSumII(int[] candidates, int target) {
+        List<List<Integer>> result = new ArrayList<>();
+        Arrays.sort(candidates); // Optional for pruning
+        backtrackII(candidates, target, 0, new ArrayList<>(), result);
+        return result;
+    }
+
+    private void backtrackII(int[] arr, int target, int start, List<Integer> current, List<List<Integer>> result) {
+        if (target == 0) {
+            result.add(new ArrayList<>(current));
+            return;
+        }
+
+        for (int i = start; i < arr.length; i++) {
+            if (i > start && arr[i] == arr[i - 1]) continue;
+            if (arr[i] > target) break; // Optimization
+
+            current.add(arr[i]);
+            backtrackII(arr, target - arr[i], i + 1, current, result); // Reuse not allowed
             current.remove(current.size() - 1); // Backtrack
         }
     }

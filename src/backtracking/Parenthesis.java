@@ -6,11 +6,11 @@ import java.util.List;
 public class Parenthesis {
     public static void main(String[] args) {
         Parenthesis sol = new Parenthesis();
-        System.out.println(sol.generateParenthesis(3));
-        System.out.println(sol.generateParenthesis(1));
+//        System.out.println(sol.generateParenthesis(3));
+//        System.out.println(sol.generateParenthesis(1));
         System.out.println(sol.generateParenthesis(4));
-        System.out.println(sol.generateParenthesis(5));
-        System.out.println(sol.generateParenthesis(6));
+//        System.out.println(sol.generateParenthesis(5));
+//        System.out.println(sol.generateParenthesis(6));
     }
     public List<String> generateParenthesis(int n) {
         List<String> result = new ArrayList<>();

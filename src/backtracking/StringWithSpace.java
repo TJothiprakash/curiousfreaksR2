@@ -8,16 +8,16 @@ public class StringWithSpace {
 
     public static void main(String[] args) {
         StringWithSpace sol = new StringWithSpace();
-        System.out.println(sol.permutation("abc"));
-        System.out.println(sol.permutation("ab"));
-        System.out.println(sol.permutation(""));
-        System.out.println(sol.permutation("a"));
+//        System.out.println(sol.permutation("abc"));
+//        System.out.println(sol.permutation("ab"));
+//        System.out.println(sol.permutation(""));
+//        System.out.println(sol.permutation("a"));
         System.out.println(sol.permutation("aa"));
-        System.out.println(sol.permutation("aaa"));
-
-
-
-        System.out.println(sol.permutation("a b c"));
+//        System.out.println(sol.permutation("aaa"));
+//
+//
+//
+//        System.out.println(sol.permutation("a b c"));
     }
     public List<String> permutation(String s) {
         List<String> result = new ArrayList<>();

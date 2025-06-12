@@ -40,8 +40,11 @@ public class KeyPad {
     // Driver code
     public static void main(String[] args) {
         KeyPad sol = new KeyPad();
-        System.out.println(sol.possibleWords(new int[]{2, 3}, 2));         // [ad, ae, af, bd, be, bf, cd, ce, cf]
-        System.out.println(sol.possibleWords(new int[]{3, 4, 5}, 3));      // 27 combinations
-        System.out.println(sol.possibleWords(new int[]{2}, 1));            // [a, b, c]
+//        System.out.println(sol.possibleWords(new int[]{2, 3}, 2));         // [ad, ae, af, bd, be, bf, cd, ce, cf]
+//        System.out.println(sol.possibleWords(new int[]{3, 4, 5}, 3));      // 27 combinations
+//        System.out.println(sol.possibleWords(new int[]{2}, 1));// [a, b, c]
+        System.out.println(sol.possibleWords(new int[]{7,8,9}, 3));
+        List<String> ans=(sol.possibleWords(new int[]{7,8,9}, 3));
+        System.out.println(ans.size());
     }
 }
