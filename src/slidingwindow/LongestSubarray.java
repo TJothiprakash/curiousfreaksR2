@@ -14,8 +14,10 @@ Compute the prefix sum as we iterate through the array. The prefix sum will be t
 If at two different indices, the prefix sum is the same, it means the subarray between these two indices has a sum of 0 (because the same sum indicates that the subarray between these indices has balanced the number of 1s and -1s).
 Hash Map:
 
-We use a hash map to store the first occurrence of each prefix sum. The key is the prefix sum, and the value is the index where this sum first occurred.
-If the prefix sum is found again at a later index, we know that the subarray between the previous index and the current index has a sum of 0.
+We use a hash map to store the first occurrence of each prefix sum. The key is the prefix sum,
+ and the value is the index where this sum first occurred.
+If the prefix sum is found again at a later index, we know that the subarray between
+ the previous index and the current index has a sum of 0.
 Track Maximum Length:
 
 For each occurrence of a prefix sum, calculate the length of the subarray between the current index and the first occurrence of this prefix sum. Keep track of the maximum length.*/

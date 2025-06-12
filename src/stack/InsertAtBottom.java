@@ -1,8 +1,23 @@
 package stack;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Stack;
 
 public class InsertAtBottom {
+    public static void main(String[] args) {
+        Stack<Integer> stack = new Stack<>();
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
+        stack.push(5);
+        stack.push(6);
+        stack.push(7);
+        stack.push(8);
+        InsertAtBottom insertAtBottom = new InsertAtBottom();
+        insertAtBottom.insertAtBottom(6, stack);
+    }
 
     public static Stack<Integer> insertAtBottom(int data, Stack<Integer> stack) {
 
@@ -10,7 +25,7 @@ public class InsertAtBottom {
         return stack;
     }
 
-    private static void helper(int data, Stack<Integer> stack) {
+    private static void helper(int data, @NotNull Stack<Integer> stack) {
 
         if (stack.isEmpty()) {
             stack.push(data);

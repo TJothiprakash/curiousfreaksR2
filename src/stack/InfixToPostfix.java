@@ -62,12 +62,12 @@ public class InfixToPostfix {
     }
 
     public static void main(String[] args) {
-        String infix1 = "a+b*(c^d-e)^(f+g*h)-i";
-        String infix2 = "A*(B+C)/D";
+        //String infix1 = "a+b*(c^d-e)^(f+g*h)-i";
+        //String infix2 = "A*(B+C)/D";
         String infix3 = "(a+b)*(c+d)";
 
-        System.out.println("Postfix of \"" + infix1 + "\": " + infixToPostfix(infix1));
-        System.out.println("Postfix of \"" + infix2 + "\": " + infixToPostfix(infix2));
+//        System.out.println("Postfix of \"" + infix1 + "\": " + infixToPostfix(infix1));
+//        System.out.println("Postfix of \"" + infix2 + "\": " + infixToPostfix(infix2));
         System.out.println("Postfix of \"" + infix3 + "\": " + infixToPostfix(infix3));
     }
 }

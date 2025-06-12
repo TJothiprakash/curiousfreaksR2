@@ -1,6 +1,9 @@
 package slidingwindow;
 
-/*Given a binary array nums and an integer k, return the maximum number of consecutive 1's in the array if you can flip at most k 0's.
+import org.jetbrains.annotations.NotNull;
+
+/*Given a binary array nums and an integer k,
+return the maximum number of consecutive 1's in the array if you can flip at most k 0's.
 
 
 
@@ -25,7 +28,7 @@ nums[i] is either 0 or 1.
 0 <= k <= nums.length
 */
 public class Flip0toMakeMaxWindowof1 {
-    public int longestOnes(int[] nums, int k) {
+    public int longestOnes(int @NotNull [] nums, int k) {
         int left = 0, right = 0;
         int maxLength = 0;
         int zeroCount = 0;
@@ -52,5 +55,11 @@ public class Flip0toMakeMaxWindowof1 {
         }
 
         return maxLength;
+    }
+
+    public static void main(String[] args) {
+        Flip0toMakeMaxWindowof1  obj = new Flip0toMakeMaxWindowof1();
+        obj.longestOnes(new int[]{1,0,1,1,1,1,1,1}, 2);
+        System.out.println(obj.longestOnes(new int[]{1,0,1,1,1,1,1,1}, 2));
     }
 }

@@ -1,9 +1,6 @@
 package queue;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 public class ReverseFirstKElements {
 
@@ -16,18 +13,28 @@ public class ReverseFirstKElements {
         for (int i = 0; i < K; i++) {
             stack.push(q.poll());
         }
-
-        // Step 2: Enqueue the remaining elements back to the queue
-        int size = q.size();
-        for (int i = 0; i < size; i++) {
-            q.add(q.poll());
+        List<Integer> list = new ArrayList<>();
+        while(!q.isEmpty()){
+            list.add(q.poll());
         }
+
 
         // Step 3: Pop from the stack and enqueue the reversed elements back into the queue
         while (!stack.isEmpty()) {
             q.add(stack.pop());
         }
 
+        while (!list.isEmpty()) {
+            q.add(list.remove(0));
+//        }
+//        // Step 2: Enqueue the remaining elements back to the queue
+//        int size = q.size();
+//        for (int i = 0; i < size; i++) {
+//            q.add(q.poll());
+//        }
+
+
+        }
         return q;
     }
 

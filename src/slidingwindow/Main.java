@@ -19,8 +19,13 @@ public class Main {
         NegativeinEveryWindow obj = new NegativeinEveryWindow();
         System.out.println(obj.findFirstNegativeInWindow(arr, 2));*/
         MaxValueinSubArray obj = new MaxValueinSubArray();
-        List<Integer> ans = obj.findMaxValue(arr, 4);// [10, 10, 10, 15, 15, 90, 90]
+        List<Integer> ans = MaxValueinSubArray.findMaxValue(arr, 4);// [10, 10, 10, 15, 15, 90, 90]
         System.out.println(ans);
+//8bac027a735c64531bb852f5d4e8d1214f22b9f5
 
-    }
+
+/*
+*
+* 8bac027a735c64531bb852f5d4e8d1214f22b9f5
+ */    }
 }

@@ -48,7 +48,7 @@ Constraints:
 public class ClosestElementinBST {
 
     // Helper function to calculate the minimum absolute difference
-    static int minDiffUtil(Node root, int K, int minDiff) {
+    static int minDiffUtil(Node_ root, int K, int minDiff) {
         // Base case: if the node is null, return the current minDiff
         if (root == null) {
             return minDiff;
@@ -70,7 +70,7 @@ public class ClosestElementinBST {
     }
 
     // Function to find the minimum absolute difference between node values and K
-    static int minDiff(Node root, int K) {
+    static int minDiff(Node_ root, int K) {
         return minDiffUtil(root, K, Integer.MAX_VALUE);
     }
 

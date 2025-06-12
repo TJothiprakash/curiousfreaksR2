@@ -27,7 +27,8 @@ s consists of only uppercase English letters.
 To solve this problem, we can use the sliding window (or two-pointer) technique to find the length of the longest substring with at most k character changes, where all characters in the window are the same.
 
 Approach:
-We are allowed to change up to k characters to make a substring where all characters are the same. Our goal is to find the longest such substring.
+We are allowed to change up to k characters to make a substring where all characters are the same.
+ Our goal is to find the longest such substring.
 
 Key Idea:
 The idea is to maintain a sliding window that contains at most k characters that are not the same as the most frequent character in that window. By doing so, we can achieve a substring where all characters are the same after at most k replacements.

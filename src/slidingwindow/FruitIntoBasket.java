@@ -49,10 +49,13 @@ For each valid window (containing at most two types of fruits), calculate the si
 Steps:
 
 Use a hashmap or dictionary to store the frequency of the fruit types in the current window.
-Expand the window by moving the right pointer. For each fruit encountered, update its frequency in the hashmap.
-If there are more than two distinct fruit types in the hashmap, move the left pointer to shrink the window until there are at most two distinct fruit types.
+Expand the window by moving the right pointer.
+ For each fruit encountered, update its frequency in the hashmap.
+If there are more than two distinct fruit types in the hashmap,
+ move the left pointer to shrink the window until there are at most two distinct fruit types.
 At each step, calculate the window's size and update the maximum size.
 */
+
 import java.util.HashMap;
 
 public class FruitIntoBasket {

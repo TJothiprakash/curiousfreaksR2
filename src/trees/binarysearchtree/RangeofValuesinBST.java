@@ -3,7 +3,7 @@ package trees.binarysearchtree;
 public class RangeofValuesinBST {
 
     // Helper function to count nodes in range [l, h]
-    static int countNodesInRange(Node root, int l, int h) {
+    static int countNodesInRange(Node_ root, int l, int h) {
         if (root == null) {
             return 0;
         }
@@ -29,7 +29,7 @@ public class RangeofValuesinBST {
     }
 
     // Main function to count nodes in range [l, h]
-    static int MaincountNodesInRange(Node root, int l, int h) {
+    static int MaincountNodesInRange(Node_ root, int l, int h) {
         return countNodesInRange(root, l, h);
     }
 

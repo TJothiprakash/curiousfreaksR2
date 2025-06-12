@@ -6,6 +6,7 @@ public class Practice {
     public static void main(String[] args) {
         System.out.println(new Practice().maximumSumSubarray(new int[]{1, 2, 3, 4, 5}, 3));
     }
+
     public int maximumSumSubarray(int[] nums, int k) {
         int sum = 0;
         List<Integer> maxValueinEveryWindow = new ArrayList<>();
@@ -13,7 +14,7 @@ public class Practice {
         int maxValue = Integer.MIN_VALUE;
         int maxSum = Integer.MIN_VALUE;
         for (int i = 0; i < k; i++) {
-            if(nums[i]>maxValue){
+            if (nums[i] > maxValue) {
                 maxValue = nums[i];
             }
             sum += nums[i];
@@ -22,10 +23,10 @@ public class Practice {
         maxSum = Math.max(maxSum, sum);
 
         for (int i = k; i < nums.length; i++) {
-            if(nums[i-k]>maxValue){
-                maxValue= findMax(nums,i-k+1,i);
+            if (nums[i - k] > maxValue) {
+                maxValue = findMax(nums, i - k + 1, i);
             }
-            if(nums[i]>maxValue){
+            if (nums[i] > maxValue) {
                 maxValue = nums[i];
             }
             maxValueinEveryWindow.add(maxValue);
@@ -66,13 +67,14 @@ public class Practice {
         }
 
         return maxsum;
-   */ }
+   */
+    }
 
     private int findMax(int[] nums, int i, int i1) {
 
         int max = Integer.MIN_VALUE;
         for (int j = i; j <= i1; j++) {
-            if(nums[j]>max){
+            if (nums[j] > max) {
                 max = nums[j];
             }
         }

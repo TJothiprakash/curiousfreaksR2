@@ -46,10 +46,10 @@ public class PostfixEvaluator {
     }
 
     public static void main(String[] args) {
-        String expression1 = "231*+9-";
+//        String expression1 = "231*+9-";
         String expression2 = "123+*8-";
 
-        System.out.println("Result of \"" + expression1 + "\": " + evaluatePostfix(expression1));
+//        System.out.println("Result of \"" + expression1 + "\": " + evaluatePostfix(expression1));
         System.out.println("Result of \"" + expression2 + "\": " + evaluatePostfix(expression2));
     }
 }

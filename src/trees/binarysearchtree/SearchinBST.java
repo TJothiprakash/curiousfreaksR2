@@ -8,11 +8,21 @@ package trees.binarysearchtree;
  * 4. Find kth smallest
  * */
 public class SearchinBST {
+    static class Node_ {
+        int data;
+        Node_ left, right;
+        Node_(int data) {
+            this.data = data;
+            left = right = null;
+        }
+    }
+
+
     static int count = 0; // Counter variable to keep track of visited nodes
     //  static int count = 0; // Counter to keep track of visited nodes
 
     // Find the minimum element in a BST
-    static int findMin(Node root) {
+    static int findMin(Node_ root) {
         if (root == null) throw new IllegalArgumentException("Tree is empty");
         while (root.left != null) {
             root = root.left;
@@ -21,7 +31,7 @@ public class SearchinBST {
     }
 
     // Find the maximum element in a BST
-    static int findMax(Node root) {
+    static int findMax(Node_ root) {
         if (root == null) throw new IllegalArgumentException("Tree is empty");
         while (root.right != null) {
             root = root.right;
@@ -30,7 +40,7 @@ public class SearchinBST {
     }
 
     // Helper function to find the k-th largest element
-    static int kthLargestUtil(Node root, int k) {
+    static int kthLargestUtil(Node_ root, int k) {
         // Base case: if root is null or k elements are already visited
         if (root == null) {
             return -1;
@@ -53,13 +63,13 @@ public class SearchinBST {
     }
 
     // Function to find the k-th largest element
-    static int kthLargest(Node root, int k) {
+    static int kthLargest(Node_ root, int k) {
         count = 0; // Reset counter before starting
         return kthLargestUtil(root, k);
     }
 
     // Helper function to find the k-th smallest element
-    static int kthSmallestUtil(Node root, int k) {
+    static int kthSmallestUtil(Node_ root, int k) {
         // Base case: if root is null or k elements are already visited
         if (root == null) {
             return -1;
@@ -83,13 +93,13 @@ public class SearchinBST {
     // kth smallest
 
     // Function to find the k-th smallest element
-    static int kthSmallest(Node root, int k) {
+    static int kthSmallest(Node_ root, int k) {
         count = 0; // Reset counter before starting
         return kthSmallestUtil(root, k);
     }
 
     // search in bst
-    boolean search(Node root, int x) {
+    boolean search(Node_ root, int x) {
         // Base case: If the root is null, the value is not found
         if (root == null) {
             return false;
@@ -110,7 +120,7 @@ public class SearchinBST {
     }
 
     // iterative search in bst
-    boolean searchUsingIteration(Node root, int x) {
+    boolean searchUsingIteration(Node_ root, int x) {
         while (root != null) {
             if (root.data == x) {
                 return true; // Found the node

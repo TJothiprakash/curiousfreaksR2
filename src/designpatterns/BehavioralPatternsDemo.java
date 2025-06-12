@@ -27,7 +27,8 @@ Examples: Sorting algorithms, payment methods, compression algorithms.
 
 3. Command Pattern
 Purpose:
-Encapsulates a request as an object, allowing parameterization of clients with queues, requests, and operations.
+Encapsulates a request as an object, allowing parameterization of clients with queues,
+requests, and operations.
 
 Use When:
 

@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/*Given an array arr[] and a target, your task is to find all unique combinations in the array where the sum is equal to target. The same number may be chosen from the array any number of times to make target.
+/*Given an array arr[] and a target, your task is to find all unique combinations
+in the array where the sum is equal to target. The same number may be chosen from the array
+any number of times to make target.
 
 You can return your answer in any order.
 

@@ -1,10 +1,11 @@
+/*
 package trees.binarysearchtree;
 
 public class ValidateBST {
 
 
     // Helper function to check if the tree is a BST
-    static boolean isBSTUtil(Node root, long min, long max) {
+    static boolean isBSTUtil(Node_ root, long min, long max) {
         // Base case: an empty tree is a BST
         if (root == null) {
             return true;
@@ -20,9 +21,10 @@ public class ValidateBST {
     }
 
     // Function to check if the tree is a BST
-    static boolean isBST(Node root) {
+    static boolean isBST(Node_ root) {
         // Start with the whole range (-infinity, +infinity)
         return isBSTUtil(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }
 
 }
+*/

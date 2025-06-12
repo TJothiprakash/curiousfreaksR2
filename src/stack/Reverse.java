@@ -3,6 +3,20 @@ package stack;
 import java.util.Stack;
 
 public class Reverse {
+    public static void main(String[] args) {
+        Stack<Integer> stack = new Stack<>();
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
+        stack.push(5);
+        stack.push(6);
+        stack.push(7);
+        stack.push(8);
+        Reverse reverse = new Reverse();
+//        System.out.println(reverse.reverse(stack));
+        System.out.println(reverse.reverseonspace(stack));
+    }
     // Reverse the stack in O(1) additional space
     public static Stack<Integer> reverse(Stack<Integer> stack) {
         if (stack.isEmpty()) {
