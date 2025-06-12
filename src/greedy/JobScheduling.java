@@ -1,5 +1,8 @@
 package greedy;
-/*You are given three arrays: id, deadline, and profit, where each job is associated with an ID, a deadline, and a profit. Each job takes 1 unit of time to complete, and only one job can be scheduled at a time. You will earn the profit associated with a job only if it is completed by its deadline.
+/*You are given three arrays: id, deadline, and profit, where each job is associated with an ID,
+a deadline, and a profit. Each job takes 1 unit of time to complete,
+ and only one job can be scheduled at a time. You will earn the profit
+  associated with a job only if it is completed by its deadline.
 
 Your task is to find:
 

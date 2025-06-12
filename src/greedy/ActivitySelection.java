@@ -1,7 +1,9 @@
 package greedy;
 
 
-/*Given some activities with their start and end day given in array start[] and end[]. Select the maximum number of activities that can be performed by a single person, assuming that a person can only work on a single activity at a given day.
+/*Given some activities with their start and end day given in array start[] and end[].
+ Select the maximum number of activities that can be performed by a single person,
+  assuming that a person can only work on a single activity at a given day.
 Note : Duration of the activity includes both starting and ending day.
 
 Examples:
@@ -19,7 +21,7 @@ Constraints:
 1 ≤ start.size() = end.size() ≤ 2*105
 1 ≤ start[i] ≤ end[i] ≤ 109
 
-lgorithm
+Lgorithm
 Sort the activities:
 
 Pair the start and end times of activities into tuples.
@@ -27,7 +29,8 @@ Sort these tuples by the end time of the activities.
 Select activities greedily:
 
 Start with the first activity (the one that ends the earliest).
-For each subsequent activity, check if its start time is greater than or equal to the end time of the last selected activity.
+For each subsequent activity, check if its start time is greater than or equal
+ to the end time of the last selected activity.
 If yes, select the activity.
 Output the count of selected activities.
 
@@ -46,7 +49,13 @@ public class ActivitySelection {
             activities[i][0] = start[i];
             activities[i][1] = end[i];
         }
-
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < 2; j++) {
+                System.out.print(activities[i][j]+" ");
+            }
+            System.out.println();
+        }
+        System.out.println();
         // Sort activities by their end times
         Arrays.sort(activities, Comparator.comparingInt(a -> a[1]));
 
@@ -65,13 +74,13 @@ public class ActivitySelection {
     }
 
     public static void main(String[] args) {
-        int[] start1 = {2, 1};
-        int[] end1 = {2, 2};
-        System.out.println(maxActivities(start1, end1)); // Output: 1
-
-        int[] start2 = {1, 3, 2, 5};
-        int[] end2 = {2, 4, 3, 6};
-        System.out.println(maxActivities(start2, end2)); // Output: 3
+//        int[] start1 = {2, 1};
+//        int[] end1 = {2, 2};
+//        System.out.println(maxActivities(start1, end1)); // Output: 1
+//
+//        int[] start2 = {1, 3, 2, 5};
+//        int[] end2 = {2, 4, 3, 6};
+//        System.out.println(maxActivities(start2, end2)); // Output: 3
 
         int[] start3 = {1, 3, 0, 5, 8, 5};
         int[] end3 = {2, 4, 6, 7, 9, 9};

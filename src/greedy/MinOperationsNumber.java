@@ -1,6 +1,7 @@
 package greedy;
 
-/*Given a number N. Find the minimum number of operations required to reach N starting from 0. You have 2 operations available:
+/*Given a number N. Find the minimum number of operations
+required to reach N starting from 0. You have 2 operations available:
 
 Double the number
 Add one to the number
@@ -26,19 +27,30 @@ Expected Auxiliary Space: O(1)
 
 Constraints:
 1 <= N <= 106*/
-public class Number {
+public class MinOperationsNumber {
     public int minOperation(int n) {
         //code here.
         if (n == 1) {
+            System.out.print("   n becomes 1 .., exiting ...,");
             return 0;
         }
         if (n % 2 == 0) {
+            System.out.print(n / 2 + "  ");
             return 1 + minOperation(n / 2);
         } else {
+            System.out.print(n - 1 + " ");
             return 1 + minOperation(n - 1);
         }
 
 
+    }
+
+    public static void main(String[] args) {
+        MinOperationsNumber minOperationsNumber = new MinOperationsNumber();
+        int num = 45;
+        System.out.println(" n is " + num);
+        int ans = minOperationsNumber.minOperation(num);
+        System.out.println(ans);
     }
 
     /*  int operations = 0; // To count the number of operations

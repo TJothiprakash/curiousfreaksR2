@@ -18,7 +18,7 @@ Constraints:
 public class LargestPossibleNumber {
     static String findLargest(int n, int s) {
         // If the sum `s` is too large to be split across `n` digits, return "-1"
-        if (s > 9 * n) {
+        if (s > (9 * n)) {
             return "-1";
         }
 
@@ -49,9 +49,9 @@ public class LargestPossibleNumber {
     }
 
     public static void main(String[] args) {
-        System.out.println(findLargest(2, 9));  // Output: 90
+//        System.out.println(findLargest(2, 9));  // Output: 90
         System.out.println(findLargest(3, 20)); // Output: 992
-        System.out.println(findLargest(1, 0));  // Output: 0
-        System.out.println(findLargest(2, 0));  // Output: -1
+//        System.out.println(findLargest(1, 0));  // Output: 0
+//        System.out.println(findLargest(2, 0));  // Output: -1
     }
 }

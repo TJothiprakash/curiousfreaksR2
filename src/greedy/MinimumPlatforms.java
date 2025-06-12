@@ -18,10 +18,14 @@ Explanation: All 3 trains have to be there from 11:00 to 11:30
 Constraints:
 1≤ number of trains ≤ 50000
 0000 ≤ arr[i] ≤ dep[i] ≤ 2359
-Note: Time intervals are in the 24-hour format(HHMM) , where the first two characters represent hour (between 00 to 23 ) and the last two characters represent minutes (this will be <= 59 and >= 0).*/
+Note: Time intervals are in the 24-hour format(HHMM) ,
+where the first two characters represent hour (between 00 to 23 ) and
+the last two characters represent minutes (this will be <= 59 and >= 0).*/
 
 
-/*This problem is a variation of the Interval Scheduling Problem, but instead of selecting non-overlapping intervals, the goal is to calculate the maximum number of overlapping intervals at any point in time. Here's how to solve it:
+/*This problem is a variation of the Interval Scheduling Problem,
+but instead of selecting non-overlapping intervals, the goal is to calculate the maximum number
+of overlapping intervals at any point in time. Here's how to solve it:
 
 Approach:
 Sort Events:
@@ -31,7 +35,8 @@ Sort both arrival and departure arrays independently.
 Traverse Sorted Events:
 
 Use two pointers, one for arr[] (arrival times) and another for dep[] (departure times).
-Count the number of platforms needed at any point by incrementing the platform count for arrivals and decrementing it for departures.
+Count the number of platforms needed at any point by incrementing the platform count for
+ arrivals and decrementing it for departures.
 Maintain Maximum Platforms:
 
 Track the maximum number of platforms required during traversal.

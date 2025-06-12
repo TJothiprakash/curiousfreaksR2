@@ -1,6 +1,7 @@
 package greedy;
 /*
-Given an array arr[] of non-negative integers. Each array element represents the maximum length of the jumps that can be made forward from that element. This means if arr[i] = x, then we can jump any distance y such that y ≤ x. Find the minimum number of jumps to reach the end of the array starting from the first element. If an element is 0, then you cannot move through that element.
+Given an array arr[] of non-negative integers.
+ Each array element represents the maximum length of the jumps that can be made forward from that element. This means if arr[i] = x, then we can jump any distance y such that y ≤ x. Find the minimum number of jumps to reach the end of the array starting from the first element. If an element is 0, then you cannot move through that element.
 
         Note:  Return -1 if you can't reach the end of the array.
 
@@ -24,16 +25,16 @@ public class MinJumps {
         MinJumps sol = new MinJumps();
 
         // Example 1
-        int[] arr1 = {1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9};
-        System.out.println(sol.minJumps(arr1));  // Output: 3
+//        int[] arr1 = {1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9};
+//        System.out.println(sol.minJumps(arr1));  // Output: 3
 
         // Example 2
-        int[] arr2 = {1, 4, 3, 2, 6, 7};
+        int[] arr2 = {1, 3, 1, 2, 0, 0,9};
         System.out.println(sol.minJumps(arr2));  // Output: 2
 
         // Example 3
-        int[] arr3 = {0, 10, 20};
-        System.out.println(sol.minJumps(arr3));  // Output: -1
+//        int[] arr3 = {0, 10, 20};
+//        System.out.println(sol.minJumps(arr3));  // Output: -1
     }
 
     public int minJumps(int[] arr) {
