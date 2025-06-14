@@ -8,9 +8,9 @@ public class LongestCommonSubsequence {
 
         // Test cases
         System.out.println(solution.longestCommonSubsequence("abcde", "ace")); // Expected: 3
-        System.out.println(solution.longestCommonSubsequence("abc", "abc"));  // Expected: 3
-        System.out.println(solution.longestCommonSubsequence("abc", "def"));  // Expected: 0
-        System.out.println(solution.longestCommonSubsequence("abcde", "ae")); // Expected: 2
+//        System.out.println(solution.longestCommonSubsequence("abc", "abc"));  // Expected: 3
+//        System.out.println(solution.longestCommonSubsequence("abc", "def"));  // Expected: 0
+//        System.out.println(solution.longestCommonSubsequence("abcde", "ae")); // Expected: 2
         List<String> result =  new PrintAllPossibleLongestCommonSubsequence().all_longest_common_subsequences("abaaa", "baabaca");
         System.out.println(result);
         for (String s : result) {

@@ -1,9 +1,6 @@
 package dynamic_programming.dp_onlongestincreasingsubsequence;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class DivisibleSet {
     // Function to find the longest divisible subset
@@ -62,3 +59,59 @@ public class DivisibleSet {
         }
     }
 }
+
+
+class LargestDivisibleSubsetRecursive {
+    static int[] nums;
+    static Map<String, List<Integer>> memo;
+
+    public static List<Integer> largestDivisibleSubset(int[] input) {
+        Arrays.sort(input); // Sort for easier divisibility
+        nums = input;
+        memo = new HashMap<>();
+
+        List<Integer> bestSubset = new ArrayList<>();
+
+        // Try starting from every index
+        for (int i = 0; i < nums.length; i++) {
+            List<Integer> subset = dfs(i, -1);
+            if (subset.size() > bestSubset.size()) {
+                bestSubset = subset;
+            }
+        }
+
+        return bestSubset;
+    }
+
+    // Recursive function to build subset
+    private static List<Integer> dfs(int curr, int prev) {
+        String key = curr + "|" + prev;
+        if (memo.containsKey(key)) return memo.get(key);
+
+        List<Integer> include = new ArrayList<>();
+        if (prev == -1 || nums[curr] % nums[prev] == 0) {
+            include.add(nums[curr]);
+            List<Integer> nextBest = new ArrayList<>();
+            for (int next = curr + 1; next < nums.length; next++) {
+                List<Integer> candidate = dfs(next, curr);
+                if (candidate.size() > nextBest.size()) {
+                    nextBest = candidate;
+                }
+            }
+            include.addAll(nextBest);
+        }
+
+        // Try skipping current
+        List<Integer> exclude = dfs(curr + 1, prev);
+
+        List<Integer> result = include.size() > exclude.size() ? include : exclude;
+        memo.put(key, result);
+        return result;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(largestDivisibleSubset(new int[]{1, 2, 3}));     // Output: [1, 2] or [1, 3]
+        System.out.println(largestDivisibleSubset(new int[]{1, 2, 4, 8})); // Output: [1, 2, 4, 8]
+    }
+}
+

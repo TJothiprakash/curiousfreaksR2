@@ -1,11 +1,18 @@
 package dynamic_programming.dp_onstocks;
 
 
-/*You are given an integer array prices where prices[i] is the price of a given stock on the ith day, and an integer k.
+import org.jetbrains.annotations.NotNull;
 
-Find the maximum profit you can achieve. You may complete at most k transactions: i.e. you may buy at most k times and sell at most k times.
+/*You are given an integer array prices where prices[i] is the price of a
+ given stock on the ith day, and an integer k.
 
-Note: You may not engage in multiple transactions simultaneously (i.e., you must sell the stock before you buy again).
+Find the maximum profit you can achieve. You may complete at most k
+transactions: i.e. you may buy at most k times and sell at most k times.
+
+Note: You may not engage in multiple transactions simultaneously
+ (i.e., you must sell the stock before you buy again).
+
+
 
 
 
@@ -49,7 +56,7 @@ public class StockIV {
         return getMaxProfit(prices, 0, k, true, memo);
     }
 
-    private int getMaxProfit(int[] prices, int currentDay, int transactionsLeft, boolean canBuy, Integer[][][] memo) {
+    private int getMaxProfit(int @NotNull [] prices, int currentDay, int transactionsLeft, boolean canBuy, Integer[][][] memo) {
         // Base cases
         if (currentDay >= prices.length || transactionsLeft == 0) {
             return 0;
