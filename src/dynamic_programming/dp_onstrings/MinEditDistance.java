@@ -1,5 +1,61 @@
 package dynamic_programming.dp_onstrings;
 
+/*minOps(3,3): 'c' vs 'c' => match ✅
+|
+└── minOps(2,2): 'b' vs 'd' => mismatch ❌
+     |
+     ├── Insert  → minOps(2,1): 'b' vs 'c' => mismatch ❌
+     |     |
+     |     ├── Insert  → minOps(2,0): 'b' vs ''  => return 2 (base case)
+     |     ├── Remove  → minOps(1,1): 'a' vs 'a' => match ✅
+     |     |     └── minOps(0,0): '' vs ''      => return 0
+     |     └── Replace → minOps(1,0): 'a' vs ''  => return 1 (base case)
+     |
+     ├── Remove → minOps(1,2): 'a' vs 'd' => mismatch ❌
+     |     |
+     |     ├── Insert  → minOps(1,1): 'a' vs 'a' => match ✅
+     |     |     └── minOps(0,0): '' vs ''      => return 0
+     |     ├── Remove  → minOps(0,2): '' vs 'd'  => return 2 (base case)
+     |     └── Replace → minOps(0,1): '' vs 'a'  => return 1 (base case)
+     |
+     └── Replace → minOps(1,1): 'a' vs 'a' => match ✅
+           └── minOps(0,0): '' vs '' => return 0
+
+
+           minOps(3,3): 'c' vs 'c' → match ✅
+→ minOps(2,2): 'b' vs 'd' → mismatch ❌
+    → try all 3 options:
+    ┌──────────────┬──────────────┬──────────────┐
+    │ Insert       │ Remove       │ Replace      │
+    │ minOps(2,1)  │ minOps(1,2)  │ minOps(1,1)  │
+    │ 'b' vs 'c'   │ 'a' vs 'd'   │ 'a' vs 'a'   │
+    └──────┬───────┘ └──────┬──────┘ └──────┬──────┘
+           │                │                │
+           │                │                └─ minOps(0,0) → 0
+           │                │                   → return 0
+           │                │                   → Replace cost = 1 + 0 = 1
+           │                │
+           │                ├─ minOps(1,1): 'a' vs 'a' → match ✅
+           │                │     └─ minOps(0,0) → 0
+           │                │     → return 0
+           │                ├─ minOps(0,2): '' vs 'd' → base → return 2
+           │                ├─ minOps(0,1): '' vs 'a' → base → return 1
+           │                → Remove cost = min(0,2,1) + 1 = 1 + 0 = 1
+           │
+           ├─ minOps(2,0): 'b' vs '' → base → return 2
+           ├─ minOps(1,1): 'a' vs 'a' → match ✅
+           │     └─ minOps(0,0) → 0
+           │     → return 0
+           ├─ minOps(1,0): 'a' vs '' → base → return 1
+           → Insert cost = min(2,0,1) + 1 = 1
+           → All options give cost 1
+→ So minOps(2,2) = 1 + min(1,1,1) = 1 + 1 = 2
+
+Final:
+minOps(3,3) = (match) → return minOps(2,2) = 2
+→ So final result = 2
+
+*/
 public class MinEditDistance {
 
     public static void main(String[] args) {
