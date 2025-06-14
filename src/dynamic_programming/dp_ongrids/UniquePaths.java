@@ -2,7 +2,8 @@ package dynamic_programming.dp_ongrids;
 
 import java.util.Arrays;
 
-/*The task is to count all the possible paths from top left to bottom right of a m X n matrix with the constraints that from each cell you can either move only to right or down.
+/*The task is to count all the possible paths from top left to bottom right of a m X n matrix with
+ the constraints that from each cell you can either move only to right or down.
 
 Example 1:
 
@@ -19,7 +20,9 @@ Explanation: Six possible ways are
 RRDD, DDRR, RDDR, DRRD, RDRD, DRDR.
 
 Your Task:
-You dont need to read input or print anything. Complete the function numberOfPaths() which takes m and n as input parameter and returns count all the possible paths.The answer may be very large, compute the answer modulo 109 + 7.
+You dont need to read input or print anything.
+Complete the function numberOfPaths() which takes m and n as input parameter and returns
+ count all the possible paths.The answer may be very large, compute the answer modulo 109 + 7.
 
 
 Expected Time Complexity: O(m*n)

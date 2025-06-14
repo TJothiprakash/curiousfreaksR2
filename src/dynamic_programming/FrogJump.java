@@ -1,34 +1,47 @@
 package dynamic_programming;
 
 public class FrogJump {
-// order does matter
+    // Order matters
     static long countWays(int n) {
-        // add your code here
-
-        return helpertofindNoofWays(n);
+        int[] memo = new int[n + 1]; // size should be n+1 to include index n
+        for (int i = 0; i <= n; i++) {
+            memo[i] = -1;
+        }
+        return helperToFindNoOfWays(n, memo);
     }
 
-    private static long helpertofindNoofWays(int n) {
+    private static long helperToFindNoOfWays(int n, int[] memo) {
         // Base cases
-        if (n == 0) return 1; // 1 way to stay at ground
-        if (n < 0) return 0;  // No way to reach negative steps
+        if (n == 0) return 1;  // 1 way to stay at ground
+        if (n < 0) return 0;   // No way to reach negative steps
+        if (memo[n] != -1) return memo[n];
 
-        // Recursive calls for 1-step, 2-steps, and 3-steps
-        return countWays(n - 1) + countWays(n - 2) + countWays(n - 3);
+        // Store result in memo
+        memo[n] = (int) (
+                helperToFindNoOfWays(n - 1, memo) +
+                        helperToFindNoOfWays(n - 2, memo) +
+                        helperToFindNoOfWays(n - 3, memo)
+        );
+
+        return memo[n];
     }
 
-   // order does not matter
+    // Order does not matter — still limited to 1 and 2 steps
     public static long countWays2(int n) {
         int count = 0;
 
-        // Loop through the number of 2-steps from 0 to maximum possible
         for (int twos = 0; twos <= n / 2; twos++) {
-            // Remaining steps to be filled with 1-steps
             int ones = n - 2 * twos;
-
-            // Each combination of 'twos' and 'ones' is a unique way
+            // For order not to matter, each (ones, twos) pair is 1 way
             count++;
         }
+
         return count;
+    }
+
+    public static void main(String[] args) {
+        int n =4;
+        System.out.println(countWays(n));
+        System.out.println(countWays2(n));
     }
 }

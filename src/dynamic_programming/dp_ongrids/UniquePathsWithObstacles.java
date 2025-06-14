@@ -97,3 +97,47 @@ public class UniquePathsWithObstacles {
         return memo[i][j];
     }
 }
+
+
+/*The task is to count all the possible paths from top left to bottom right of a m X n matrix with the constraints that from each cell you can either move only to right or down.
+
+Examples :
+
+Input: m = 2, n = 2
+Output: 2
+Explanation: Two possible ways are RD and DR.
+Input: m = 3, n = 3
+Output: 6
+Explanation: Six possible ways are RRDD, DDRR, RDDR, DRRD, RDRD, DRDR.
+Constraints:
+1 <= m <= 17
+1 <= n <=17
+
+*/
+
+
+class NumPaths {
+    void countPaths(int[][] grid) {
+        if (grid.length == 0 || grid[0].length == 0) {
+            return;
+        }
+        int m = grid.length - 1;
+        int n = grid[0].length - 1;
+        int[][] dp = new int[m][n];
+        int ans = helper(dp, m, n, grid);
+    }
+
+    static int helper(int[][] memo, int i, int j, int[][] grid) {
+        if (i < 0 || j < 0 || grid[i][j] == 1) {
+            return 0;
+        }
+        if (grid[i][j] == 0) {
+            return 1;
+        }
+        int right = helper(memo, i + 1, j, grid);
+        int left = helper(memo, i, j - 1, grid);
+        memo[i][j] = right + left;
+        return memo[i][j];
+    }
+
+}

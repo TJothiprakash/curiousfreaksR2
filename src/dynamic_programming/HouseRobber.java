@@ -5,6 +5,7 @@ public class HouseRobber {
 
 
     private static int robHelper(int[] nums, int i) {
+        //1,2,3,1
         // Base cases
         if (i < 0) return 0; // No houses left to rob
         if (i == 0) return nums[0]; // Only one house to rob
@@ -36,7 +37,7 @@ public class HouseRobber {
         return Math.max(maxRobExcludingLast, maxRobExcludingFirst);
     }
 
-    private int robLinear(int[] nums, int start, int end) {
+    private static int robLinear(int[] nums, int start, int end) {
         int prev2 = 0, prev1 = 0;
 
         for (int i = start; i <= end; i++) {
@@ -46,5 +47,13 @@ public class HouseRobber {
         }
 
         return prev1;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 2, 3, 1};
+//        int result = robHelper(nums, nums.length-1 );
+//        System.out.println(result);
+       int ans = robLinear(nums,  0,nums.length-1);
+        System.out.println(ans);
     }
 }
