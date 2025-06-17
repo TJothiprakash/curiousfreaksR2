@@ -1,8 +1,8 @@
 package arrays.practice.dec_21_revision;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.*;
 
 public class Practice {
     // 1. largest element in an array
@@ -95,7 +95,7 @@ public class Practice {
     }
 
 
-    int[] moveZeroestoEnd(int[] arr) {
+    int[] moveZeroestoEnd(int @NotNull [] arr) {
         int nonZeroIndex = 0;
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] != 0) {
@@ -129,34 +129,80 @@ public class Practice {
         return union;
     }
 
-    // using two pointers
     int[] findUnionUsingTwoPointers(int[] arr1, int[] arr2) {
         int i = 0, j = 0;
-        int m = arr1.length, n = arr2.length;
-        int[] union = new int[m + n];
-        while (i < m && j < n) {
+        List<Integer> result = new ArrayList<>();
+
+        while (i < arr1.length && j < arr2.length) {
             if (arr1[i] < arr2[j]) {
-                union[i] = arr1[i];
+                if (result.isEmpty() || result.get(result.size() - 1) != arr1[i])
+                    result.add(arr1[i]);
                 i++;
             } else if (arr1[i] > arr2[j]) {
-                union[j] = arr2[j];
+                if (result.isEmpty() || result.get(result.size() - 1) != arr2[j])
+                    result.add(arr2[j]);
                 j++;
             } else {
-                union[i] = arr1[i];
+                if (result.isEmpty() || result.get(result.size() - 1) != arr1[i])
+                    result.add(arr1[i]);
                 i++;
                 j++;
             }
         }
-        while (i < m) {
-            union[i] = arr1[i];
+
+        while (i < arr1.length) {
+            if (result.isEmpty() || result.get(result.size() - 1) != arr1[i])
+                result.add(arr1[i]);
             i++;
         }
-        while (j < n) {
-            union[i] = arr2[j];
+
+        while (j < arr2.length) {
+            if (result.isEmpty() || result.get(result.size() - 1) != arr2[j])
+                result.add(arr2[j]);
             j++;
+        }
+
+        return result.stream().mapToInt(Integer::intValue).toArray();
+    }
+
+    int[] findUnionUsingTwoPointersUsingArray(int[] arr1, int[] arr2) {
+        int i = 0, j = 0, k = 0;
+        int m = arr1.length, n = arr2.length;
+        int[] temp = new int[m + n];
+
+        while (i < m && j < n) {
+            int val;
+            if (arr1[i] < arr2[j]) {
+                val = arr1[i++];
+            } else if (arr1[i] > arr2[j]) {
+                val = arr2[j++];
+            } else {
+                val = arr1[i];
+                i++;
+                j++;
+            }
+
+            // Add if not duplicate
+            if (k == 0 || temp[k - 1] != val) {
+                temp[k++] = val;
+            }
+        }
+
+        // Remaining elements
+        while (i < m) {
+            if (k == 0 || temp[k - 1] != arr1[i])
+                temp[k++] = arr1[i];
             i++;
         }
-        return union;
+
+        while (j < n) {
+            if (k == 0 || temp[k - 1] != arr2[j])
+                temp[k++] = arr2[j];
+            j++;
+        }
+
+        // Final union array of correct size
+        return Arrays.copyOf(temp, k);
     }
 
 
