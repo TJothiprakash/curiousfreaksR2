@@ -1,4 +1,4 @@
-package algomaster_practice_qns;
+package arrays;
 
 import java.util.ArrayList;
 import java.util.Arrays;
