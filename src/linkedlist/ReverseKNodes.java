@@ -44,7 +44,7 @@ public class ReverseKNodes {
     public static Node reverseKGroup(Node head, int k) {
         int length = getLength(head);
 
-        // Dummy node to simplify edge case handling
+        // Fake node handles edge cases better.
         Node dummy = new Node(0);
         dummy.next = head;
         Node prevGroupEnd = dummy;

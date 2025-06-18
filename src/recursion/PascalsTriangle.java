@@ -229,3 +229,41 @@ Memoized Row          getRowMemo(n)               O(n²)
         return max;
     }
 }
+
+class PascalHelper {
+
+    // Optimized nCr: avoids full factorials
+    public static int nCr(int n, int r) {
+        if (r > n) {
+            throw new IllegalArgumentException("r cannot be greater than n");
+        }
+
+        if (r > n - r) r = n - r; // Use symmetry: C(n, r) == C(n, n - r)
+        long result = 1;
+
+        // Multiply top r terms from n downward, divide by r!
+        for (int i = 0; i < r; i++) {
+            result *= (n - i);         // Multiply numerator
+            result /= (i + 1);         // Divide denominator
+        }
+
+        return (int) result;
+    }
+
+    void printPascalTriangle(int n) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j <= i; j++) {
+                System.out.print(nCr(i, j) + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    // Test the method
+    public static void main(String[] args) {
+        System.out.println(nCr(5, 3)); // Output: 10
+        System.out.println(nCr(10, 2)); // Output: 45
+        System.out.println(nCr(6, 0)); // Output: 1
+        System.out.println(nCr(6, 6)); // Output: 1
+    }
+}

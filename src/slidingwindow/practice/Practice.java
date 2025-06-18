@@ -31,7 +31,8 @@ public class Practice {
             }
             maxValueinEveryWindow.add(maxValue);
             sum += nums[i] - nums[i - k]; // Add new element and remove the oldest
-            maxSum = Math.max(maxSum, sum);
+            maxSum = Math.max(maxSum, sum
+            );
         }
 
 

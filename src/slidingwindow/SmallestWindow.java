@@ -65,3 +65,59 @@ public class SmallestWindow {
         return minLength == Integer.MAX_VALUE ? "" : s1.substring(start, start + minLength);
     }
 }
+
+
+class SmallestWindowContainingAllCharss {
+
+    public static String minWindow(String s1, String s2) {
+        if (s1 == null || s2 == null || s1.length() < s2.length()) return "";
+
+        // Step 1: Build frequency map for s2
+        HashMap<Character, Integer> targetFreq = new HashMap<>();
+        for (char c : s2.toCharArray()) {
+            targetFreq.put(c, targetFreq.getOrDefault(c, 0) + 1);
+        }
+
+        // Step 2: Sliding window setup
+        HashMap<Character, Integer> windowFreq = new HashMap<>();
+        int left = 0, minLen = Integer.MAX_VALUE, startIndex = 0;
+        int matchCount = 0;
+
+        for (int right = 0; right < s1.length(); right++) {
+            char ch = s1.charAt(right);
+            windowFreq.put(ch, windowFreq.getOrDefault(ch, 0) + 1);
+
+            // If character is in target and count matches, increment match count
+            if (targetFreq.containsKey(ch) && windowFreq.get(ch).intValue() <= targetFreq.get(ch).intValue()) {
+                matchCount++;
+            }
+
+            // Step 3: Try to shrink the window if all characters are matched
+            while (matchCount == s2.length()) {
+                // Update result if this window is smaller
+                if ((right - left + 1) < minLen) {
+                    minLen = right - left + 1;
+                    startIndex = left;
+                }
+
+                // Try to remove from left
+                char leftChar = s1.charAt(left);
+                windowFreq.put(leftChar, windowFreq.get(leftChar) - 1);
+
+                if (targetFreq.containsKey(leftChar) && windowFreq.get(leftChar) < targetFreq.get(leftChar)) {
+                    matchCount--;
+                }
+                left++;
+            }
+        }
+
+        return minLen == Integer.MAX_VALUE ? "" : s1.substring(startIndex, startIndex + minLen);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(minWindow("timetopractice", "toc"));    // Output: "toprac"
+        System.out.println(minWindow("zoomlazapzo", "oza"));       // Output: "apzo"
+        System.out.println(minWindow("zoom", "zooe"));             // Output: ""
+    }
+}
+

@@ -1,7 +1,9 @@
 package slidingwindow;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class LongestSubarrayWithTargetSum {
 
@@ -51,10 +53,37 @@ public class LongestSubarrayWithTargetSum {
 
     public static void main(String[] args) {
         // Test Cases
-        System.out.println(findLongestSubarrayWithSum(new int[]{1, 2, 3, 7, 5}, 12)); // Output: [2, 4]
-        System.out.println(findLongestSubarrayWithSum(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 15)); // Output: [1, 5]
-        System.out.println(findLongestSubarrayWithSum(new int[]{7, 2, 1}, 2)); // Output: [2, 2]
-        System.out.println(findLongestSubarrayWithSum(new int[]{5, 3, 4, 7, 2, 1, 1, 1}, 8)); // Output: [4, 8]
-        System.out.println(findLongestSubarrayWithSum(new int[]{5, 3, 4}, 2)); // Output: [-1]
+//        System.out.println(findLongestSubarrayWithSum(new int[]{1, 2, 3, 7, 5}, 12)); // Output: [2, 4]
+//        System.out.println(findLongestSubarrayWithSum(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 15)); // Output: [1, 5]
+        System.out.println(findLongestSubarrayWithSumHandlingNegatives(new int[]{10, 5, 2, 7, 1, -10}, 15)); // Output: [2, 2]
+//        System.out.println(findLongestSubarrayWithSum(new int[]{5, 3, 4, 7, 2, 1, 1, 1}, 8)); // Output: [4, 8]
+//        System.out.println(findLongestSubarrayWithSum(new int[]{5, 3, 4}, 2)); // Output: [-1]
     }
+
+    public static int findLongestSubarrayWithSumHandlingNegatives(int[] arr, int k) {
+        Map<Integer, Integer> sumIndexMap = new HashMap<>();
+        sumIndexMap.put(0, -1); // This handles the case where the sum itself equals k
+        int currentSum = 0;
+        int maxLength = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            currentSum += arr[i];
+
+            if (sumIndexMap.containsKey(currentSum - k)) {
+                int length = i - sumIndexMap.get(currentSum - k);
+                if (length > maxLength) {
+                    maxLength = length;
+                }
+            }
+
+            // Store the first occurrence of the current sum
+            if (!sumIndexMap.containsKey(currentSum)) {
+                sumIndexMap.put(currentSum, i);
+            }
+        }
+
+        return maxLength;
+    }
+
+
 }

@@ -1,6 +1,10 @@
 package binarysearch;
 
 
+/*
+* calculates teh squareroor of the given number
+* @param n - given number
+* */
 public class SqrtofNumber {
     public static int floorSqrt(int n) {
         int low = 1, high = n;
