@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -52,24 +51,28 @@ public class Main {
 
 
 class SearchEngine {
-    private InvertedIndex invertedIndex;
-    private Map<Integer, Document> docStore;
-    private AtomicInteger idGenerator;
+    private InvertedIndex invertedIndex = new InvertedIndex();
+    private Map<Integer, Document> docStore = new HashMap<>();
+    private AtomicInteger idGenerator = new AtomicInteger(0);
 
     public void addDocument(String filePath) throws IOException {
         try {
+            System.out.println("inside addDocument() with filePath: " + filePath);
             // 1. Detect the reader
             DocumentReader reader = DocumentReaderFactory.getReader(filePath);
             // 2. Extract content
             String content = reader.extractText(filePath);
+//            System.out.println(content.substring(0, Math.min(100, content.length())) + "...");
             // 3. Generate ID and extract metadata
             int docId = idGenerator.getAndIncrement();
             String name = Paths.get(filePath).getFileName().toString();
             String format = filePath.substring(filePath.lastIndexOf('.') + 1).toLowerCase();
             // 4. Create Document
             Document doc = new Document(docId, name, content, format);
+            System.out.println(docId + " " + name + " " + format);
             // 5. Store Document
             docStore.put(docId, doc);
+            System.out.println(docStore + " this is docstore");
             // 6. Index it
             invertedIndex.indexDocument(doc);
             System.out.println("✅ Document added: " + name + " (ID: " + docId + ")");
@@ -178,9 +181,11 @@ interface DocumentReader {
 class DocumentReaderFactory {
 
     public static DocumentReader getReader(String filePath) {
+        System.out.println("inside getReader() with filePath: " + filePath);
         if (filePath.endsWith(".html") || filePath.endsWith(".htm")) {
             return new HtmlReader();
         } else if (filePath.endsWith(".docx")) {
+            System.out.println("choosing WordReader for docx " + filePath + " ...");
             return new WordReader();
         } else if (filePath.endsWith(".txt")) {
             return new TextReader();
@@ -194,11 +199,17 @@ class InvertedIndex {
     private Map<String, List<Posting>> index = new HashMap<>();
 
     public void indexDocument(Document doc) {
-        String content = doc.getContent().toLowerCase(); // normalize
-        int docId = doc.getId();
+        String content = doc.getContent();
+        if (content != null) {
+            content.toLowerCase(); // normalize
+        }
 
-        // Step 1: Tokenize
-        String[] words = content.split("\\W+"); // split on non-word characters
+        int docId = doc.getId();
+        String[] words = null;
+        if (content != null) {
+            // Step 1: Tokenize
+            words = content.split("\\W+"); // split on non-word characters
+        }
 
         // Step 2: Count word frequencies
         Map<String, Integer> freqMap = new HashMap<>();
