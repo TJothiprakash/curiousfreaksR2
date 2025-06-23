@@ -210,5 +210,59 @@ Output Order	Leftmost nodes at each level	Rightmost nodes at each level
             }
         }
     }
+
+    public List<Integer> leftView(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        if (root == null) return result;
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+//        Set<Integer> levels = new HashSet<>();
+        while (!queue.isEmpty()) {
+            TreeNode node = queue.poll();
+            int level = queue.size();
+            for (int i = 0; i < level; i++) {
+                if( i == 0){
+                    result.add(node.data);
+                }
+                if (node.left != null) {
+                    queue.offer(node.left);
+                }
+                if (node.right != null) {
+                    queue.offer(node.right);
+                }
+            }
+        }
+            return result;
+    }
 }
+//
+//public List<Integer> leftView(TreeNode root) {
+//    List<Integer> result = new ArrayList<>();
+//    if (root == null) return result;
+//
+//    Queue<TreeNode> queue = new LinkedList<>();
+//    queue.offer(root);
+//
+//    while (!queue.isEmpty()) {
+//        int levelSize = queue.size(); // Number of nodes at this level
+//
+//        for (int i = 0; i < levelSize; i++) {
+//            TreeNode node = queue.poll();
+//
+//            if (i == 0) {
+//                result.add(node.data); // First node at this level → left view
+//            }
+//
+//            if (node.left != null) {
+//                queue.offer(node.left);
+//            }
+//
+//            if (node.right != null) {
+//                queue.offer(node.right);
+//            }
+//        }
+//    }
+//
+//    return result;
+//}
 

@@ -1,10 +1,12 @@
 package trees;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.*;
 
 class VerticalTraversal {
 
-    public static List<Integer> verticalTraversal(TreeNode root) {
+    public static @NotNull List<Integer> verticalTraversal(TreeNode root) {
         // Map to store nodes grouped by their HD
         TreeMap<Integer, List<Integer>> map = new TreeMap<>();
         // Queue to perform level-order traversal

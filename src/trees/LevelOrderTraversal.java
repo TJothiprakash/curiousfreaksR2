@@ -35,4 +35,25 @@ public class LevelOrderTraversal {
         }
         return result;
     }
+
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+        root.right.left = new TreeNode(6);
+        root.right.right = new TreeNode(7);
+        root.left.right.left = new TreeNode(8);
+        root.left.right.right = new TreeNode(9);
+        LevelOrderTraversal traversal = new LevelOrderTraversal();
+        System.out.println("Level order traversal: ");
+        List<List<Integer>> result = traversal.levelOrder(root);
+        for (int i = 0; i < result.size(); i++) {
+            for (int j = 0; j < result.get(i).size(); j++) {
+                System.out.print(result.get(i).get(j) + " ");
+            }
+            System.out.println();
+        }
+    }
 }

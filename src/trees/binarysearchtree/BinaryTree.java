@@ -1,6 +1,6 @@
 package trees.binarysearchtree;
 
-// Java program to construct a binary tree from parent array
+// Java program to construct a binary tree from a parent array
 
 // A binary tree node
 class Node_ {

@@ -40,9 +40,9 @@ public class TreeOperations {
         insert(identicalRoot, 4);
         System.out.println("Is Identical: " + isIdentical(root, identicalRoot));
 
-        TreeNode subTree = new TreeNode(2);
-        subTree.left = new TreeNode(3);
-        subTree.right = new TreeNode(5);
+        TreeNode subTree = new TreeNode(10);
+        subTree.left = new TreeNode(8);
+        subTree.right = new TreeNode(2);
         System.out.println("Is Subtree: " + isSubtree(root, subTree));
 
         System.out.println("Lowest Common Ancestor (3, 5): " + lca(root, 3, 5).data);
