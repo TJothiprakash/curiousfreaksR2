@@ -39,7 +39,7 @@ public class UglyNumber {
     }
 
     public static void main(String[] args) {
-        int n = 1352; // Example input
+        int n = 7; // Example input
         System.out.println("The " + n + "th ugly number is: " + nthUglyNumber(n));
     }
 }

@@ -19,7 +19,8 @@ Constraints:
 
 1 <= s.length <= 500
 s consists of lowercase English letters.
-Always pick the most frequent character, place it, then pick the next most frequent (so we don’t place the same character adjacently), and alternate.
+Always pick the most frequent character, place it,
+then pick the next most frequent (so we don’t place the same character adjacently), and alternate.
 
 ✅ Step-by-step Approach:
 Count frequency of each character.

@@ -1,7 +1,8 @@
 package heaps;
 
 import java.util.*;
-/*Given an integer array nums and an integer k, return the k most frequent elements.
+/*Given an integer array nums and an integer k,
+ return the k most frequent elements.
 You may return the answer in any order.
 
 
@@ -65,15 +66,15 @@ public class TopKFrequentElements {
 
     public static void main(String[] args) {
         int[] nums1 = {1, 1, 1, 2, 2, 3};
-        int k1 = 2;
+        int k1 = 1;
         System.out.println(topKFrequent(nums1, k1)); // Output: [1, 2]
 
-        int[] nums2 = {1};
+        int[] nums2 = {1,2,3,3,3,4,5,5};
         int k2 = 1;
         System.out.println(topKFrequent(nums2, k2)); // Output: [1]
 
-        int[] nums3 = {4, 4, 4, 6, 6, 8, 8, 8, 8};
-        int k3 = 2;
+        int[] nums3 = {4, 4, 4,4,4 , 6, 6, 8, 8, 8, 8};
+        int k3 = 1;
         System.out.println(topKFrequent(nums3, k3)); // Output: [8, 4]
     }
 }

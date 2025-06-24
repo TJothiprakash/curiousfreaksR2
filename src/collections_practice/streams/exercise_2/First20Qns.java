@@ -164,6 +164,13 @@ class Employee {
         return name;
     }
 
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", salary=" + salary +
+                '}';
+    }
     public int getSalary() {
         return salary;
     }

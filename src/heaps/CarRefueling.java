@@ -1,13 +1,20 @@
 package heaps;
-/*A car travels from a starting position to a destination which is target miles east of the starting position.
+/*A car travels from a starting position to a destination which is target miles
+east of the starting position.
 
-There are gas stations along the way. The gas stations are represented as an array stations where stations[i] = [positioni, fueli] indicates that the ith gas station is positioni miles east of the starting position and has fueli liters of gas.
+There are gas stations along the way. The gas stations are represented as an array stations
+ where stations[i] = [positioni, fueli] indicates that the ith gas station is positioni miles
+ east of the starting position and has fueli liters of gas.
 
-The car starts with an infinite tank of gas, which initially has startFuel liters of fuel in it. It uses one liter of gas per one mile that it drives. When the car reaches a gas station, it may stop and refuel, transferring all the gas from the station into the car.
+The car starts with an infinite tank of gas, which initially has startFuel liters of fuel in it.
+ It uses one liter of gas per one mile that it drives. When the car reaches a gas station,
+  it may stop and refuel, transferring all the gas from the station into the car.
 
-Return the minimum number of refueling stops the car must make in order to reach its destination. If it cannot reach the destination, return -1.
+Return the minimum number of refueling stops the car must make in order to reach its
+destination. If it cannot reach the destination, return -1.
 
-Note that if the car reaches a gas station with 0 fuel left, the car can still refuel there. If the car reaches the destination with 0 fuel left, it is still considered to have arrived.
+Note that if the car reaches a gas station with 0 fuel left, the car can still refuel there.
+If the car reaches the destination with 0 fuel left, it is still considered to have arrived.
 
 
 
@@ -38,24 +45,31 @@ Constraints:
 0 <= stations.length <= 500
 1 <= positioni < positioni+1 < target
 1 <= fueli < 109
-o solve the problem of determining the minimum number of refueling stops a car must make in order to reach its destination, we can employ a greedy algorithm with the help of a max-heap (priority queue). Here's the step-by-step approach:
+o solve the problem of determining the minimum number of refueling stops a car must make
+ in order to reach its destination, we can employ a greedy algorithm with the help of a
+ max-heap (priority queue). Here's the step-by-step approach:
 
 Approach:
 Initial Setup:
 
 The car starts with startFuel liters of fuel and needs to reach a target distance.
-There are gas stations along the way, and each station provides fuel. The stations are sorted by their position in ascending order.
+There are gas stations along the way, and each station provides fuel. The stations
+are sorted by their position in ascending order.
 Greedy Strategy:
 
 At any point, the car can either:
 Continue driving with the fuel it currently has.
 Refuel at a gas station if it has enough fuel to reach that station.
-To minimize the number of refueling stops, we want to always refuel at the station that provides the most fuel when we run out of enough fuel to reach the target or the next station. This can be achieved using a max-heap.
+To minimize the number of refueling stops, we want to always refuel at the station that
+ provides the most fuel when we run out of enough fuel to reach the target or the next station.
+  This can be achieved using a max-heap.
 Algorithm Steps:
 
 Start by considering the car’s initial fuel.
-Traverse through each station, and for each station, check if the car can reach it with the current fuel. If yes, continue.
-If not, use a max-heap to keep track of all the stations visited so far, and refuel at the station that gives the maximum fuel when the car is about to run out of fuel.
+Traverse through each station, and for each station, check if the car can reach it with the current fuel.
+ If yes, continue.
+If not, use a max-heap to keep track of all the stations visited so far, and refuel at the
+ station that gives the maximum fuel when the car is about to run out of fuel.
 If at any point the car cannot reach a station or the target with the available fuel, return -1.
 Continue until the car reaches the target.
 Edge Cases:
