@@ -3,8 +3,8 @@ package dynamic_programming.dp_onstrings;
 import org.jetbrains.annotations.NotNull;
 
 /*
-
-Given two strings pat and txt which may be of different sizes, You have to return true if the wildcard pattern i.e. pat, matches with txt else return false.
+Given two strings pat and txt which may be of different sizes,
+ You have to return true if the wildcard pattern i.e. pat, matches with txt else return false.
 
 The wildcard pattern pat can include the characters '?' and '*'.
 
@@ -25,9 +25,6 @@ Output: true
 Explanation: '*' matches with whole text "abc".
 Constraints:
         1 <= txt.size(),pat.size() <= 3000
-
-
-
 */
 /*🎯 Pattern Rules Recap:
 '?' matches any one character
@@ -88,7 +85,6 @@ public class WildcardMatch {
 
         // Pattern exhausted, but txt remains
         if (i == pat.length()) return false;
-
         // Txt exhausted
         if (j == txt.length()) {
             // Remaining pattern must be all '*'

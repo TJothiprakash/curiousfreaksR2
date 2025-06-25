@@ -46,3 +46,56 @@ public class MinDeletionsInsertions {
         System.out.println("Min Insertions: " + insertions);
     }
 }
+
+/*
+Question:
+Convert s1 to s2 using minimum insertions and deletions.
+
+Approach:
+- Find LCS of s1 and s2
+- deletions = s1.length - LCS
+- insertions = s2.length - LCS
+- Total = deletions + insertions
+
+Time: O(m * n)
+Space: O(m * n)
+*/
+
+ class MinInsertDeleteToConvert {
+
+    public static int minOperations(String s1, String s2) {
+        int m = s1.length(), n = s2.length();
+        Integer[][] memo = new Integer[m][n];
+        int lcs = longestCommonSubseq(0, 0, s1, s2, memo);
+        return (m - lcs) + (n - lcs);
+    }
+
+    // Classic LCS recursion with memo
+    private static int longestCommonSubseq(int i, int j, String s1, String s2, Integer[][] memo) {
+        if (i >= s1.length() || j >= s2.length()) return 0;
+        if (memo[i][j] != null) return memo[i][j];
+
+        if (s1.charAt(i) == s2.charAt(j)) {
+            memo[i][j] = 1 + longestCommonSubseq(i + 1, j + 1, s1, s2, memo);
+        } else {
+            int skipS1 = longestCommonSubseq(i + 1, j, s1, s2, memo);
+            int skipS2 = longestCommonSubseq(i, j + 1, s1, s2, memo);
+            memo[i][j] = Math.max(skipS1, skipS2);
+        }
+
+        return memo[i][j];
+    }
+
+    public static void main(String[] args) {
+        System.out.println(minOperations("heap", "pea"));           // 3
+        System.out.println(minOperations("geeksforgeeks", "geeks")); // 8
+    }
+}
+
+/*
+Time Complexity:
+- O(m * n)
+
+Space Complexity:
+- O(m * n) for memo table
+*/

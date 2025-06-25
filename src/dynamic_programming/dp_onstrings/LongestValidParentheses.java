@@ -1,9 +1,12 @@
 package dynamic_programming.dp_onstrings;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Arrays;
 /*
 
-Given a string s consisting of opening and closing parenthesis '(' and ')'. Find the length of the longest valid parenthesis substring.
+Given a string s consisting of opening and closing parenthesis '(' and ')'.
+ Find the length of the longest valid parenthesis substring.
 
 A parenthesis string is valid if:
 
@@ -98,7 +101,7 @@ public class LongestValidParentheses {
         return maxLen;
     }
 
-    private int helper(String s, int i, int[] dp) {
+    private int helper(@NotNull String s, int i, int[] dp) {
         if (i >= s.length()) return 0;
         if (dp[i] != -1) return dp[i];
 

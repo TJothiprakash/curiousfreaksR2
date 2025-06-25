@@ -74,3 +74,62 @@ public class LongestPalindromicSubsequence {
 
 }
 
+/*
+Question:
+Return the length of the longest palindromic subsequence in string s.
+
+Approach:
+- Use recursion + memoization.
+- If s[i] == s[j] → 2 + recurse inward
+- Else → max(skip i, skip j)
+- Memoize using dp[i][j]
+
+Time: O(n^2)
+Space: O(n^2)
+*/
+
+
+ class LongestPalindromicSubsequence7 {
+
+    public static int longestPalindromeSubseq(String s) {
+        int n = s.length();
+        Integer[][] memo = new Integer[n][n];
+        return lps(0, n - 1, s, memo);
+    }
+
+    // Recursive helper with memo
+    private static int lps(int i, int j, String s, Integer[][] memo) {
+        if (i > j) return 0;          // Invalid range
+        if (i == j) return 1;         // Single char is a palindrome
+
+        if (memo[i][j] != null) return memo[i][j];
+
+        if (s.charAt(i) == s.charAt(j)) {
+            memo[i][j] = 2 + lps(i + 1, j - 1, s, memo);
+        } else {
+            int skipLeft = lps(i + 1, j, s, memo);
+            int skipRight = lps(i, j - 1, s, memo);
+            memo[i][j] = Math.max(skipLeft, skipRight);
+        }
+
+        return memo[i][j];
+    }
+
+    // Driver
+    public static void main(String[] args) {
+        String s1 = "bbbab";
+        System.out.println("Longest Palindromic Subsequence Length (1): " + longestPalindromeSubseq(s1)); // 4
+
+        String s2 = "cbbd";
+        System.out.println("Longest Palindromic Subsequence Length (2): " + longestPalindromeSubseq(s2)); // 2
+    }
+}
+
+/*
+Time Complexity:
+- O(n^2): each (i, j) pair is computed once
+
+Space Complexity:
+- O(n^2): for memoization table
+- O(n): recursion stack depth
+*/

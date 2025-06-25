@@ -33,3 +33,46 @@ public class LongestRepeatingSubsequence {
         System.out.println(longestRepeatingSubsequence(s2)); // Output: 2 ("xx")
     }
 }
+/*
+Question:
+Find length of longest repeating subsequence (same characters, different indices).
+
+Approach:
+- Treat as LCS(s, s) with condition: i ≠ j
+- Use recursion + memoization (your preference)
+
+Time: O(n^2)
+Space: O(n^2)
+*/
+
+
+ class LongestRepeatingSubsequence1 {
+
+    public static int longestRepeatingSubsequence(String s) {
+        int n = s.length();
+        Integer[][] memo = new Integer[n][n];
+        return lrs(s, n - 1, n - 1, memo);
+    }
+
+    private static int lrs(String s, int i, int j, Integer[][] memo) {
+        if (i < 0 || j < 0) return 0;
+
+        if (memo[i][j] != null) return memo[i][j];
+
+        if (s.charAt(i) == s.charAt(j) && i != j) {
+            memo[i][j] = 1 + lrs(s, i - 1, j - 1, memo);
+        } else {
+            int skipI = lrs(s, i - 1, j, memo);
+            int skipJ = lrs(s, i, j - 1, memo);
+            memo[i][j] = Math.max(skipI, skipJ);
+        }
+
+        return memo[i][j];
+    }
+
+    public static void main(String[] args) {
+        System.out.println(longestRepeatingSubsequence("axxzxy")); // Output: 2
+        System.out.println(longestRepeatingSubsequence("axxxy"));  // Output: 2
+        System.out.println(longestRepeatingSubsequence("aab"));    // Output: 1
+    }
+}
