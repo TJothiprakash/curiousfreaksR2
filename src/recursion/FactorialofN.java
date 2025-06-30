@@ -5,8 +5,8 @@ public class FactorialofN {
         int n = 6;
         int res = factorial(n);
         System.out.println(res);
-        int fibanacciNo = fibanacci(n);
-        System.out.println(fibanacciNo);
+//        int fibanacciNo = fibanacci(n);
+//        System.out.println(fibanacciNo);
     }
 
     private static int fibanacci(int n) {
@@ -19,6 +19,7 @@ public class FactorialofN {
 
     private static int factorial(int n) {
         if (n == 1) {
+            System.out.println("returnign 1 from factorial");
             return 1;
         }
         return n * factorial(n - 1);
