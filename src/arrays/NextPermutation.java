@@ -8,6 +8,8 @@ public class NextPermutation {
             System.out.print(i + " ");
         }
     }
+
+//    O(n) O(1)
     public void nextPermutation(int[] nums) {
         int i = nums.length - 2;
 

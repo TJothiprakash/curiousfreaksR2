@@ -2,7 +2,11 @@ package arrays;
 
 public class MaxProduct {
 }
- class MaximumProductSubarray {
+
+class MaximumProductSubarray {
+
+    //    O(n) O(1)
+//    similar to kadane just handled for negative values
     public static int maxProduct(int[] arr) {
         // Edge case: if the array is empty
         if (arr.length == 0) return 0;

@@ -13,8 +13,7 @@ public class CuriousFreaks_ArrayQns {
     }
 
 
-
-
+    //  O(n) O(1)
     @Contract(pure = true)
     public static int findKthElementUsingTwoPointer(int[] a, int[] b, int k) {
         int i = 0, j = 0, count = 0;
@@ -45,7 +44,7 @@ public class CuriousFreaks_ArrayQns {
         return -1; // In case k is out of bounds
     }
 
-
+    // O(log n) O(1)
     public static int findKthElement(int[] a, int[] b, int k) {
         int n = a.length, m = b.length;
 
@@ -75,6 +74,7 @@ public class CuriousFreaks_ArrayQns {
         return -1; // Invalid case (shouldn't occur if input is valid)
     }
 
+    //O(n^2) O(1)
     int countZeroSumTriplets(int[] arr) {
         int n = arr.length;
         Arrays.sort(arr); // Sort the array
@@ -111,7 +111,7 @@ public class CuriousFreaks_ArrayQns {
         return count;
     }
 
-
+    //O(n) O(k)
     int[] rotateArrayByKPlaces(int arr[], int k) {
         int n = arr.length;
         k = k % n; // handle k > n
@@ -135,7 +135,7 @@ public class CuriousFreaks_ArrayQns {
         return arr;
     }
 
-
+    //O(log n) O(1)
     int[] sort012(int[] arr) {
         int low = 0, high = arr.length - 1;
 
@@ -162,7 +162,7 @@ public class CuriousFreaks_ArrayQns {
         return arr;
     }
 
-
+    //O(n) O(1)
     int[] minandMax(int[] arr) {
         int min = arr[0];
         int max = arr[0];
@@ -177,13 +177,14 @@ public class CuriousFreaks_ArrayQns {
         return new int[]{min, max};
     }
 
-
+    //O(n logn) O(1)
     int thirdLargest(int[] arr) {
         Arrays.sort(arr);
         return arr[arr.length - 3];
 
     }
 
+    //O(n) O(1)
     int findMissingElement(int arr[]) {
         int n = arr[arr.length - 1];
         int sum = (n * (n + 1)) / 2;
@@ -194,6 +195,7 @@ public class CuriousFreaks_ArrayQns {
         return sum - actualSum;
     }
 
+    //O(2n)  O(1)
     public static int[] findMissingRepeatingNumbers(int[] a) {
         int n = a.length; // size of the array
         int[] hash = new int[n + 1]; // hash array
@@ -217,3 +219,14 @@ public class CuriousFreaks_ArrayQns {
     }
 
 }
+//| Method                          | Your Complexity | Verdict     | Notes                         |
+//| ------------------------------- | --------------- | ----------- | ----------------------------- |
+//| `findKthElementUsingTwoPointer` | O(k) O(1)       | ✅ Correct   |                               |
+//| `findKthElement`                | O(log n) O(1)   | ❌ Needs Fix | Should be `O(log(min(n, m)))` |
+//| `countZeroSumTriplets`          | O(n^2) O(1)     | ✅ Correct   |                               |
+//| `rotateArrayByKPlaces`          | O(n) O(k)       | ✅ Correct   |                               |
+//| `sort012`                       | O(log n) O(1)   | ❌ Needs Fix | Should be `O(n) O(1)`         |
+//| `minandMax`                     | O(n) O(1)       | ✅ Correct   |                               |
+//| `thirdLargest`                  | O(n log n) O(1) | ✅ Correct   |                               |
+//| `findMissingElement`            | O(n) O(1)       | ✅ Correct   |                               |
+//| `findMissingRepeatingNumbers`   | O(2n) O(1)      | ❌ Needs Fix | Should be `O(n) O(n)`         |

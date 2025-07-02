@@ -32,6 +32,7 @@ public class Arrays1 {
         printArray(findDuplicates(arr5));
     }
 
+    //  O(n) O(n)
     public static void rotateRight(int[] arr, int k) {
         if (arr == null || arr.length == 0) return;
         k = k % arr.length;
@@ -40,6 +41,7 @@ public class Arrays1 {
         reverse(arr, k, arr.length - 1);
     }
 
+    //  O(n) O(k)
     public static void rotateLeft(int[] arr, int k) {
         if (arr == null || arr.length == 0) return;
         k = k % arr.length;
@@ -58,6 +60,7 @@ public class Arrays1 {
         }
     }
 
+    //O(n) O(1)
     private static void printArray(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
@@ -65,6 +68,7 @@ public class Arrays1 {
         System.out.println();
     }
 
+    //  O(n) O(1)
     public static int maxSubarraySum(int[] arr) {
         int maxSoFar = arr[0];
         int maxEndingHere = arr[0];
@@ -76,6 +80,7 @@ public class Arrays1 {
         return maxSoFar;
     }
 
+    //  O(n) O(1)
     public static int[] mergeSortedArrays(int[] arr1, int[] arr2) {
         int[] result = new int[arr1.length + arr2.length];
         int i = 0, j = 0, k = 0;
@@ -99,6 +104,7 @@ public class Arrays1 {
         return result;
     }
 
+    //  O(n) O(n)
     public static int[] findDuplicates(int[] arr) {
         int[] temp = new int[arr.length];
         int k = 0;
@@ -117,6 +123,7 @@ public class Arrays1 {
         return result;
     }
 
+    //O(n * n) O(n)
     public static ArrayList<int[]> twoSum(int[] nums, int target) {
         ArrayList<int[]> result = new ArrayList<>();
         for (int i = 0; i < nums.length - 1; i++) {
@@ -129,6 +136,7 @@ public class Arrays1 {
         return result;
     }
 
+    //O(n * n) O(n)
     public static HashSet<String> twoSumUnique(int[] nums, int target) {
         HashSet<String> result = new HashSet<>();
         for (int i = 0; i < nums.length - 1; i++) {
@@ -142,6 +150,7 @@ public class Arrays1 {
         return result;
     }
 
+    //O(n^3) O(n)
     public static ArrayList<int[]> threeSum(int[] nums, int target) {
         ArrayList<int[]> result = new ArrayList<>();
         for (int i = 0; i < nums.length - 2; i++) {
@@ -156,6 +165,7 @@ public class Arrays1 {
         return result;
     }
 
+    //   O( n^3) O(n)
     public static HashSet<String> threeSumUnique(int[] nums, int target) {
         HashSet<String> result = new HashSet<>();
         Arrays.sort(nums);
@@ -171,6 +181,7 @@ public class Arrays1 {
         return result;
     }
 
+    //O(N^3 *n) O(n)
     public static ArrayList<int[]> fourSum(int[] nums, int target) {
         ArrayList<int[]> result = new ArrayList<>();
         for (int i = 0; i < nums.length - 3; i++) {
@@ -187,6 +198,7 @@ public class Arrays1 {
         return result;
     }
 
+    //O(n * n * n * n) O(N)
     public static HashSet<String> fourSumUnique(int[] nums, int target) {
         HashSet<String> result = new HashSet<>();
         Arrays.sort(nums);
@@ -204,6 +216,7 @@ public class Arrays1 {
         return result;
     }
 
+    //    O(n * n ) O(n)
     public static ArrayList<int[]> optimizedThreeSum(int[] nums, int target) {
         ArrayList<int[]> result = new ArrayList<>();
         Arrays.sort(nums);
@@ -226,6 +239,7 @@ public class Arrays1 {
         return result;
     }
 
+    //O( n * n * n ) O( n )
     public static ArrayList<int[]> optimizedFourSum(int[] nums, int target) {
         ArrayList<int[]> result = new ArrayList<>();
         Arrays.sort(nums);
@@ -250,6 +264,7 @@ public class Arrays1 {
         return result;
     }
 
+    // O(n * N ) O(n)
     public static ArrayList<int[]> findTriplets(int[] arr, int target) {
         ArrayList<int[]> result = new ArrayList<>();
         Arrays.sort(arr);

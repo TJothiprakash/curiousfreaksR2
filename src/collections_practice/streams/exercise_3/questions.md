@@ -1,12 +1,12 @@
 
 | Level      | Concepts Covered                             | No. of Questions |
-| ---------- | -------------------------------------------- | ---------------- |
-| 🟢 Level 1 | `map`, `filter`, `collect`, basic operations | 40               |
-| 🟡 Level 2 | `distinct`, `sorted`, `limit`, `reduce`      | 40               |
-| 🟠 Level 3 | `groupingBy`, `partitioningBy`, `counting`   | 40               |
-| 🔴 Level 4 | `flatMap`, nested streams, collectors        | 40               |
-| ⚫ Level 5  | Real-world problems & system design tasks    | 40               |
-| **Total**  | All mastered 🔥                              | **200**          |
+| ---------- | -------------------------------------------- | -------------- |
+| 🟢 Level 1 | `map`, `filter`, `collect`, basic operations | 40             |
+| 🟡 Level 2 | `distinct`, `sorted`, `limit`, `reduce`      | 40             |
+| 🟠 Level 3 | `groupingBy`, `partitioningBy`, `counting`   | 40             |
+| 🔴 Level 4 | `flatMap`, nested streams, collectors        | 40             |
+| ⚫ Level 5  | Real-world problems & system design tasks    | 40             |
+| **Total**  | All mastered 🔥                              | **200**        |
 
 
 🟢 Basic Mapping & Filtering

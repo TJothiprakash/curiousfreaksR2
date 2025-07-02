@@ -12,6 +12,7 @@ public class TripletPair {
 
 
  class TripletCount {
+//    O(n * n ) O(1)
     public static int countTriplets(int[] arr) {
         Arrays.sort(arr); // Step 1: Sort the array
         int n = arr.length;

@@ -3,6 +3,7 @@ package arrays;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 public class FourSum {
     public static void main(String[] args) {
         int[] nums = {1, 0, -1, 0, -2, 2};
@@ -14,15 +15,18 @@ public class FourSum {
 }
 
 
- class Quadrouple {
+class Quadrouple {
+    //
     public List<List<Integer>> fourSum(int[] nums, int target) {
         Arrays.sort(nums); // Sort the input array in ascending order.
         List<List<Integer>> result = new ArrayList<>();
         List<Integer> temp = new ArrayList<>();
+//         can reuse for 2sum , 3sum , 4sum , 5sum etc
         helper(nums, (long) target, 0, result, temp, 4); // Use long data type for target.
         return result; // Return the result list containing unique quadruplets.
     }
 
+    // O(n *n* n) O (n log n )
     private void helper(int[] nums, long target, int start, List<List<Integer>> result, List<Integer> temp, int numNeed) {
         if (numNeed != 2) {
             for (int i = start; i < nums.length - numNeed + 1; i++) {

@@ -62,6 +62,7 @@ public class ArrayPractice {
     public static void main(String[] args) {
 
     }
+//    O(n) O(1)
     public static boolean isPalindrome(int num) {
         int originalNum = num;
         int reversedNum = 0;

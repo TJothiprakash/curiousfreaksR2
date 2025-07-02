@@ -4,6 +4,7 @@ public class KadanesAlgo {
 
 }
  class MaximumSubarraySum {
+//    O(n) O(1)
     public static int maxSubArraySum(int[] arr) {
         int n = arr.length;
         if (n == 0) return 0;

@@ -2,6 +2,7 @@ package matrix;
 
 public class AlternateRowTraversal {
 
+    //    O(n *n) O(1)
     public static void printAlternateRows(int[][] matrix) {
         // Loop through each row of the matrix
         for (int i = 0; i < matrix.length; i++) {

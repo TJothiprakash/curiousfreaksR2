@@ -1,0 +1,5 @@
+2025-06-29T10:00:00	INFO	api-service	API_CALL /products latency=120	192.168.0.1
+2025-06-29T10:02:00	ERROR	auth-service	ALERT Unauthorized access	192.168.0.2
+2025-06-29T10:03:00	INFO	api-service	LOGIN	192.168.0.1
+2025-06-29T10:04:00	INFO	api-service	MSG #general Hello world	192.168.0.3
+2025-06-29T10:05:00	ERROR	api-service	REVIEW iPhone	192.168.0.4

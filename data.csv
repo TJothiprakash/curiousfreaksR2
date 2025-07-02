@@ -1,0 +1,4 @@
+userId,timestamp,page,amount,status
+Alice,2025-06-29T10:01:00,/home,1200.0,abandoned
+Bob,2025-06-29T10:02:00,/checkout,1300.0,abandoned
+Charlie,2025-06-29T10:03:00,/login,0.0,completed

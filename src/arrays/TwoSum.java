@@ -18,12 +18,13 @@ public class TwoSum {
     public static void main(String[] args) {
         int[] arr = {1, 4, 45, 6, 10, 8};//`1,4,6,8,10,45
         int target = 11;
-      //  System.out.println(twoSum(arr, target));
+        //  System.out.println(twoSum(arr, target));
         System.out.println(threeSum(arr, target));
 
 
     }
 
+    //  O( n^3) O(1)
     private static boolean threeSums(int[] arr, int target) {
         Arrays.sort(arr);
         // int left = 0, right = arr.length-1;
@@ -43,6 +44,7 @@ public class TwoSum {
     }
 
     // using while loop
+//    O(n * n) O(1)
     private static boolean threeSum(int[] arr, int target) {
         Arrays.sort(arr); // Sort the array
         for (int k = 0; k < arr.length - 2; k++) { // Fix the first element
@@ -64,6 +66,7 @@ public class TwoSum {
     }
 
     // two sum using sliding window
+//    O(n log n ) O(1)
     public static boolean twoSumTest(int[] arr, int target) {
         Arrays.sort(arr);
         int sum = arr[0] + arr[1];
@@ -71,7 +74,7 @@ public class TwoSum {
             if (sum == target) {
                 return true;
             }
-            sum += arr[i+1] - arr[i -1 ];
+            sum += arr[i + 1] - arr[i - 1];
 
         }
         return false;

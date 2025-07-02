@@ -2,7 +2,7 @@ package arrays;
 
 public class RotateArray {
     public static void main(String[] args) {
-        int[] arr = {0,1, 2, 3, 4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
+        int[] arr = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
         int[] ans = rotateArray(arr, 7);
         for (int i : ans) {
             System.out.print(i + " ");
@@ -10,6 +10,7 @@ public class RotateArray {
         }
     }
 
+    // O(n) O(1)
     private static int[] rotateArray(int[] arr) {
         int temp = arr[arr.length - 1];
         for (int i = arr.length - 2; i >= 0; i--) {
@@ -21,6 +22,7 @@ public class RotateArray {
     }
 
     // rotate the array by k places
+//    O(n) O(1)
     private static int[] rotateArray(int[] nums, int k) {
         int n = nums.length;
         k = k % n; // Normalize k

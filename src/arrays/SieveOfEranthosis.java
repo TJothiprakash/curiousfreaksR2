@@ -8,6 +8,7 @@ public class SieveOfEranthosis {
         SieveOfEranthosis sieve = new SieveOfEranthosis();
         sieve.sieveOfEratosthenes(N);
     }
+
     // Function to print prime numbers up to N using Sieve of Eratosthenes
     public void sieveOfEratosthenes(int N) {
         // Step 1: Create a boolean array of size N+1 and initialize all values to true
@@ -18,6 +19,7 @@ public class SieveOfEranthosis {
         isPrime[0] = isPrime[1] = false;
 
         // Step 3: Implement the Sieve of Eratosthenes
+//        O(n log (log n) ) O(n)
         for (int i = 2; i * i <= N; i++) {
             if (isPrime[i]) {
                 for (int j = i * i; j <= N; j += i) {

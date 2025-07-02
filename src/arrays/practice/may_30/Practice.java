@@ -10,6 +10,7 @@ public class Practice {
         System.out.println(isThreesum);
     }
 
+//    O(n * n ) O(1)
     boolean twoSum(int arr[], int target) {
         if (arr.length < 2) return false;
         for (int i = 0; i < arr.length - 1; i++) {
@@ -24,6 +25,7 @@ public class Practice {
     }
 
     // using two pointer technique assume array is sorted
+//    O(n) O(1)
     boolean twoSum2(int[] arr, int target) {
 
         int left = 0;
@@ -41,7 +43,7 @@ public class Practice {
         }
         return false;
     }
-
+//  O(n * n ) O(n)
     static boolean threeSum(int[] arr, int target) {
         Arrays.sort(arr);
         if (arr.length < 3) return false;
@@ -75,7 +77,7 @@ public class Practice {
         return false;
     }
 
-
+//O(n ^3) O(1)
     static boolean fourSum(int[] arr, int target) {
         Arrays.sort(arr);
         int n = arr.length;
@@ -105,7 +107,7 @@ public class Practice {
         }
         return false;
     }
-
+//O(N) O(N)
     static int findUnion(int[] arr1, int[] arr2) {
         int ptr1 = 0, ptr2 = 0;
         List<Integer> union = new ArrayList<>();
@@ -150,6 +152,7 @@ public class Practice {
     }
 
     // intesection of two arrays
+//    O(n) O(n)
     public static List<Integer> intersect(int[] arr1, int[] arr2) {
         List<Integer> intersection = new ArrayList<>();
         int ptr1 = 0, ptr2 = 0;
@@ -169,7 +172,7 @@ public class Practice {
         return intersection;
     }
 
-
+//O(n) O(n)
     public int kthElementinTwoSortedArrays(int a[], int b[], int k) {
         int n = a.length;
         int m = b.length;
@@ -209,7 +212,7 @@ public class Practice {
         return -1; // shouldn't reach here if k is valid
     }
 
-
+// O(n) O(n)
     public static int longestSubarrayWithSumK(int[] arr, int k) {
         Map<Integer, Integer> map = new HashMap<>(); // sum -> earliest index
         int sum = 0, maxLen = 0;
@@ -237,6 +240,8 @@ public class Practice {
         return maxLen;
     }
 
+//     this is kadanes algo
+//    O(n) O(1)
     public static int maxSubArraySum(int[] arr) {
         int maxEndingHere = arr[0];
         int maxSoFar = arr[0];

@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Frequency {
     public static void main(String[] args) {
-        int[] arr = {2, 3, 2, 3, 5,9};
+        int[] arr = {2, 3, 2, 3, 5, 9};
 
         int[] hasharray = createHashArray(arr);
 
@@ -12,6 +12,7 @@ public class Frequency {
         System.out.println(Arrays.toString(hasharray));
     }
 
+    //    O(n) O(maxElement +1)
     private static int[] createHashArray(int[] arr) {
         // Step 1: Find the maximum number in the array
         int max = Arrays.stream(arr).max().getAsInt();

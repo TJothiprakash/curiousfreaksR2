@@ -28,7 +28,7 @@ public class RotateMatrix {
         }
 
     }
-
+//O( n * n ) O(1)
     public static void rotateMatrix(int[] @NotNull [] matrix) {
         RotateMatrix.matrix = matrix;
 

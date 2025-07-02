@@ -3,6 +3,9 @@ package arrays.nov_06_revision;
 import java.util.HashMap;
 
 public class CompareTwoArrays {
+
+
+//    O(2n) O(n)
     public boolean compare(int[] arr1, int[] arr2) {
         HashMap<Integer, Integer> frequencyMap = new HashMap<>();
 

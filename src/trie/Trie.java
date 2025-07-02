@@ -1,5 +1,7 @@
 package trie;
 
+import org.jetbrains.annotations.NotNull;
+
 class TrieNode {
     TrieNode[] children;
     boolean isEnd;
@@ -18,7 +20,7 @@ public class Trie {
     }
 
     // INSERT a word into the Trie
-    public void insert(String word) {
+    public void insert(@NotNull String word) {
         TrieNode curr = root;
         for (char ch : word.toCharArray()) {
             int idx = ch - 'a';

@@ -1,6 +1,7 @@
 package matrix;
 
 public class MinOnes {
+//    O(n * n) O( 1)
     public static int rowWithMinimumOnes(int[][] mat) {
         int n = mat.length;
         int m = mat[0].length;

@@ -27,6 +27,7 @@ public class Practice {
         return findLargestNo(arr, arr.length - 1, max);
     }
 
+    //O(n)-only stack space  O(1)
     int findLargestNo(int[] arr, int n, int max) {
         if (n == 0) {
             return max;
@@ -37,6 +38,7 @@ public class Practice {
         return findLargestNo(arr, n - 1, max);
     }
 
+    //    O(n) O(1)
     boolean ifArrayisSorted(int[] arr) {
         for (int i = 0; i < arr.length - 1; i++) {
             if (arr[i] > arr[i + 1]) {
@@ -46,6 +48,7 @@ public class Practice {
         return true;
     }
 
+    //    O(n) O(1)
     int[] removeDuplicates(int[] arr) {
         int n = arr.length;
         int i = 0, count = 0;
@@ -62,6 +65,7 @@ public class Practice {
         return Arrays.copyOf(arr, count + 1);
     }
 
+    //   O(N) O(1)
     int[] leftRotateArray(int[] arr) {
         int temp = arr[0];
         for (int i = 1; i < arr.length; i++) {
@@ -71,6 +75,7 @@ public class Practice {
         return arr;
     }
 
+    //O(n) O(1)
     int[] rightRotateArray(int[] arr) {
         int temp = arr[arr.length - 1];
         for (int i = arr.length - 2; i >= 0; i--) {
@@ -80,6 +85,7 @@ public class Practice {
         return arr;
     }
 
+    //O(n) O(d)
     int[] leftRotateArraybyDPlaces(int[] arr, int d) {
         int[] temp = new int[d];
         for (int i = 0; i < d; i++) {
@@ -94,7 +100,7 @@ public class Practice {
         return arr;
     }
 
-
+    //O(n) O(1)
     int[] moveZeroestoEnd(int @NotNull [] arr) {
         int nonZeroIndex = 0;
         for (int i = 0; i < arr.length; i++) {
@@ -114,7 +120,7 @@ public class Practice {
     }
 
     // find union using map
-
+// O(n) O(n)
     int[] findUnion(int[] arr1, int[] arr2) {
         Map<Integer, Integer> map = new HashMap<>(arr1.length + arr2.length);
         for (int i : arr1) map.put(i, map.getOrDefault(i, 0) + 1);
@@ -129,6 +135,7 @@ public class Practice {
         return union;
     }
 
+    //        O(2n) or O(arr1+arr2)  space : O(2n)
     int[] findUnionUsingTwoPointers(int[] arr1, int[] arr2) {
         int i = 0, j = 0;
         List<Integer> result = new ArrayList<>();
@@ -165,6 +172,7 @@ public class Practice {
         return result.stream().mapToInt(Integer::intValue).toArray();
     }
 
+    //    O(2n) O(n)
     int[] findUnionUsingTwoPointersUsingArray(int[] arr1, int[] arr2) {
         int i = 0, j = 0, k = 0;
         int m = arr1.length, n = arr2.length;
@@ -207,3 +215,17 @@ public class Practice {
 
 
 }
+
+//
+//| Method Name                             | Time       | Space      | Verdict     |
+//| --------------------------------------- | ---------- | ---------- | ----------- |
+//| `largestElement()`                      | ✅ `O(n)`   | ❌ `O(n)`   | Stack space |
+//| `ifArrayisSorted()`                     | ✅ `O(n)`   | ✅ `O(1)`   |             |
+//| `removeDuplicates()`                    | ✅ `O(n)`   | ✅ `O(1)`   |             |
+//| `leftRotateArray()`                     | ✅ `O(n)`   | ✅ `O(1)`   |             |
+//| `rightRotateArray()`                    | ✅ `O(n)`   | ✅ `O(1)`   |             |
+//| `leftRotateArraybyDPlaces()`            | ✅ `O(n)`   | ✅ `O(d)`   |             |
+//| `moveZeroestoEnd()`                     | ✅ `O(n)`   | ✅ `O(1)`   |             |
+//| `findUnion()` (using map)               | ✅ `O(n)`   | ✅ `O(n)`   |             |
+//| `findUnionUsingTwoPointers()`           | ✅ `O(n+m)` | ✅ `O(n+m)` |             |
+//| `findUnionUsingTwoPointersUsingArray()` | ✅ `O(n+m)` | ✅ `O(n+m)` |             |

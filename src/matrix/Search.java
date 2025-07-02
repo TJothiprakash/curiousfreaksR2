@@ -9,6 +9,7 @@ public class Search {
         System.out.println(searchElement(arr, target));
     }
 
+    //O(log m * n) O(1)
     private static boolean searchElement(int[][] arr, int target) {
         int m = arr.length;
         int n = arr[0].length;

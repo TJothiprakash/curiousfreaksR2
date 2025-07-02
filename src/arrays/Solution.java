@@ -1,6 +1,8 @@
 package arrays;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Solution {
     public static void main(String[] args) {
@@ -15,6 +17,7 @@ public class Solution {
         }
     }
 
+    //O(n  log n ) O(n)
     public int[][] merge(int[][] intervals) {
         // Step 1: Sort intervals by starting time
         Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));

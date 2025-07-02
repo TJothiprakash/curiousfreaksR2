@@ -1,6 +1,7 @@
 package arrays.nov_06_revision;
 
 public class RemoveDuplicates {
+    //    O(n) O(1)
     public int removeDuplicates(int[] arr) {
         if (arr.length == 0) return 0;
 
@@ -14,3 +15,7 @@ public class RemoveDuplicates {
         return writeIndex; // Length of the array with unique elements
     }
 }
+//| Complexity Type | Your Comment | Verdict   | Explanation        |
+//| --------------- | ------------ | --------- | ------------------ |
+//| Time            | `O(n)`       | ✅ Correct | Single linear scan |
+//| Space           | `O(1)`       | ✅ Correct | In-place update    |

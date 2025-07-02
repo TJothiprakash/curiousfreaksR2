@@ -2,13 +2,14 @@ package arrays;
 
 import java.util.HashMap;
 
- class SubArraySumWithK {
+class SubArraySumWithK {
     public static void main(String[] args) {
         int[] arr = {10, 5, 2, 7, 1, 9};
         int target = 15;
         System.out.println("Maximum Length of Subarray with Target Sum: " + subArraySum(arr, target));
     }
 
+    //O(n) O(n)
     private static int subArraySum(int[] arr, int target) {
         HashMap<Integer, Integer> prefixSumMap = new HashMap<>();
         int prefixSum = 0;

@@ -4,6 +4,7 @@ public class TrappingWater {
 }
 
  class TrappingRainWater {
+//    O(n) O(1)
     static int trap(int[] height) {
         if (height == null || height.length == 0) {
             return 0;

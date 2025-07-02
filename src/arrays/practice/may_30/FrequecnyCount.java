@@ -11,7 +11,7 @@ public class FrequecnyCount {
         countFrequency(arr);
         countFrequency2(arr);
     }
-
+//O(n) O(n)
     static void countFrequency(int[] arr) {
 
         Map<Integer, Integer> freq = new HashMap<>();
@@ -24,6 +24,7 @@ public class FrequecnyCount {
     }
 
     //using hasharray
+//    O(n) O(N)
     static void countFrequency2(int[] arr) {
         int[] hashArray = new int[arr.length + 1];
         for (int i = 0; i < arr.length; i++) {
@@ -32,3 +33,7 @@ public class FrequecnyCount {
         System.out.println(Arrays.toString(hashArray));
     }
 }
+//| Method            | Time | Space             | Correctness | Comments                 |
+//| ----------------- | ---- | ----------------- | ----------- | ------------------------ |
+//| `countFrequency`  | O(n) | O(n)              | ✅           | Perfect                  |
+//| `countFrequency2` | O(n) | O(maxElement + 1) | ⚠️ Update   | Clarify space assumption |

@@ -33,6 +33,8 @@ calculate divisors sum and check with the number
 */
 
 public class Practice {
+
+//    Max(O(a/b) O(1)
     public static int gcd(int a, int b) {
         // Using Euclid's algorithm
         while (b != 0) {
@@ -44,6 +46,7 @@ public class Practice {
     }
 
     // normal method
+//    same above with recursion stack
     public static int gcd1(int a, int b) {
         if (b == 0) {
             return a;
@@ -51,7 +54,7 @@ public class Practice {
             return gcd1(b, a % b);
         }
     }
-
+// O(log n ) O(1)
     public static int sqrtOfNumber(int num) {
 
         int start = 1;
@@ -77,3 +80,10 @@ public class Practice {
         return ans;
     }
 }
+
+
+//| Method           | Your Comment         | Corrected Verdict                        |
+//| ---------------- | -------------------- | ---------------------------------------- |
+//| `gcd(a, b)`      | `Max(O(a/b)) O(1)`   | ✅ `O(log min(a, b))`, `O(1)`             |
+//| `gcd1(a, b)`     | `same above + stack` | ✅ `O(log min(a, b))`, `O(log min(a, b))` |
+//| `sqrtOfNumber()` | `O(log n) O(1)`      | ✅ Correct                                |

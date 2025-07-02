@@ -14,6 +14,7 @@ public class ArrayOperations {
 
     }
 
+//    O(n) O(n) bcz using streams
     private static int findMissingElement(int[] arr1) {
         int n= arr1[arr1.length-1];
         int sum = (n*(n+1))/2;

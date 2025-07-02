@@ -2,6 +2,8 @@ package arrays.nov_06_revision;
 // move zeros to the end of the array
 
 public class ZerosinArray {
+
+//    O(n) O(1)
     public void moveZeroes(int[] arr) {
         int nonZeroIndex = 0;
         for (int i = 0; i < arr.length; i++) {
@@ -17,3 +19,7 @@ public class ZerosinArray {
         }
     }
 }
+//| Complexity Type | Your Comment | Verdict   | Notes              |
+//| --------------- | ------------ | --------- | ------------------ |
+//| Time            | `O(n)`       | ✅ Correct | One full scan      |
+//| Space           | `O(1)`       | ✅ Correct | In-place operation |

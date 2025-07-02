@@ -1,6 +1,7 @@
 package arrays.nov_06_revision;
 
 public class Sort012 {
+    //    O(n) O(1)
     public static void sortArray(int[] arr) {
         int low = 0, mid = 0, high = arr.length - 1;
 
@@ -39,6 +40,11 @@ public class Sort012 {
         //  System.out.println(java.util.Arrays.toString(arr2)); // Output: [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2]
     }
 }
+
+//| Complexity Type | Your Comment | Verdict   | Notes                       |
+//| --------------- | ------------ | --------- | --------------------------- |
+//| Time            | `O(n)`       | ✅ Correct | Single pass, constant swaps |
+//| Space           | `O(1)`       | ✅ Correct | In-place sorting            |
 
 
 /*public class Sort012TwoPass {

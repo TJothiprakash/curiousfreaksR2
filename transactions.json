@@ -1,0 +1,25 @@
+[ {
+  "type" : "WITHDRAW",
+  "currency" : "INR",
+  "amount" : 3000.0,
+  "location" : "Delhi",
+  "date" : "2025-06-29",
+  "user" : "Alice",
+  "success" : true
+}, {
+  "type" : "WITHDRAW",
+  "currency" : "INR",
+  "amount" : 4500.0,
+  "location" : "Mumbai",
+  "date" : "2025-06-29",
+  "user" : "Bob",
+  "success" : false
+}, {
+  "type" : "DEPOSIT",
+  "currency" : "USD",
+  "amount" : 6000.0,
+  "location" : "Bangalore",
+  "date" : "2025-06-28",
+  "user" : "Charlie",
+  "success" : true
+} ]

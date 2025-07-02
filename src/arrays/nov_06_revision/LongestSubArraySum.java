@@ -3,6 +3,8 @@ package arrays.nov_06_revision;
 import java.util.HashMap;
 
 class LongestSubArraySum {
+
+//    O(n * n * k) k -> varies by element value O(1)
     public void generateSubarrays(int[] arr, int target) {
         int n = arr.length;
         int sum = 0;
@@ -26,7 +28,7 @@ class LongestSubArraySum {
         }
     }
 
-
+//O(n) O(n)
     public int longestSubarraySum(int[] arr, int target) {
         HashMap<Integer, Integer> prefixSumMap = new HashMap<>();
         int runningSum = 0;
@@ -56,6 +58,7 @@ class LongestSubArraySum {
 }
 
 // using two pointer approach
+//O(n *k) O(1)
 class Solution {
     public int lenOfLongestSubarr(int[] arr, int k) {
         // code here

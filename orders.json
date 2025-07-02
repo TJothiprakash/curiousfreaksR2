@@ -1,0 +1,22 @@
+[ {
+  "date" : "2025-06-29",
+  "returned" : false,
+  "total" : 1200.0,
+  "customer" : "Alice",
+  "items" : [ "iPhone", "AirPods" ],
+  "orderId" : "O1"
+}, {
+  "date" : "2025-06-28",
+  "returned" : true,
+  "total" : 300.0,
+  "customer" : "Bob",
+  "items" : [ "Mouse", "Keyboard" ],
+  "orderId" : "O2"
+}, {
+  "date" : "2025-06-28",
+  "returned" : false,
+  "total" : 700.0,
+  "customer" : "Alice",
+  "items" : [ "Monitor" ],
+  "orderId" : "O3"
+} ]

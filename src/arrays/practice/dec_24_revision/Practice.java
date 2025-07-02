@@ -6,6 +6,7 @@ public class Practice {
 
     // Recursive function to print all possible subarrays
     // for given array
+//    O(2^n ) O( n)
     static void printSubArrays(int[] arr, int start, int end) {
         // Stop if we have reached the end of the array
         if (end == arr.length)
@@ -26,6 +27,7 @@ public class Practice {
     }
 
     // This code is contributed by Sania Kumari Gupta
+//    O( n * n *k) O(n)
     public static List<List<Integer>> subArray(int[] arr) {
         //1.. using loops
 
@@ -47,7 +49,7 @@ public class Practice {
         System.out.println(listofSubarrays.size());
         return listofSubarrays;
     }
-
+    //same above
     public static void printSubarrays(int[] numbers) {
         for (int i = 0; i < numbers.length; i++) {
             for (int j = i; j < numbers.length; j++) {
@@ -59,7 +61,7 @@ public class Practice {
             // System.out.println();
         }
     }
-
+    //O(2n) O(n) - using set
     public int longestConsequitiveSequence(int[] arr) {
         int longest = 1;
         Set<Integer> set = new HashSet<>();
@@ -81,7 +83,7 @@ public class Practice {
         }
         return longest;
     }
-
+    //O(2n) O(n) using collection
     public List<Integer> leadersinanArray(int[] arr) {
         List<Integer> leaders = new ArrayList<>();
         int rightmax = arr[arr.length - 1];
@@ -103,7 +105,7 @@ public class Practice {
         helperForPermutations(arr, 0, listOfPerMutations);
         return listOfPerMutations;
     }
-
+    //O(2^n) O(n)
     private void helperForPermutations(int[] arr, int i, List<List<Integer>> listOfPerMutations) {
         if (i == arr.length) {
             List<Integer> ds = new ArrayList<>();
@@ -145,7 +147,7 @@ public class Practice {
 
     // Java code to print all possible subarrays for given array
 
-    //maxprofit
+    //maxprofit O(n) O(1)
     public int maxProfit(int[] arr) {
         int maxp = Integer.MIN_VALUE;
         int minprice = Integer.MAX_VALUE;
@@ -156,6 +158,7 @@ public class Practice {
         return maxp;
     }
 
+    //    O(n) O(1)
     public int maxSubArraySum(int[] arr) {
         int sum = 0, maxSum = 0;
 
@@ -165,7 +168,7 @@ public class Practice {
         }
         return maxSum;
     }
-
+    //O(n) O(1)
     public boolean sumofTwo(int[] arr, int target) {
         for (int i = 0; i < arr.length - 1; i++) {
             if (arr[i] + arr[i + 1] == target) {
@@ -178,6 +181,7 @@ public class Practice {
 
 // This code is contributed by Sania Kumari Gupta
 
+    //    O(n * k ) O( k+n)
     public List<List<Integer>> generateSubarraysUsingSlidingWindow(int[] arr) {
         List<List<Integer>> listofSubarrays = new ArrayList<>();
 
@@ -231,7 +235,7 @@ public class Practice {
         System.out.println(listofSubarrays.size());
         return listofSubarrays;
     }
-
+    //O(2^n) O(n)
     private void helperForSubarrays(int[] arr, int start, List<List<Integer>>
             listofSubarrays, ArrayList<Integer> subArray) {
         // Base Case: If we've considered all elements, stop recursion

@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class MatrixDiagonalTraversal {
+//    O(n * n ) O(n * n)
     public static List<Integer> matrixDiagonally(int[][] mat) {
         int n = mat.length;
         List<Integer> result = new ArrayList<>();

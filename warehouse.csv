@@ -1,0 +1,6 @@
+item,weight,quantity,supplier,warehouse,price
+iPhone,0.2,8,Apple,W1,999.0
+AirPods,0.1,20,Apple,W1,199.0
+Keyboard,0.7,5,Logitech,W2,49.0
+Mouse,0.4,3,Logitech,W2,29.0
+Monitor,3.5,2,Dell,W3,249.0
