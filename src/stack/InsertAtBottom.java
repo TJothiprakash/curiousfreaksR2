@@ -24,7 +24,7 @@ public class InsertAtBottom {
         helper(data, stack);
         return stack;
     }
-
+//O(n)O(n)
     private static void helper(int data, @NotNull Stack<Integer> stack) {
 
         if (stack.isEmpty()) {

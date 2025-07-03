@@ -2,7 +2,9 @@ package linkedlist;
 
 import static linkedlist.ReverseLinkedList.recursiveApproach;
 
+
 public class CheckPalindrome {
+    //    O(n)O(1)
     public static boolean isPalindrome(Node head) {
         if (head == null || head.next == null) {
             return true; // A single-node or empty list is a palindrome
@@ -26,6 +28,7 @@ public class CheckPalindrome {
     }
 
     // Helper method to copy a linked list
+//    O(n)O(n)
     private static Node copyList(Node head) {
         if (head == null) {
             return null;

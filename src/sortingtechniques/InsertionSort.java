@@ -39,6 +39,7 @@ public class InsertionSort {
             System.out.print(res[i] + " ");
         }
     }
+//    O(n * n)O(1)
     public static int[] insertionSort(int[] arr) {
         int n = arr.length;
         for (int i = 0; i <= arr.length-1; i++) {

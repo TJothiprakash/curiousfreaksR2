@@ -8,6 +8,7 @@ public class PainterPartition {
         System.out.println("Minimum time: " + minTime(arr, k));  // Expected: 35
     }
 
+    //O( n log (sum)) O( 1)
     public static int minTime(int[] arr, int k) {
         int n = arr.length;
         int max = 0;

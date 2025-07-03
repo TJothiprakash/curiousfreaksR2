@@ -16,11 +16,12 @@ class FirstAndLastOccurrence {
 
         int[] arr3 = {1, 2, 3};
         int x3 = 4;
-        int [] result = findFirstAndLast(arr3, x3);
+        int[] result = findFirstAndLast(arr3, x3);
         System.out.println(result[0] + " " + result[1]);
         // Output: [-1, -1]
     }
 
+    //    O(log n) O(1)
     public static int[] findFirstAndLast(int[] arr, int x) {
         int first = findFirst(arr, x);
         int last = findLast(arr, x);
@@ -49,6 +50,7 @@ class FirstAndLastOccurrence {
     }
 
     // Find the last occurrence of x
+//    O(log n)O(1)
     private static int findLast(int[] arr, int x) {
         int low = 0, high = arr.length - 1;
         int last = -1;

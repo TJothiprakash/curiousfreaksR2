@@ -4,6 +4,8 @@ import java.util.Stack;
 
 public class CandyCrush {
 
+
+//    O(n)O(n)
     public static String Reduced_String(int k, String s) {
         // Stack to store character and their frequencies
         StringBuilder result = new StringBuilder();

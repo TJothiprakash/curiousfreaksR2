@@ -27,6 +27,7 @@ class TwoStacks {
     }
 
     // Push an element into stack 1
+    /*O(1)O(1)*/
     public void push1(int x) {
         if (top1 < top2 - 1) { // Check for available space
             top1++;
@@ -37,6 +38,7 @@ class TwoStacks {
     }
 
     // Push an element into stack 2
+//    O(1)O(1)
     public void push2(int x) {
         if (top1 < top2 - 1) { // Check for available space
             top2--;
@@ -47,6 +49,7 @@ class TwoStacks {
     }
 
     // Pop an element from stack 1
+//    O(1)O(1)
     public int pop1() {
         if (top1 >= 0) { // Check if stack 1 is not empty
             int result = arr[top1];
@@ -58,6 +61,7 @@ class TwoStacks {
     }
 
     // Pop an element from stack 2
+    /*O(1)O(1)*/
     public int pop2() {
         if (top2 < size) { // Check if stack 2 is not empty
             int result = arr[top2];

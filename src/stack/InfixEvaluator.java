@@ -2,6 +2,7 @@ package stack;
 import java.util.Stack;
 
 public class InfixEvaluator {
+//    O(n)O(n)
     public static int evaluateInfix(String expression) {
         Stack<Integer> operands = new Stack<>();
         Stack<Character> operators = new Stack<>();
@@ -50,6 +51,7 @@ public class InfixEvaluator {
     }
 
     // Helper function to evaluate the top operation
+//    O(1)O(1)
     private static void evaluateTop(Stack<Integer> operands, Stack<Character> operators) {
         int a = operands.pop();
         int b = operands.pop();
@@ -58,6 +60,7 @@ public class InfixEvaluator {
     }
 
     // Helper function to apply an operation
+//    O(1)O(1)
     private static int applyOperation(int a, int b, char op) {
         switch (op) {
             case '+': return a + b;
@@ -69,6 +72,7 @@ public class InfixEvaluator {
     }
 
     // Helper function to determine precedence
+//    O(1)O(1)
     private static int precedence(char op) {
         if (op == '+' || op == '-') return 1;
         if (op == '*' || op == '/') return 2;
@@ -76,6 +80,7 @@ public class InfixEvaluator {
     }
 
     // Helper function to check if a character is an operator
+//    O(1)O(1)
     private static boolean isOperator(char ch) {
         return ch == '+' || ch == '-' || ch == '*' || ch == '/';
     }

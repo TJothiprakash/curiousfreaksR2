@@ -12,7 +12,7 @@ public class Max1sinRow {
         int[] result = findRowThatHasMaxNoOf1s(arr);
         System.out.println("Row with maximum 1s: " + result[0] + " and the no of 1s in that row is  " + result[1]);  // Should print 3
     }
-
+//O( no of rows * log  m)  O(1)
     static int[] findRowThatHasMaxNoOf1s(int[][] arr) {
         int n = arr.length;
         int m = arr[0].length;
@@ -34,6 +34,7 @@ public class Max1sinRow {
     }
 
     // Binary search to find first occurrence of 1
+//    O(log n) O(1)
     static int findFirstOne(int[] row, int low, int high) {
         int result = -1;
 

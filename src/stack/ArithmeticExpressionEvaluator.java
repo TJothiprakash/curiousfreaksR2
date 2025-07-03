@@ -16,6 +16,7 @@ public class ArithmeticExpressionEvaluator {
         }
     }
 
+//    O(n)O(n)
     public static int evaluate(String expression) {
         Stack<Integer> nums = new Stack<>();
         Stack<Character> ops = new Stack<>();
@@ -55,17 +56,17 @@ public class ArithmeticExpressionEvaluator {
 
         return nums.pop();
     }
-
+//O(1)O(1)
     public static boolean isOperator(char ch) {
         return ch == '+' || ch == '-' || ch == '*' || ch == '/';
     }
-
+//O(1)O(1)
     public static int precedence(char op) {
         if (op == '+' || op == '-') return 1;
         if (op == '*' || op == '/') return 2;
         return 0;
     }
-
+//O(1)O(1)
     public static int applyOp(char op, int b, int a) {
         switch (op) {
             case '+': return a + b;

@@ -1,6 +1,7 @@
 package linkedlist;
 
 public class FirstNodeinLoop {
+//    //    O(2n~ n)O(1)
     public static int findFirstNodeOfLoop(Node head) {
         if (head == null || head.next == null) {
             return -1; // No loop possible in these cases

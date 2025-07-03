@@ -1,6 +1,7 @@
 package stack;
 
 public class CountReversal {
+    //    O(n)O(1)
     public static int countRev(String S) {
         // If the length of the string is odd, return -1 (impossible to balance)
         if (S.length() % 2 != 0) {

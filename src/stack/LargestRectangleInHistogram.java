@@ -3,7 +3,7 @@ package stack;
 import java.util.Stack;
 
 public class LargestRectangleInHistogram {
-
+//O(n)O(2n ~ n)
     public static int largestRectangleArea(int[] heights) {
         int n = heights.length;
 

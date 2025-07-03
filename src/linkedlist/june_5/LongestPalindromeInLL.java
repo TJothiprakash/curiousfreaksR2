@@ -2,7 +2,7 @@ package linkedlist.june_5;
 
 
 public class LongestPalindromeInLL {
-
+//O(n * n)O(1)
     public int maxPalindrome(Node head) {
         Node prev = null, curr = head;
         int result = 0;
@@ -24,7 +24,7 @@ public class LongestPalindromeInLL {
 
         return result;
     }
-
+//O(n)O(1)
     private int countCommon(Node a, Node b) {
         int count = 0;
         while (a != null && b != null && a.data == b.data) {

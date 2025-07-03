@@ -4,6 +4,7 @@ import java.util.Stack;
 
 public class InfixToPostfix {
     // Function to return precedence of operators
+//    O(1)O(1)
     private static int precedence(char ch) {
         switch (ch) {
             case '^':
@@ -20,6 +21,7 @@ public class InfixToPostfix {
     }
 
     // Function to convert infix to postfix
+//    O(n)O(n)
     public static String infixToPostfix(String s) {
         Stack<Character> stack = new Stack<>();
         StringBuilder result = new StringBuilder();

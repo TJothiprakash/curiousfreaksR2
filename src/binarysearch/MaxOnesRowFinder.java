@@ -1,6 +1,7 @@
 package binarysearch;
 
 public class MaxOnesRowFinder {
+    //    O( m + n) O(1)
     public static int[] findMaxOnesRow(int[][] mat, int N) {
         int maxRowIndex = -1;
         int maxCount = 0;

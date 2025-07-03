@@ -11,6 +11,7 @@ public class SmallestDivisor {
         System.out.println(smallestDivisor(nums2, threshold2));  // Output: 44
     }
 
+    //O(n log max)O(1)
     public static int smallestDivisor(int[] nums, int threshold) {
         int max = 0;
         for (int num : nums) {
@@ -33,6 +34,7 @@ public class SmallestDivisor {
         return result;
     }
 
+    //O(n)O(1)
     private static boolean isValid(int[] nums, int threshold, int divisor) {
         int sum = 0;
         for (int num : nums) {

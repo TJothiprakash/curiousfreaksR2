@@ -28,6 +28,7 @@ public class RemoveDuplicatesUnsortedList {
     }
 
     // Function to remove duplicates from an unsorted linked list
+//    O(n)O(n)
     public ListNode removeDuplicates(ListNode head) {
         if (head == null) {
             return head;

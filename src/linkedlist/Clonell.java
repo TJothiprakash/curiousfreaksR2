@@ -43,6 +43,7 @@ public class Clonell {
         solution.printList(copiedList);
     }
 
+//    //    O(n)O(n)
     public NodeWithRandom copyRandomList(NodeWithRandom head) {
         if (head == null) {
             return null;
@@ -82,6 +83,7 @@ public class Clonell {
     }
 
     // Helper function to print the list
+    //    O(n)O(1)
     public void printList(NodeWithRandom head) {
         while (head != null) {
             System.out.print("Node Value: " + head.val + ", Random Value: ");

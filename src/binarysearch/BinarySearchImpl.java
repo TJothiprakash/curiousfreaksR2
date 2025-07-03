@@ -25,6 +25,7 @@ public class BinarySearchImpl {
      * @param target Value to find
      * @return Index of first occurrence or -1 if not found
      */
+//    O( log n) O(1)
     private static int binarySearchElement(int[] arr, int target) {
         int left = 0, right = arr.length - 1;
         int mid, first = -1, last = -1;
@@ -64,6 +65,7 @@ public class BinarySearchImpl {
      * @param target Value to find the floor of
      * @return Floor value or -1 if no such value exists
      */
+//    O( log n ) O(1)
     public static int findFloor(int[] arr, int target) {
         int low = 0, high = arr.length - 1;
         int floor = -1;
@@ -92,6 +94,7 @@ public class BinarySearchImpl {
      * @param target Value to find the ceil of
      * @return Ceil value or -1 if no such value exists
      */
+//    O( log n) O(1)
     public static int findCeil(int[] arr, int target) {
         int low = 0, high = arr.length - 1;
         int ceil = -1;

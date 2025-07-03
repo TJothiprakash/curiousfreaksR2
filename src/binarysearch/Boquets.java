@@ -46,6 +46,7 @@ bloomDay.length == n
 1 <= k <= n*/
 
 public class Boquets {
+//    O(log n) O(1)
     public static boolean possible(int[] arr, int day, int m, int k) {
         int n = arr.length; // Size of the array
         int cnt = 0;
@@ -62,7 +63,7 @@ public class Boquets {
         noOfB += (cnt / k);
         return noOfB >= m;
     }
-
+//    O(n log (max-sum) O(1)
     public static int roseGarden(int[] arr, int k, int m) {
         long val = (long) m * k;
         int n = arr.length; // Size of the array

@@ -3,6 +3,7 @@ package stack;
 import java.util.Stack;
 
 public class TrappingRainWaterStack {
+    //    O(n)O(n)
     public static int trapWater(int[] arr) {
         int n = arr.length;
         if (n < 3) return 0; // No water can be trapped if there are fewer than 3 blocks

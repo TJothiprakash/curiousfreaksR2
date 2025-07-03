@@ -5,6 +5,7 @@ import java.util.Stack;
 public class SortStack {
 
     // Function to sort the stack
+    /*O(n * n)O(n)*/
     public static void sort(Stack<Integer> stack) {
         if (!stack.isEmpty()) {
             int top = stack.pop();
@@ -14,6 +15,7 @@ public class SortStack {
     }
 
     // Helper function to insert an element into a sorted stack
+//    O(n)O(n)
     private static void sortedInsert(Stack<Integer> stack, int element) {
         // Base case: either stack is empty or top is smaller than element
         if (stack.isEmpty() || stack.peek() < element) {

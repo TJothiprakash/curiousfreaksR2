@@ -6,7 +6,8 @@ public class KthSmallestPairDistance {
     public static void main(String[] args) {
 
     }
-
+//O(n log n + n log W) where W = max(nums) - min(nums) O(1)
+//Sorting takes O(n log n)
     public int smallestDistancePair(int[] nums, int k) {
         Arrays.sort(nums);
         int n = nums.length;
@@ -21,7 +22,7 @@ public class KthSmallestPairDistance {
         }
         return ans;
     }
-
+//O(n log n) O(1)
     public int check(int mid, int arr[]) {
         int count = 0;
         for (int i = 0; i < arr.length; i++) {
@@ -33,6 +34,8 @@ public class KthSmallestPairDistance {
         return count;
     }
 
+
+//    O(logn) O(1)
     private int arrayFloor(int[] arr, int val) {
         int lo = 0;
         int hi = arr.length - 1;

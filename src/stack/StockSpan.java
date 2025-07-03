@@ -3,7 +3,7 @@ package stack;
 import java.util.Stack;
 
 public class StockSpan {
-
+//O(n)O(n)
     public static int[] calculateSpan(int[] arr) {
         int n = arr.length;
         int[] span = new int[n];

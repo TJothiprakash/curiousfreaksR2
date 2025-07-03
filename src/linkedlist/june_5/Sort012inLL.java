@@ -1,86 +1,99 @@
+/*
+Problem:
+Given a linked list with only values `0`, `1`, and `2`, **sort the list** such that all `0`s come first,
+followed by all `1`s, and then all `2`s. You must not create a new list, but rearrange the original nodes.
+
+Example:
+Input: 1 → 0 → 2 → 1 → 0
+Output: 0 → 0 → 1 → 1 → 2
+
+Intuition:
+We divide the list into three sublists for 0s, 1s, and 2s using dummy nodes.
+Then connect them at the end. This avoids data swapping and preserves node order.
+
+Dry Run:
+Input: 1 → 0 → 2 → 1 → 0
+0s: 0 → 0
+1s: 1 → 1
+2s: 2
+Connect: 0s → 1s → 2s
+
+Code:
+*/
+
 package linkedlist.june_5;
-
-/*class Node {
-    int data;
-    Node next;
-
-    public Node(int data) {
-        this.data = data;
-        this.next = null;
-    }
-}*/
 
 public class Sort012inLL {
 
+    // O(n) time | O(1) space
     Node sort012inLL(Node head) {
-        Node zeros = null;
-        Node ones = null;
-        Node twos = null;
-        Node temp = head;
+        if (head == null || head.next == null) return head;
 
-        // Traverse the linked list and segregate nodes into zeros, ones, and twos
-        while (temp != null) {
-            if (temp.data == 0) {
-                if (zeros == null) {
-                    zeros = temp;
-                } else {
-                    appendNode(zeros, temp);
-                }
-            } else if (temp.data == 1) {
-                if (ones == null) {
-                    ones = temp;
-                } else {
-                    appendNode(ones, temp);
-                }
-            } else { // temp.data == 2
-                if (twos == null) {
-                    twos = temp;
-                } else {
-                    appendNode(twos, temp);
-                }
-            }
-            temp = temp.next;
-        }
+        // Step 1: Dummy heads and tails for 0s, 1s, 2s
+        Node zeroD = new Node(0), oneD = new Node(0), twoD = new Node(0);
+        Node zero = zeroD, one = oneD, two = twoD;
 
-        // Connect zeros, ones, and twos lists
-        if (zeros != null) {
-            head = zeros;
-            if (ones != null) {
-                tail(zeros).next = ones;
+        Node curr = head;
+
+        // Step 2: Distribute nodes to respective buckets
+        while (curr != null) {
+            System.out.println("🔄 Visiting node: " + curr.data);
+
+            if (curr.data == 0) {
+                zero.next = curr;
+                zero = zero.next;
+                System.out.println("🟢 Placed in 0s list");
+            } else if (curr.data == 1) {
+                one.next = curr;
+                one = one.next;
+                System.out.println("🟡 Placed in 1s list");
             } else {
-                tail(zeros).next = twos;
+                two.next = curr;
+                two = two.next;
+                System.out.println("🔴 Placed in 2s list");
             }
-        } else if (ones != null) {
-            head = ones;
-            tail(ones).next = twos;
-        } else {
-            head = twos;
+            curr = curr.next;
         }
 
-        // Ensure the last node of the twos list points to null
-        if (twos != null) {
-            tail(twos).next = null;
-        }
+        // Step 3: Connect the three lists together
+        zero.next = (oneD.next != null) ? oneD.next : twoD.next;
+        one.next = twoD.next;
+        two.next = null;
 
-        return head;
-    }
-
-    // Utility function to append a node to the end of a linked list
-    private void appendNode(Node list, Node node) {
-        Node tail = tail(list);
-        tail.next = node;
-    }
-
-    // Utility function to find the tail of a linked list
-    private Node tail(Node head) {
-        Node temp = head;
-        while (temp.next != null) {
-            temp = temp.next;
-        }
-        return temp;
+        return zeroD.next;
     }
 
     public static void main(String[] args) {
+        Sort012inLL obj = new Sort012inLL();
 
+        Node head = new Node(1);
+        head.next = new Node(0);
+        head.next.next = new Node(2);
+        head.next.next.next = new Node(1);
+        head.next.next.next.next = new Node(0);
+
+        System.out.println("📥 Before sorting:");
+        printList(head);
+
+        Node sorted = obj.sort012inLL(head);
+
+        System.out.println("✅ After sorting:");
+        printList(sorted);
     }
+
+    static void printList(Node head) {
+        while (head != null) {
+            System.out.print(head.data + " → ");
+            head = head.next;
+        }
+        System.out.println("null");
+    }
+
+    /*
+    Time Complexity:
+        - O(n), where n is the number of nodes
+
+    Space Complexity:
+        - O(1), no extra memory used except a few pointers
+    */
 }

@@ -1,6 +1,7 @@
 package linkedlist;
 
 public class MiddleElement {
+//    O(n)O(1)
     public  static Node middleElement(Node head) {
 
         Node slow = head;

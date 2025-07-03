@@ -26,6 +26,7 @@ public class OddEvenList {
     }
 
     // Function to segregate odd and even nodes
+//    O(n)O(1)
     public ListNode oddEvenList(ListNode head) {
         if (head == null || head.next == null) {
             return head; // If list is empty or has only one element, return as is

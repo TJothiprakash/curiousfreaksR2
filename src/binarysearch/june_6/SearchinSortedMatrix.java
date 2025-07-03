@@ -59,6 +59,8 @@ public class SearchinSortedMatrix {
             System.out.println("Target found? " + searchMatrix(matrix, target)); // false
         }
 
+        //O( log n + m) O (1)
+// staricase search diff from binary search
         static boolean searchMatrix(int[][] matrix, int target) {
             int rows = matrix.length;
             int cols = matrix[0].length;

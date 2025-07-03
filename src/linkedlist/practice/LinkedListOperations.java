@@ -1,6 +1,7 @@
 package linkedlist.practice;
 
 public class LinkedListOperations {
+//    O(n)O(1)
     public Node searchElement(Node head, int key) {
         Node current = head;
         while (current != null) {
@@ -13,6 +14,7 @@ public class LinkedListOperations {
     }
 
     // reverse linkedlist using iterative method
+//    O(n)O(1)
     public Node reverse(Node head) {
         // 1 -> 2 ->3 -> 4
         // 4 -> 3 -> 2 -> 1
@@ -30,6 +32,7 @@ public class LinkedListOperations {
     }
 
     // reverse uing recursion
+//    O(n)O(n)->stack space
     public Node reverseRecursively(Node head) {
         if (head == null || head.next == null) {
             return head;
@@ -47,6 +50,7 @@ public class LinkedListOperations {
         return newHead;
     }
 
+//    O(n)O(n)
     public Node copyLL(Node head) {
         Node current = head;
         Node dummy = new Node(0);

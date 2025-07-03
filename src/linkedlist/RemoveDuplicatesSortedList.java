@@ -4,6 +4,7 @@ package linkedlist;
 public class RemoveDuplicatesSortedList {
 
     // Function to remove duplicates from a sorted linked list
+//    O(n)O(1)
     public ListNode removeDuplicates(ListNode head) {
         // Edge case: if the list is empty or has only one node
         if (head == null) {

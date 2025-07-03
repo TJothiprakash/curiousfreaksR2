@@ -4,7 +4,7 @@ public class BinarySearchPractice {
     public static void main(String[] args) {
 
     }
-
+//O ( log n) O(1)
     int binarySearch(int[] nums, int target) {
         int low = 0;
         int high = nums.length - 1;

@@ -53,14 +53,14 @@ public class CustomLinkedList {
 
     }
 
-
+//O(n)O(1)
     public static void printList(Node head) {
         while (head != null) {
             System.out.print(head.data + " ");
             head = head.next;
         }
     }
-
+//O(n)O(1)
     public static void reverse(Node head) {
         Node prev = null;
         Node current = head;
@@ -83,7 +83,7 @@ public class CustomLinkedList {
 
         //return prev; // New head of the reversed list
     }
-
+////    O(n)O(n)
     public static void reverseUsingStack(Node head) {
 
         Stack<Integer> stack = new Stack<>();

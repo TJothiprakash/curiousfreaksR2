@@ -8,6 +8,7 @@ public class Practice {
      * @param arr  The sorted array in which to search.
      * @return The index of the target element if found; otherwise, -1.
      */
+//    O(log n )O(1)
     public int binarySearch(int data, int[] arr) {
         if (arr == null || arr.length == 0) {
             return -1; // Handle empty or null array

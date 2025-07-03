@@ -1,6 +1,8 @@
 package linkedlist;
 
 public class Loops {
+
+//    O(n)O(1)
     public static boolean detectLoop(Node head) {
 
         if (head == null) {

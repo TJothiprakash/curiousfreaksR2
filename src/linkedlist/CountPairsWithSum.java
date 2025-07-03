@@ -4,6 +4,7 @@ import java.util.HashSet;
 
 
 public class CountPairsWithSum {
+//    //    O(n)O(n)
     public static int countPairs(Node head1, Node head2, int x) {
         // Create a hash set to store elements of the first linked list
         HashSet<Integer> set = new HashSet<>();

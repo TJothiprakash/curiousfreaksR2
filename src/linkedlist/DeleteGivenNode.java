@@ -1,6 +1,7 @@
 package linkedlist;
 
 public class DeleteGivenNode {
+//    O(n)O(1)
     public static void deleteNode(Node del_node) {
         if (del_node == null || del_node.next == null) {
             throw new IllegalArgumentException("The node to delete cannot be null or the last node.");
@@ -13,6 +14,7 @@ public class DeleteGivenNode {
         del_node.next = del_node.next.next;
     }
 
+//    //    O(n)O(1)
     public static void printList(Node head) {
         Node temp = head;
         while (temp != null) {

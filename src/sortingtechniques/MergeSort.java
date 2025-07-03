@@ -1,14 +1,15 @@
 package sortingtechniques;
 
 public class MergeSort {
-    public  static int[] mergeSort(int[] arr) {
+    public static int[] mergeSort(int[] arr) {
         int low = 0, high = arr.length - 1;
         return mergeSort(arr, low, high);
 
     }
 
+    //O(n log n )O(n)
     private static int[] mergeSort(int[] arr, int low, int high) {
-        if (low <high) {
+        if (low < high) {
             int mid = low + (high - low) / 2;
             mergeSort(arr, low, mid);
             mergeSort(arr, mid + 1, high);
@@ -17,6 +18,7 @@ public class MergeSort {
         return arr;
     }
 
+    //O(n log n )O(n)
     private static void mergeArrays(int[] arr, int low, int mid, int high) {
         int n1 = mid - low + 1;
         int n2 = high - mid;

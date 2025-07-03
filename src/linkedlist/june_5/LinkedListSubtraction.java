@@ -8,6 +8,7 @@ import static org.testng.internal.junit.ArrayAsserts.assertArrayEquals;
 public class LinkedListSubtraction {
 
     // Helper function to get the length of the list
+//    O(n) O(1)
     private int getLength(Node head) {
         int len = 0;
         while (head != null) {
@@ -18,6 +19,7 @@ public class LinkedListSubtraction {
     }
 
     // Helper function to compare two lists (returns 1 if l1 > l2, -1 if l1 < l2, 0 if equal)
+//    O(3n)O(1)
     private int compare(Node l1, Node l2) {
         int len1 = getLength(l1);
         int len2 = getLength(l2);
@@ -37,6 +39,7 @@ public class LinkedListSubtraction {
 
     // Helper function to subtract two lists of same length
     // Returns the head of the result list and borrow value
+//    O(n)O(n)
     private Node subtractSameLength(Node l1, Node l2, int[] borrow) {
         if (l1 == null && l2 == null) return null;
 
@@ -57,6 +60,7 @@ public class LinkedListSubtraction {
 
     // Helper function to subtract lists where l1 is larger
     // Lengths may be different
+//    O(n)O(n)
     private Node subtractHelper(Node l1, Node l2) {
         int len1 = getLength(l1);
         int len2 = getLength(l2);
@@ -75,6 +79,7 @@ public class LinkedListSubtraction {
     }
 
     // Pad zeros in front of the list
+//    O(count)O(count)
     private Node padZeros(Node head, int count) {
         while (count-- > 0) {
             Node newNode = new Node(0);
@@ -85,6 +90,7 @@ public class LinkedListSubtraction {
     }
 
     // Remove leading zeros except if the number is zero
+//    O(n)O(1)
     private Node removeLeadingZeros(Node head) {
         while (head != null && head.data == 0 && head.next != null) {
             head = head.next;

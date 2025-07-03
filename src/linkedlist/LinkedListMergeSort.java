@@ -25,6 +25,7 @@ public class LinkedListMergeSort {
     }
 
     // Main function to sort the linked list
+// O(n log n) time, O(log n) space (due to recursion stack)
     public ListNode sortList(ListNode head) {
         if (head == null || head.next == null) {
             return head;  // Base case: a list with 0 or 1 element is already sorted
@@ -73,6 +74,7 @@ public class LinkedListMergeSort {
     }
 
     // Utility function to print the linked list
+//    O(n)O(1)
     public void printList(ListNode head) {
         while (head != null) {
             System.out.print(head.val + " ");

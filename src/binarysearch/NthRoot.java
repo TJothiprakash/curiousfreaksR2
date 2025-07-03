@@ -5,6 +5,7 @@ public class NthRoot {
     //Return 1 if mid == m
     //Return 0 if mid < m
     //Return 2 if mid > m
+//    O(n)O(1)
     public static int func(int mid, int n, int m) {
         long ans = 1;
         for (int i = 1; i <= n; i++) {
@@ -15,6 +16,7 @@ public class NthRoot {
         return 0;
     }
 
+    //O( n log n) O(1)
     public static int NthRoot(int n, int m) {
         // Use binary search on the answer space:
         int low = 1, high = m;

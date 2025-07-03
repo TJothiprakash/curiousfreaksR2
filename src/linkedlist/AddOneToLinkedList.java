@@ -9,6 +9,7 @@ class ListNode {
 public class AddOneToLinkedList {
 
     // Function to add 1 to the number formed by the linked list
+//    O(n)O(1)
     public ListNode addOne(ListNode head) {
         // Step 1: Reverse the linked list
         head = reverse(head);
@@ -35,6 +36,7 @@ public class AddOneToLinkedList {
     }
 
     // Function to reverse the linked list
+//    O(n)O(1)
     private ListNode reverse(ListNode head) {
         ListNode prev = null;
         ListNode current = head;
@@ -50,6 +52,7 @@ public class AddOneToLinkedList {
     }
 
     // Utility function to print the linked list
+//    O(n)O(1)
     public void printList(ListNode head) {
         while (head != null) {
             System.out.print(head.val + " ");

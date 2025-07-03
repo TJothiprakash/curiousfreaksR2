@@ -18,6 +18,7 @@ O(n
  ) because it always scans the entire unsorted part.
 Good for small datasets but inefficient for large ones.*/
 public class SelectionSort {
+//    O(n * n )O(1)
     public static int[] selectionSort(int[] arr) {
         int n = arr.length;
         for (int i = 0; i < n - 1; i++) {

@@ -3,6 +3,7 @@ package stack;
 import java.util.Stack;
 
 public class BalancedBrackets {
+//    O(n)O(n)
     public static boolean isBalanced(String s) {
         Stack<Character> stack = new Stack<>();
 

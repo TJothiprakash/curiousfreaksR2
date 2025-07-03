@@ -10,6 +10,7 @@ package linkedlist;
 }*/
 
 public class LinkedListIntersection {
+    //    O( n + m )O(1)
     public static int getIntersectionNode(Node headA, Node headB) {
         if (headA == null || headB == null) {
             return -1; // No intersection if either list is null

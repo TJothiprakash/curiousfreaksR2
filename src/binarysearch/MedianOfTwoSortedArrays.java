@@ -7,6 +7,7 @@ public class MedianOfTwoSortedArrays {
         System.out.println(findMedianSortedArrays(a, b));  // Output: 3.0
     }
 
+    //O (log n+m) O(1)
     public static double findMedianSortedArrays(int[] a, int[] b) {
         // Ensure a is the smaller array to optimize binary search
         if (a.length > b.length) {

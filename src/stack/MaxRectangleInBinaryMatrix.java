@@ -3,6 +3,7 @@ package stack;
 import java.util.Stack;
 
 public class MaxRectangleInBinaryMatrix {
+//    O(n * m )O(m)
     public static int maximalRectangle(int[][] mat) {
         if (mat == null || mat.length == 0 || mat[0].length == 0) return 0;
 
@@ -29,6 +30,7 @@ public class MaxRectangleInBinaryMatrix {
     }
 
     // Helper function to calculate the largest rectangle area in a histogram
+//    O(m)O(1)
     private static int largestRectangleArea(int[] heights) {
         int n = heights.length;
         Stack<Integer> stack = new Stack<>();

@@ -16,7 +16,7 @@ public class BubbleSort {
             System.out.print(res1[i] + " ");
         }
     }
-
+//O(n * n)O(1)
     private static int[] bubbleSort(int[] arr) {
         int n = arr.length;
         for (int i = n - 1; i >= 0; i--) {

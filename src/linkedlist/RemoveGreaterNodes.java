@@ -42,6 +42,7 @@ public class RemoveGreaterNodes {
     }
 
     // Function to remove nodes with greater nodes on their right
+//    O(n)O(1)
     public ListNode removeGreaterNodes(ListNode head) {
         // Step 1: Reverse the list
         head = reverse(head);

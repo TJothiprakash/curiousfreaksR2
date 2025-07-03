@@ -14,7 +14,7 @@ public class PairwiseSwapElements {
         head = new PairwiseSwapElements().swapPairwise(head);
         printList(head);
     }
-
+/*O(n)O(1)*/
     public Node swapPairwise(Node head) {
         // Base cases
         if (head == null || head.next == null) return head;
@@ -38,7 +38,7 @@ public class PairwiseSwapElements {
 
         return dummy.next;
     }
-
+//O(n)O(1)
     static void printList(Node head) {
         while (head != null) {
             System.out.print(head.data + " -> ");

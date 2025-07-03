@@ -9,6 +9,7 @@ public class MatrixSearch {
      * @param x   The target value to search for.
      * @return True if x is found in the matrix, false otherwise.
      */
+//    O(log n * m) O(1)
     public static boolean searchMatrix(int[][] mat, int x) {
         int n = mat.length;
         int m = mat[0].length;

@@ -1,5 +1,7 @@
 package sortingtechniques;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 /* Quick Sort ⚡ (Divide & Conquer)
@@ -51,6 +53,7 @@ public class QuickSort
 
 
 class Solution {
+//    O( n)O(1)
     static int partition(List<Integer> arr, int low, int high) {
         int pivot = arr.get(low);
         int i = low;
@@ -75,7 +78,7 @@ class Solution {
         arr.set(j, temp);
         return j;
     }
-
+// O(n log n )  O(n)
     static void qs(List<Integer> arr, int low, int high) {
         if (low < high) {
             int pIndex = partition(arr, low, high);
@@ -83,7 +86,8 @@ class Solution {
             qs(arr, pIndex + 1, high);
         }
     }
-    public static List<Integer> quickSort(int []arr) {
+//  O(n log n)  O(n)
+    public static @NotNull List<Integer> quickSort(int @NotNull []arr) {
         // Write your code here.
         List<Integer> list = new ArrayList<>();
         for (int i = 0; i < arr.length; i++) {

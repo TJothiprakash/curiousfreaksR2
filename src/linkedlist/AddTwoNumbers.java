@@ -34,6 +34,7 @@ public class AddTwoNumbers {
     }
 
     // Function to add two numbers represented by linked lists
+    /*O(n)O(n)*/
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode dummy = new ListNode(0); // Dummy node to start the result list
         ListNode current = dummy;  // Pointer to build the result list
@@ -67,6 +68,7 @@ public class AddTwoNumbers {
     }
 
     // Utility function to print the linked list
+//    O(n)O(1)
     public void printList(ListNode head) {
         while (head != null) {
             System.out.print(head.val + " ");

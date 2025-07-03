@@ -54,6 +54,7 @@ public class FlattenLinkedList {
     }
 
     // Function to flatten the linked list
+//    O(n )O(1)
     public DoublyNode flatten(DoublyNode head) {
         if (head == null) {
             return null;
@@ -86,6 +87,7 @@ public class FlattenLinkedList {
     }
 
     // Utility function to print the linked list (forward traversal)
+    //    O(n)O(1)
     public void printList(DoublyNode head) {
         while (head != null) {
             System.out.print(head.val + " ");
@@ -95,6 +97,7 @@ public class FlattenLinkedList {
     }
 
     // Utility function to print the linked list (backward traversal)
+//    O(n)O(1)
     public void printListReverse(DoublyNode head) {
         // Traverse to the tail of the list first
         while (head != null && head.next != null) {

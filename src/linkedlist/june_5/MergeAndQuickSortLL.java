@@ -35,7 +35,7 @@ public class MergeAndQuickSortLL {
     }
 
     // QuickSort Helpers
-
+//O(n log n )O(1)
     Node quickSort(Node head, Node end) {
         if (head == null || head == end) return head;
 
@@ -58,7 +58,7 @@ public class MergeAndQuickSortLL {
         pivot.next = quickSort(pivot.next, newEnd);
         return newHead;
     }
-
+//O(n)O(1)
     Node[] partitionList(Node head, Node end) {
         Node pivot = end;
         Node prev = null, curr = head, tail = pivot;
@@ -115,6 +115,7 @@ public class MergeAndQuickSortLL {
     }
 
     // Utility
+//    O(n)O(n)
     static Node createList(int[] arr) {
         if (arr.length == 0) return null;
         Node head = new Node(arr[0]);
@@ -125,7 +126,7 @@ public class MergeAndQuickSortLL {
         }
         return head;
     }
-
+//O(n)O(1)
     static void printList(Node head) {
         if (head == null) {
             System.out.println("null");
