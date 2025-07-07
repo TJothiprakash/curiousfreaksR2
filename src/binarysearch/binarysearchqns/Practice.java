@@ -68,7 +68,6 @@ public class Practice {
      * @return Index of the first occurrence, or -1 if not found.
      */
 //    O( log n base 2 ) O( 1)
-
     public static int firstOccurrence(int[] arr, int n, int k) {
         int low = 0, high = n - 1;
         int first = -1;
