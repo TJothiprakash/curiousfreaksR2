@@ -1,7 +1,10 @@
 package matrix;
 
+import org.jetbrains.annotations.Contract;
+
 public class MinOnes {
 //    O(n * n) O( 1)
+    @Contract(pure = true)
     public static int rowWithMinimumOnes(int[][] mat) {
         int n = mat.length;
         int m = mat[0].length;

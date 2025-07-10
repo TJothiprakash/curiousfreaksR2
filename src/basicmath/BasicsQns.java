@@ -1,7 +1,9 @@
 package basicmath;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class BasicsQns {
     public static void main(String[] args) {
@@ -67,14 +69,14 @@ public class BasicsQns {
     }
 
     List<Integer> printAllDivisors1(int n) {
-        Set<Integer> divisors = new java.util.TreeSet<>(); // TreeSet to keep elements sorted
-        for (int i = 1; i * i <= n; i++) {
+        Set<Integer> divisors = new TreeSet<>(); // TreeSet to keep elements sorted
+        for (int i = 1; i <= Math.sqrt(n); i++) {
             if (n % i == 0) {
                 divisors.add(i);
                 divisors.add(n / i);
             }
         }
-        return new java.util.ArrayList<>(divisors);
+        return new ArrayList<>(divisors);
     }
 
 

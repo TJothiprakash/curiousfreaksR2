@@ -5,7 +5,7 @@ public class SubsetRecursion {
         String input = "abcd";
         generateSubsets(input, 0, "");
     }
-
+//O(2^n)O(n)
     static void generateSubsets(String input, int index, String current) {
         System.out.println("Call -> index: " + index + ", current: " + current);
 

@@ -14,7 +14,7 @@ public class PermutationRecursion {
         System.out.println(result);
         System.out.println(result.size() + " permutations");
     }
-
+//O(n* n!)O(n)
     static void generatePermutations(@NotNull String input, @NotNull String current, boolean[] used, @NotNull List<String> result) {
         System.out.println("Call -> current: " + current);
 

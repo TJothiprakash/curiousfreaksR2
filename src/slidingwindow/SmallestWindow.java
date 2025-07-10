@@ -8,7 +8,7 @@ public class SmallestWindow {
         System.out.println(smallestWindow("zoomlazapzo", "oza")); // "apzo"
         System.out.println(smallestWindow("zoom", "zooe")); // ""
     }
-
+//O(n)O(1)
     public static String smallestWindow(String s1, String s2) {
         if (s1 == null || s2 == null || s1.length() < s2.length()) {
             return "";

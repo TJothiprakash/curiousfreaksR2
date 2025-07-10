@@ -1,0 +1,8 @@
+| Tool          | Backend              | Frontend             | Infra       |
+| ------------- | -------------------- | -------------------- | ----------- |
+| URL Shortener | Spring Boot + Redis  | React                | Cloud Redis |
+| Notes App     | Spring Boot + MySQL  | React                | SingleStore |
+| Scheduler     | Spring Boot + Quartz | React (Calendar UI)  | Email SMTP  |
+| Music Player  | Spring Boot + FileDB | React (Audio API)    | Disk/Cloud  |
+| Video Player  | Stream controller    | React (Video Player) | Disk/CDN    |
+| Chat System   | WebSocket            | React + WS client    | Redis/MySQL |

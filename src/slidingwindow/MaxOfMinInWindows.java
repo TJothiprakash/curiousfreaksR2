@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Stack;
 
 public class MaxOfMinInWindows {
-
+//O(n)O(n)
     public static int[] maxOfMin(int[] arr, int n) {
         int[] left = new int[n];
         int[] right = new int[n];

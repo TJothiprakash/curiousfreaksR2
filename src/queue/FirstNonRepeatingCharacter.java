@@ -1,7 +1,11 @@
 package queue;
-import java.util.*;
+
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class FirstNonRepeatingCharacter {
+    //    O(n ) O(n)
     public static String firstNonRepeating(String s) {
         // HashMap to store the frequency of each character
         HashMap<Character, Integer> freq = new HashMap<>();

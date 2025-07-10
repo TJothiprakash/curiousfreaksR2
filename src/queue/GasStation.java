@@ -1,6 +1,8 @@
 package queue;
 
 public class GasStation {
+
+//    O(n)O(1)
     public static int canCompleteCircuit(int[] gas, int[] cost) {
         int totalGas = 0, totalCost = 0, currentGas = 0, startIndex = 0;
 

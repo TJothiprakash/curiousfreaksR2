@@ -35,7 +35,7 @@ public class LongestSubarray {
         System.out.println(longestSubarray(new int[]{0, 0, 1, 0, 0}));  // Output: 2
         System.out.println(longestSubarray(new int[]{0}));  // Output: 0
     }
-
+//O(n)O(1)
     public static int longestSubarray(int @NotNull [] arr) {
         HashMap<Integer, Integer> prefixSumMap = new HashMap<>();
         int maxLength = 0;

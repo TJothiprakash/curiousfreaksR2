@@ -4,7 +4,7 @@ import java.util.PriorityQueue;
 
 // nearly sorted array (priority queue based qn)
 public class KSortedArray {
-
+// O(n log n)O(n)
     public static void sortArray(int[] arr, int k) {
         // Create a min-heap (priority queue)
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();

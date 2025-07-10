@@ -49,6 +49,7 @@ class TreeNode {
 }
 
 public class MinimumDistanceBetweenNodes {
+//    O(n)O(n)
     public static int findMinDistance(TreeNode root, int a, int b) {
         TreeNode lca = findLCA(root, a, b);
         int distA = findLevel(lca, a, 0);

@@ -1,0 +1,13 @@
+
+
+ - learn array deque for optimizing the sliding window quesitons
+ - learn each type of question well and understand
+
+
+
+✅ Final Summary You Just Said (Perfectly):
+Aspect	Explanation
+Each element	Added once, removed once from deque
+Total Time	O(n) — because all operations (push/pop) happen max once per element
+Per Window Space	O(k) — the deque holds at most k indices (one full window)
+Why O(k) space?	Because at any time, the deque tracks only the elements of the current window

@@ -45,6 +45,7 @@ Code Implem*/
 import java.util.HashMap;
 
 public class LongestRepeatingCharReplacement {
+//    O(n)O(n)
     public int characterReplacement(String s, int k) {
         HashMap<Character, Integer> freqMap = new HashMap<>();
         int left = 0, maxLength = 0, maxFreq = 0;

@@ -32,6 +32,7 @@ Constraints:
 import java.util.HashMap;
 
 public class FindNiceSubArry {
+    //O(n)O(n)
     public int numberOfSubarrays(int[] nums, int k) {
         HashMap<Integer, Integer> prefixSumCount = new HashMap<>();
         prefixSumCount.put(0, 1); // To handle the case where the subarray starts from index 0

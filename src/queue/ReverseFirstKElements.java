@@ -5,6 +5,7 @@ import java.util.*;
 public class ReverseFirstKElements {
 
     // Function to reverse the first K elements of the queue
+//    O(n)O(n)
     public static Queue<Integer> modifyQueue(Queue<Integer> q, int K) {
         // Create a stack to store the first K elements
         Stack<Integer> stack = new Stack<>();
@@ -14,7 +15,7 @@ public class ReverseFirstKElements {
             stack.push(q.poll());
         }
         List<Integer> list = new ArrayList<>();
-        while(!q.isEmpty()){
+        while (!q.isEmpty()) {
             list.add(q.poll());
         }
 

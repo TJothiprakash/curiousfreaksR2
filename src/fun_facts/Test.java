@@ -43,7 +43,8 @@ public class Test {
 /*Adding strictfp forces Java to follow IEEE 754 strictly,
  preventing platform-dependent optimizations.
 * */
-strictfp class Precision {
+
+class Precision {
     public static void main(String[] args) {
         double num = 0.1 + 0.2;
         System.out.println(num); // 0.30000000000000004

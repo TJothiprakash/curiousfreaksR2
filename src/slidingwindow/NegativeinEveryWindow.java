@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Queue;
 
 public class NegativeinEveryWindow {
-
+//O(n)O(k)
     public static List<Integer> findFirstNegativeInWindow(int[] nums, int k) {
         List<Integer> result = new ArrayList<>();
         Queue<Integer> negatives = new LinkedList<>();

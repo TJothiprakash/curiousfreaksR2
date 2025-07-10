@@ -9,6 +9,7 @@ public class TreeOperations {
 
     // A utility function to insert a new node
     // with the given key
+//    O(h)O(h)
     static Node insert(Node root, int key) {
 
         // If the tree is empty, return a new node
@@ -31,6 +32,7 @@ public class TreeOperations {
     }
 
     // A utility function to do inorder tree traversal
+//    O(n)O(n)
     static void inorder(Node root) {
         if (root != null) {
             inorder(root.left);
@@ -38,7 +40,7 @@ public class TreeOperations {
             inorder(root.right);
         }
     }
-
+//O(h)O(h)
     static int height(Node root) {
         // Base case: If the tree is empty
         if (root == null) {
@@ -78,7 +80,7 @@ public class TreeOperations {
         System.out.println("\nHeight of the tree is: " + height(root));
 
     }
-
+//O(h)O(h)
     int diameterOfBinaryTree(Node root) {
         // Call the helper function to calculate height and diameter
         heightDia(root);
@@ -104,7 +106,7 @@ public class TreeOperations {
         // Return the height of the current node
         return Math.max(leftHeight, rightHeight) + 1;
     }
-
+//O(n)O(n)
     public boolean isIdentical(Node r1, Node r2) {
         // Base cases
         if (r1 == null && r2 == null) {
@@ -121,6 +123,7 @@ public class TreeOperations {
     }
 
     // Function to check if S is a subtree of T
+//    O(n * h)O(h)
     public int isSubtree(Node T, Node S) {
         if (T == null) {
             return 0;  // If T is empty, S can't be a subtree of T
@@ -138,6 +141,7 @@ public class TreeOperations {
 
     //
     // Function to check if two trees are isomorphic
+//    O(n)O(n)
     public boolean areIsomorphic(Node root1, Node root2) {
         // If both trees are empty, they are isomorphic
         if (root1 == null && root2 == null) {
@@ -195,6 +199,7 @@ public class TreeOperations {
 
 
     // Function to find the lowest common ancestor in a binary tree
+//    O(n *h)O(h)
     public Node findLCA(Node root, int n1, int n2) {
         // Base case: If root is null, return null
         if (root == null) {
@@ -225,7 +230,7 @@ public class TreeOperations {
         // Helper function to validate Sum Tree and calculate sums
         return isSumTreeHelper(root) != -1;
     }
-
+//O(n)O(n)
     private int isSumTreeHelper(Node node) {
         // Base case: Empty tree is a Sum Tree with sum 0
         if (node == null) {
@@ -282,6 +287,7 @@ Use a queue to perform level-order traversal while checking for symmetry.
     }
 
     // Helper function to check if two subtrees are mirrors of each other
+//    O(n)O(n)
     private boolean isMirror(Node t1, Node t2) {
         // Base cases: both null or one null
         if (t1 == null && t2 == null) return true;
@@ -324,6 +330,7 @@ Use a queue to perform level-order traversal while checking for symmetry.
 //    }*/
 
     // Function to convert the tree into its mirror
+//    O(n)O(n)
     public void mirror1(Node root) {
         if (root == null) return;
 
@@ -374,6 +381,7 @@ Use a queue to perform level-order traversal while checking for symmetry.
         private static int maxSum;
 
         // Function to find all paths
+//        O(n*h)O(h)
         public static List<List<Integer>> findPaths(TreeNode root) {
             List<List<Integer>> result = new ArrayList<>();
             if (root == null) return result;
@@ -484,7 +492,7 @@ Use a queue to perform level-order traversal while checking for symmetry.
                 buildGraph(node.left, node, graph);
                 buildGraph(node.right, node, graph);
             }
-
+//O(n)O(n)
             private static List<Integer> bfs(Map<Integer, List<Integer>> graph, int target, int k) {
                 Queue<Integer> queue = new LinkedList<>();
                 Set<Integer> visited = new HashSet<>();
@@ -547,6 +555,7 @@ Use a queue to perform level-order traversal while checking for symmetry.
     }
 
     // Find the minimum and maximum elements in a Binary Tree
+//    O(n)O(n)
     static int[] findMinAndMax(Node root) {
         if (root == null) return new int[]{Integer.MAX_VALUE, Integer.MIN_VALUE};
 

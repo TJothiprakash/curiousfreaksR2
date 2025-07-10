@@ -13,7 +13,7 @@ public class SlidingWindowMaximum {
         System.out.println(solution.slidingWindowMaximum(nums, k));
         // Output: [3, 3, 5, 5, 6, 7]
     }
-
+//O(n)O(k)
     public List<Integer> slidingWindowMaximum(int[] nums, int k) {
         List<Integer> result = new ArrayList<>();
         Deque<Integer> deque = new LinkedList<>();

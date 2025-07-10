@@ -9,7 +9,7 @@ public class CombinationSumIII {
         List<List<Integer>> result = sol.combinationSum3(3, 9);
         System.out.println(result);
     }
-
+// Time: O(C(9, k) * k), Space: O(k)
     public List<List<Integer>> combinationSum3(int k, int n) {
         List<List<Integer>> result = new ArrayList<>();
         backtrack(1, k, n, new ArrayList<>(), result);

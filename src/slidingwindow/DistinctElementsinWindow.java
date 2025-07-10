@@ -12,6 +12,8 @@ public class DistinctElementsinWindow {
         List<Integer> result = findDistinctElements(nums, k);
         System.out.println(result);
     }
+
+    //    O(n)O(k)
     public static List<Integer> findDistinctElements(int[] nums, int k) {
         List<Integer> result = new ArrayList<>();
         Map<Integer, Integer> freqMap = new HashMap<>();

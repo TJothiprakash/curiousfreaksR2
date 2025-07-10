@@ -11,6 +11,7 @@ public class QueueUsingLinkedList<T> {
     }
 
     // Add an element to the rear of the queue
+//    O(1)O(1)
     public void enqueue(T data) {
         Node<T> newNode = new Node<>(data);
         if (rear == null) {
@@ -25,6 +26,7 @@ public class QueueUsingLinkedList<T> {
     }
 
     // Remove and return the element from the front of the queue
+//    O(1)O(1)
     public T dequeue() {
         if (isEmpty()) {
             throw new IllegalStateException("Queue is empty!");
@@ -40,6 +42,7 @@ public class QueueUsingLinkedList<T> {
     }
 
     // Peek at the front element without removing it
+//    O(1)O(1)
     public T peek() {
         if (isEmpty()) {
             throw new IllegalStateException("Queue is empty!");
@@ -58,6 +61,7 @@ public class QueueUsingLinkedList<T> {
     }
 
     // Display the elements of the queue
+//    O(n)O(1)
     public void display() {
         Node<T> current = front;
         System.out.print("Queue: ");

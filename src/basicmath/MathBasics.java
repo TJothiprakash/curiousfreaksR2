@@ -10,18 +10,18 @@ public class MathBasics {
         // Example usage
         int num = 153;
 
-        System.out.println("Even/Odd: " + isEven(num));
-        System.out.println("Last Digit: " + getLastDigit(num));
-        System.out.println("Count Digits: " + countDigits(num));
-        System.out.println("Reverse: " + reverseNumber(num));
-        System.out.println("Power (2^3): " + power(2, 3));
-        System.out.println("GCD(24, 36): " + gcd(24, 36));
-        System.out.print("Divisors of " + num + ": ");
-        printDivisors(num);
-        System.out.println("Is Prime: " + isPrime(num));
-        System.out.println("Is Armstrong: " + isArmstrong(num));
-        System.out.println("Is Palindrome: " + isPalindrome(num));
-        System.out.println("Square Root (int) of 16: " + squareRoot(16));
+//        System.out.println("Even/Odd: " + isEven(num));
+//        System.out.println("Last Digit: " + getLastDigit(num));
+//        System.out.println("Count Digits: " + countDigits(num));
+//        System.out.println("Reverse: " + reverseNumber(num));
+//        System.out.println("Power (2^3): " + power(2, 3));
+//        System.out.println("GCD(24, 36): " + gcd(24, 36));
+//        System.out.print("Divisors of " + num + ": ");
+//        printDivisors(num);
+//        System.out.println("Is Prime: " + isPrime(num));
+//        System.out.println("Is Armstrong: " + isArmstrong(num));
+//        System.out.println("Is Palindrome: " + isPalindrome(num));
+//        System.out.println("Square Root (int) of 16: " + squareRoot(16));
         System.out.println("Is Perfect Number (28): " + isPerfect(28));
 
         sc.close();
@@ -156,9 +156,15 @@ public class MathBasics {
         for (int i = 2; i <= Math.sqrt(n); i++) {
             if (n % i == 0) {
                 sum += i;
-                if (i != n / i) sum += n / i;
+                System.out.println("adding " + i + "to + sum is " + sum);
+                if (i != n / i) {
+                    sum += n / i;
+                    System.out.println("adding  " + i + " to sum is " + sum);
+                }
+
             }
         }
+        System.out.println("final sum is "+ sum);
         return sum == n;
     }
 }

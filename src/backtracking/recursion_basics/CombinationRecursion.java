@@ -57,6 +57,7 @@ public class CombinationRecursion {
         System.out.println(result.size() + " combinations"); // n! / r! (n-r)! n= 3, r = 2
     }
 
+    //O(2^n)O(n)
     static void generateCombinations(String input, int index, @NotNull String current, int r, List<String> result) {
         System.out.println("Call -> index: " + index + ", current: " + current);
 

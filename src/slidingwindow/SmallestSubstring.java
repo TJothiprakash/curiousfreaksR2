@@ -7,7 +7,7 @@ public class SmallestSubstring {
         String s = "10212";
         System.out.println("Smallest window length: " + smallestSubstring(s));
     }
-
+//O(n)O(1)
     public static int smallestSubstring(String s) {
         // Step 1: Initialize the map to store the frequency of '0', '1', '2'
         HashMap<Character, Integer> freqMap = new HashMap<>();

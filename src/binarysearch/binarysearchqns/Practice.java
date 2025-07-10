@@ -15,7 +15,8 @@ public class Practice {
      * @param n   The size of the array.
      * @param x   The target number.
      * @return The floor value or -1 if it doesn't exist.
-//     */
+     * //
+     */
 //    O( log n base 2 ) O( 1)
     static int findFloor(int[] arr, int n, int x) {
         int low = 0, high = n - 1;
@@ -41,14 +42,14 @@ public class Practice {
      * @param n   The size of the array.
      * @param x   The target number.
      * @return The ceil value or -1 if it doesn't exist.
-    //    O( log n base 2 ) O( 1)
+     * //    O( log n base 2 ) O( 1)
      */
     static int findCeil(int[] arr, int n, int x) {
         int low = 0, high = n - 1;
         int ans = -1;
 
         while (low <= high) {
-            int mid = (low + high) / 2;
+            int mid = low + (high - low) / 2;
             if (arr[mid] >= x) {
                 ans = arr[mid];
                 high = mid - 1;
@@ -73,7 +74,7 @@ public class Practice {
         int first = -1;
 
         while (low <= high) {
-            int mid = (low + high) / 2;
+            int mid = low + (high - low) / 2;
             if (arr[mid] == k) {
                 first = mid;
                 high = mid - 1;
@@ -95,7 +96,6 @@ public class Practice {
      * @return Index of the last occurrence, or -1 if not found.
      */
 //    O( log n base 2 ) O( 1)
-
     public static int lastOccurrence(int[] arr, int n, int k) {
         int low = 0, high = n - 1;
         int last = -1;
@@ -139,7 +139,6 @@ public class Practice {
      * @return Count of occurrences.
      */
 //    O( log n base 2 ) O( 1)
-
     public static int countNoOfOccurrence(int[] arr, int n, int x) {
         int[] ans = firstAndLastPosition(arr, n, x);
         if (ans[0] == -1) return 0;
@@ -152,7 +151,7 @@ public class Practice {
      * @param arr The rotated array.
      * @param k   The target element.
      * @return True if found, false otherwise.
-    //    O( log n base 2 ) O( 1)
+     * //    O( log n base 2 ) O( 1)
      */
     public static boolean searchInARotatedSortedArrayII(int[] arr, int k) {
         int low = 0, high = arr.length - 1;
@@ -191,7 +190,6 @@ public class Practice {
      * @return Minimum element.
      */
 //    O( log n base 2 ) O( 1)
-
     public static int findMin(int[] arr) {
         int low = 0, high = arr.length - 1;
         int ans = Integer.MAX_VALUE;
@@ -222,7 +220,6 @@ public class Practice {
      * @return Index of the minimum element (rotation count).
      */
 //    O( log n base 2 ) O( 1)
-
     public static int findKRotation(int[] arr) {
         int low = 0, high = arr.length - 1;
         int ans = Integer.MAX_VALUE;
@@ -263,7 +260,6 @@ public class Practice {
      * @return The unique element.
      */
 //    O( log n base 2 ) O( 1)
-
     public static int singleNonDuplicate(ArrayList<Integer> arr) {
         int n = arr.size();
 
@@ -299,7 +295,6 @@ public class Practice {
      * @return Index of a peak element.
      */
 //    O( log n base 2 ) O( 1)
-
     public static int findPeakElement(ArrayList<Integer> arr) {
         int n = arr.size();
 

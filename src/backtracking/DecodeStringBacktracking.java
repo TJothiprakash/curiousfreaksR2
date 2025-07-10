@@ -1,4 +1,7 @@
 package backtracking;
+
+import org.jetbrains.annotations.NotNull;
+
 /*Given an encoded string s, the task is to decode it. The encoding rule is :
 
 k[encodedString], where the encodedString inside the square brackets
@@ -25,12 +28,13 @@ Expected Complexities*/
 public class DecodeStringBacktracking {
     static int index;
 
+    /// / Time: O(maxOutput), Space: O(maxNestingDepth)
     public static String decodeString(String s) {
         index = 0;  // Start from the beginning
         return backtrack(s);
     }
 
-    private static String backtrack(String s) {
+    private static @NotNull String backtrack(@NotNull String s) {
         StringBuilder result = new StringBuilder();
         int n = s.length();
 

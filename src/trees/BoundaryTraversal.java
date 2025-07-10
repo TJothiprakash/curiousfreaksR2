@@ -7,6 +7,8 @@ import java.util.Queue;
 
 public class BoundaryTraversal {
 
+    // Time: O(n), Space: O(n)
+    // Because we visit each node at most once, and store boundary nodes.
     public static List<Integer> boundaryTraversal(TreeNode root) {
         List<Integer> result = new ArrayList<>();
 
@@ -39,10 +41,10 @@ public class BoundaryTraversal {
         }
 
         return result;
-
     }
 
-
+    // Time: O(n), Space: O(n)
+    // Each node is visited once; lists used to store boundary and leaves.
     public static List<Integer> boundaryTraversalUsingRecursion(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         if (root == null) return result;
@@ -55,6 +57,7 @@ public class BoundaryTraversal {
 
         // Add leaf nodes
         addLeaves(root, result);
+        System.out.println("root = " + root);
 
         // Add right boundary (in reverse order)
         List<Integer> rightBoundary = new ArrayList<>();
@@ -66,10 +69,13 @@ public class BoundaryTraversal {
         return result;
     }
 
+    // Time: O(1), Space: O(1)
     private static boolean isLeaf(TreeNode node) {
         return node.left == null && node.right == null;
     }
 
+    // Time: O(h), Space: O(1)
+    // Only visits left boundary nodes, not leaf nodes.
     private static void addLeftBoundary(TreeNode node, List<Integer> result) {
         while (node != null) {
             if (!isLeaf(node)) result.add(node.data);
@@ -77,6 +83,8 @@ public class BoundaryTraversal {
         }
     }
 
+    // Time: O(h), Space: O(1)
+    // Only visits right boundary nodes, not leaf nodes.
     private static void addRightBoundary(TreeNode node, List<Integer> result) {
         while (node != null) {
             if (!isLeaf(node)) result.add(node.data);
@@ -84,6 +92,8 @@ public class BoundaryTraversal {
         }
     }
 
+    // Time: O(n), Space: O(h)
+    // Full DFS traversal to collect all leaf nodes
     private static void addLeaves(TreeNode node, List<Integer> result) {
         if (node == null) return;
         if (isLeaf(node)) {

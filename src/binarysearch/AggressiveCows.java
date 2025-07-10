@@ -1,6 +1,8 @@
 /*
 Problem:
-You are given `n` stalls and `k` cows. You need to place the cows in the stalls such that the minimum distance between any two cows is as large as possible.
+You are given `n` stalls and `k` cows.
+ You need to place the cows in the stalls such that the minimum distance between any
+ two cows is as large as possible.
 Return the **largest minimum distance** possible.
 
 Intuition:

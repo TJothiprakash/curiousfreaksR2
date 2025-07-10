@@ -24,7 +24,7 @@ public class MaxDifferenceAncestor {
         findMaxDiff(root, root.data);
         return maxDifference;
     }
-
+//O(n)O(n)
     private static int findMaxDiff(TreeNode node, int minAncestor) {
         if (node == null) {
             return Integer.MAX_VALUE;

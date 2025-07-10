@@ -6,6 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class MaxValueinSubArray {
+//O(n *k) O(n)
     public static List<Integer> findMaxValue(int[] arr, int k) {
         List<Integer> result = new ArrayList<>();
 
@@ -41,7 +42,7 @@ public class MaxValueinSubArray {
 
 
     //efficient approach using queue
-
+//O(n)O(k)
     public static List<Integer> findMaxValueusingQueue(int[] arr, int k) {
         List<Integer> result = new ArrayList<>();
         Deque<Integer> deque = new LinkedList<>(); // Stores indices of array elements

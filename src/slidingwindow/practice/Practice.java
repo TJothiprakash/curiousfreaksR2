@@ -6,7 +6,7 @@ public class Practice {
     public static void main(String[] args) {
         System.out.println(new Practice().maximumSumSubarray(new int[]{1, 2, 3, 4, 5}, 3));
     }
-
+//O(n k)O(n)
     public int maximumSumSubarray(int[] nums, int k) {
         int sum = 0;
         List<Integer> maxValueinEveryWindow = new ArrayList<>();

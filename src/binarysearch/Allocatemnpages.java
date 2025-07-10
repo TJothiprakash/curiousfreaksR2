@@ -1,7 +1,8 @@
 /*
 Problem: Allocate Minimum Number of Pages (Book Allocation Problem)
 
-Given an array `arr[]` representing the number of pages in each book and a number `k` representing the number of students,
+Given an array `arr[]` representing the number of pages in each book and a number `k`
+representing the number of students,
 allocate books such that:
 - Each student gets **contiguous** books.
 - Each book is assigned to exactly one student.
@@ -12,7 +13,8 @@ Return the minimized maximum number of pages.
 Intuition:
 - We are searching for the **minimum possible maximum pages**.
 - Use binary search between `max(arr)` and `sum(arr)` (worst case).
-- For each `mid` (candidate for maximum pages per student), check if it is possible to allocate books to `k` students such that no one gets more than `mid` pages.
+- For each `mid` (candidate for maximum pages per student),
+ check if it is possible to allocate books to `k` students such that no one gets more than `mid` pages.
 
 Dry Run:
 Books = [12, 42, 54, 65, 76, 435, 536, 543, 753], Students = 4

@@ -1,12 +1,18 @@
 package queue;
-import java.util.*;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
 public class ReverseaQueue {
 }
 
 
+class ReverseQueue {
 
- class ReverseQueue {
     // Function to reverse the queue using recursion
+//     O(n)O(n)->stack space
     public static void reverseQueue(Queue<Integer> q) {
         // Base case: if queue is empty, return
         if (q.isEmpty()) {
@@ -39,19 +45,22 @@ public class ReverseaQueue {
         reverseQueue(q3);
         System.out.println(q3); // Output: [8, 12, 5, 9, 7]
     }
-     // Function to reverse the queue using a stack
-     public static void reverseQueueUsingStack(Queue<Integer> q) {
-         Stack<Integer> stack = new Stack<>();
 
-         // Step 1: Dequeue all elements and push them to the stack
-         while (!q.isEmpty()) {
-             stack.push(q.poll());
-         }
+    // Function to reverse the queue using a stack
+    public static void reverseQueueUsingStack(Queue<Integer> q) {
+        Stack<Integer> stack = new Stack<>();
 
-         // Step 2: Pop elements from the stack and enqueue them back to the queue
-         while (!stack.isEmpty()) {
-             q.offer(stack.pop());
-         }
-     }
+        // Step 1: Dequeue all elements and push them to the stack
+        while (!q.isEmpty()) {
+            stack.push(q.poll());
+        }
 
- }
+        // Step 2: Pop elements from the stack and enqueue them back to the queue
+        while (!stack.isEmpty()) {
+            q.offer(stack.pop());
+        }
+    }
+
+}
+/// / Recursion-based reverse – O(n) time | O(n) space (due to call stack)
+/// / Stack-based reverse – O(n) time | O(n) space (explicit stack)

@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public class LongestSubarrayWithTargetSum {
-
+//O(n)O(1)
     public static List<Integer> findLongestSubarrayWithSum(int[] arr, int target) {
         int start = 0, currentSum = 0, maxLength = 0;
         List<Integer> resultIndices = Arrays.asList(-1); // Default if no subarray is found

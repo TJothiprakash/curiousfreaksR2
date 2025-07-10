@@ -59,6 +59,7 @@ At each step, calculate the window's size and update the maximum size.
 import java.util.HashMap;
 
 public class FruitIntoBasket {
+    //    O(n )O(1)
     public int totalFruit(int[] fruits) {
         HashMap<Integer, Integer> map = new HashMap<>();
         int left = 0;

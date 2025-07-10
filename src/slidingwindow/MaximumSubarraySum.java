@@ -1,7 +1,9 @@
 package slidingwindow;
 
 public class MaximumSubarraySum {
-    public int maxSubArraySum(int[] arr) {
+
+//     O(n)O(1)
+    public int maxSubArraySum(int[] arr)  throws IllegalArgumentException {
         if (arr.length < 2) {
             throw new IllegalArgumentException("Array must have at least two elements.");
         }

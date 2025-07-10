@@ -3,6 +3,7 @@ package backtracking;
 public class Analysis {
 
     // create all subsets of "abcd"
+//    O(2^n)O(n)
     void backtrack(String s, int index, StringBuilder current) {
         if (index == s.length()) {
             System.out.println(current);

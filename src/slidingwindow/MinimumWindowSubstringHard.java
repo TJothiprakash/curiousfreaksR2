@@ -68,6 +68,7 @@ Code I*/
 import java.util.HashMap;
 
 public class MinimumWindowSubstringHard {
+//    O(n)O(1)
     public String minWindow(String s, String t) {
         if (s == null || t == null || s.length() < t.length()) {
             return "";

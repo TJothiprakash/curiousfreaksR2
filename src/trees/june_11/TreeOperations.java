@@ -63,7 +63,7 @@ public class TreeOperations {
         System.out.println("After Mirror, Is Symmetric: " + isSymmetric(root));
     }
 
-
+    // Time: O(n), Space: O(n)
     static void insert(TreeNode root, int key) {
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
@@ -83,18 +83,20 @@ public class TreeOperations {
         }
     }
 
+    // Time: O(n), Space: O(h)
     static int height(TreeNode node) {
         if (node == null) return 0;
         return 1 + Math.max(height(node.left), height(node.right));
     }
 
+    // Time: O(n), Space: O(h)
     static int diameter(TreeNode root) {
         int[] max = new int[1];
-
         heightForDiameter(root, max);
         return max[0];
     }
 
+    // Time: O(n), Space: O(h)
     static int heightForDiameter(TreeNode node, int[] max) {
         if (node == null) return 0;
 
@@ -105,6 +107,7 @@ public class TreeOperations {
         return 1 + Math.max(lh, rh);
     }
 
+    // Time: O(min(n1, n2)), Space: O(h1 + h2)
     static boolean isIdentical(TreeNode a, TreeNode b) {
         if (a == null && b == null) return true;
         if (a == null || b == null) return false;
@@ -114,6 +117,7 @@ public class TreeOperations {
                 isIdentical(a.right, b.right);
     }
 
+    // Time: O(m * n), Space: O(h1 + h2)
     static boolean isSubtree(TreeNode root, TreeNode subRoot) {
         if (subRoot == null) return true;
         if (root == null) return false;
@@ -124,10 +128,12 @@ public class TreeOperations {
                 isSubtree(root.right, subRoot);
     }
 
+    // Time: O(n), Space: O(h)
     static boolean isBalanced(TreeNode root) {
         return checkHeight(root) != -1;
     }
 
+    // Time: O(n), Space: O(h)
     static int checkHeight(TreeNode node) {
         if (node == null) return 0;
 
@@ -142,6 +148,7 @@ public class TreeOperations {
         return 1 + Math.max(lh, rh);
     }
 
+    // Time: O(n), Space: O(h)
     static TreeNode lca(TreeNode root, int n1, int n2) {
         if (root == null) return null;
 
@@ -154,10 +161,12 @@ public class TreeOperations {
         return left != null ? left : right;
     }
 
+    // Time: O(n), Space: O(h)
     static boolean isSumTree(TreeNode root) {
         return checkSumTree(root) != -1;
     }
 
+    // Time: O(n), Space: O(h)
     static int checkSumTree(TreeNode node) {
         if (node == null) return 0;
         if (node.left == null && node.right == null) return node.data;
@@ -171,10 +180,12 @@ public class TreeOperations {
         return node.data + leftSum + rightSum;
     }
 
+    // Time: O(n), Space: O(h)
     static boolean isSymmetric(TreeNode root) {
         return root == null || isMirror(root.left, root.right);
     }
 
+    // Time: O(n), Space: O(h)
     static boolean isMirror(TreeNode a, TreeNode b) {
         if (a == null && b == null) return true;
         if (a == null || b == null) return false;
@@ -184,6 +195,7 @@ public class TreeOperations {
                 isMirror(a.right, b.left);
     }
 
+    // Time: O(n), Space: O(h)
     static void mirror(TreeNode node) {
         if (node == null) return;
 
@@ -196,6 +208,7 @@ public class TreeOperations {
         node.right = temp;
     }
 
+    // Time: O(n), Space: O(h)
     static boolean isIsomorphic(TreeNode a, TreeNode b) {
         if (a == null && b == null) return true;
         if (a == null || b == null) return false;

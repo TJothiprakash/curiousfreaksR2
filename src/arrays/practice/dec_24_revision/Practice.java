@@ -1,5 +1,7 @@
 package arrays.practice.dec_24_revision;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.*;
 
 public class Practice {
@@ -26,9 +28,15 @@ public class Practice {
         return;
     }
 
+    public static void main(String[] args) {
+        int arr[]= {1,2,3,4,5};
+        printSubArrays(arr,0, 0);
+
+
+    }
     // This code is contributed by Sania Kumari Gupta
 //    O( n * n *k) O(n)
-    public static List<List<Integer>> subArray(int[] arr) {
+    public static @NotNull List<List<Integer>> subArray(int @NotNull [] arr) {
         //1.. using loops
 
         List<List<Integer>> listofSubarrays = new ArrayList<>();
@@ -50,7 +58,7 @@ public class Practice {
         return listofSubarrays;
     }
     //same above
-    public static void printSubarrays(int[] numbers) {
+    public static void printSubarrays(int @NotNull [] numbers) {
         for (int i = 0; i < numbers.length; i++) {
             for (int j = i; j < numbers.length; j++) {
                 for (int k = i; k <= j; k++) {
@@ -62,7 +70,7 @@ public class Practice {
         }
     }
     //O(2n) O(n) - using set
-    public int longestConsequitiveSequence(int[] arr) {
+    public int longestConsequitiveSequence(int @NotNull [] arr) {
         int longest = 1;
         Set<Integer> set = new HashSet<>();
         for (int i = 0; i < arr.length; i++) {

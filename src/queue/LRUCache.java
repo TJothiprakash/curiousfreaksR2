@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 
 public class LRUCache {
+
     private HashMap<Integer, Node> cache;
     private Node head, tail;
     private int capacity, size;
@@ -21,12 +22,14 @@ public class LRUCache {
     }
 
     // Helper method to move a node to the end (most recently used)
+//    O(1)O(1)
     private void moveToTail(Node node) {
         removeNode(node);
         addNode(node);
     }
 
     // Helper method to add a node right before the tail (most recently used)
+    /*O(1)O(1)*/
     private void addNode(Node node) {
         node.prev = tail.prev;
         node.next = tail;
@@ -35,6 +38,7 @@ public class LRUCache {
     }
 
     // Helper method to remove a node from the doubly linked list
+//    O(1)O(1)
     private void removeNode(Node node) {
         Node prev = node.prev;
         Node next = node.next;
@@ -43,6 +47,7 @@ public class LRUCache {
     }
 
     // Get method to return the value of the key, if exists
+//    O(1)O(1)
     public int get(int key) {
         if (!cache.containsKey(key)) {
             return -1;
@@ -55,6 +60,7 @@ public class LRUCache {
     }
 
     // Set method to insert or update the key-value pair
+//    O(1)O(1)
     public void set(int key, int value) {
         if (cache.containsKey(key)) {
             // Update the value and move the node to the tail

@@ -28,6 +28,7 @@ nums[i] is either 0 or 1.
 0 <= k <= nums.length
 */
 public class Flip0toMakeMaxWindowof1 {
+//    O(n)O(1)
     public int longestOnes(int @NotNull [] nums, int k) {
         int left = 0, right = 0;
         int maxLength = 0;

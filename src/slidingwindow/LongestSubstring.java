@@ -32,7 +32,7 @@ public class LongestSubstring {
         System.out.println(longestSubstring("abdefgabef"));     // Output: 6
         System.out.println(longestSubstring("aaaaa"));          // Output: 1
     }
-
+//O(n)O(k)
     public static int longestSubstring(@NotNull String s) {
         HashSet<Character> set = new HashSet<>();
         int left = 0, right = 0;

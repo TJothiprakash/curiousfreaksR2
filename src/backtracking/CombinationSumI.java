@@ -39,6 +39,8 @@ public class CombinationSumI {
         List<List<Integer>> result = sol.combinationSumII(arr1, target);
         System.out.println(result);
     }
+// combinationSum → Time: O(n^T), Space: O(T)
+// combinationSumII → Time: O(2^n), Space: O(n)
 
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> result = new ArrayList<>();
@@ -46,7 +48,7 @@ public class CombinationSumI {
         backtrack(candidates, target, 0, new ArrayList<>(), result);
         return result;
     }
-
+//
     private void backtrack(int[] arr, int target, int start, List<Integer> current, List<List<Integer>> result) {
         if (target == 0) {
             result.add(new ArrayList<>(current));

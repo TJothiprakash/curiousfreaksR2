@@ -3,7 +3,7 @@ package queue;
 import java.util.PriorityQueue;
 
 public class RopeConnection {
-
+//O(nlog n )O(n)
     public static int connectRopes(int[] arr) {
         // Edge case: if there is only one rope, no cost to connect
         if (arr.length == 1) return 0;
