@@ -16,7 +16,9 @@ public class InsertAtBottom {
         stack.push(7);
         stack.push(8);
         InsertAtBottom insertAtBottom = new InsertAtBottom();
+        System.out.println(stack);
         insertAtBottom.insertAtBottom(6, stack);
+        System.out.println(stack);
     }
 
     public static Stack<Integer> insertAtBottom(int data, Stack<Integer> stack) {
@@ -24,7 +26,8 @@ public class InsertAtBottom {
         helper(data, stack);
         return stack;
     }
-//O(n)O(n)
+
+    //O(n)O(n)
     private static void helper(int data, @NotNull Stack<Integer> stack) {
 
         if (stack.isEmpty()) {

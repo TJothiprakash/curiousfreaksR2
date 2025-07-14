@@ -112,8 +112,9 @@ public class LongestValidParentheses {
 
         // s.charAt(i) == '('
         int j = i + 1;
-        int count = 1;
 
+
+        //noinspection LoopStatementThatDoesntLoop
         while (j < s.length()) {
             int subLen = helper(s, j, dp); // check what's at j
             j += subLen;

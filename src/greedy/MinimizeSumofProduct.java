@@ -27,7 +27,7 @@ public class MinimizeSumofProduct {
 
         long sum = 0;
         for (int i = 0; i < arr1.size(); i++) {
-            sum+=arr1.get(i) * arr2.get(i);
+            sum+= (long) arr1.get(i) * arr2.get(i);
 
         }
         return sum;

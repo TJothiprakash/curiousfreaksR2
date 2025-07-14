@@ -1,7 +1,6 @@
 package stack;
 
-import java.util.*;
-
+import java.util.Stack;
 public class ArithmeticExpressionEvaluator {
     public static void main(String[] args) {
         String[] expressions = {

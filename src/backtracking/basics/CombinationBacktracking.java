@@ -32,6 +32,8 @@ package backtracking.basics;
         Edit
 */
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,7 +48,7 @@ public class CombinationBacktracking {
         }
     }
 
-    static void backtrack(int start, int n, int k, List<Integer> path, List<List<Integer>> result) {
+    static void backtrack(int start, int n, int k, @NotNull List<Integer> path, List<List<Integer>> result) {
         if (path.size() == k) {
             result.add(new ArrayList<>(path));
             return;
