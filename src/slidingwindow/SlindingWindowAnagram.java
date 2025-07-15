@@ -49,6 +49,9 @@ Count the matches: Each time the frequencies match, increment the count of anagr
 
 */
 public class SlindingWindowAnagram {
+
+
+
 //    O(n)O(1)
     public int search(String pat, String txt) {
         int m = pat.length();

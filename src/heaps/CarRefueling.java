@@ -104,7 +104,8 @@ public class CarRefueling {
 
             // If we run out of fuel, use the max-heap to refuel
             while (fuel < 0 && !maxHeap.isEmpty()) {
-                fuel += maxHeap.poll();  // Refuel by taking the largest available fuel from the heap
+                fuel += maxHeap.poll();
+                // Refuel by taking the largest available fuel from the heap
                 stops++;
             }
 

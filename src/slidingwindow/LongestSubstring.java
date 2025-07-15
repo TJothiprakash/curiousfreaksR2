@@ -28,11 +28,12 @@ to remove the duplicate and maintain the uniqueness of characters in the window.
 Track and update the length of the longest valid substring during the process.*/
 public class LongestSubstring {
     public static void main(String[] args) {
+        System.out.println(longestSubstring("maxlengthgmx"));  // Output: 7
         System.out.println(longestSubstring("geeksforgeeks"));  // Output: 7
         System.out.println(longestSubstring("abdefgabef"));     // Output: 6
         System.out.println(longestSubstring("aaaaa"));          // Output: 1
     }
-//O(n)O(k)
+     //O(n)O(k)
     public static int longestSubstring(@NotNull String s) {
         HashSet<Character> set = new HashSet<>();
         int left = 0, right = 0;

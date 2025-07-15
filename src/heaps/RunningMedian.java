@@ -1,10 +1,12 @@
 package heaps;
-/*Given a data stream arr[] where integers are read sequentially, the task is to determine the median of the elements encountered so far after each new integer is read.
+/*Given a data stream arr[] where integers are read sequentially,
+the task is to determine the median of the elements encountered so far after each new integer is read.
 
 There are two cases for median on the basis of data set size.
 
 1. If the data set has an odd number then the middle one will be consider as median.
-2. If the data set has an even number then there is no distinct middle value and the median will be the arithmetic mean of the two middle values.
+2. If the data set has an even number then there is no distinct middle value and the
+ median will be the arithmetic mean of the two middle values.
 
 Examples:
 
@@ -59,11 +61,13 @@ If both heaps are equal size → median is average of tops of both heaps.
 Else → median is the top of the bigger heap.
 
 */
+import org.jetbrains.annotations.NotNull;
+
 import java.util.*;
 
 public class RunningMedian {
 
-    public static List<Double> getMedians(int[] arr) {
+    public static @NotNull List<Double> getMedians(int[] arr) {
         List<Double> medians = new ArrayList<>();
 
         // Max Heap for lower half

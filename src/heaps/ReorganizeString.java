@@ -39,32 +39,32 @@ Reinsert the previously used character (if it still has remaining frequency).
 
 public class ReorganizeString {
     public static String reorganizeString(String s) {
-        Map<Character, Integer> freqMap = new HashMap<>();
-        for (char c : s.toCharArray())
-            freqMap.put(c, freqMap.getOrDefault(c, 0) + 1);
+            Map<Character, Integer> freqMap = new HashMap<>();
+            for (char c : s.toCharArray())
+                freqMap.put(c, freqMap.getOrDefault(c, 0) + 1);
 
-        PriorityQueue<Character> maxHeap = new PriorityQueue<>(
-                (a, b) -> freqMap.get(b) - freqMap.get(a)
-        );
-        maxHeap.addAll(freqMap.keySet());
+            PriorityQueue<Character> maxHeap = new PriorityQueue<>(
+                    (a, b) -> freqMap.get(b) - freqMap.get(a)
+            );
+            maxHeap.addAll(freqMap.keySet());
 
-        StringBuilder result = new StringBuilder();
-        Character prevChar = null;
-        int prevFreq = 0;
+            StringBuilder result = new StringBuilder();
+            Character prevChar = null;
+            int prevFreq = 0;
 
-        while (!maxHeap.isEmpty()) {
-            char current = maxHeap.poll();
-            result.append(current);
-            freqMap.put(current, freqMap.get(current) - 1);
+            while (!maxHeap.isEmpty()) {
+                char current = maxHeap.poll();
+                result.append(current);
+                freqMap.put(current, freqMap.get(current) - 1);
 
-            // reinsert the previous character if it still has remaining frequency
-            if (prevChar != null && prevFreq > 0) {
-                maxHeap.offer(prevChar);
+                // reinsert the previous character if it still has remaining frequency
+                if (prevChar != null && prevFreq > 0) {
+                    maxHeap.offer(prevChar);
+                }
+
+                prevChar = current;
+                prevFreq = freqMap.get(current);
             }
-
-            prevChar = current;
-            prevFreq = freqMap.get(current);
-        }
 
         return result.length() == s.length() ? result.toString() : "";
     }

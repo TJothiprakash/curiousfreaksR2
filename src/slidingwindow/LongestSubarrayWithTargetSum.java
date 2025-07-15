@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public class LongestSubarrayWithTargetSum {
-//O(n)O(1)
+    //O(n)O(1)
     public static List<Integer> findLongestSubarrayWithSum(int[] arr, int target) {
         int start = 0, currentSum = 0, maxLength = 0;
         List<Integer> resultIndices = Arrays.asList(-1); // Default if no subarray is found
@@ -85,5 +85,25 @@ public class LongestSubarrayWithTargetSum {
         return maxLength;
     }
 
+    public static void findLongestSubarrayWithTargetSum(int[] arr, int target) {
+        int start = 0, currentSum = 0;
+        int maxLen = 0;
+
+        for (int end = 0; end < arr.length; end++) {
+            currentSum += arr[end];
+
+            while (currentSum > target && start <= end) {
+                currentSum -= arr[start];
+                start++;
+            }
+
+            if (currentSum <= target) {
+                int len = end - start + 1;
+                maxLen = Math.max(maxLen, len);
+            }
+        }
+
+        System.out.println("maxLen = " + maxLen);
+    }
 
 }

@@ -20,6 +20,13 @@ class Solution {
                         a.getValue() - b.getValue()
         );
 
+        /*Comparator<Map.Entry<String,Integer>> cmp =
+        Comparator.comparingInt(Map.Entry::getValue)      // ↑ freq asc
+                  .thenComparing(Map.Entry::getKey,        // ↑ key desc
+                                 Comparator.reverseOrder());
+
+PriorityQueue<Map.Entry<String,Integer>> minHeap = new PriorityQueue<>(cmp);
+*/
         for (Map.Entry<String, Integer> entry : frequencyMap.entrySet()) {
             minHeap.offer(entry);
             if (minHeap.size() > k) {
