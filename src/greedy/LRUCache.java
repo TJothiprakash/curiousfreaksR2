@@ -53,6 +53,7 @@ public class LRUCache {
     private Map<Integer, Node> cache; // HashMap to store key -> Node
     private int capacity;
     private Node head, tail; // Dummy head and tail to avoid null checks
+
     public LRUCache(int cap) {
         capacity = cap;
         cache = new HashMap<>();
@@ -60,6 +61,10 @@ public class LRUCache {
         tail = new Node(-1, -1); // Dummy tail
         head.next = tail;
         tail.prev = head;
+    }
+
+    public Node getHead() {
+        return head;
     }
 
     // Move the node to the front (most recently used)
@@ -112,6 +117,23 @@ public class LRUCache {
         }
     }
 
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void printCache() {
+        Node head = getHead();
+        System.out.println("-----------------------------------------------------");
+        System.out.println("map is " + cache);
+
+        while (head != null) {
+            System.out.print("{  key " + head.key + " value is " + head.value + " } -> ");
+            head = head.next;
+        }
+        System.out.println("end");
+        System.out.println("-----------------------------------------------------");
+    }
+
     // Doubly Linked List Node
     class Node {
         int key, value;
@@ -126,7 +148,7 @@ public class LRUCache {
 
 class Main0 {
     public static void main(String[] args) {
-        LRUCache cache = new LRUCache(2);
+        LRUCache cache = new LRUCache(4);
 
         cache.set(1, 2); // Cache is {1=2}
         System.out.println(cache.get(1)); // returns 2
@@ -138,5 +160,12 @@ class Main0 {
         cache.set(4, 6); // Cache is {1=5, 4=6} (evicts key 2)
         System.out.println(cache.get(2)); // returns -1 (not found)
         System.out.println(cache.get(4)); // returns 6
+        cache.printCache();
+        cache.get(6);
+        cache.set(3,8);
+        cache.get(3);
+        cache.get(2);
+
+        cache.printCache();
     }
 }

@@ -8,5 +8,10 @@
         <option name="userId" value="6f3c7aaa:197d39b48ff:-7ffe" />
       </MTProjectMetadataState>
     </option>
+    <option name="tabsState">
+      <MTProjectTabsConfigState>
+        <option name="enabled" value="true" />
+      </MTProjectTabsConfigState>
+    </option>
   </component>
 </project>

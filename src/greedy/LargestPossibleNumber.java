@@ -1,6 +1,8 @@
 package greedy;
 
-/*Given two numbers n and s , find the largest number that can be formed with n digits and whose sum of digits should be equals to s. Return -1 if it is not possible.
+/*Given two numbers n and s ,
+ find the largest number that can be formed with n digits and
+  whose sum of digits should be equals to s. Return -1 if it is not possible.
 
 Examples :
 

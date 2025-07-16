@@ -45,6 +45,8 @@ bloomDay.length == n
 1 <= m <= 106
 1 <= k <= n*/
 
+import org.jetbrains.annotations.NotNull;
+
 public class Boquets {
 //    O(log n) O(1)
     public static boolean possible(int[] arr, int day, int m, int k) {
@@ -63,8 +65,15 @@ public class Boquets {
         noOfB += (cnt / k);
         return noOfB >= m;
     }
+
+    /**
+     * @param arr
+     * @param k
+     * @param m
+     * @return
+     */
 //    O(n log (max-sum) O(1)
-    public static int roseGarden(int[] arr, int k, int m) {
+    public static int roseGarden(int @NotNull [] arr, int k, int m) {
         long val = (long) m * k;
         int n = arr.length; // Size of the array
         if (val > n) return -1; // Impossible case.

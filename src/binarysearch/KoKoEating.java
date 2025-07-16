@@ -1,7 +1,9 @@
 /*
 Problem:
-Koko loves to eat bananas. She has `n` piles of bananas, where the `i-th` pile has `v[i]` bananas.
-Each hour, she chooses a pile and eats up to `k` bananas. If the pile has less than `k`, she eats all.
+Koko loves to eat bananas. She has `n` piles of bananas, where
+ the `i-th` pile has `v[i]` bananas.
+Each hour, she chooses a pile and eats up to `k` bananas.
+If the pile has less than `k`, she eats all.
 
 Given `h` hours to eat all bananas, find the **minimum integer speed `k`** such that she can finish all the bananas within `h` hours.
 

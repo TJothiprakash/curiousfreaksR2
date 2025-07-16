@@ -1,7 +1,8 @@
 package backtracking;
 
 /*
-Given a number k and string s of digits denoting a positive integer, build the largest number possible by performing swap operations on the digits of s at most k times.
+Given a number k and string s of digits denoting a positive integer,
+ build the largest number possible by performing swap operations on the digits of s at most k times.
 
 Examples :
 
@@ -22,7 +23,8 @@ Expecte
 
 
 ChatGPT said:
-Yes! This problem can be solved using backtracking to explore all possible swaps (up to k times) and keep track of the maximum number formed.
+Yes! This problem can be solved using backtracking to explore all possible swaps (up to k times) and
+ keep track of the maximum number formed.
 
         ✅ Approach: Backtracking + Greedy Pruning
 Use backtracking to explore all valid swaps.
@@ -44,54 +46,55 @@ java
   */
 public class MaxNumberBySwapping {
 
-    static String maxNumber;
+    static String max = "";
 
-    public static String findMaximumNum(String str, int k) {
-        maxNumber = str;
-        char[] chars = str.toCharArray();
+
+    public static String findMaximumNum(String s, int k) {
+        max = s;
+        char[] chars = s.toCharArray();
         backtrack(chars, k, 0);
-        return maxNumber;
+        return max;
     }
 
     private static void backtrack(char[] chars, int k, int index) {
         if (k == 0) return;
 
         int n = chars.length;
-        char maxChar = chars[index];
-
-        // Find the maximum digit to the right of or at index
+        char maxDigit = chars[index]; // index out of bound need to check
+//
+        // Step 1: find the max digit from index to end
         for (int i = index + 1; i < n; i++) {
-            if (chars[i] > maxChar) {
-                maxChar = chars[i];
+            if (chars[i] > maxDigit) {
+                maxDigit = chars[i];
             }
         }
 
-        // If current digit is already max, no need to swap
-        if (maxChar != chars[index]) {
-            k--;
-        }
+        // If we already have the max digit at this index, no need to swap
+        if (maxDigit != chars[index]) {
+            for (int i = n - 1; i > index; i--) {
+                if (chars[i] == maxDigit) {
+                    swap(chars, index, i);
+                    String current = new String(chars);
+                    if (current.compareTo(max) > 0) {
+                        max = current;
+                    }
 
-        // Try all swaps that can bring max digit to current position
-        for (int i = index; i < n; i++) {
-            if (chars[i] == maxChar) {
-                swap(chars, index, i);
+                    backtrack(chars, k - 1, index + 1);
 
-                String current = new String(chars);
-                if (current.compareTo(maxNumber) > 0) {
-                    maxNumber = current;
+                    // Backtrack
+                    swap(chars, index, i);
                 }
-
-                backtrack(chars, k, index + 1);
-                swap(chars, index, i); // backtrack
             }
+        } else {
+            // No swap done, continue with next index
+            backtrack(chars, k, index + 1);
         }
     }
 
-    private static void swap(char[] chars, int i, int j) {
-        if (i == j) return;
-        char temp = chars[i];
-        chars[i] = chars[j];
-        chars[j] = temp;
+    private static void swap(char[] arr, int i, int j) {
+        char temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
 
     // Test it

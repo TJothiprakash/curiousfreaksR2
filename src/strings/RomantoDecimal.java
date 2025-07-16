@@ -1,6 +1,10 @@
 package strings;
-import java.util.*;
-public class RomantoDecimal { public int romanToDecimal(String s) {
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class RomantoDecimal {
+    public int romanToDecimal(String s) {
         // Define the Roman numeral values
         Map<Character, Integer> romanMap = new HashMap<>();
         romanMap.put('I', 1);

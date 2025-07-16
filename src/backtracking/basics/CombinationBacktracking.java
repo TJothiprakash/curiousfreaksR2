@@ -42,7 +42,6 @@ public class CombinationBacktracking {
         int n = 4, k = 2;
         List<List<Integer>> result = new ArrayList<>();
         backtrack(1, n, k, new ArrayList<>(), result);
-
         for (List<Integer> combo : result) {
             System.out.println(combo);
         }
