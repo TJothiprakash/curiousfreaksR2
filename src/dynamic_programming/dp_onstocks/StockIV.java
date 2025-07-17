@@ -70,7 +70,7 @@ public class StockIV {
         int profit;
         if (canBuy) {
             // Option 1: Buy the stock
-            int buy = -prices[currentDay] + getMaxProfit(prices, currentDay + 1, transactionsLeft, false, memo);
+            int buy = - prices[currentDay] + getMaxProfit(prices, currentDay + 1, transactionsLeft, false, memo);
             // Option 2: Skip this day
             int skip = getMaxProfit(prices, currentDay + 1, transactionsLeft, true, memo);
             profit = Math.max(buy, skip);

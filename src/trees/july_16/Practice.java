@@ -16,6 +16,8 @@ class Node {
 }
 
 public class Practice {
+    private static String[] args;
+
     public static void main(String[] args) {
 
     }
