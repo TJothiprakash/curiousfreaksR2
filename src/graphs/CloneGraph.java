@@ -55,6 +55,7 @@ public class CloneGraph {
         Node node4 = new Node(4);
 
         node1.neighbors.add(node2);
+        node1.neighbors.add(node3);
         node1.neighbors.add(node4);
         node2.neighbors.add(node1);
         node2.neighbors.add(node3);

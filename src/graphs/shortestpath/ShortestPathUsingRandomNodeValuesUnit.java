@@ -3,7 +3,7 @@ package graphs.shortestpath;
 import java.io.IOException;
 import java.util.*;
 
-class main {
+class Main12 {
 
     public static void main(String[] args) throws IOException {
         int n = 8, m = 10;

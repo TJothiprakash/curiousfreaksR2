@@ -34,6 +34,6 @@ public class DFSGraph {
         g.addEdge(3, 5);
 
         System.out.println("DFS starting from node 1:");
-        g.dfs(4);
+        g.dfs(5);
     }
 }
