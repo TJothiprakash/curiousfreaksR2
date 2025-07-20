@@ -1,8 +1,0 @@
-| Concept                        | Insight                                          |
-| ------------------------------ | ------------------------------------------------ |
-| Matrix is row & column sorted  | You can treat it like multiple sorted lists      |
-| Use Min-Heap                   | To always get the next smallest element          |
-| Push First Element of Each Row | Because they are the heads of each sorted stream |
-| After Polling                  | Push the next element **from the same row** only |
-| Heap ensures global order      | So you never need to manually compare rows       |
-| Duplicates are fine            | Heap handles them — just values matter           |
