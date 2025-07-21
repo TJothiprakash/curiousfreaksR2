@@ -1,5 +1,6 @@
 package graphs.july_20;
 
+import java.util.LinkedList;
 import java.util.Queue;
 
 public class Practice {
@@ -294,7 +295,7 @@ public class Practice {
             int area = 1; // Count this cell
             // Explore all 8 directions
             for(int i = 0; i < 8; i++) {
-                area += dfs(row + dz[i], col + dy[i], grid, visited, dx, dy);
+                area += dfs(row + dz[i], col + dy[i], grid, visited, dz, dy);
             }
             return area;
 
