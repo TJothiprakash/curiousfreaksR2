@@ -1,0 +1,4 @@
+hi jp
+gitk --all   # GUI
+tig          # terminal UI
+git log --oneline --graph --all

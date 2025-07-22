@@ -1,0 +1,66 @@
+✅ Problem Statement (What is MST?)
+Given a connected, undirected, weighted graph, a spanning tree is a subset of edges that:
+
+Definition of MST
+✅ A subgraph that connects all N nodes using exactly N-1 edges
+✅ Has no cycles
+✅ The sum of edge weights is minimized
+Connects all the vertices
+
+Has no cycles
+
+Has exactly V-1 edges (where V = number of vertices)
+
+A Minimum Spanning Tree is a spanning tree with the minimum possible total edge weight.
+
+🧠 Intuition
+You’re trying to connect everything (all nodes) with the least cost.
+
+Imagine laying down cables to connect all houses (nodes) — you want the cheapest setup without any loops or redundancy.
+
+🌐 Where is MST Used? (Real-World Applications)
+Use Case	Description
+Network Design	Laying fiber-optic cables, electric grids, or water pipelines with minimum cost.
+Approximation Algorithms	Used in approximations for NP-Hard problems like the Traveling Salesman Problem (TSP).
+Image Segmentation	In computer vision, MST helps in grouping pixels/regions.
+Clustering	Used in hierarchical clustering algorithms (like single-link clustering).
+Civil Engineering	Designing road or pipeline systems efficiently.
+
+🔧 Common MST Algorithms
+Kruskal’s Algorithm
+
+Sort all edges by weight
+
+Pick the smallest edge that doesn’t form a cycle (use Union-Find to detect cycles)
+
+Time: O(E log E)
+
+Prim’s Algorithm
+
+Start from a random node
+
+Grow the MST by adding the cheapest edge that connects a new node
+
+Uses a Priority Queue or Min-Heap
+
+Time: O(E log V) (with MinHeap)
+
+📦 Quick Dry Run Example
+Graph:
+
+mathematica
+Copy
+Edit
+Vertices: A, B, C, D
+Edges:
+A-B (1), B-C (4), C-D (2), A-D (3), B-D (5)
+Apply Kruskal’s:
+
+Sort edges: (A-B 1), (C-D 2), (A-D 3), (B-C 4), (B-D 5)
+
+Pick A-B, C-D, A-D → covers all nodes with total cost 1 + 2 + 3 = 6
+
+📈 Time and Space Complexity
+Algorithm	Time Complexity	Space
+Kruskal's	O(E log E)	O(V) (for Union-Find)
+Prim's	O(E log V)	O(V) (for PriorityQueue)

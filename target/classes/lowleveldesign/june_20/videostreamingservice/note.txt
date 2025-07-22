@@ -1,0 +1,59 @@
++---------------------------+
+|        Video              |
++---------------------------+
+| - id: int                 |
+| - title: String           |
+| - description: String     |
+| - duration: int (secs)    |
+| - filePath: String        |
++---------------------------+
+
++---------------------------+
+|       VideoService        |
++---------------------------+
+| - videos: Map<Integer, Video>   |
+| - idGenerator: AtomicInteger    |
++---------------------------+
+| + uploadVideo(title, desc, dur, path): void
+| + getVideoById(id): Video
+| + listAllVideos(): List<Video>
++---------------------------+
+
++---------------------------+
+|          User             |
++---------------------------+
+| - id: int                 |
+| - name: String            |
+| - watchHistory: List<Integer> |
++---------------------------+
+
++---------------------------+
+|       UserService         |
++---------------------------+
+| - users: Map<Integer, User>
+| - idGenerator: AtomicInteger
++---------------------------+
+| + registerUser(name): void
+| + getUserById(id): User
+| + addToWatchHistory(userId, videoId): void
+| + getWatchHistory(userId): List<Video>
++---------------------------+
+
++---------------------------+
+|       VideoPlayer         |
++---------------------------+
+| + playVideo(video: Video): void
++---------------------------+
+
++---------------------------+
+| VideoStreamingPlatform    |
++---------------------------+
+| - videoService: VideoService
+| - userService: UserService
+| - videoPlayer: VideoPlayer
++---------------------------+
+| + upload(...)
+| + browseVideos(): List<Video>
+| + play(userId, videoId)
+| + viewWatchHistory(userId)
++---------------------------+

@@ -1,0 +1,40 @@
+🧠 LEVEL 1 — WARM-UP
+✅ 1. Move Last Node to Front
+Input: 1 → 2 → 3 → 4 → 5
+Output: 5 → 1 → 2 → 3 → 4
+
+🎯 Goal: Find the last node, detach it, and point it to head.
+
+✅ 2. Find Middle Node (no length, one pass)
+Use slow/fast pointer — standard test.
+
+🔄 LEVEL 2 — TRAVERSAL TWISTS
+🔁 3. Reverse Every Alternate K Nodes
+Reverse first K, skip K, reverse next K, skip K...
+
+Example:
+1→2→3→4→5→6→7→8→9, K=3
+➡ 3→2→1→4→5→6→9→8→7
+
+🔀 4. Merge Two Sorted Lists (in-place, no dummy)
+Merge L1: 1→4→7, L2: 2→3→6
+➡ 1→2→3→4→6→7
+
+🎯 Bonus: Try it by inserting nodes from L2 into L1
+
+🧬 LEVEL 3 — POINTER PUZZLES
+🪞 5. Check if Linked List is Palindrome (O(1) space)
+Find mid, reverse second half, compare halves, restore list (optional).
+
+🧪 6. Clone a Linked List with Random Pointers
+Each node has .next and .random
+
+🎯 Clone it without HashMap
+
+🪓 7. Delete N nodes after skipping M nodes
+Given M and N, traverse M nodes, then delete next N nodes, repeat.
+
+Example: M=2, N=2
+1→2→3→4→5→6→7→8
+➡ 1→2→5→6
+

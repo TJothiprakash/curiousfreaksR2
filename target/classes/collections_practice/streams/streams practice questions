@@ -1,0 +1,433 @@
+
+
+
+### Java Streams – 100 Questions with Answers in Chunks
+
+---
+### Questions 1–20
+1. Convert a list of integers to a list of their squares.
+2. Find all strings that start with "a" and are of length 3.
+3. Count the number of empty strings in a list.
+4. Remove all null elements from a list.
+5. Convert a list of strings to uppercase.
+6. Sort a list of integers.
+7. Find the maximum element in a list of integers.
+8. Find the minimum element in a list of integers.
+9. Join all strings in a list with a comma.
+10. Get a list of distinct elements from a list.
+11. Skip the first 5 elements of a stream.
+12. Limit the stream to 10 elements.
+13. Check if any element in a list is negative.
+14. Check if all elements in a list are even.
+15. Convert a list of employees to a map of name to salary.
+16. Group a list of employees by department.
+17. Partition a list of numbers into even and odd.
+18. Count the occurrences of each word in a list.
+19. Get the average of a list of doubles.
+20. Find the second highest number in a list.
+
+---
+### Answers 1–20
+1. `list.stream().map(x -> x * x).collect(Collectors.toList())`
+2. `list.stream().filter(s -> s.startsWith("a") && s.length() == 3).collect(Collectors.toList())`
+3. `list.stream().filter(String::isEmpty).count()`
+4. `list.stream().filter(Objects::nonNull).collect(Collectors.toList())`
+5. `list.stream().map(String::toUpperCase).collect(Collectors.toList())`
+6. `list.stream().sorted().collect(Collectors.toList())`
+7. `list.stream().max(Integer::compare).get()`
+8. `list.stream().min(Integer::compare).get()`
+9. `list.stream().collect(Collectors.joining(","))`
+10. `list.stream().distinct().collect(Collectors.toList())`
+11. `list.stream().skip(5).collect(Collectors.toList())`
+12. `list.stream().limit(10).collect(Collectors.toList())`
+13. `list.stream().anyMatch(x -> x < 0)`
+14. `list.stream().allMatch(x -> x % 2 == 0)`
+15. `list.stream().collect(Collectors.toMap(Employee::getName, Employee::getSalary))`
+16. `list.stream().collect(Collectors.groupingBy(Employee::getDepartment))`
+17. `list.stream().collect(Collectors.partitioningBy(x -> x % 2 == 0))`
+18. `list.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))`
+19. `list.stream().mapToDouble(Double::doubleValue).average().getAsDouble()`
+20. `list.stream().sorted(Comparator.reverseOrder()).skip(1).findFirst().get()`
+
+---
+### Questions 21–40
+21. Find the longest string in a list.
+22. Reverse sort a list of strings.
+23. Remove duplicates and sort a list.
+24. Flatten a list of lists.
+25. Convert a list of strings to a list of integers.
+26. Remove all empty strings from a list.
+27. Generate a list of 10 random numbers.
+28. Group strings by their length.
+29. Find the string with the most vowels.
+30. Create a comma-separated string of numbers greater than 5.
+31. Convert a list of objects to a list of one of their fields.
+32. Check if a string list contains a word (case-insensitive).
+33. Find the sum of all even numbers.
+34. Check if no element is null.
+35. Find the frequency of each character in a string.
+36. Sort a list of strings by their lengths.
+37. Get the first non-null element from a list.
+38. Calculate factorial using streams.
+39. Collect stream into a LinkedList instead of ArrayList.
+40. Create a map of numbers to their squares.
+
+---
+### Answers 21–40
+21. `list.stream().max(Comparator.comparingInt(String::length)).get()`
+22. `list.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList())`
+23. `list.stream().distinct().sorted().collect(Collectors.toList())`
+24. `listOfLists.stream().flatMap(List::stream).collect(Collectors.toList())`
+25. `list.stream().map(Integer::parseInt).collect(Collectors.toList())`
+26. `list.stream().filter(s -> !s.isEmpty()).collect(Collectors.toList())`
+27. `new Random().ints(10).boxed().collect(Collectors.toList())`
+28. `list.stream().collect(Collectors.groupingBy(String::length))`
+29. `list.stream().max(Comparator.comparingInt(s -> s.replaceAll("[^aeiouAEIOU]", "").length())).get()`
+30. `list.stream().filter(x -> x > 5).map(String::valueOf).collect(Collectors.joining(","))`
+31. `list.stream().map(obj -> obj.getField()).collect(Collectors.toList())`
+32. `list.stream().anyMatch(s -> s.equalsIgnoreCase("target"))`
+33. `list.stream().filter(x -> x % 2 == 0).mapToInt(Integer::intValue).sum()`
+34. `list.stream().noneMatch(Objects::isNull)`
+35. `str.chars().mapToObj(c -> (char) c).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))`
+36. `list.stream().sorted(Comparator.comparingInt(String::length)).collect(Collectors.toList())`
+37. `list.stream().filter(Objects::nonNull).findFirst().get()`
+38. `IntStream.rangeClosed(1, n).reduce(1, (a, b) -> a * b)`
+39. `list.stream().collect(Collectors.toCollection(LinkedList::new))`
+40. `list.stream().collect(Collectors.toMap(Function.identity(), x -> x * x))`
+
+---
+### Let me know when you're ready for Questions 41–100!
+### Questions 41–60
+41. Count how many strings have length > 3.
+42. Find the most frequent string in a list.
+43. Remove all numbers less than 10.
+44. Replace nulls with a default string.
+45. Find the total number of characters in all strings.
+46. Get a list of unique characters from a list of strings.
+47. Find the average length of strings in a list.
+48. Remove duplicates based on string length.
+49. Sort a list of dates in descending order.
+50. Partition employees by active/inactive status.
+51. Convert a map to a list of entries.
+52. Generate a list of the first 10 squares.
+53. Find first repeated character in a string.
+54. Find last element of a list safely.
+55. Filter and collect only valid email addresses.
+56. Compute sum of salaries by department.
+57. Check if two lists are equal ignoring order.
+58. Collect list into a Set.
+59. Remove strings containing a specific substring.
+60. Count lowercase letters in a string.
+✅ Answers 41–60
+list.stream().filter(s -> s.length() > 3).count()
+
+list.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting())) .entrySet().stream().max(Map.Entry.comparingByValue()).get().getKey()
+
+list.stream().filter(x -> x >= 10).collect(Collectors.toList())
+
+list.stream().map(s -> s == null ? \"default\" : s).collect(Collectors.toList())
+
+list.stream().mapToInt(String::length).sum()
+
+list.stream().flatMap(s -> s.chars().mapToObj(c -> (char) c)).distinct().collect(Collectors.toList())
+
+list.stream().mapToInt(String::length).average().getAsDouble()
+
+list.stream().collect(Collectors.collectingAndThen(Collectors.toMap(String::length, Function.identity(), (s1, s2) -> s1), m -> new ArrayList<>(m.values())))
+
+list.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList())
+
+employees.stream().collect(Collectors.partitioningBy(Employee::isActive))
+
+map.entrySet().stream().collect(Collectors.toList())
+
+IntStream.range(1, 11).map(x -> x * x).boxed().collect(Collectors.toList())
+
+str.chars().mapToObj(c -> (char) c) .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting())) .entrySet().stream().filter(e -> e.getValue() > 1).findFirst().get().getKey()
+
+list.stream().reduce((first, second) -> second).orElse(null)
+
+list.stream().filter(s -> s.matches(\"^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$\")) .collect(Collectors.toList())
+
+employees.stream().collect(Collectors.groupingBy(Employee::getDepartment, Collectors.summingDouble(Employee::getSalary)))
+
+new HashSet<>(list1).equals(new HashSet<>(list2))
+
+list.stream().collect(Collectors.toSet())
+
+list.stream().filter(s -> !s.contains(\"substring\")).collect(Collectors.toList())
+
+str.chars().filter(Character::isLowerCase).count()
+
+✅ Questions 61–80
+
+61Find the third smallest element in a list.
+
+62Convert a list of booleans to count of true values.
+
+63 Generate an infinite stream of odd numbers and limit to 20.
+
+64 Filter employees with salary > 50k and sort by name.
+
+ 65 Group words by their first character.
+
+66 Sort a map by its values using streams.
+
+67 Get top 5 longest strings.
+
+68 Get list of prime numbers from a list.
+
+69 Check if a number exists in the stream.
+
+70 Count unique elements in a list.
+
+71 Filter out all uppercase strings.
+
+72 Get the product of all numbers.
+
+73 Get all palindromic strings.
+
+74 Find longest palindrome in a list.
+
+75 Merge two lists using streams.
+
+76 Get sum of squares of even numbers.
+
+77 Sort strings ignoring case.
+
+78 Get list of students who passed all subjects.
+
+79 Find common elements in two lists.
+
+80 Convert a list to a delimited string with prefix and suffix.
+
+
+✅ Answers 61–80
+list.stream().sorted().skip(2).findFirst().get()
+
+list.stream().filter(Boolean::booleanValue).count()
+
+Stream.iterate(1, n -> n + 2).limit(20).collect(Collectors.toList())
+
+employees.stream().filter(e -> e.getSalary() > 50000) .sorted(Comparator.comparing(Employee::getName)) .collect(Collectors.toList())
+
+list.stream().collect(Collectors.groupingBy(s -> s.charAt(0)))
+
+map.entrySet().stream() .sorted(Map.Entry.comparingByValue()) .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new))
+
+list.stream() .sorted(Comparator.comparingInt(String::length).reversed()) .limit(5).collect(Collectors.toList())
+
+list.stream().filter(Main::isPrime).collect(Collectors.toList())
+
+list.stream().anyMatch(x -> x == targetNumber)
+
+list.stream().distinct().count()
+
+list.stream().filter(s -> !s.equals(s.toUpperCase())).collect(Collectors.toList())
+
+list.stream().reduce(1, (a, b) -> a * b)
+
+list.stream().filter(s -> s.equals(new StringBuilder(s).reverse().toString())) .collect(Collectors.toList())
+
+list.stream().filter(s -> s.equals(new StringBuilder(s).reverse().toString())) .max(Comparator.comparingInt(String::length)).orElse(null)
+
+Stream.concat(list1.stream(), list2.stream()).collect(Collectors.toList())
+
+list.stream().filter(x -> x % 2 == 0).map(x -> x * x).reduce(0, Integer::sum)
+
+list.stream().sorted(String.CASE_INSENSITIVE_ORDER).collect(Collectors.toList())
+
+students.stream().filter(s -> s.getMarks().stream().allMatch(m -> m >= 40)) .collect(Collectors.toList())
+
+list1.stream().filter(list2::contains).collect(Collectors.toList())
+
+list.stream().collect(Collectors.joining(",", "Prefix-", "-Suffix"))
+
+🔍 For Q68: isPrime is a method you can define like:
+
+java
+Copy
+Edit
+static boolean isPrime(int n) {
+    if (n <= 1) return false;
+    for (int i = 2; i <= Math.sqrt(n); i++)
+        if (n % i == 0) return false;
+    return true;
+}
+📘 Questions 81–100
+81 Sort a list of people by age then name.
+
+82 Get top 3 highest-paid employees.
+
+83 Group products by category and count each.
+
+84 Convert list of digits to a number.
+
+85 Convert map to JSON-like string using streams.
+
+86 Extract domain names from email list.
+
+87 Find second most frequent word.
+
+88 Remove duplicate characters from a string.
+
+89 Get characters with frequency > 1.
+
+90 Create frequency map of words ignoring case.
+
+91 Get names of all managers from employee list.
+
+92 Find employee(s) with max salary.
+
+93 Sort a list of file paths by filename extension.
+
+94 Check if a list is sorted.
+
+95 Replace all empty strings with "N/A".
+
+96 Count even digits in a number.
+
+97 Convert a comma-separated string to list.
+
+98 Check if a list contains only unique elements.
+
+99 Convert a list of numbers to binary strings.
+
+100 Build a frequency histogram (Map<Integer, Integer>) from a list of numbers.
+
+✅ Answers 81–100
+java
+Copy
+Edit
+
+81 people.stream()
+      .sorted(Comparator.comparing(Person::getAge).thenComparing(Person::getName))
+      .collect(Collectors.toList());
+
+java
+Copy
+Edit
+82 employees.stream()
+         .sorted(Comparator.comparing(Employee::getSalary).reversed())
+         .limit(3)
+         .collect(Collectors.toList());
+java
+Copy
+Edit
+83 products.stream()
+        .collect(Collectors.groupingBy(Product::getCategory, Collectors.counting()));
+java
+Copy
+Edit
+digits.stream()
+      .reduce(0, (a, b) -> a * 10 + b);
+java
+Copy
+Edit
+map.entrySet().stream()
+   .map(e -> "\"" + e.getKey() + "\":\"" + e.getValue() + "\"")
+   .collect(Collectors.joining(", ", "{", "}"));
+java
+Copy
+Edit
+emails.stream()
+      .map(email -> email.substring(email.indexOf("@") + 1))
+      .collect(Collectors.toSet());
+java
+Copy
+Edit
+list.stream()
+    .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+    .entrySet().stream()
+    .sorted(Map.Entry.<String, Long>comparingByValue().reversed())
+    .skip(1).findFirst().map(Map.Entry::getKey).orElse(null);
+java
+Copy
+Edit
+str.chars()
+   .distinct()
+   .mapToObj(c -> String.valueOf((char) c))
+   .collect(Collectors.joining());
+java
+Copy
+Edit
+str.chars()
+   .mapToObj(c -> (char) c)
+   .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+   .entrySet().stream()
+   .filter(e -> e.getValue() > 1)
+   .map(Map.Entry::getKey)
+   .collect(Collectors.toList());
+java
+Copy
+Edit
+list.stream()
+    .map(String::toLowerCase)
+    .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+java
+Copy
+Edit
+employees.stream()
+         .filter(Employee::isManager)
+         .map(Employee::getName)
+         .collect(Collectors.toList());
+java
+Copy
+Edit
+BigDecimal maxSalary = employees.stream()
+                                .map(Employee::getSalary)
+                                .max(Comparator.naturalOrder())
+                                .get();
+
+employees.stream()
+         .filter(e -> e.getSalary().equals(maxSalary))
+         .collect(Collectors.toList());
+java
+Copy
+Edit
+paths.stream()
+     .sorted(Comparator.comparing(path -> path.substring(path.lastIndexOf(".") + 1)))
+     .collect(Collectors.toList());
+java
+Copy
+Edit
+IntStream.range(0, list.size() - 1)
+         .allMatch(i -> list.get(i) <= list.get(i + 1));
+java
+Copy
+Edit
+list.stream()
+    .map(s -> s.isEmpty() ? "N/A" : s)
+    .collect(Collectors.toList());
+java
+Copy
+Edit
+String.valueOf(number).chars()
+      .map(c -> c - '0')
+      .filter(d -> d % 2 == 0)
+      .count();
+java
+Copy
+Edit
+Arrays.stream(csv.split(","))
+      .map(String::trim)
+      .collect(Collectors.toList());
+java
+Copy
+Edit
+list.size() == list.stream().distinct().count();
+java
+Copy
+Edit
+list.stream()
+    .map(Integer::toBinaryString)
+    .collect(Collectors.toList());
+java
+Copy
+Edit
+list.stream()
+    .collect(Collectors.groupingBy(Function.identity(), Collectors.summingInt(x -> 1)));
+
+
+=====================================================================================================================
+

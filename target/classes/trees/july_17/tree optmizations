@@ -1,0 +1,72 @@
+🪣 ✅ Bucket List (Parked for Later)
+🌲 Tree Optimizations:
+ Subtree check via serialization + KMP/Rabin-Karp
+
+ Subtree comparison via Merkle-style hashing
+
+ Tree isomorphism checks
+
+ Advanced recursive + memoized tree DP
+
+
+ ✅ Optimization Techniques for Subtree Check
+ 1. Tree Serialization + KMP / Rabin-Karp (Hashing or Pattern Search) ✅
+ 🎯 Idea:
+ Serialize both trees using preorder traversal with null markers (# or X for nulls).
+
+ Then check if serializedSub is a substring of serializedMain.
+
+ 🔥 Why it works:
+ Structure + data are both encoded.
+
+ Fast substring search can be done in O(n + m) using:
+
+ KMP
+
+ Rabin-Karp (rolling hash)
+
+ String.contains() (simple fallback in Java)
+
+ 🧠 Preorder with nulls:
+ text
+ Copy
+ Edit
+ Main:
+ 3 4 1 X X 2 X X 5 X X
+
+ Sub:
+ 4 1 X X 2 X X
+ Then check: mainString.contains(subString)
+
+ ✅ Time:
+ Preprocessing: O(n + m)
+
+ Matching: O(n + m) (with KMP)
+
+ 2. Hash-based Subtree Comparison (Merkle Trees) 🔥
+ 🎯 Idea:
+ Compute a unique hash for every subtree.
+
+ Store in map or compare root hashes.
+
+ 📦 Use case:
+ Used in Git, Blockchain (Merkle trees).
+
+ If two subtrees are same, their hashes will match.
+
+ Avoids redundant traversal.
+
+ Java tools: MessageDigest (SHA-256) or custom hash (like left#root#right)
+ 3. Early Exit + Memoization (for overlapping subtrees)
+ 🔁 Add logic to cache subtree matches:
+ Memoize isIdentical(...) with (node1, node2) pairs.
+
+ Prevent rechecking same subtree pairs.
+
+ Used in competitive programming sometimes. Slightly complex due to needing custom pair hashing.
+
+ TL;DR Optimization Cheatsheet:
+ Optimization	Description	Time
+ ✅ Serialization + Pattern Matching	Encode tree, check contains()	O(n + m)
+ 🔥 Subtree Hashing (Merkle)	Hash each subtree	~O(n)
+ ✅ Memoization + Early Exit	Cache subtree results	Reduces redundant checks
