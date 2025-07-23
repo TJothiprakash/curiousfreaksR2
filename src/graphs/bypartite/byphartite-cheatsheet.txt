@@ -1,0 +1,105 @@
+🎨 Bipartite Graph — Cheat Sheet 🧠
+✅ What is a Bipartite Graph?
+A graph is bipartite if:
+
+You can divide its nodes into two sets U and V
+
+No two nodes within the same set are connected
+
+🔁 In simple terms:
+You can color the graph using 2 colors (say Red and Blue)
+→ such that no two adjacent nodes have the same color
+
+✅ Applicable To:
+Undirected graphs
+
+Can be connected or disconnected
+
+✅ Use Cases in Questions:
+Can this graph be split into 2 groups?
+
+Can we assign two types of jobs with no conflicts?
+
+Is the graph “even-cycled”? (More on that below 👇)
+
+🔍 How to Check if a Graph is Bipartite?
+🔵 1. Using BFS (Most Common)
+🔷 Logic:
+Maintain a color[] array, initialized to -1 (unvisited)
+
+For each component, pick a node and assign color 0
+
+Do BFS:
+
+Assign the opposite color to neighbors
+
+If any neighbor already has the same color → Not bipartite
+
+✅ BFS Pseudocode:
+java
+Copy
+Edit
+boolean isBipartite(int V, List<List<Integer>> adj) {
+    int[] color = new int[V];
+    Arrays.fill(color, -1);
+
+    for (int i = 0; i < V; i++) {
+        if (color[i] == -1) {
+            Queue<Integer> q = new LinkedList<>();
+            q.add(i);
+            color[i] = 0;
+
+            while (!q.isEmpty()) {
+                int node = q.poll();
+                for (int neighbor : adj.get(node)) {
+                    if (color[neighbor] == -1) {
+                        color[neighbor] = 1 - color[node];
+                        q.add(neighbor);
+                    } else if (color[neighbor] == color[node]) {
+                        return false; // Same color adjacent → Not bipartite
+                    }
+                }
+            }
+        }
+    }
+    return true;
+}
+🔴 2. Using DFS (Same concept)
+Just recursively assign colors to neighbors, and backtrack if conflict arises.
+
+🔁 Graph Theory Insight:
+✅ All Trees are Bipartite
+→ Because trees have no cycles, so can always 2-color them
+
+❌ Odd Cycle ⇒ Not Bipartite
+→ A cycle of length 3, 5, 7, etc. cannot be colored using 2 colors
+✅ Even Cycle ⇒ Always Bipartite
+
+So detecting a cycle of odd length is another way to prove it’s not bipartite
+
+✅ Common Interview Questions:
+Is the graph bipartite?
+
+Can you split people into 2 groups such that no enemies are in the same group?
+
+Possible to assign courses/jobs with constraints?
+
+Can a graph be 2-colored?
+
+📌 Quick Visual Example:
+lua
+Copy
+Edit
+0 --- 1
+|     |
+3 --- 2
+Can color as:
+
+0, 2 → Blue
+
+1, 3 → Red
+→ ✅ Bipartite
+
+Now add edge 0–2 → forms an odd cycle
+→ ❌ Not bipartite
+

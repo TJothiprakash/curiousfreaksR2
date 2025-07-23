@@ -1,0 +1,48 @@
+✅ Use Memoization When:
+You're computing a single value (e.g., maxPathSum, count of all paths, minCost, etc.).
+
+You can reuse subproblem results (like dp[i][j] = number of ways to reach (i,j)).
+
+You want optimal time complexity, trading it with some additional space.
+
+You're not storing full paths, but rather an aggregate result.
+
+Example: Counting unique paths avoiding obstacles
+dp[i][j] = dp[i-1][j] + dp[i][j-1]
+→ O(nm) time, O(nm) space
+
+❗ Use Backtracking When:
+You're generating all possible paths/combinations (like returning List<List<Something>>).
+
+The result is non-trivial and large (like storing full paths, strings, permutations, etc.).
+
+You want to avoid memory explosion from caching large complex structures.
+
+You want fine control over recursion tree traversal (e.g., pruning, constraint-based search).
+
+Example: Generating all paths from (0,0) to (n-1,m-1) avoiding obstacles
+→ Backtracking with path list and backtracking logic
+→ O(2^(n+m)) time in worst-case, O(n+m) auxiliary space (for recursion/path)
+
+🤝 Hybrid Pattern?
+You can sometimes combine both:
+
+Use backtracking but memoize results only when needed (like partial path count from (i,j) onward).
+
+Use backtracking with pruning to avoid useless paths early (e.g., blocked by obstacle, or invalid path).
+
+🔥 Your Catch:
+“If still I want to go with the memorization the space would be so much high because creating a list of list with n*m size that would be huge.”
+
+✅ Correct. If you're storing all List<List<Integer>> of paths at every (i,j), then:
+
+Memory usage is exponential.
+
+Cache size grows massive (O(2^(n+m)) * (avg path length)).
+
+✅ Summary
+Goal	Preferred Approach
+Return single result (count, sum)	Memoization
+Return all valid results (paths)	Backtracking
+Optimize overlapping calls	Memo + Backtrack
+Tight memory constraints	Backtrack + Prune
