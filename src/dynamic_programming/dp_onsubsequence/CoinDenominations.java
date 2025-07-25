@@ -2,7 +2,7 @@ package dynamic_programming.dp_onsubsequence;
 
 import java.util.Arrays;
 
-class CoinDenominations {
+public class CoinDenominations {
     // Recursive function to find the minimum number of elements to achieve the target sum
     static int minimumElementsUtil(int[] arr, int ind, int T, int[][] dp) {
         // Base case: If the current index is 0
