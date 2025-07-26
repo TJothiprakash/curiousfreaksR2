@@ -1,0 +1,129 @@
+
+
+
+
+
+
+| Method                  | Type      | Time Complexity                                                | Space Complexity                        | Pros                                           | Cons                               | When to Use                                        |
+| ----------------------- | --------- | -------------------------------------------------------------- | --------------------------------------- | ---------------------------------------------- | ---------------------------------- | -------------------------------------------------- |
+| **Backtracking (DFS)**  | Recursive | `O(2^n)` for total subsets, `O(n)` per call → total `O(n·2^n)` | `O(n)` per call stack, total `O(n·2^n)` | Easy to understand, classic approach           | Recursive overhead, less efficient | For learning, interview recursion questions        |
+| **Bitmasking**          | Iterative | `O(n·2^n)`                                                     | `O(2^n)`                                | Fast, avoids recursion, works well in contests | Harder to grasp initially          | When you want fast subset gen in comp. programming |
+| **Iterative Power Set** | Iterative | `O(n·2^n)`                                                     | `O(2^n)`                                | Clean, intuitive, no recursion                 | Slightly less flexible             | Great for production / large data                  |
+| **String-based DFS**    | Recursive | `O(2^n)`                                                       | `O(n·2^n)`                              | Good for character/string subsequences         | Same as backtracking               | When working on strings (e.g., leetcode)           |
+
+
+| **Use This When You Want**                       | **Method to Remember**  | **Why**                                    |
+| ------------------------------------------------ | ----------------------- | ------------------------------------------ |
+| Simple, recursive approach, for any array/string | **Backtracking (DFS)**  | Very common in interviews, easy to explain |
+| Fast, clean iterative generation of subsets      | **Iterative Power Set** | No recursion, works great in real code     |
+| Alternative if confident in bit manipulation     | **Bitmasking**          | Short and performant, good in contests     |
+
+
+
+✅ 1. Recursive Backtracking (You already implemented this)
+Good for:
+Practicing recursion and backtracking.
+
+Understanding the decision tree structure (take or not take).
+
+✅ 2. Bitmasking (Iterative, Efficient)
+Concept:
+Every subset can be represented by a binary number of n bits (where n = array length).
+
+1 means take the element, 0 means skip.
+
+Example (for int[] arr = {1, 2, 3}):
+java
+Copy
+Edit
+public void generateSubsetsBitmask(int[] arr) {
+    int n = arr.length;
+    List<List<Integer>> res = new ArrayList<>();
+
+    for (int mask = 0; mask < (1 << n); mask++) {
+        List<Integer> subset = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            if ((mask & (1 << i)) != 0) {
+                subset.add(arr[i]);
+            }
+        }
+        res.add(subset);
+    }
+
+    System.out.println("Subsets using Bitmask: " + res);
+}
+Time Complexity:
+𝑂
+(
+2
+𝑛
+⋅
+𝑛
+)
+O(2
+n
+ ⋅n)
+
+✅ 3. Power Set using Iterative Expansion
+Idea:
+Start with an empty list.
+
+For each number, create new subsets by adding it to all existing subsets.
+
+java
+Copy
+Edit
+public void generateSubsetsIterative(int[] arr) {
+    List<List<Integer>> res = new ArrayList<>();
+    res.add(new ArrayList<>()); // start with empty subset
+
+    for (int num : arr) {
+        int size = res.size();
+        for (int i = 0; i < size; i++) {
+            List<Integer> newSubset = new ArrayList<>(res.get(i));
+            newSubset.add(num);
+            res.add(newSubset);
+        }
+    }
+
+    System.out.println("Subsets using Iterative Power Set: " + res);
+}
+Time Complexity:
+𝑂
+(
+2
+𝑛
+⋅
+𝑛
+)
+O(2
+n
+ ⋅n)
+
+No recursion used.
+
+✅ 4. Stream/Functional Approach (Java 8+) – Not common, but possible
+You can combine streams, but it’s not very readable or efficient. Recursion or bitmask is better.
+
+✅ 5. String-based Subsequence Generator
+If you’re working with strings instead of numbers:
+
+java
+Copy
+Edit
+public void generateSubsequences(String s) {
+    List<String> result = new ArrayList<>();
+    generateSubseqHelper(s, 0, "", result);
+    System.out.println("All subsequences: " + result);
+}
+
+private void generateSubseqHelper(String s, int index, String curr, List<String> res) {
+    if (index == s.length()) {
+        res.add(curr);
+        return;
+    }
+    // not take
+    generateSubseqHelper(s, index + 1, curr, res);
+    // take
+    generateSubseqHelper(s, index + 1, curr + s.charAt(index), res);
+}

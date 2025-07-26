@@ -2,9 +2,6 @@ package dynamic_programming.dp_onlongestincreasingsubsequence;
 
 import java.util.Arrays;
 
-public class CountLIS {
-}
-
 
 class CountLis {
     static int findNumberOfLIS(int[] arr) {

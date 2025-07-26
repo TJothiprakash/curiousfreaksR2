@@ -1,0 +1,39 @@
+| Concept     | Order Matters? | Original Order Needed? | Skip Elements Allowed? | Use Case                     |
+| ----------- | -------------- | ---------------------- | ---------------------- | ---------------------------- |
+| Subsequence | ✅              | ✅                      | ✅                      | Pattern matching (e.g., LCS) |
+| Substring   | ✅              | ✅                      | ❌                      | Text search, Suffix trees    |
+| Combination | ❌              | ❌                      | ✅                      | Lottery, Picking teams       |
+| Permutation | ✅              | ❌                      | ✅                      | Arrangements, Rankings       |
+| Subset      | ❌              | ❌                      | ✅                      | Subset sum, Power set        |
+ Relationship Summary:
+markdown
+Copy
+Edit
+           Subset (Parent)
+           /            \
+  Combination          Subsequence
+✅ Why Subset is the Parent:
+Concept	Fixed Size?	Order Matters?	Example Use
+Subset	❌ (0 to n)	❌	Power Set generation, feature toggles
+Combination	✅ (size r)	❌	Team formation, lottery picks
+Subsequence	❌	✅ (original order preserved)	String problems like LCS
+
+🔁 Intuition:
+Subset = all combinations of all sizes (0 to n), order doesn't matter.
+
+Combination = a filtered case of subset: only one fixed size.
+
+Subsequence = order matters, may or may not be contiguous.
+
+🔍 Real Example:
+Set = {a, b, c}
+→ Subsets = ["", "a", "b", "c", "ab", "ac", "bc", "abc"] → 2³ = 8 subsets
+→ Combinations of size 2 = ["ab", "ac", "bc"] → C(3, 2) = 3
+→ Subsequences = all ways to skip elements without reordering → ["", "a", "b", "c", "ab", "ac", "bc", "abc"] → same as subsets in small cases
+
+ Quick Intuition:
+Subsequence = Follow the order, skip some if needed.
+
+Subset = Just choose any combination of elements, order doesn't matter.
+
+Combination = A subset where size is fixed.

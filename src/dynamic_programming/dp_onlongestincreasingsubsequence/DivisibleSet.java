@@ -202,7 +202,8 @@ Space Complexity:
 */
 /*
 Question:
-Given a set of distinct positive integers, return the largest subset such that for every pair (a, b), a % b == 0 or b % a == 0.
+Given a set of distinct positive integers,
+ return the largest subset such that for every pair (a, b), a % b == 0 or b % a == 0.
 
 Intuition:
 - Sort the array.
