@@ -9,39 +9,41 @@ public class BoundaryTraversal {
 
     // Time: O(n), Space: O(n)
     // Because we visit each node at most once, and store boundary nodes.
-    public static List<Integer> boundaryTraversal(TreeNode root) {
-        List<Integer> result = new ArrayList<>();
-
-        if (root == null) {
-            return result;
-        }
-
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(root);
-
-        while (!queue.isEmpty()) {
-            int levelSize = queue.size();
-
-            for (int i = 0; i < levelSize; i++) {
-                TreeNode current = queue.poll();
-
-                // Add left boundary, right boundary, or leaf nodes
-                if (i == 0 || i == levelSize - 1 || (current.left == null && current.right == null)) {
-                    result.add(current.data);
-                }
-
-                // Add children to the queue
-                if (current.left != null) {
-                    queue.offer(current.left);
-                }
-                if (current.right != null) {
-                    queue.offer(current.right);
-                }
-            }
-        }
-
-        return result;
-    }
+    // wrong implementations -- assumes the edge nodes are boundary not wokr for skewed trees
+//
+//    public static List<Integer> boundaryTraversal(TreeNode root) {
+//        List<Integer> result = new ArrayList<>();
+//
+//        if (root == null) {
+//            return result;
+//        }
+//
+//        Queue<TreeNode> queue = new LinkedList<>();
+//        queue.offer(root);
+//
+//        while (!queue.isEmpty()) {
+//            int levelSize = queue.size();
+//
+//            for (int i = 0; i < levelSize; i++) {
+//                TreeNode current = queue.poll();
+//
+//                // Add left boundary, right boundary, or leaf nodes
+//                if (i == 0 || i == levelSize - 1 || (current.left == null && current.right == null)) {
+//                    result.add(current.data);
+//                }
+//
+//                // Add children to the queue
+//                if (current.left != null) {
+//                    queue.offer(current.left);
+//                }
+//                if (current.right != null) {
+//                    queue.offer(current.right);
+//                }
+//            }
+//        }
+//
+//        return result;
+//    }
 
     // Time: O(n), Space: O(n)
     // Each node is visited once; lists used to store boundary and leaves.
@@ -81,6 +83,7 @@ public class BoundaryTraversal {
             if (!isLeaf(node)) result.add(node.data);
             node = (node.left != null) ? node.left : node.right;
         }
+        return;
     }
 
     // Time: O(h), Space: O(1)
