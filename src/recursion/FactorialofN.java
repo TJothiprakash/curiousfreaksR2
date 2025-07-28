@@ -4,10 +4,10 @@ public class FactorialofN {
 
     public static void main(String[] args) {
         int n = 6;
-        int res = factorial(n);
-        System.out.println(res);
-//        int fibanacciNo = fibanacci(n);
-//        System.out.println(fibanacciNo);
+//        int res = factorial(n);
+//        System.out.println(res);
+        int fibanacciNo = fibanacci(n);
+        System.out.println(fibanacciNo);
     }
 
     //    O(2^n)O(n)

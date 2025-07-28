@@ -1,6 +1,6 @@
 package collections_practice.streams.exercise_2;
 
-import fun_facts.Person;
+import others.Person;
 
 import java.util.ArrayList;
 import java.util.List;
