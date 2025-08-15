@@ -214,10 +214,8 @@ public class Practice {
         int row = n, col = n;
         int board[][] = new int[row][col];
         List<List<Integer>> result = new ArrayList<>();
-
         placeQueens(0, board, result, n);
         return result;
-
     }
 
     private void placeQueens(int col, int[][] board, List<List<Integer>> result, int n) {
@@ -230,7 +228,6 @@ public class Practice {
                         break;
                     }
                 }
-
             }
             result.add(list);
             printBoard(board, n);
@@ -242,7 +239,6 @@ public class Practice {
                 placeQueens(col + 1, board, result, n);
                 board[row][col] = 0;
             }
-
         }
     }
 
