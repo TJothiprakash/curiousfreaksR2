@@ -1,5 +1,7 @@
 package matrix;
 
+import matrix.r_6.MatrixPractice;
+
 public class Main {
     public static void main(String[] args) {
         RotateMatrix rotateMatrix = new RotateMatrix();
@@ -13,5 +15,9 @@ public class Main {
             }
             System.out.println();
         }
+
+        MatrixPractice matrixPractice = new MatrixPractice();
+        matrixPractice.rotate(arr);
+
     }
 }

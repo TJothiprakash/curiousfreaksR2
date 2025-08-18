@@ -1,6 +1,7 @@
 /*
 Problem:
-Given an array of non-negative integers `arr[]` and an integer `k`, split the array into `k` or fewer non-empty contiguous subarrays,
+Given an array of non-negative integers `arr[]` and an integer `k`, split the array
+into `k` or fewer non-empty contiguous subarrays,
 such that the **largest sum among these subarrays is minimized**.
 
 Return that minimum possible largest sum.

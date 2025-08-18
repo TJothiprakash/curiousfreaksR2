@@ -76,7 +76,7 @@ public class Boquets {
     public static int roseGarden(int @NotNull [] arr, int k, int m) {
         long val = (long) m * k;
         int n = arr.length; // Size of the array
-        if (val > n) return -1; // Impossible case.
+        if (val > n) return - 1; // Impossible case.
         // Find maximum and minimum:
         int mini = Integer.MAX_VALUE, maxi = Integer.MIN_VALUE;
         for (int i = 0; i < n; i++) {
