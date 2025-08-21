@@ -74,8 +74,6 @@ public class Practice {
             }
 
         }
-
-
     }
 
     public void subArrayMaximumSizeK(int arr[], int k) {

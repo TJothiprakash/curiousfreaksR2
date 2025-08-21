@@ -1,0 +1,199 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > CelebrityProblem</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">stack</a>
+</div>
+
+<h1>Coverage Summary for Class: CelebrityProblem (stack)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CelebrityProblem</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/17)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package stack;
+&nbsp;
+<b class="nc">&nbsp;public class CelebrityProblem {</b>
+&nbsp;    // Problem:
+&nbsp;    // Given a matrix &#39;mat&#39; where mat[i][j] = 1 means person i knows person j,
+&nbsp;    // find if there exists a celebrity who is known by everyone but knows no one.
+&nbsp;    // Return the celebrity index or -1 if none exists.
+&nbsp;
+&nbsp;    // Intuition:
+&nbsp;    // Use two-step elimination:
+&nbsp;    // Step 1: Find a candidate who might be a celebrity.
+&nbsp;    // Step 2: Verify if the candidate satisfies celebrity conditions.
+&nbsp;
+&nbsp;    // Dry Run:
+&nbsp;    // For example:
+&nbsp;    // mat = [
+&nbsp;    //   [0, 1, 0],
+&nbsp;    //   [0, 0, 0],
+&nbsp;    //   [0, 1, 0]
+&nbsp;    // ]
+&nbsp;    //
+&nbsp;    // Candidate initially 0
+&nbsp;    // Check if candidate knows i:
+&nbsp;    // candidate=0 knows 1 (mat[0][1]==1), so candidate=1
+&nbsp;    // candidate=1 knows 2? No
+&nbsp;    //
+&nbsp;    // Verify candidate=1:
+&nbsp;    // Check all others:
+&nbsp;    // mat[1][0]==0 and mat[0][1]==1 ✔
+&nbsp;    // mat[1][2]==0 and mat[2][1]==1 ✔
+&nbsp;    // So 1 is celebrity.
+&nbsp;
+&nbsp;    // Time Complexity: O(n)
+&nbsp;    // We iterate the matrix twice: once to find candidate, once to verify.
+&nbsp;
+&nbsp;    // Space Complexity: O(1)
+&nbsp;    // Only variables for indices and counters are used.
+&nbsp;
+&nbsp;    // O(n) time, O(1) space
+&nbsp;    public static int findCelebrity(int[][] mat) {
+<b class="nc">&nbsp;        int n = mat.length;</b>
+&nbsp;
+&nbsp;        // Step 1: Identify potential celebrity
+<b class="nc">&nbsp;        int candidate = 0;</b>
+<b class="nc">&nbsp;        for (int i = 1; i &lt; n; i++) {</b>
+<b class="nc">&nbsp;            if (mat[candidate][i] == 1) {</b>
+<b class="nc">&nbsp;                candidate = i; // candidate knows i, so candidate can&#39;t be celebrity</b>
+&nbsp;            }
+&nbsp;        }
+&nbsp;
+&nbsp;        // Step 2: Verify candidate
+<b class="nc">&nbsp;        for (int i = 0; i &lt; n; i++) {</b>
+<b class="nc">&nbsp;            if (i != candidate) {</b>
+&nbsp;                // candidate should not know i, and i should know candidate
+<b class="nc">&nbsp;                if (mat[candidate][i] == 1 || mat[i][candidate] == 0) {</b>
+<b class="nc">&nbsp;                    return -1; // candidate fails the test</b>
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        return candidate;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public static void main(String[] args) {
+<b class="nc">&nbsp;        int[][] mat1 = {</b>
+&nbsp;                {0, 1, 0},
+&nbsp;                {0, 0, 0},
+&nbsp;                {0, 1, 0}
+&nbsp;        };
+<b class="nc">&nbsp;        System.out.println(findCelebrity(mat1)); // Output: 1</b>
+&nbsp;
+<b class="nc">&nbsp;        int[][] mat2 = {</b>
+&nbsp;                {0, 1},
+&nbsp;                {1, 0}
+&nbsp;        };
+<b class="nc">&nbsp;        System.out.println(findCelebrity(mat2)); // Output: -1</b>
+&nbsp;
+<b class="nc">&nbsp;        int[][] mat3 = {</b>
+&nbsp;                {0}
+&nbsp;        };
+<b class="nc">&nbsp;        System.out.println(findCelebrity(mat3)); // Output: 0</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-08-21 10:19</div>
+</div>
+</body>
+</html>

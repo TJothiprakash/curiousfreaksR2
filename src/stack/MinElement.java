@@ -3,8 +3,8 @@ package stack;
 import java.util.Stack;
 
 public class MinElement {
-    private Stack<Integer> stack;
-    private Stack<Integer> minStack;
+    private static Stack<Integer> stack;
+    private static Stack<Integer> minStack;
 
     public MinElement() {
         stack = new Stack<>();
@@ -19,13 +19,14 @@ public class MinElement {
         minElementStack.push(3);
         minElementStack.push(1);
         minElementStack.push(4);
-
+        System.out.println(minStack);
+        System.out.println(stack);
         System.out.println("Minimum Element: " + minElementStack.getMin()); // Output: 1
 
         // Example 2
-        minElementStack.pop(); // Remove 4
-        minElementStack.pop(); // Remove 1
-        System.out.println("Minimum Element after pops: " + minElementStack.getMin()); // Output: 2
+//        minElementStack.pop(); // Remove 4
+//        minElementStack.pop(); // Remove 1
+//        System.out.println("Minimum Element after pops: " + minElementStack.getMin()); // Output: 2
     }
 
     // Push an element onto the stack

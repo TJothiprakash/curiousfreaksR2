@@ -1,0 +1,162 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > BalancedBrackets</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">stack</a>
+</div>
+
+<h1>Coverage Summary for Class: BalancedBrackets (stack)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">BalancedBrackets</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/30)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/16)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package stack;
+&nbsp;
+&nbsp;import java.util.Stack;
+&nbsp;
+<b class="nc">&nbsp;public class BalancedBrackets {</b>
+&nbsp;//    O(n)O(n)
+&nbsp;    public static boolean isBalanced(String s) {
+<b class="nc">&nbsp;        Stack&lt;Character&gt; stack = new Stack&lt;&gt;();</b>
+&nbsp;
+&nbsp;        // Traverse through the string
+<b class="nc">&nbsp;        for (char ch : s.toCharArray()) {</b>
+&nbsp;            // Push opening brackets onto the stack
+<b class="nc">&nbsp;            if (ch == &#39;(&#39; || ch == &#39;{&#39; || ch == &#39;[&#39;) {</b>
+<b class="nc">&nbsp;                stack.push(ch);</b>
+&nbsp;            }
+&nbsp;            // Handle closing brackets
+<b class="nc">&nbsp;            else if (ch == &#39;)&#39; || ch == &#39;}&#39; || ch == &#39;]&#39;) {</b>
+&nbsp;                // If stack is empty or the top of the stack doesn&#39;t match, return false
+<b class="nc">&nbsp;                if (stack.isEmpty() || !isMatchingPair(stack.pop(), ch)) {</b>
+<b class="nc">&nbsp;                    return false;</b>
+&nbsp;                }
+&nbsp;            }
+&nbsp;        }
+&nbsp;
+&nbsp;        // If stack is empty, all brackets were matched
+<b class="nc">&nbsp;        return stack.isEmpty();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // Helper method to check if the pair of brackets matches
+&nbsp;    private static boolean isMatchingPair(char open, char close) {
+<b class="nc">&nbsp;        return (open == &#39;(&#39; &amp;&amp; close == &#39;)&#39;) ||</b>
+&nbsp;                (open == &#39;{&#39; &amp;&amp; close == &#39;}&#39;) ||
+&nbsp;                (open == &#39;[&#39; &amp;&amp; close == &#39;]&#39;);
+&nbsp;    }
+&nbsp;
+&nbsp;    public static void main(String[] args) {
+<b class="nc">&nbsp;        String s1 = &quot;{([])}&quot;;</b>
+<b class="nc">&nbsp;        String s2 = &quot;()&quot;;</b>
+<b class="nc">&nbsp;        String s3 = &quot;([]&quot;;</b>
+&nbsp;
+<b class="nc">&nbsp;        System.out.println(isBalanced(s1)); // Output: true</b>
+<b class="nc">&nbsp;        System.out.println(isBalanced(s2)); // Output: true</b>
+<b class="nc">&nbsp;        System.out.println(isBalanced(s3)); // Output: false</b>
+&nbsp;    }
+&nbsp;}
+&nbsp;
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-08-21 10:19</div>
+</div>
+</body>
+</html>

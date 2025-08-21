@@ -30,16 +30,17 @@ public class NextGreaterElement {
         System.out.println(nextGreaterElement(nums1));
         System.out.println(ngeUsingStack(nums1));
     }
-    public static List<Integer> ngeUsingStack(int []numbs){
+
+    public static List<Integer> ngeUsingStack(int[] numbs) {
         List<Integer> result = new ArrayList<>();
         Stack<Integer> stack = new Stack<>();
         //1, 3, 2, 4
         // 3 ,4  ,4,-1
-        for(int i=numbs.length-1;i>=0;i--){
-            while(!stack.isEmpty() && stack.peek()<=numbs[i]){
+        for (int i = numbs.length - 1; i >= 0; i--) {
+            while (!stack.isEmpty() && stack.peek() <= numbs[i]) {
                 stack.pop();
             }
-            result.add(stack.isEmpty()? -1:stack.peek());
+            result.add(stack.isEmpty() ? -1 : stack.peek());
             stack.push(numbs[i]);
         }
         return result;
