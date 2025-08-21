@@ -10,7 +10,7 @@ public class TrappingRainWaterStack {
 
         Stack<Integer> stack = new Stack<>();
         int waterTrapped = 0;
-
+//7, 4, 0, 9
         for (int i = 0; i < n; i++) {
             // Process the current bar
             while (!stack.isEmpty() && arr[i] > arr[stack.peek()]) {
@@ -42,9 +42,9 @@ public class TrappingRainWaterStack {
         int[] arr2 = {7, 4, 0, 9};
         int[] arr3 = {6, 9, 9};
 
-        System.out.println(trapWater(arr1)); // Output: 10
+//        System.out.println(trapWater(arr1)); // Output: 10
         System.out.println(trapWater(arr2)); // Output: 10
-        System.out.println(trapWater(arr3)); // Output: 0
+//        System.out.println(trapWater(arr3)); // Output: 0
     }
 }
 

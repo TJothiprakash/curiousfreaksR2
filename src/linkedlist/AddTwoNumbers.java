@@ -29,8 +29,9 @@ public class AddTwoNumbers {
         ListNode result = solution.addTwoNumbers(l1, l2);
         String reversed=result.toString();
         System.out.println("Resultant Linked List (Sum):");
-        System.out.println(reversed.toString());
-//        solution.printList(result);
+//        System.out.println(reversed.toString());
+
+     solution.printList(result);
     }
 
     // Function to add two numbers represented by linked lists
