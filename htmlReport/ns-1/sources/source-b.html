@@ -1,0 +1,188 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > MaxRectangleInBinaryMatrix</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">stack</a>
+</div>
+
+<h1>Coverage Summary for Class: MaxRectangleInBinaryMatrix (stack)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">MaxRectangleInBinaryMatrix</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/22)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/28)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package stack;
+&nbsp;
+&nbsp;import java.util.Stack;
+&nbsp;
+<b class="nc">&nbsp;public class MaxRectangleInBinaryMatrix {</b>
+&nbsp;//    O(n * m )O(m)
+&nbsp;    public static int maximalRectangle(int[][] mat) {
+<b class="nc">&nbsp;        if (mat == null || mat.length == 0 || mat[0].length == 0) return 0;</b>
+&nbsp;
+<b class="nc">&nbsp;        int n = mat.length;</b>
+<b class="nc">&nbsp;        int m = mat[0].length;</b>
+<b class="nc">&nbsp;        int[] heights = new int[m];</b>
+<b class="nc">&nbsp;        int maxArea = 0;</b>
+&nbsp;
+<b class="nc">&nbsp;        for (int i = 0; i &lt; n; i++) {</b>
+&nbsp;            // Update the histogram heights for the current row
+<b class="nc">&nbsp;            for (int j = 0; j &lt; m; j++) {</b>
+<b class="nc">&nbsp;                if (mat[i][j] == 1) {</b>
+<b class="nc">&nbsp;                    heights[j] += 1;</b>
+&nbsp;                } else {
+<b class="nc">&nbsp;                    heights[j] = 0; // Reset height if current cell is 0</b>
+&nbsp;                }
+&nbsp;            }
+&nbsp;
+&nbsp;            // Compute the largest rectangle for the current histogram
+<b class="nc">&nbsp;            maxArea = Math.max(maxArea, largestRectangleArea(heights));</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        return maxArea;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // Helper function to calculate the largest rectangle area in a histogram
+&nbsp;//    O(m)O(1)
+&nbsp;    private static int largestRectangleArea(int[] heights) {
+<b class="nc">&nbsp;        int n = heights.length;</b>
+<b class="nc">&nbsp;        Stack&lt;Integer&gt; stack = new Stack&lt;&gt;();</b>
+<b class="nc">&nbsp;        int maxArea = 0;</b>
+&nbsp;
+<b class="nc">&nbsp;        for (int i = 0; i &lt;= n; i++) {</b>
+<b class="nc">&nbsp;            int currHeight = (i == n) ? 0 : heights[i];</b>
+&nbsp;
+<b class="nc">&nbsp;            while (!stack.isEmpty() &amp;&amp; currHeight &lt; heights[stack.peek()]) {</b>
+<b class="nc">&nbsp;                int height = heights[stack.pop()];</b>
+<b class="nc">&nbsp;                int width = stack.isEmpty() ? i : (i - stack.peek() - 1);</b>
+<b class="nc">&nbsp;                maxArea = Math.max(maxArea, height * width);</b>
+&nbsp;            }
+&nbsp;
+<b class="nc">&nbsp;            stack.push(i);</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        return maxArea;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public static void main(String[] args) {
+<b class="nc">&nbsp;        int[][] mat1 = {</b>
+&nbsp;                {0, 1, 1, 0},
+&nbsp;                {1, 1, 1, 1},
+&nbsp;                {1, 1, 1, 1},
+&nbsp;                {1, 1, 0, 0}
+&nbsp;        };
+&nbsp;
+<b class="nc">&nbsp;        int[][] mat2 = {</b>
+&nbsp;                {0, 1, 1},
+&nbsp;                {1, 1, 1},
+&nbsp;                {0, 1, 1}
+&nbsp;        };
+&nbsp;
+<b class="nc">&nbsp;        System.out.println(maximalRectangle(mat1)); // Output: 8</b>
+<b class="nc">&nbsp;        System.out.println(maximalRectangle(mat2)); // Output: 6</b>
+&nbsp;    }
+&nbsp;}
+&nbsp;
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-08-21 10:19</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,334 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > Practice</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">stack.july_13</a>
+</div>
+
+<h1>Coverage Summary for Class: Practice (stack.july_13)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Practice</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/78)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/98)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package stack.july_13;
+&nbsp;
+&nbsp;import java.util.Stack;
+&nbsp;
+<b class="nc">&nbsp;public class Practice {</b>
+&nbsp;
+&nbsp;
+&nbsp;    /*| Type                        | Traverse From | Stack Pattern    |
+&nbsp;| --------------------------- | ------------- | ---------------- |
+&nbsp;| Next Greater on Right (NGR) | Right → Left  | Decreasing stack |
+&nbsp;| Next Greater on Left (NGL)  | Left → Right  | Decreasing stack |
+&nbsp;| Next Smaller on Right (NSR) | Right → Left  | Increasing stack |
+&nbsp;| Next Smaller on Left (NSL)  | Left → Right  | Increasing stack |
+&nbsp;*/
+&nbsp;    public void nextGreaterElement(int arr[]) {
+&nbsp;//        arr[arr.length - 1] = -1;
+<b class="nc">&nbsp;        Stack&lt;Integer&gt; stack = new Stack&lt;&gt;();</b>
+<b class="nc">&nbsp;        int result[] = new int[arr.length];</b>
+&nbsp;
+<b class="nc">&nbsp;        for (int i = arr.length - 1; i &gt; 0; i--) {</b>
+&nbsp;
+<b class="nc">&nbsp;            while (!stack.isEmpty() &amp;&amp; stack.peek() &lt;= arr[i]) {</b>
+<b class="nc">&nbsp;                stack.pop();</b>
+&nbsp;            }
+<b class="nc">&nbsp;            result[i] = stack.isEmpty() ? -1 : stack.peek();</b>
+&nbsp;
+<b class="nc">&nbsp;            stack.push(arr[i]);</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        for (int i = 0; i &lt; arr.length; i++) {</b>
+<b class="nc">&nbsp;            arr[i] = result[i];</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    public void nextGreaterElementonLeft(int arr[]) {
+&nbsp;//        arr[arr.length - 1] = -1;
+<b class="nc">&nbsp;        Stack&lt;Integer&gt; stack = new Stack&lt;&gt;();</b>
+<b class="nc">&nbsp;        int result[] = new int[arr.length];</b>
+&nbsp;
+<b class="nc">&nbsp;        for (int i = 0; i &lt; arr.length; i++) {</b>
+&nbsp;
+<b class="nc">&nbsp;            while (!stack.isEmpty() &amp;&amp; stack.peek() &lt;= arr[i]) {</b>
+<b class="nc">&nbsp;                stack.pop();</b>
+&nbsp;            }
+<b class="nc">&nbsp;            result[i] = arr.length - 1 == i ? -1 : stack.peek();</b>
+&nbsp;
+<b class="nc">&nbsp;            stack.push(arr[i]);</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        for (int i = 0; i &lt; arr.length; i++) {</b>
+<b class="nc">&nbsp;            arr[i] = result[i];</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    public void nextSmallerElementFromLeft(int arr[]) {
+<b class="nc">&nbsp;        Stack&lt;Integer&gt; stack = new Stack&lt;&gt;();</b>
+<b class="nc">&nbsp;        int n = arr.length;</b>
+<b class="nc">&nbsp;        int[] result = new int[n];</b>
+<b class="nc">&nbsp;        for (int i = 0; i &lt; n; i++) {</b>
+&nbsp;
+<b class="nc">&nbsp;            while (!stack.isEmpty() &amp;&amp; stack.peek() &gt;= arr[i]) {</b>
+<b class="nc">&nbsp;                stack.pop();</b>
+&nbsp;            }
+&nbsp;
+<b class="nc">&nbsp;            result[i] = stack.isEmpty() ? -1 : stack.peek();</b>
+<b class="nc">&nbsp;            stack.push(arr[i]);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    public void nextSmallerElementFromRight(int arr[]) {
+<b class="nc">&nbsp;        Stack&lt;Integer&gt; stack = new Stack&lt;&gt;();</b>
+<b class="nc">&nbsp;        int n = arr.length;</b>
+<b class="nc">&nbsp;        int[] result = new int[n];</b>
+<b class="nc">&nbsp;        for (int i = n - 1; i &gt;= 0; i--) {</b>
+&nbsp;
+<b class="nc">&nbsp;            while (!stack.isEmpty() &amp;&amp; stack.peek() &gt;= arr[i]) {</b>
+<b class="nc">&nbsp;                stack.pop();</b>
+&nbsp;            }
+&nbsp;
+<b class="nc">&nbsp;            result[i] = stack.isEmpty() ? -1 : stack.peek();</b>
+<b class="nc">&nbsp;            stack.push(arr[i]);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        System.arraycopy(result, 0, arr, 0, n); // Optional: copy to original array</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    public void trappingRainWater(int arr[]) {
+<b class="nc">&nbsp;        int n = arr.length;</b>
+<b class="nc">&nbsp;        int[] ngel = new int[n];</b>
+<b class="nc">&nbsp;        int[] nger = new int[n];</b>
+<b class="nc">&nbsp;        ngel[0] = arr[0];</b>
+<b class="nc">&nbsp;        for (int i = 1; i &lt; n; i++) {</b>
+<b class="nc">&nbsp;            ngel[i] = Math.max(arr[i], ngel[i - 1]);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        nger[n - 1] = arr[n - 1];</b>
+<b class="nc">&nbsp;        for (int i = n - 2; i &gt;= 0; i--) {</b>
+<b class="nc">&nbsp;            nger[i] = Math.max(arr[i], nger[i + 1]);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        int total = 0;</b>
+&nbsp;        // Calculate water trapped
+<b class="nc">&nbsp;        for (int i = 0; i &lt; n; i++) {</b>
+<b class="nc">&nbsp;            int waterAtI = Math.min(ngel[i], nger[i]) - arr[i];</b>
+<b class="nc">&nbsp;            if (waterAtI &gt; 0) total += waterAtI;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        System.out.println(&quot;total water can be trapped is &quot; + total);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    public static int largestRectangleArea(int[] heights) {
+<b class="nc">&nbsp;        int n = heights.length;</b>
+<b class="nc">&nbsp;        int[] left = new int[n];  // Nearest Smaller to Left</b>
+<b class="nc">&nbsp;        int[] right = new int[n]; // Nearest Smaller to Right</b>
+&nbsp;
+<b class="nc">&nbsp;        Stack&lt;Integer&gt; stack = new Stack&lt;&gt;();</b>
+&nbsp;
+&nbsp;        // Fill left[]: index of nearest smaller to left
+<b class="nc">&nbsp;        for (int i = 0; i &lt; n; i++) {</b>
+<b class="nc">&nbsp;            while (!stack.isEmpty() &amp;&amp; heights[stack.peek()] &gt;= heights[i]) {</b>
+<b class="nc">&nbsp;                stack.pop();</b>
+&nbsp;            }
+<b class="nc">&nbsp;            left[i] = stack.isEmpty() ? -1 : stack.peek();</b>
+<b class="nc">&nbsp;            stack.push(i);</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        // Clear and reuse stack
+<b class="nc">&nbsp;        stack.clear();</b>
+&nbsp;
+&nbsp;        // Fill right[]: index of nearest smaller to right
+<b class="nc">&nbsp;        for (int i = n - 1; i &gt;= 0; i--) {</b>
+<b class="nc">&nbsp;            while (!stack.isEmpty() &amp;&amp; heights[stack.peek()] &gt;= heights[i]) {</b>
+<b class="nc">&nbsp;                stack.pop();</b>
+&nbsp;            }
+<b class="nc">&nbsp;            right[i] = stack.isEmpty() ? n : stack.peek();</b>
+<b class="nc">&nbsp;            stack.push(i);</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        // Calculate max area
+<b class="nc">&nbsp;        int maxArea = 0;</b>
+<b class="nc">&nbsp;        for (int i = 0; i &lt; n; i++) {</b>
+<b class="nc">&nbsp;            int width = right[i] - left[i] - 1;</b>
+<b class="nc">&nbsp;            int area = heights[i] * width;</b>
+<b class="nc">&nbsp;            maxArea = Math.max(maxArea, area);</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        return maxArea;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public static void main(String[] args) {
+<b class="nc">&nbsp;        reverseStack();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public static void reverseStack() {
+&nbsp;//        Stack stack = new Stack();
+<b class="nc">&nbsp;        Stack&lt;Integer&gt; stack = new Stack&lt;&gt;();</b>
+<b class="nc">&nbsp;        stack.push(1);</b>
+<b class="nc">&nbsp;        stack.push(7);</b>
+<b class="nc">&nbsp;        stack.push(4);</b>
+<b class="nc">&nbsp;        stack.push(3);</b>
+<b class="nc">&nbsp;        stack.push(5);</b>
+<b class="nc">&nbsp;        System.out.println(stack);</b>
+&nbsp;//        Stack&lt;Integer&gt; stack1 = new Stack&lt;&gt;();
+&nbsp;//        while (!stack.isEmpty()) {
+&nbsp;//            stack1.push(stack.pop());
+&nbsp;//        }
+&nbsp;//        System.out.println(stack);
+&nbsp;//        System.out.println(stack1);
+<b class="nc">&nbsp;        sortStackElements(stack);</b>
+<b class="nc">&nbsp;        System.out.println(stack);</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    //    [1,7,4,3,5] -&gt; [1,3,4,5,7]
+&nbsp;    public static void sortStackElements(Stack&lt;Integer&gt; input) {
+<b class="nc">&nbsp;        Stack&lt;Integer&gt; tempStack = new Stack&lt;&gt;();</b>
+&nbsp;
+<b class="nc">&nbsp;        while (!input.isEmpty()) {</b>
+<b class="nc">&nbsp;            int temp = input.pop();</b>
+&nbsp;
+&nbsp;            // Move elements from tempStack back to input if they&#39;re greater than temp
+<b class="nc">&nbsp;            while (!tempStack.isEmpty() &amp;&amp; tempStack.peek() &gt; temp) {</b>
+<b class="nc">&nbsp;                input.push(tempStack.pop());//1.7.4.3.5.5</b>
+&nbsp;            }
+&nbsp;
+<b class="nc">&nbsp;            tempStack.push(temp);// 3,5,</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        // Final result will be in tempStack (sorted in descending order)
+<b class="nc">&nbsp;        while (!tempStack.isEmpty()) {</b>
+<b class="nc">&nbsp;            input.push(tempStack.pop()); // now input is sorted in ascending order (bottom to top)</b>
+&nbsp;        }
+<b class="nc">&nbsp;        System.out.println(input);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public static void sortStackAscendingPop(Stack&lt;Integer&gt; input) {
+<b class="nc">&nbsp;        Stack&lt;Integer&gt; tempStack = new Stack&lt;&gt;();</b>
+&nbsp;
+<b class="nc">&nbsp;        while (!input.isEmpty()) {</b>
+<b class="nc">&nbsp;            int temp = input.pop();</b>
+&nbsp;
+&nbsp;            // Reverse comparison: Put smaller elements below
+<b class="nc">&nbsp;            while (!tempStack.isEmpty() &amp;&amp; tempStack.peek() &lt; temp) {</b>
+<b class="nc">&nbsp;                input.push(tempStack.pop());</b>
+&nbsp;            }
+&nbsp;
+<b class="nc">&nbsp;            tempStack.push(temp);</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        // Put back into input so that smallest is on top
+<b class="nc">&nbsp;        while (!tempStack.isEmpty()) {</b>
+<b class="nc">&nbsp;            input.push(tempStack.pop());</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;}
+&nbsp;
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-08-21 10:19</div>
+</div>
+</body>
+</html>

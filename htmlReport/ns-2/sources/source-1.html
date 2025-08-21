@@ -1,0 +1,239 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > CircularNGE_NSE</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">stack.july_13</a>
+</div>
+
+<h1>Coverage Summary for Class: CircularNGE_NSE (stack.july_13)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CircularNGE_NSE</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/20)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/31)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package stack.july_13;
+&nbsp;/******************************************************************************
+&nbsp; *  CircularNGE_NSE.java
+&nbsp; *
+&nbsp; *  Implements two interview‑favourite problems on arrays treated as **circular**:
+&nbsp; *
+&nbsp; *  1. nextGreaterCircular(int[] nums)   -&gt; O(n) time, O(n) space
+&nbsp; *  2. nextSmallerCircular(int[] nums)   -&gt; O(n) time, O(n) space
+&nbsp; *
+&nbsp; *  Both return an int[] where result[i] is the required neighbour for nums[i],
+&nbsp; *  or -1 if none exists.  Includes a tiny demo in main().
+&nbsp; ******************************************************************************/
+&nbsp;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.Stack;
+&nbsp;
+<b class="nc">&nbsp;public class CircularNGE_NSE {</b>
+&nbsp;
+&nbsp;    /*───────────────────────── 1. PROBLEM ─────────────────────────*/
+&nbsp;    /*
+&nbsp;     * Given an integer array nums of length n, consider it circular—
+&nbsp;     * i.e., after index n‑1 comes index 0.  For every element, find:
+&nbsp;     *
+&nbsp;     *   – Next Greater Element   ➜ first element to the right (wrapping
+&nbsp;     *                             around) that is strictly greater.
+&nbsp;     *   – Next Smaller Element   ➜ first element to the right (wrapping
+&nbsp;     *                             around) that is strictly smaller.
+&nbsp;     *
+&nbsp;     * Return -1 if no such element exists.
+&nbsp;     */
+&nbsp;
+&nbsp;    /*──────────────────────── 2. INTUITION ─────────────────────────*/
+&nbsp;    /*
+&nbsp;     * Classic NGE/NSE uses a monotonic stack in O(n).  For the circular
+&nbsp;     * twist, we simulate *two passes* over the array (indices 2n‑1 … 0).
+&nbsp;     *
+&nbsp;     *   • We still traverse **right‑to‑left** so the stack always holds
+&nbsp;     *     “candidates to the right”.
+&nbsp;     *   • Index mapping: realIndex = i % n
+&nbsp;     *   • During the FIRST virtual pass (i &gt;= n) we only build the stack.
+&nbsp;     *   • During the SECOND pass (i &lt; n) we record answers.
+&nbsp;     *
+&nbsp;     * Stack stores **values** (faster) because duplicates are allowed.
+&nbsp;     * Condition flips between  ‘&lt;=’  and  ‘&gt;=’  for NGE vs NSE.
+&nbsp;     */
+&nbsp;
+&nbsp;    /*──────────────────────── 3. DRY‑RUN (NGE) ─────────────────────*/
+&nbsp;    /*
+&nbsp;     * nums = [1, 2, 1], n = 3             (expected: [2, -1, 2])
+&nbsp;     *
+&nbsp;     * i = 5 (idx 2) → stack = [1]
+&nbsp;     * i = 4 (idx 1) → pop 1, push 2       stack = [2]
+&nbsp;     * i = 3 (idx 0) → (skip recording)    stack = [2,1]
+&nbsp;     *
+&nbsp;     * i = 2 (idx 2) → pop 1, top 2 ⇒ ans[2]=2, push 1
+&nbsp;     * i = 1 (idx 1) → pop 1, pop 2, empty ⇒ ans[1]=-1, push 2
+&nbsp;     * i = 0 (idx 0) → top 2 ⇒ ans[0]=2
+&nbsp;     */
+&nbsp;
+&nbsp;    /*────────────────────────── 4. CODE ───────────────────────────*/
+&nbsp;    /** Circular Next Greater Element. */
+&nbsp;    public static int[] nextGreaterCircular(int[] nums) {
+<b class="nc">&nbsp;        int n = nums.length;</b>
+<b class="nc">&nbsp;        int[] res = new int[n];</b>
+<b class="nc">&nbsp;        Arrays.fill(res, -1);</b>
+&nbsp;
+<b class="nc">&nbsp;        Stack&lt;Integer&gt; st = new Stack&lt;&gt;();           // monotonic decreasing (values)</b>
+&nbsp;
+<b class="nc">&nbsp;        for (int i = 2 * n - 1; i &gt;= 0; i--) {</b>
+<b class="nc">&nbsp;            int cur = nums[i % n];</b>
+&nbsp;
+&nbsp;            // maintain decreasing stack
+<b class="nc">&nbsp;            while (!st.isEmpty() &amp;&amp; st.peek() &lt;= cur) st.pop();</b>
+&nbsp;
+<b class="nc">&nbsp;            if (i &lt; n) {                             // second pass ⇒ record answer</b>
+<b class="nc">&nbsp;                if (!st.isEmpty()) res[i] = st.peek();</b>
+&nbsp;            }
+<b class="nc">&nbsp;            st.push(cur);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return res;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /** Circular Next Smaller Element. */
+&nbsp;    public static int[] nextSmallerCircular(int[] nums) {
+<b class="nc">&nbsp;        int n = nums.length;</b>
+<b class="nc">&nbsp;        int[] res = new int[n];</b>
+<b class="nc">&nbsp;        Arrays.fill(res, -1);</b>
+&nbsp;
+<b class="nc">&nbsp;        Stack&lt;Integer&gt; st = new Stack&lt;&gt;();           // monotonic increasing (values)</b>
+&nbsp;
+<b class="nc">&nbsp;        for (int i = 2 * n - 1; i &gt;= 0; i--) {</b>
+<b class="nc">&nbsp;            int cur = nums[i % n];</b>
+&nbsp;
+&nbsp;            // maintain increasing stack
+<b class="nc">&nbsp;            while (!st.isEmpty() &amp;&amp; st.peek() &gt;= cur) st.pop();</b>
+&nbsp;
+<b class="nc">&nbsp;            if (i &lt; n) {                             // record during second pass</b>
+<b class="nc">&nbsp;                if (!st.isEmpty()) res[i] = st.peek();</b>
+&nbsp;            }
+<b class="nc">&nbsp;            st.push(cur);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return res;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /*──────────────────────── 5. COMPLEXITY ───────────────────────*/
+&nbsp;    /*
+&nbsp;     * Time  : O(n)  – each element pushed &amp; popped at most once.
+&nbsp;     * Space : O(n)  – worst‑case stack size.
+&nbsp;     */
+&nbsp;
+&nbsp;    /*────────────────────────── DEMO ──────────────────────────────*/
+&nbsp;    public static void main(String[] args) {
+<b class="nc">&nbsp;        int[] nums1 = {1, 2, 1};</b>
+<b class="nc">&nbsp;        System.out.println(&quot;Input  : &quot; + Arrays.toString(nums1));</b>
+<b class="nc">&nbsp;        System.out.println(&quot;NGE ⟳ : &quot; + Arrays.toString(nextGreaterCircular(nums1))); // [2,-1,2]</b>
+<b class="nc">&nbsp;        System.out.println(&quot;NSE ⟳ : &quot; + Arrays.toString(nextSmallerCircular(nums1))); // [-1,1,-1]</b>
+&nbsp;
+<b class="nc">&nbsp;        int[] nums2 = {5, 4, 3, 2, 1};</b>
+<b class="nc">&nbsp;        System.out.println(&quot;\nInput  : &quot; + Arrays.toString(nums2));</b>
+<b class="nc">&nbsp;        System.out.println(&quot;NGE ⟳ : &quot; + Arrays.toString(nextGreaterCircular(nums2))); // [-1,5,5,5,5]</b>
+<b class="nc">&nbsp;        System.out.println(&quot;NSE ⟳ : &quot; + Arrays.toString(nextSmallerCircular(nums2))); // [4,3,2,1,-1]</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-08-21 10:19</div>
+</div>
+</body>
+</html>
