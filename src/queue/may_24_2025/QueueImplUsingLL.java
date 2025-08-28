@@ -8,8 +8,6 @@ class Node {
         this.data = data;
         this.next = null;
     }
-
-
 }
 
 public class QueueImplUsingLL {
@@ -20,7 +18,6 @@ public class QueueImplUsingLL {
         this.front = null;
         this.rear = null;
         this.size = 0;
-
     }
 
     public void enqueue(int data) {
