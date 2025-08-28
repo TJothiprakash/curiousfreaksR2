@@ -1,5 +1,7 @@
 package trees.basicoperations;
-/*This problem involves finding the minimum time required to burn a binary tree starting from a given target node, with the fire spreading to parent, left, and right children in 1 second. The solution requires two key steps:
+/*This problem involves finding the minimum time required to burn a binary tree starting
+from a given target node, with the fire spreading to parent, left, and right children in 1 second.
+The solution requires two key steps:
 
 Tree traversal to establish parent relationships:
 

@@ -47,6 +47,8 @@ public class FlattenBinaryTree {
            2   5
           / \   \
          3   4   6
+                   \
+                   7
 
          Output: 1 2 3 4 5 6
          */
@@ -57,6 +59,7 @@ public class FlattenBinaryTree {
         root1.left.left = new TreeNode(3);
         root1.left.right = new TreeNode(4);
         root1.right.right = new TreeNode(6);
+        root1.right.right.left = new TreeNode(7);
 
         flatten(root1);
         System.out.print("Flattened Tree 1: ");
@@ -83,8 +86,8 @@ public class FlattenBinaryTree {
         root2.right.left = new TreeNode(2);
         root2.right.left.right = new TreeNode(5);
 
-        flatten(root2);
-        System.out.print("Flattened Tree 2: ");
-        printRightList(root2);
+//        flatten(root2);
+//        System.out.print("Flattened Tree 2: ");
+//        printRightList(root2);
     }
 }

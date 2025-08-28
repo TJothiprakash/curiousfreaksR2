@@ -17,10 +17,23 @@ public class GraphIntro {
         System.out.println(20);
     }
 
-    public void printGraph() {
+    public static void printGraph() {
 
         System.out.println("this will print after 10");
 
     }
+
+    public static void main(String[] args) {
+       printGraph();
+    }
+
+    static void main() {
+
+    }
+
+    static void main(String hello) {
+
+    }
+
 }
 

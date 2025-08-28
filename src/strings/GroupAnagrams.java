@@ -14,6 +14,7 @@ public class GroupAnagrams {
             Arrays.sort(ch);
             String key = String.valueOf(ch);
             if(!map.containsKey(key)){
+                System.out.println(key);
                 map.put(key, new ArrayList<>());
             }
             map.get(key).add(s);

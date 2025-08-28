@@ -44,7 +44,7 @@ public class TreeOperations {
     static int height(Node root) {
         // Base case: If the tree is empty
         if (root == null) {
-            return -1;
+            return 0;
         }
 
         // Recursively find the height of the left and right subtrees
@@ -492,7 +492,7 @@ Use a queue to perform level-order traversal while checking for symmetry.
                 buildGraph(node.left, node, graph);
                 buildGraph(node.right, node, graph);
             }
-//O(n)O(n)
+            //O(n)O(n)
             private static List<Integer> bfs(Map<Integer, List<Integer>> graph, int target, int k) {
                 Queue<Integer> queue = new LinkedList<>();
                 Set<Integer> visited = new HashSet<>();

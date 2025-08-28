@@ -1,5 +1,7 @@
 package graphs;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.*;
 
 public class DFSGraph {
@@ -15,7 +17,7 @@ public class DFSGraph {
         dfsHelper(start, visited);
     }
 
-    private void dfsHelper(int node, Set<Integer> visited) {
+    private void dfsHelper(int node, @NotNull Set<Integer> visited) {
         if (visited.contains(node)) return;
 
         visited.add(node);
