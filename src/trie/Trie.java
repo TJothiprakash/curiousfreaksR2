@@ -80,7 +80,6 @@ public class Trie {
 
         if (shouldDeleteCurrentNode) {
             curr.children[idx] = null; // delete the link
-
             // Return true if no children and not end of another word
             return !curr.isEnd && isEmpty(curr);
         }

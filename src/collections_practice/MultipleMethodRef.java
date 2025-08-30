@@ -1,7 +1,7 @@
 package collections_practice;
 
 
-public class MultipleMethodRef implements MultipleMethodRefInterface {
+public class MultipleMethodRef {
     public static void main(String[] args) {
         // Referring to different static methods using method references
         MethodRef.Operation addition = MultipleMethodRef::add;
