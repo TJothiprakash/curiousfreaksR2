@@ -12,7 +12,18 @@ public class RemoveDuplicates {
                 writeIndex++;
             }
         }
+        for (int i : arr){
+            System.out.print( i +" ");
+        }
+        System.out.println();
+        for(int j = 0; j < writeIndex; j++){
+            System.out.print( arr[j]+" ");
+        }
         return writeIndex; // Length of the array with unique elements
+    }
+
+    static void main() {
+        new RemoveDuplicates().removeDuplicates(new int[]{1,1,1,1,2,3,4,4});
     }
 }
 //| Complexity Type | Your Comment | Verdict   | Explanation        |
