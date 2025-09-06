@@ -8,7 +8,7 @@ import static org.testng.internal.junit.ArrayAsserts.assertArrayEquals;
 public class LinkedListSubtraction {
 
     // Helper function to get the length of the list
-//    O(n) O(1)
+    // O(n) O(1)
     private int getLength(Node head) {
         int len = 0;
         while (head != null) {
