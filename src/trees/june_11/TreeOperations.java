@@ -27,9 +27,9 @@ public class TreeOperations {
         insert(root, 1);
         insert(root, 4);
 
-        System.out.println("Height: " + height(root));
+//        System.out.println("Height: " + height(root));
         System.out.println("Diameter: " + diameter(root));
-        System.out.println("Is Balanced: " + isBalanced(root));
+//        System.out.println("Is Balanced: " + isBalanced(root));
 
         TreeNode identicalRoot = new TreeNode(10);
         insert(identicalRoot, 8);
@@ -38,17 +38,17 @@ public class TreeOperations {
         insert(identicalRoot, 5);
         insert(identicalRoot, 1);
         insert(identicalRoot, 4);
-        System.out.println("Is Identical: " + isIdentical(root, identicalRoot));
+//        System.out.println("Is Identical: " + isIdentical(root, identicalRoot));
 
         TreeNode subTree = new TreeNode(10);
         subTree.left = new TreeNode(8);
         subTree.right = new TreeNode(2);
-        System.out.println("Is Subtree: " + isSubtree(root, subTree));
+//        System.out.println("Is Subtree: " + isSubtree(root, subTree));
 
-        System.out.println("Lowest Common Ancestor (3, 5): " + lca(root, 3, 5).data);
-        System.out.println("Is Symmetric: " + isSymmetric(root));
-        System.out.println("Is Sum Tree: " + isSumTree(new TreeNode(26)));  // only valid if manually constructed
-
+//        System.out.println("Lowest Common Ancestor (3, 5): " + lca(root, 3, 5).data);
+//        System.out.println("Is Symmetric: " + isSymmetric(root));
+//        System.out.println("Is Sum Tree: " + isSumTree(new TreeNode(26)));  // only valid if manually constructed
+//
         TreeNode mirror1 = new TreeNode(1);
         mirror1.left = new TreeNode(2);
         mirror1.right = new TreeNode(3);
@@ -57,10 +57,10 @@ public class TreeOperations {
         mirror2.left = new TreeNode(3);
         mirror2.right = new TreeNode(2);
 
-        System.out.println("Is Isomorphic: " + isIsomorphic(mirror1, mirror2));
+//        System.out.println("Is Isomorphic: " + isIsomorphic(mirror1, mirror2));
 
         mirror(root);
-        System.out.println("After Mirror, Is Symmetric: " + isSymmetric(root));
+//        System.out.println("After Mirror, Is Symmetric: " + isSymmetric(root));
     }
 
     // Time: O(n), Space: O(n)
@@ -92,7 +92,8 @@ public class TreeOperations {
     // Time: O(n), Space: O(h)
     static int diameter(TreeNode root) {
         int[] max = new int[1];
-        heightForDiameter(root, max);
+       int ans= heightForDiameter(root, max);
+        System.out.println("ans = " + ans);
         return max[0];
     }
 
