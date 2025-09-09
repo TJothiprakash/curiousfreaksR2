@@ -1,4 +1,5 @@
 package collections_practice.streams;
 
-public class Practice {
+public class Exercise_4 {
+
 }

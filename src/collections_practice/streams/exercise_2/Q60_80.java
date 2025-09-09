@@ -1,6 +1,7 @@
 package collections_practice.streams.exercise_2;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -70,6 +71,7 @@ public class Q60_80 {
         list.add(15);
 
         int thriedSmallest = list.stream().sorted().skip(2).findFirst().get();
+        int third = list.stream().sorted().skip(2).findFirst().get();
         System.out.println("Third smallest element is " + thriedSmallest);
         List<Boolean> booleans = new ArrayList<>();
         booleans.add(true);
@@ -113,6 +115,8 @@ public class Q60_80 {
         employees.add(new Employee("Amanda", 240000));
         employees.add(new Employee("Dorothy", 260000));
         employees.add(new Employee("William", 280000));
+        List<Employee> empwithgt50Kandsortedbyname = employees.stream().filter(e-> e.getSalary() > 50000).collect(Collectors.toList());
+        System.out.println(empwithgt50Kandsortedbyname);
         List<Employee> peoplewithSalaylessthan50K = employees.stream().filter(e -> e.getSalary() < 50000).collect(Collectors.toUnmodifiableList());
         System.out.println(peoplewithSalaylessthan50K);
         List<String> words = new ArrayList<>();
