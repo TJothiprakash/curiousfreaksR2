@@ -1,0 +1,1 @@
+Hello JP! This is written atomically.
