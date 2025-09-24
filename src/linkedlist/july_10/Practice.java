@@ -316,6 +316,15 @@ public class Practice<T> {
         }
         return slow;
     }
+    private Node getMiddleNode(Node head) {
+        Node slow = head, fast = head;
+        while (fast!= null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+
 
     public void removeDuplicatesfromSortedList(Node head) {
         Node temp = head;
@@ -475,7 +484,6 @@ public class Practice<T> {
         while (l1 != null) {
             int d1 = (int) l1.data;
             int d2 = (l2 != null) ? (int) l2.data : 0;
-
             int sub = d1 - d2 - borrow;
             if (sub < 0) {
                 sub += 10;

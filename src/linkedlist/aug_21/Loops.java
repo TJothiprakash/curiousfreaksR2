@@ -1,6 +1,9 @@
 package linkedlist.aug_21;
 
+
+
 import linkedlist.aug_20.Node;
+import java.util.HashSet;
 
 public class Loops {
 
@@ -16,28 +19,41 @@ public class Loops {
         return false;
     }
 
-    Node findStartintPointofLoop(Node root) {
+    public static int lengthOfLoop(Node head) {
+        Node loopStart = findLoopStart(head);
+        if (loopStart == null) return 0; // no loop
 
-        Node fast = root, slow = root;
+        int count = 1;
+        Node temp = loopStart.next;
+        while (temp != loopStart) {
+            count++;
+            temp = temp.next;
+        }
+        return count;
+    }
+
+    static Node findLoopStart(Node head) {
+        Node slow = head, fast = head;
         boolean hasLoop = false;
+
         while (fast != null && fast.next != null) {
-            fast = fast.next.next;
             slow = slow.next;
-            if (fast == slow) {
+            fast = fast.next.next;
+            if (slow == fast) {
                 hasLoop = true;
                 break;
             }
         }
-        if(!hasLoop) return null;
-        fast = root;
-        while (fast != slow){
+
+        if (!hasLoop) return null;
+
+        fast = head;
+        while (fast != slow) {
             fast = fast.next;
-            slow= slow.next;
+            slow = slow.next;
         }
-        return fast;
+        return fast; // loop entry point
     }
-
-
 
     Node removeLoop(Node root) {
 
@@ -51,15 +67,15 @@ public class Loops {
                 break;
             }
         }
-        if(!hasLoop) return null;
+        if (!hasLoop) return null;
         fast = root;
         Node prev = null;
-        while (fast != slow){
+        while (fast != slow) {
             fast = fast.next;
-            slow= slow.next;
+            slow = slow.next;
 
         }
-        // Now 'slow' (or 'fast') is at loop start
+        // Now 'slow' &&  'fast') is at loop start
         Node loopStart = slow;
 
         // Phase 3: Find last node in loop and break it

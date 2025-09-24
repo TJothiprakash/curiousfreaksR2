@@ -36,13 +36,14 @@ public class UserActionSummary {
      * Step 4: Sort descending by count -> u1=2, u2=1, u3=1
      */
 
+    @SuppressWarnings("JvmTaintAnalysis")
     public static void main(String[] args) {
         if (args.length != 1) {
             System.err.println("Usage: java UserActionSummary <logfile>");
             System.exit(1);
         }
 
-        Path logFile = Paths.get(args[0]);
+        @SuppressWarnings("JvmTaintAnalysis") Path logFile = Paths.get(args[0]);
 
         try (Stream<String> lines = Files.lines(logFile)) {
             Map<String, Long> userCounts = lines
