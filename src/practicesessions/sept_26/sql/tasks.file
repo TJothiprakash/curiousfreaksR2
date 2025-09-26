@@ -1,0 +1,251 @@
+1️⃣ Customers with no recent orders
+
+Schema:
+
+customers(id)
+
+orders(id, customer_id, created_at)
+
+Task: Retrieve customers who have not placed orders in the last 30 days.
+
+Query (using LEFT JOIN / anti-join):
+
+SELECT c.*
+FROM customers c
+         LEFT JOIN orders o
+                   ON c.id = o.customer_id
+                       AND o.created_at >= CURRENT_DATE - INTERVAL '30 days'
+WHERE o.id IS NULL;
+
+
+Explanation:
+
+LEFT JOIN includes all customers and tries to match orders in last 30 days.
+
+WHERE o.id IS NULL ensures we only get customers without a match → the anti-join pattern.
+
+This avoids subqueries and scales well with proper indexes.
+
+Performance Check:
+
+EXPLAIN ANALYZE
+SELECT c.*
+FROM customers c
+         LEFT JOIN orders o
+                   ON c.id = o.customer_id
+                       AND o.created_at >= CURRENT_DATE - INTERVAL '30 days'
+WHERE o.id IS NULL;
+
+
+Look for Hash Anti Join or Nested Loop Anti Join.
+
+If orders.customer_id is indexed, PostgreSQL can do this faster.
+
+2️⃣ Employees above department average
+
+Schema:
+
+employees(id, dept_id, salary)
+
+departments(id, name)
+
+Query:
+
+SELECT e.*
+FROM employees e
+         JOIN (
+    SELECT dept_id, AVG(salary) AS avg_salary
+    FROM employees
+    GROUP BY dept_id
+) dept_avg
+              ON e.dept_id = dept_avg.dept_id
+WHERE e.salary > dept_avg.avg_salary;
+
+
+Explanation:
+
+First, calculate average salary per department (GROUP BY).
+
+Then join back to employees to compare each salary to department average.
+
+Using a JOIN with derived aggregate ensures only one aggregation pass per department.
+
+Performance Tips:
+
+Index on employees.dept_id helps the JOIN.
+
+PostgreSQL may use Hash Join for efficiency.
+
+Check Plan:
+
+EXPLAIN ANALYZE
+SELECT e.*
+FROM employees e
+         JOIN (
+    SELECT dept_id, AVG(salary) AS avg_salary
+    FROM employees
+    GROUP BY dept_id
+) dept_avg
+              ON e.dept_id = dept_avg.dept_id
+WHERE e.salary > dept_avg.avg_salary;
+
+
+Check Hash Join usage.
+
+Look at rows processed in each step.
+
+3️⃣ Top categories by revenue with tie-break
+
+Schema:
+
+order_items(order_id, product_id, qty, price)
+
+products(id, category)
+
+Query:
+
+SELECT p.category, SUM(oi.qty * oi.price) AS total_revenue
+FROM order_items oi
+         JOIN products p
+              ON oi.product_id = p.id
+GROUP BY p.category
+ORDER BY total_revenue DESC, p.category ASC
+    LIMIT 3;
+
+
+Explanation:
+
+Aggregate revenue per category: SUM(qty * price).
+
+Sort by revenue descending, tie-break alphabetically by category.
+
+Use INNER JOIN to connect order_items to products.
+
+Performance Tips:
+
+Index order_items.product_id → speeds up join.
+
+Index products.category → helps grouping.
+
+Check Plan:
+
+EXPLAIN ANALYZE
+SELECT p.category, SUM(oi.qty * oi.price) AS total_revenue
+FROM order_items oi
+         JOIN products p
+              ON oi.product_id = p.id
+GROUP BY p.category
+ORDER BY total_revenue DESC, p.category ASC
+    LIMIT 3;
+
+
+Look for HashAggregate or GroupAggregate.
+
+Sort node shows if sorting is expensive.
+
+4️⃣ Orders without matching customers
+
+Schema:
+
+orders(id, customer_id)
+
+customers(id)
+
+Query:
+
+SELECT o.*
+FROM orders o
+         LEFT JOIN customers c
+                   ON o.customer_id = c.id
+WHERE c.id IS NULL;
+
+
+Explanation:
+
+LEFT JOIN all orders to customers.
+
+WHERE c.id IS NULL filters orders without valid customer → data integrity check.
+
+Performance Tips:
+
+Index on customers.id helps.
+
+Expect Hash Join or Merge Join.
+
+Check Plan:
+
+EXPLAIN ANALYZE
+SELECT o.*
+FROM orders o
+         LEFT JOIN customers c
+                   ON o.customer_id = c.id
+WHERE c.id IS NULL;
+
+
+Check row estimates; see if the join uses Hash or Merge.
+
+5️⃣ Latest order per customer
+
+Schema:
+
+orders(id, customer_id, created_at)
+
+customers(id, name)
+
+Option 1: Join with subquery (most common)
+
+SELECT c.id, c.name, o.id AS order_id, o.created_at
+FROM customers c
+         JOIN (
+    SELECT customer_id, MAX(created_at) AS latest
+    FROM orders
+    GROUP BY customer_id
+) latest_order
+              ON c.id = latest_order.customer_id
+         JOIN orders o
+              ON o.customer_id = latest_order.customer_id
+                  AND o.created_at = latest_order.latest;
+
+
+Option 2: Window function (simpler and often more efficient)
+
+SELECT c.id, c.name, o.id AS order_id, o.created_at
+FROM customers c
+         JOIN (
+    SELECT *,
+           ROW_NUMBER() OVER (PARTITION BY customer_id ORDER BY created_at DESC) AS rn
+    FROM orders
+) o
+              ON c.id = o.customer_id
+WHERE o.rn = 1;
+
+
+Explanation:
+
+Option 1: aggregate + join → good if orders per customer is small.
+
+Option 2: window function (ROW_NUMBER) → efficient with index on (customer_id, created_at DESC).
+
+Performance Check:
+
+EXPLAIN ANALYZE
+-- use either query above
+
+
+Look for Index Scan on orders.customer_id for speed.
+
+Compare cost between subquery join vs window function.
+
+✅ Key Takeaways for Advanced SQL
+
+LEFT JOIN + IS NULL → anti-join pattern for missing data.
+
+Aggregates with JOIN → compute averages or sums and join back.
+
+ORDER BY + LIMIT → deterministic top-K results; consider tie-break columns.
+
+Window functions → often outperform aggregate+join for per-group “latest” queries.
+
+EXPLAIN / EXPLAIN ANALYZE → essential to verify join strategy, scan types, row estimates, and total runtime.
+
+Indexes matter → on join columns, foreign keys, and aggregation keys.
